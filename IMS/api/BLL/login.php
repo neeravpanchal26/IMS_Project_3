@@ -2,21 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: nsp
- * Date: 2018/06/15
- * Time: 13:37
+ * Date: 2018/06/16
+ * Time: 08:07
  */
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-use DAL\usp_login_compo;
+require_once '../DAL/DBHandler.php';
+use DAL\DBHandler;
+
+$input =   $_GET['password'];
 
 $userName = $_GET['username'];
 
-$display = usp_login_compo::getSpecificUser($userName);
+$display = DBHandler::Login_GetSpecificUser($userName);
 
 $result = $display[0];
 
-if( password_verify($input, $result['loginPassword']) )
+if(password_verify($input, $result['userPassword']))
 {
     $post = array($yn = true);
 }

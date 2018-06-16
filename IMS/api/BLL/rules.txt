@@ -1,0 +1,3 @@
+Only one file per component
+Consult me if you need help.
+use a if statement to switch tasks.
