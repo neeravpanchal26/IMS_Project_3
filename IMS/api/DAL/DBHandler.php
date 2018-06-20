@@ -19,4 +19,10 @@ class DBHandler
         $param = array(&$username);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function AddEquipment()
+    {
+        $sp = 'CALL AddEquipment ()';
+        $param = array(&$username);
+        return DBHelper::SelectParam($sp,$param);
+    }
 }
