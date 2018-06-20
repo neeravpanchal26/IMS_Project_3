@@ -27,5 +27,4 @@ export class HeaderComponent implements OnInit {
       this.router = this.tE.concat(this.sH);
     }
   }
-
 }

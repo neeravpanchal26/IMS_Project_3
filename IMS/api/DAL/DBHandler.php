@@ -25,4 +25,25 @@ class DBHandler
         $param = array(&$username);
         return DBHelper::SelectParam($sp,$param);
     }
+    //Add User components methods
+    public static function addUser_Insert ($param)
+    {
+        $sp = 'CALL uspAddUser_Insert (?,?,?,?,?,?,?,?,?,?)';
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function AddUser_City ()
+    {
+        $sp = 'CALL uspAddUser_City';
+        return DBHelper::Select($sp);
+    }
+    public static function AddUser_Suburb ($param)
+    {
+        $sp = 'CALL uspAddUser_Suburb (?)';
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function AddUser_UserType ()
+    {
+        $sp = 'CALL uspAddUser_UserType';
+        return DBHelper::Select($sp);
+    }
 }
