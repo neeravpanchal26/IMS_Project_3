@@ -1,6 +1,96 @@
-<header></header>
+<!--Header-->
+<app-header></app-header>
+<!--Add User Form-->
 
+<div class="container">
+  <form class="card card-body">
+    <h1 class="card-header text-center">Add Equipment</h1>
 
-
-
-<footer></footer>
+    <div class="form-row">
+        <!-- ID -->
+      <div class="col-sm-6">
+        <label class="card-title">Equipment ID</label>
+        <input type="text" class="form-control" placeholder="Equipment ID">
+      </div>
+      <div class="col-sm-6">
+          <!-- Name -->
+        <label class="card-title">Equipment Name</label>
+        <input type="text" class="form-control" placeholder="Equipment Name">
+      </div>
+    </div>
+    <div class="form-row">
+         <div class="col-sm-6">
+             <!-- Description -->
+             <label class="card-title">Equipment Description</label>
+             <input type="text" class="form-control" placeholder="Description">
+            </div>
+            <div class="col-sm-6"><br>
+                <!-- Location -->
+                <label class="card-title">Equipment Location</label><br>
+                <input type="radio" name="fixedOrRemote" value="">Remote
+                <input type="radio" name="fixedOrRemote" value="">Fixed<br>
+            </div>  
+    </div>
+    <div class="form-row">
+            <div class="col-sm-6">
+                <!-- Cost -->
+                <label class="card-title">Equipment Cost</label>
+                <input type="number" class="form-control" min=0.00 max=999999999 placeholder="Equipment Cost">
+               </div>
+               <div class="col-sm-6">
+                   <!-- Select Condition -->
+                    <label class="card-title">Equipment Condition</label>
+                    <input type="text" class="form-control" placeholder="Equipment Condition">
+                   </div>
+       </div>
+       <div class="form-row">
+            <div class="col-sm-6">
+                <!-- Select Brand -->
+              <label class="card-title">Equipment Brand</label>
+              <select class="form-control">
+                  <option disabled selected>Equipment Brand</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+                <!-- Select Section -->
+              <label class="card-title">Section</label>
+              <input type="text" class="form-control" placeholder="Section">
+            </div>
+          </div>
+          <div class="form-row">
+                <div class="col-sm-6">
+                    <!-- Select Type -->
+                  <label class="card-title">Equipment Type</label>
+                  <select class="form-control">
+                      <option disabled selected>Equipment Type</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                    <!-- Select Status -->
+                  <label class="card-title">Equipment Status</label>
+                  <select class="form-control">
+                        <option disabled selected>Equipment Status</option>
+                    </select>
+                </div>
+              </div>
+              <div class="form-row">
+                    <div class="col-sm-6">
+                        <!--Add picture button-->
+                      <label class="card-title"> Add Picture</label><br>
+                      <input type="file" accept="image/png, image/jpeg">
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Select Date -->
+                      <label class="card-title">Date Received</label>
+                      <input type="date" class="form-control" placeholder="Section">
+                    </div>
+                  </div>
+<div>
+    <div class="pt-3">
+      <!--Add equipment button-->
+      <button type="submit" class="btn btn-primary col-lg-15">Add Equipment</button>
+    </div>
+</div>
+</form>
+<!--Footer-->
+<app-footer></app-footer>
