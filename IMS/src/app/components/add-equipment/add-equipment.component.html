@@ -27,12 +27,8 @@
             <div class="col-sm-6"><br>
                 <!-- Location -->
                 <label class="card-title">Equipment Location</label><br>
-                <input type="radio" id="mobile" name="fixedOrMobile" value="">Mobile
-                <input type="radio" id="fixed" name="fixedOrMobile" onclick="Fixed()">Fixed<br>
-                <div id="fixedLocation">
-                  <input type="button" onclick="getLocation()" value="Get Location" class="btn btn-primary col-lg-4">
-                  <input type="text" class="form-control" id="coordinationText">
-                </div>
+                <input type="radio" name="fixedOrRemote" value="">Remote
+                <input type="radio" name="fixedOrRemote" value="">Fixed<br>
             </div>  
     </div>
     <div class="form-row">
@@ -53,7 +49,6 @@
               <label class="card-title">Equipment Brand</label>
               <select class="form-control">
                   <option disabled selected>Equipment Brand</option>
-                  <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
               </select>
             </div>
             <div class="col-sm-6">
@@ -75,7 +70,6 @@
                   <label class="card-title">Equipment Status</label>
                   <select class="form-control">
                         <option disabled selected>Equipment Status</option>
-                        <option *ngFor="let sd of status" value="{{sd.StatusID}}">{{sd.StatusDesc}}</option>
                     </select>
                 </div>
               </div>
@@ -100,23 +94,3 @@
 </form>
 <!--Footer-->
 <app-footer></app-footer>
-
-<script>
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-      document.getElementById("coordinationText").value = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-   document.getElementById("coordinationText").value= position.coords.latitude + 
-    ", " + position.coords.longitude;
-}
-function Fixed()
-{
-  document.getElementById("fixedLocation").style.visibility='hidden';
-}
-</script>

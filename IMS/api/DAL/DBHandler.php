@@ -46,14 +46,4 @@ class DBHandler
         $sp = 'CALL uspAddUser_UserType';
         return DBHelper::Select($sp);
     }
-    public static function AddEquipment_Status()
-    {
-        $sp = 'CALL uspAddEquipment_Status';
-        return DBHelper::Select($sp);
-    }
-    public static function AddEquipment_Brand()
-    {
-        $sp = 'CALL uspAddEquipment_Brands';
-        return DBHelper::Select($sp);
-    }
 }
