@@ -1,0 +1,33 @@
+<!--Header-->
+<app-header></app-header>
+<!--Reactivate/Deactivate Form-->
+<div class="container">
+  <form class="card card-body">
+    <!--Heading-->
+    <h1 class="card-header text-center">Activate/Deactivate User</h1>
+
+    <div class="form-row">
+      <div class="col-sm-12">
+        <!--User Type input-->
+        <label>User Type</label>
+        <select class="form-control" (change)=userLoad($event.target.value)>
+          <option selected>Choose...</option>
+          <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-sm-12">
+        <!--Users Select-->
+        <label>Users</label>
+        <select class="form-control">
+          <option selected>Choose...</option>
+          <option *ngFor="let u of users" value="{{u.UserID}}">{{u.FirstName}}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<!--Footer-->
+<app-footer></app-footer>

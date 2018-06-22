@@ -22,16 +22,16 @@ export class AddUserService {
 }
 // Wrapper Class
 export interface iAddUser {
-    firstName: any,
-    lastName: any,
-    dob: any,
-    contactNumber: any,
-    email: any,
-    password: any,
-    userType: any,
-    address1: any,
-    address2: any,
-    suburb: any
+    firstName: string,
+    lastName: string,
+    dob: string,
+    contactNumber: string,
+    email: string,
+    password: string,
+    userType: string,
+    address1: string,
+    address2: string,
+    suburb: string
 }
 export interface iSuburb {
     city:any

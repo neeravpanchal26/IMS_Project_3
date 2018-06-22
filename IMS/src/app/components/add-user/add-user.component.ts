@@ -35,7 +35,7 @@ export class AddUserComponent implements OnInit {
             userType: e.target.elements[6].value,
             address1: e.target.elements[7].value,
             address2: e.target.elements[8].value,
-            suburb: e.target.elements[10].value
+            suburb: e.target.elements[9].value
         };
         console.log(param);
         let result: any;
