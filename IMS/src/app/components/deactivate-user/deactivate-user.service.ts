@@ -13,5 +13,5 @@ export class DeactivateUserService {
   }
 }
 export interface iUserType {
-  Type:any
+  Type:number
 }
