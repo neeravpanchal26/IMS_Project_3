@@ -11,7 +11,15 @@ export class DeactivateUserService {
   getUserType():Observable<any> {
     return this.http.get('/api/BLL/voidUser.php?action=userType') as Observable<any>;
   }
+  updateStatus(param:iUser)
+  {
+    return this.http.post('/api/BLL/voidUser.php?action=update',param)as Observable<any>;
+  }
 }
 export interface iUserType {
-  Type:number
+  Type:any
+}
+export interface iUser {
+    UserID:any,
+    Status:any
 }

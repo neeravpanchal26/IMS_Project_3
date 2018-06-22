@@ -12,10 +12,10 @@ use DAL\DBHandler;
 
 $action =   $_GET['action'];
 
-if($action == 'insert') {
+if($action == 'update') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if ($display = DBHandler::addUser_Insert($json->firstName,$json->lastName,$json->dob,$json->contactNumber,$json->email,$json->password,$json->userType,$json->address1,$json->address2,$json->suburb)) {
+    if ($display = DBHandler::VoidUser_Status($json->UserID,$json->Status)) {
         $response = $display;
     } else {
         $response = $display;
@@ -25,7 +25,7 @@ if($action == 'insert') {
 elseif($action == 'userByType') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    echo json_encode(DBHandler::VoidUser_ByType(1));
+    echo json_encode(DBHandler::VoidUser_ByType($json->Type));
 }
 elseif($action == 'userType') {
     echo json_encode(DBHandler::AddUser_UserType());

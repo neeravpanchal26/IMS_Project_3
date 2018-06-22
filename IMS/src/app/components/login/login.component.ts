@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService} from "./login.service";
-import { iLogin} from "./login.service";
-import { Router} from "@angular/router";
+import { LoginService } from "./login.service";
+import { iLogin } from "./login.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
             this.login(e.target.elements[0].value,e.target.elements[1].value);
         }
     }
+    // Login method
     login(username,password)
     {
         let param:iLogin = {
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
                 data =>
                 {
                     this.result = data[0];
-                    if(this.result['UserTypeID'] > 0)
+                    if(this.result['Status'] == 1)
                     {
                         this.service.setUserLoggedIn();
                         this.router.navigate(['dashboard']);

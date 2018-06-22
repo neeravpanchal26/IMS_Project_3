@@ -19,6 +19,7 @@ class DBHandler
         $param = array(&$username,&$password);
         return DBHelper::SelectParam($sp,$param);
     }
+
     //Add User components methods
     public static function addUser_Insert ($fN,$lN,$dob,$cN,$eA,$pW,$uT,$a1,$a2,$sub)
     {
@@ -42,13 +43,21 @@ class DBHandler
         $sp = 'CALL uspAddUser_UserType';
         return DBHelper::Select($sp);
     }
+
     //Void User Component methods
     public static function VoidUser_ByType($typeID)
     {
-        $sp = 'CALL uspVoidUser_ByType(?)';
+        $sp = 'CALL uspVoidUser_ByType (?)';
         $param = array(&$typeID);
         return DBHelper::SelectParam($sp, $param);
     }
+    public static function VoidUser_Status($id,$status)
+    {
+        $sp = 'CALL uspVoidUser_Status (?,?)';
+        $param = array(&$id,&$status);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+
     //Add Equipment component methods
     public static function AddEquipment_Status()
     {

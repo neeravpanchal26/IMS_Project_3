@@ -15,33 +15,12 @@ $action =   $_GET['action'];
 if($action == 'insert') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    $password = password_hash($json->password,PASSWORD_BCRYPT);
-    $param = array
-    (
-        &$json->firstName,
-        &$json->lastName,
-        &$json->dob,
-        &$json->contactNumber,
-        &$json->email,
-        &$password,
-        &$json->userType,
-        &$json->address1,
-        &$json->address2,
-        &$json->suburb
-    );
-
-    class Result
-    {
-    }
-
-    if ($display = DBHandler::addUser_Insert($param)) {
-        $response = new Result();
-        $response->result = true;
+    if ($display = DBHandler::addUser_Insert($json->firstName,$json->lastName,$json->dob,$json->contactNumber,$json->email,$json->password,$json->userType,$json->address1,$json->address2,$json->suburb)) {
+        $response = $display;
     } else {
-        $response = new Result();
-        $response->result = false;
+        $response = $display;
     }
-    echo json_encode($response.$param);
+    echo json_encode($response);
 }
 elseif($action == 'city') {
     echo json_encode(DBHandler::AddUser_City());
@@ -49,12 +28,7 @@ elseif($action == 'city') {
 elseif($action == 'suburb') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-
-    $param = array
-    (
-        &$json->city
-    );
-    echo json_encode(DBHandler::AddUser_Suburb($param));
+    echo json_encode(DBHandler::AddUser_Suburb($json->city));
 }
 elseif($action == 'userType') {
     echo json_encode(DBHandler::AddUser_UserType());
