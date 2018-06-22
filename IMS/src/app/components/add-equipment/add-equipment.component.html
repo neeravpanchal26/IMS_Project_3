@@ -1,7 +1,7 @@
 <!--Header-->
 <app-header></app-header>
 <!--Add User Form-->
-
+<script type="text/javascript" src="geolocation.js"></script>
 <div class="container">
   <form class="card card-body">
     <h1 class="card-header text-center">Add Equipment</h1>
@@ -24,11 +24,13 @@
              <label class="card-title">Equipment Description</label>
              <input type="text" class="form-control" placeholder="Description">
             </div>
-            <div class="col-sm-6"><br>
+            <div class="col-sm-6" onload="this.getLocButton=false"><br>
                 <!-- Location -->
                 <label class="card-title">Equipment Location</label><br>
-                <input type="radio" name="fixedOrRemote" value="">Remote
-                <input type="radio" name="fixedOrRemote" value="">Fixed<br>
+                <input type="radio"  (click)="this.getLocButton=false" (click)="this.remoteClicked=true" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Remote
+                <input type="radio"  (click)="this.getLocButton=true" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Fixed<br>
+                <input type="button" (click)="getLocation()" *ngIf="this.getLocButton" class="btn btn-primary col-lg-6" value="Get Coordinates" ><br>
+                <input type="text" class="form-control" value="{{position.coords.latitude}}, {{position.coords.longitude}}" placeholder="Enter Coordinates">
             </div>  
     </div>
     <div class="form-row">
@@ -49,6 +51,7 @@
               <label class="card-title">Equipment Brand</label>
               <select class="form-control">
                   <option disabled selected>Equipment Brand</option>
+                  <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
               </select>
             </div>
             <div class="col-sm-6">
@@ -68,8 +71,9 @@
                 <div class="col-sm-6">
                     <!-- Select Status -->
                   <label class="card-title">Equipment Status</label>
-                  <select class="form-control">
+                  <select class="form-control" >
                         <option disabled selected>Equipment Status</option>
+                        <option *ngFor="let s of status" value="{{s.StatusID}}">{{s.StatusDesc}}</option>
                     </select>
                 </div>
               </div>

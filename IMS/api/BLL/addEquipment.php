@@ -8,6 +8,14 @@ header('Content-Type: application/json');
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
 
+$action = $_GET['action'];
 
-echo json_encode($post);
+if($action == 'brand')
+{
+    echo json_encode(DBHandler::AddEquipment_Brand());
+}
+else if($action == 'status')
+{
+    echo json_encode(DBHandler::AddEquipment_Status());
+}
 ?>
