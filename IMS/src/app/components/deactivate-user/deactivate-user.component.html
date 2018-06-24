@@ -2,9 +2,12 @@
 <app-header></app-header>
 <!--Reactivate/Deactivate Form-->
 <div class="container">
-  <form class="card card-body" (submit)="updateUser($event)">
+  <form (submit)="updateUser($event)">
     <!--Heading-->
-    <h1 class="card-header text-center">Activate/Deactivate User</h1>
+    <div class="py-5 text-center">
+      <img class="mb-4" src='../assets/logo.png' width="70" height="70">
+      <h1>Update User Status</h1>
+    </div>
 
     <div class="form-row">
       <div class="col-sm-12">

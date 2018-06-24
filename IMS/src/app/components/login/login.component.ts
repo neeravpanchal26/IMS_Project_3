@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-    providers:[LoginService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
     // Global Declaration
@@ -42,7 +41,7 @@ export class LoginComponent implements OnInit {
                     this.result = data[0];
                     if(this.result['Status'] == 1)
                     {
-                        this.service.setUserLoggedIn();
+                        this.service.setUserLoggedIn(this.result['UserTypeID']);
                         this.router.navigate(['dashboard']);
                     }
                 }

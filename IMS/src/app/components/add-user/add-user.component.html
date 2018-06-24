@@ -2,15 +2,24 @@
 <app-header></app-header>
 <!--Add User Form-->
 <div class="container">
-  <form class="card card-body" (submit)="addUser($event)">
+  <form novalidate="" (submit)="addUser($event)">
     <!--Heading-->
-    <h1 class="card-header text-center">Add User</h1>
+    <div class="py-5 text-center">
+      <img class="mb-4" src='../assets/logo.png' width="70" height="70">
+      <h1>Create New User</h1>
+    </div>
 
     <div class="form-row">
       <div class="col-sm-6">
         <!--First name input-->
-        <label>First Name</label>
-        <input type="text" class="form-control" placeholder="First name">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" class="form-control" placeholder="First name">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          First name required.
+        </div>
       </div>
       <div class="col-sm-6">
         <!--Last name input-->

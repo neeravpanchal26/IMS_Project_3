@@ -7,12 +7,11 @@ import { LoginService} from "./login.service";
 
 export class LoginGuard implements CanActivate {
 
-  constructor(private service: LoginService) {}
+  constructor(private service:LoginService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    console.log(this.service.getUserLoggedIn());
     return this.service.getUserLoggedIn();
   }
 }
