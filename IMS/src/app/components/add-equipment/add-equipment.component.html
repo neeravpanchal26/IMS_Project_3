@@ -1,34 +1,37 @@
 <!--Header-->
 <app-header></app-header>
-<!--Add User Form-->
+<!--Add equipment Form-->
 <script type="text/javascript" src="geolocation.js"></script>
 <div class="container">
-  <form class="card card-body">
-    <h1 class="card-header text-center">Add Equipment</h1>
+  <form>
+      <div class="py-5 text-center">
+          <img class="mb-4" src='../assets/logo.png' width="70" height="70">
+          <h1>Add New Equipment</h1>
+        </div>
 
     <div class="form-row">
         <!-- ID -->
       <div class="col-sm-6">
-        <label class="card-title">Equipment ID</label>
+        <label>Equipment ID</label>
         <input type="text" class="form-control" placeholder="Equipment ID">
       </div>
       <div class="col-sm-6">
           <!-- Name -->
-        <label class="card-title">Equipment Name</label>
+        <label>Equipment Name</label>
         <input type="text" class="form-control" placeholder="Equipment Name">
       </div>
     </div>
     <div class="form-row">
          <div class="col-sm-6">
              <!-- Description -->
-             <label class="card-title">Equipment Description</label>
+             <label>Equipment Description</label>
              <input type="text" class="form-control" placeholder="Description">
             </div>
             <div class="col-sm-6" onload="this.getLocButton=false"><br>
                 <!-- Location -->
-                <label class="card-title">Equipment Location</label><br>
-                <input type="radio"  (click)="this.getLocButton=false" (click)="this.remoteClicked=true" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Remote
-                <input type="radio"  (click)="this.getLocButton=true" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Fixed<br>
+                <label>Equipment Location</label><br>
+                <input type="radio"  (click)="this.getLocButton=false" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Remote
+                <input type="radio"  (click)="this.getLocButton=true" (click)="this.remoteClicked=true" name="fixedOrRemote" value="">Fixed<br>
                 <input type="button" (click)="getLocation()" *ngIf="this.getLocButton" class="btn btn-primary col-lg-6" value="Get Coordinates" ><br>
                 <input type="text" class="form-control" value="{{position.coords.latitude}}, {{position.coords.longitude}}" placeholder="Enter Coordinates">
             </div>  
@@ -36,19 +39,19 @@
     <div class="form-row">
             <div class="col-sm-6">
                 <!-- Cost -->
-                <label class="card-title">Equipment Cost</label>
+                <label>Equipment Cost</label>
                 <input type="number" class="form-control" min=0.00 max=999999999 placeholder="Equipment Cost">
                </div>
                <div class="col-sm-6">
                    <!-- Select Condition -->
-                    <label class="card-title">Equipment Condition</label>
+                    <label>Equipment Condition</label>
                     <input type="text" class="form-control" placeholder="Equipment Condition">
                    </div>
        </div>
        <div class="form-row">
             <div class="col-sm-6">
                 <!-- Select Brand -->
-              <label class="card-title">Equipment Brand</label>
+              <label>Equipment Brand</label>
               <select class="form-control">
                   <option disabled selected>Equipment Brand</option>
                   <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
@@ -56,21 +59,21 @@
             </div>
             <div class="col-sm-6">
                 <!-- Select Section -->
-              <label class="card-title">Section</label>
+              <label>Section</label>
               <input type="text" class="form-control" placeholder="Section">
             </div>
           </div>
           <div class="form-row">
                 <div class="col-sm-6">
                     <!-- Select Type -->
-                  <label class="card-title">Equipment Type</label>
+                  <label >Equipment Type</label>
                   <select class="form-control">
                       <option disabled selected>Equipment Type</option>
                   </select>
                 </div>
                 <div class="col-sm-6">
                     <!-- Select Status -->
-                  <label class="card-title">Equipment Status</label>
+                  <label>Equipment Status</label>
                   <select class="form-control" >
                         <option disabled selected>Equipment Status</option>
                         <option *ngFor="let s of status" value="{{s.StatusID}}">{{s.StatusDesc}}</option>
@@ -80,12 +83,12 @@
               <div class="form-row">
                     <div class="col-sm-6">
                         <!--Add picture button-->
-                      <label class="card-title"> Add Picture</label><br>
+                      <label> Add Picture</label><br>
                       <input type="file" accept="image/png, image/jpeg">
                     </div>
                     <div class="col-sm-6">
                         <!-- Select Date -->
-                      <label class="card-title">Date Received</label>
+                      <label>Date Received</label>
                       <input type="date" class="form-control" placeholder="Section">
                     </div>
                   </div>
