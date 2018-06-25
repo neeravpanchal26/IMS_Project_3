@@ -12,7 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <!--Dynamic Header Loading-->
       <li class="nav-item active" *ngFor="let i of router">
-        <a class="nav-link" routerLink="{{i.path}}">{{i.name}}</a>
+        <a class="nav-link" routerLink="{{i.path}}">
+          <span class="oi oi-{{i.icon}}"></span>
+          {{i.name}}
+        </a>
       </li>
     </ul>
 

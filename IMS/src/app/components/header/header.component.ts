@@ -8,22 +8,22 @@ import {LoginService} from "../login/login.service";
 })
 export class HeaderComponent implements OnInit {
   // Global Declaration
-  private iT = [
-      {'path': '/Add User', 'name': 'Add User'},
-      {'path': '/Remove User', 'name': 'Update User'}
+  public iT = [
+      {'path': '/Add User', 'name': 'Add User','icon':'person'},
+      {'path': '/Remove User', 'name': 'Update User','icon':'person'}
       ];
 
-  private tE = [
-      {'path': '/Add Equipment', 'name': 'Add Equipment'},
-      {'path': '/Update Equipment', 'name': 'Update Equipment'},
-      {'path': '/Locate Equipment', 'name': 'Locate Equipment'}
+  public tE = [
+      {'path': '/Add Equipment', 'name': 'Add Equipment','icon':'cart'},
+      {'path': '/Update Equipment', 'name': 'Update Equipment','icon':'cart'},
+      {'path': '/Locate Equipment', 'name': 'Locate Equipment','icon':'cart'}
       ];
 
-  private sH = [
-      {'path': '/Void Equipment', 'name': 'Dispose Equipment'}
+  public sH = [
+      {'path': '/Void Equipment', 'name': 'Dispose Equipment','icon':'cart'}
       ];
-  private dash = [{'path': '/dashboard', 'name': 'Dashboard'}];
-  private report = [{'path': '/reports', 'name': 'Reports'}];
+  public dash = [{'path': '/dashboard', 'name': 'Dashboard','icon':'home'}];
+  public report = [{'path': '/reports', 'name': 'Reports','icon':'script'}];
 
   public router = [];
   public userType;
