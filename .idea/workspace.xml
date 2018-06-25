@@ -3,21 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/.angular-cli.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/.angular-cli.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,7 +27,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="46" lean-forward="true" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,9 +50,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/IMS/.angular-cli.json" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/addUser.php" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/login.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.service.ts" />
@@ -45,23 +58,29 @@
         <option value="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.css" />
-        <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.guard.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/login.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" />
+        <option value="$PROJECT_DIR$/IMS/.angular-cli.json" />
+        <option value="$PROJECT_DIR$/IMS/src/index.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.css" />
       </list>
     </option>
   </component>
@@ -79,9 +98,11 @@
       <path value="$PROJECT_DIR$/IMS/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="659" />
+    <option name="y" value="800" />
+    <option name="width" value="1278" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -89,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -102,10 +122,50 @@
               <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
               <item name="IMS" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="add-user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -121,6 +181,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/IMS/src/app/components" />
+      <recent name="$PROJECT_DIR$/IMS/src/app/user-setting" />
+      <recent name="$PROJECT_DIR$/IMS/src/app/components/header" />
       <recent name="$PROJECT_DIR$/IMS/src/app/components/login" />
     </key>
   </component>
@@ -188,23 +251,27 @@
       <workItem from="1529826994317" duration="990000" />
       <workItem from="1529828262996" duration="467000" />
       <workItem from="1529828763277" duration="3348000" />
+      <workItem from="1529834235874" duration="55000" />
+      <workItem from="1529850306803" duration="8383000" />
+      <workItem from="1529909323010" duration="4852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43723000" />
+    <option name="totallyTimeSpent" value="57013000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="238" y="800" width="1699" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37146226" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24646227" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20136186" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19305556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18069452" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -216,7 +283,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.328877" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,41 +303,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="75" column="76" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -397,13 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/.angular-cli.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -439,41 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="7" selection-end-line="106" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -495,38 +485,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="e#23#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" />
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.guard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -544,67 +507,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.html">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="4" selection-end-column="76" />
+        <state relative-caret-position="1050">
+          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/error/error.component.html">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="870">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.html">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="240">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="36" column="75" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="43" column="80" lean-forward="true" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="249">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/node_modules/open-iconic/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="301">
+            <caret line="76" selection-start-line="76" selection-end-line="76" selection-end-column="74" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/error/error.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="25" />
+        <state relative-caret-position="405">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#23#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/app-routing.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        <state relative-caret-position="216">
+          <caret line="26" column="84" lean-forward="true" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
             <element signature="e#347#415#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-end-line="105" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="46" lean-forward="true" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

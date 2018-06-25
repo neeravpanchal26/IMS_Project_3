@@ -24,7 +24,6 @@ export class AddUserComponent implements OnInit {
   }
   // Add User Method
     addUser(e) {
-        e.preventDefault();
         let param: iAddUser = {
             firstName: e.target.elements[0].value,
             lastName: e.target.elements[1].value,

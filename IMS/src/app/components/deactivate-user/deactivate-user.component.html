@@ -5,7 +5,6 @@
   <form (submit)="updateUser($event)">
     <!--Heading-->
     <div class="py-5 text-center">
-      <img class="mb-4" src='../assets/logo.png' width="70" height="70">
       <h1>Update User Status</h1>
     </div>
 
@@ -33,18 +32,14 @@
         <!--User Active Status-->
         <label>Status</label>
         <br>
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-outline-primary">
-            <input type="radio" name="status" [checked]="selectedStatus==1">Active
-          </label>
-          <label class="btn btn-outline-primary">
-            <input type="radio" name="status" [checked]="selectedStatus==0">Inactive
-          </label>
+        <div>
+            <input type="radio" name="status" [checked]="selectedStatus==1"> Active
+            <input type="radio" name="status" [checked]="selectedStatus==0"> Inactive
         </div>
       </div>
     </div>
     <div class="pt-3">
-      <!--Add user button-->
+      <!--Update user button-->
       <button type="submit" class="btn btn-primary col-lg-2">Update User</button>
     </div>
   </form>

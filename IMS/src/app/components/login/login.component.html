@@ -6,11 +6,25 @@
 
         <!--Email Input-->
         <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="oi oi-envelope-closed"></span>
+                </div>
+            </div>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        </div>
 
         <!--Password Input-->
         <label for="inputPassword" class="sr-only">Password</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="oi oi-key"></span>
+                </div>
+            </div>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        </div>
 
         <!--Remember Me Input-->
         <div class="checkbox mb-3">

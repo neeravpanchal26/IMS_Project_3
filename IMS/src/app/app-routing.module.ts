@@ -17,12 +17,14 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DeactivateUserComponent } from './components/deactivate-user/deactivate-user.component';
+import { UserSettingComponent } from './components/user-setting/user-setting.component';
 
 // Path Array
 const appRoutes:Routes = [
     // Default components
     { path: '', component:LoginComponent },
     { path: 'dashboard', canActivate: [LoginGuard], component:DashboardComponent },
+    { path: 'usersetting', canActivate:[LoginGuard],component:UserSettingComponent},
 
     // IT Technician
     { path: 'Add User', canActivate: [LoginGuard], component:AddUserComponent },
@@ -54,5 +56,6 @@ export const routingComponents =
         AddUserComponent,
         ErrorComponent,
         DashboardComponent,
-        DeactivateUserComponent
+        DeactivateUserComponent,
+        UserSettingComponent
     ];

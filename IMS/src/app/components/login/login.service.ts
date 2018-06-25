@@ -7,13 +7,18 @@ export class LoginService {
   // Global Variable
   private isLoggedIn;
   private userType;
+  private username;
+
+  // Default Constructor
   constructor(private http:HttpClient) {
     this.isLoggedIn=false;
   }
+
   //Set user logged in
-  setUserLoggedIn(type) {
+  setUserLoggedIn(type,info) {
     this.isLoggedIn = true;
-    this.userType=type;
+    this.userType = type;
+    this.username = info;
   }
 
   // Get user logged in
@@ -22,14 +27,18 @@ export class LoginService {
   }
 
   // Get user type
-    getUserType() {
-      return this.userType;
-    }
+  getUserType() {
+    return this.userType;
+  }
+
+  // get username
+  getUserName() {
+    return this.username;
+  }
   // Login Check Service
     check(param:iLogin):Observable<any> {
         return this.http.post('/api/BLL/login.php',param) as Observable<any>;
     }
-
 }
 // Wrapper Class
 export interface iLogin {

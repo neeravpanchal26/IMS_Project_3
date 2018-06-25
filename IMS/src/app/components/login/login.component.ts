@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
                     this.result = data[0];
                     if(this.result['Status'] == 1)
                     {
-                        this.service.setUserLoggedIn(this.result['UserTypeID']);
+                        this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username']);
                         this.router.navigate(['dashboard']);
                     }
                 }
