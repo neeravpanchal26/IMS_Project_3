@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2018 at 08:55 AM
+-- Generation Time: Jun 26, 2018 at 10:44 AM
 -- Server version: 5.6.40
 -- PHP Version: 7.2.6
 
@@ -126,9 +126,10 @@ DELIMITER ;
 -- Table structure for table `brand`
 --
 
-CREATE TABLE `brand` (
+CREATE TABLE IF NOT EXISTS `brand` (
   `BrandID` int(11) NOT NULL,
-  `BrandDesc` varchar(45) DEFAULT NULL
+  `BrandDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`BrandID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -149,13 +150,14 @@ INSERT INTO `brand` (`BrandID`, `BrandDesc`) VALUES
 -- Table structure for table `business`
 --
 
-CREATE TABLE `business` (
+CREATE TABLE IF NOT EXISTS `business` (
   `BusinessID` int(11) NOT NULL,
   `BusinessName` varchar(45) NOT NULL,
   `Logo` blob,
   `Contact` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
-  `GroupPolicy` blob
+  `GroupPolicy` blob,
+  PRIMARY KEY (`BusinessID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -164,9 +166,10 @@ CREATE TABLE `business` (
 -- Table structure for table `city`
 --
 
-CREATE TABLE `city` (
+CREATE TABLE IF NOT EXISTS `city` (
   `cityID` int(11) NOT NULL,
-  `cityName` varchar(45) DEFAULT NULL
+  `cityName` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`cityID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -185,9 +188,10 @@ INSERT INTO `city` (`cityID`, `cityName`) VALUES
 -- Table structure for table `condition`
 --
 
-CREATE TABLE `condition` (
+CREATE TABLE IF NOT EXISTS `condition` (
   `ConditionID` int(11) NOT NULL,
-  `ConditionDesc` varchar(45) DEFAULT NULL
+  `ConditionDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ConditionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -208,7 +212,7 @@ INSERT INTO `condition` (`ConditionID`, `ConditionDesc`) VALUES
 -- Table structure for table `equipment`
 --
 
-CREATE TABLE `equipment` (
+CREATE TABLE IF NOT EXISTS `equipment` (
   `EquipmentID` int(11) NOT NULL,
   `Name` varchar(45) NOT NULL,
   `Desc` varchar(45) NOT NULL,
@@ -221,8 +225,23 @@ CREATE TABLE `equipment` (
   `Type` int(11) DEFAULT NULL,
   `Status` int(11) DEFAULT NULL,
   `ConditionPicture` blob,
-  `DateReceived` datetime DEFAULT NULL
+  `DateReceived` datetime DEFAULT NULL,
+  PRIMARY KEY (`EquipmentID`),
+  KEY `userID_idx` (`LocationPerson`),
+  KEY `conditionID_idx` (`EquipmentCondition`),
+  KEY `brandID_idx` (`Brand`),
+  KEY `typeID_idx` (`Type`),
+  KEY `sectionID_idx` (`Section`),
+  KEY `statusID_idx` (`Status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`EquipmentID`, `Name`, `Desc`, `LocationGps`, `LocationPerson`, `Cost`, `EquipmentCondition`, `Brand`, `Section`, `Type`, `Status`, `ConditionPicture`, `DateReceived`) VALUES
+(1, 'Equipment1', 'Description1', NULL, 1, '50000', 1, 1, 1, 1, 1, NULL, '2017-01-01 00:00:00'),
+(2, 'Equipment2', 'Description2', '-30.2683448, 30.760270799999997', NULL, '20000', 2, 2, 2, 2, 2, NULL, '2017-01-02 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -230,11 +249,13 @@ CREATE TABLE `equipment` (
 -- Table structure for table `inspection`
 --
 
-CREATE TABLE `inspection` (
+CREATE TABLE IF NOT EXISTS `inspection` (
   `InspectionID` int(11) DEFAULT NULL,
   `InspectionDesc` varchar(45) DEFAULT NULL,
   `Date` datetime DEFAULT NULL,
-  `Status` int(11) DEFAULT NULL
+  `Status` int(11) DEFAULT NULL,
+  KEY `user_Id_idx` (`InspectionID`),
+  KEY `inspectionStatus_idx` (`Status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -243,9 +264,10 @@ CREATE TABLE `inspection` (
 -- Table structure for table `inspectionstatus`
 --
 
-CREATE TABLE `inspectionstatus` (
+CREATE TABLE IF NOT EXISTS `inspectionstatus` (
   `InspectionStatusID` int(11) NOT NULL,
-  `InspectionDesc` varchar(45) DEFAULT NULL
+  `InspectionDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`InspectionStatusID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -254,12 +276,14 @@ CREATE TABLE `inspectionstatus` (
 -- Table structure for table `maintenance`
 --
 
-CREATE TABLE `maintenance` (
+CREATE TABLE IF NOT EXISTS `maintenance` (
   `MaintenanceID` int(11) NOT NULL,
   `Date` date NOT NULL,
   `Condition` int(11) NOT NULL,
   `Picture` blob,
-  `Value` decimal(50,0) NOT NULL
+  `Value` decimal(50,0) NOT NULL,
+  PRIMARY KEY (`MaintenanceID`,`Date`),
+  KEY `condition_Idd_idx` (`Condition`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -268,9 +292,10 @@ CREATE TABLE `maintenance` (
 -- Table structure for table `section`
 --
 
-CREATE TABLE `section` (
+CREATE TABLE IF NOT EXISTS `section` (
   `SectionID` int(11) NOT NULL,
-  `SectionDesc` varchar(45) DEFAULT NULL
+  `SectionDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SectionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -287,9 +312,10 @@ INSERT INTO `section` (`SectionID`, `SectionDesc`) VALUES
 -- Table structure for table `status`
 --
 
-CREATE TABLE `status` (
+CREATE TABLE IF NOT EXISTS `status` (
   `StatusID` int(11) NOT NULL,
-  `StatusDesc` varchar(45) DEFAULT NULL
+  `StatusDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`StatusID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -307,11 +333,21 @@ INSERT INTO `status` (`StatusID`, `StatusDesc`) VALUES
 -- Table structure for table `subtype`
 --
 
-CREATE TABLE `subtype` (
+CREATE TABLE IF NOT EXISTS `subtype` (
   `SubTypeID` int(11) NOT NULL,
   `SubTypeDesc` varchar(45) DEFAULT NULL,
-  `TypeID` int(11) DEFAULT NULL
+  `TypeID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`SubTypeID`),
+  KEY `typeID_idx` (`TypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subtype`
+--
+
+INSERT INTO `subtype` (`SubTypeID`, `SubTypeDesc`, `TypeID`) VALUES
+(1, 'Generator', 1),
+(2, 'Walkie Talkie', 2);
 
 -- --------------------------------------------------------
 
@@ -319,10 +355,12 @@ CREATE TABLE `subtype` (
 -- Table structure for table `suburb`
 --
 
-CREATE TABLE `suburb` (
+CREATE TABLE IF NOT EXISTS `suburb` (
   `suburbID` int(11) NOT NULL,
   `suburbName` varchar(45) DEFAULT NULL,
-  `cityID` int(11) DEFAULT NULL
+  `cityID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`suburbID`),
+  KEY `cityID_idx` (`cityID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -355,9 +393,10 @@ INSERT INTO `suburb` (`suburbID`, `suburbName`, `cityID`) VALUES
 -- Table structure for table `type`
 --
 
-CREATE TABLE `type` (
+CREATE TABLE IF NOT EXISTS `type` (
   `TypeID` int(11) NOT NULL,
-  `Desc` varchar(45) DEFAULT NULL
+  `Desc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`TypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -374,7 +413,7 @@ INSERT INTO `type` (`TypeID`, `Desc`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `UserID` int(11) NOT NULL,
   `FirstName` varchar(45) NOT NULL,
   `Surname` varchar(45) NOT NULL,
@@ -387,7 +426,10 @@ CREATE TABLE `user` (
   `Status` bit(1) NOT NULL,
   `Address1` varchar(45) DEFAULT NULL,
   `Address2` varchar(45) DEFAULT NULL,
-  `Suburb` int(11) NOT NULL
+  `Suburb` int(11) NOT NULL,
+  PRIMARY KEY (`UserID`),
+  KEY `userTpyeID_idx` (`Type`),
+  KEY `suburbID_idx` (`Suburb`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -407,9 +449,10 @@ INSERT INTO `user` (`UserID`, `FirstName`, `Surname`, `Dob`, `ContactNumber`, `E
 -- Table structure for table `usertype`
 --
 
-CREATE TABLE `usertype` (
+CREATE TABLE IF NOT EXISTS `usertype` (
   `UserTypeID` int(11) NOT NULL,
-  `UserTypeDesc` varchar(45) DEFAULT NULL
+  `UserTypeDesc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`UserTypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -420,112 +463,6 @@ INSERT INTO `usertype` (`UserTypeID`, `UserTypeDesc`) VALUES
 (1, 'IT Technicain'),
 (2, 'Technical Employee'),
 (3, 'Section Head');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `brand`
---
-ALTER TABLE `brand`
-  ADD PRIMARY KEY (`BrandID`);
-
---
--- Indexes for table `business`
---
-ALTER TABLE `business`
-  ADD PRIMARY KEY (`BusinessID`);
-
---
--- Indexes for table `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`cityID`);
-
---
--- Indexes for table `condition`
---
-ALTER TABLE `condition`
-  ADD PRIMARY KEY (`ConditionID`);
-
---
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
-  ADD PRIMARY KEY (`EquipmentID`),
-  ADD KEY `userID_idx` (`LocationPerson`),
-  ADD KEY `conditionID_idx` (`EquipmentCondition`),
-  ADD KEY `brandID_idx` (`Brand`),
-  ADD KEY `typeID_idx` (`Type`),
-  ADD KEY `sectionID_idx` (`Section`),
-  ADD KEY `statusID_idx` (`Status`);
-
---
--- Indexes for table `inspection`
---
-ALTER TABLE `inspection`
-  ADD KEY `user_Id_idx` (`InspectionID`),
-  ADD KEY `inspectionStatus_idx` (`Status`);
-
---
--- Indexes for table `inspectionstatus`
---
-ALTER TABLE `inspectionstatus`
-  ADD PRIMARY KEY (`InspectionStatusID`);
-
---
--- Indexes for table `maintenance`
---
-ALTER TABLE `maintenance`
-  ADD PRIMARY KEY (`MaintenanceID`,`Date`),
-  ADD KEY `condition_Idd_idx` (`Condition`);
-
---
--- Indexes for table `section`
---
-ALTER TABLE `section`
-  ADD PRIMARY KEY (`SectionID`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`StatusID`);
-
---
--- Indexes for table `subtype`
---
-ALTER TABLE `subtype`
-  ADD PRIMARY KEY (`SubTypeID`),
-  ADD KEY `typeID_idx` (`TypeID`);
-
---
--- Indexes for table `suburb`
---
-ALTER TABLE `suburb`
-  ADD PRIMARY KEY (`suburbID`),
-  ADD KEY `cityID_idx` (`cityID`);
-
---
--- Indexes for table `type`
---
-ALTER TABLE `type`
-  ADD PRIMARY KEY (`TypeID`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`UserID`),
-  ADD KEY `userTpyeID_idx` (`Type`),
-  ADD KEY `suburbID_idx` (`Suburb`);
-
---
--- Indexes for table `usertype`
---
-ALTER TABLE `usertype`
-  ADD PRIMARY KEY (`UserTypeID`);
 
 --
 -- Constraints for dumped tables
