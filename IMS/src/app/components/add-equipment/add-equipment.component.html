@@ -1,12 +1,12 @@
 <!--Header-->
 <app-header></app-header>
 <!--Add equipment Form-->
-<script type="text/javascript" src="geolocation.js"></script>
+<script type="text/javascript"></script>
 <div class="container">
-  <form>
+  <form novalidate="" (submit)="receiveEquipment($event)">
       <div class="py-5 text-center">
           <img class="mb-4" src='../assets/logo.png' width="70" height="70">
-          <h1>Add New Equipment</h1>
+          <h1>Receive Equipment</h1>
         </div>
 
     <div class="form-row">
@@ -34,7 +34,13 @@
                 <input type="radio"  (click)="this.getLocButton=true" (click)="this.remoteClicked=true" name="fixedOrRemote" value="">Fixed<br>
                 <input type="button" (click)="getLocation()" *ngIf="this.getLocButton" class="btn btn-primary col-lg-6" value="Get Coordinates" ><br>
                 <input type="text" class="form-control" value="{{position.coords.latitude}}, {{position.coords.longitude}}" placeholder="Enter Coordinates">
-            </div>  
+                <select class="form-control">
+                    <option disabled selected>Select user</option>
+                  <option *ngFor="let u of users" value="{{u.UserID}}">
+                      {{u.FullName}}
+                  </option>
+                </select>
+              </div>  
     </div>
     <div class="form-row">
             <div class="col-sm-6">
@@ -74,6 +80,7 @@
                   <label >Equipment Type</label>
                   <select class="form-control">
                       <option disabled selected>Equipment Type</option>
+                      <option *ngFor="let t of types" value="{{t.SubTypeID}}">{{t.SubTypeDesc}}</option>
                   </select>
                 </div>
                 <div class="col-sm-6">

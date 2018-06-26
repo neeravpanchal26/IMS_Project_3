@@ -69,6 +69,26 @@ class DBHandler
         $sp = 'CALL uspAddEquipment_Brands';
         return DBHelper::Select($sp);
     }
+    public static function AddEquipment_Users()
+    {
+        $sp = 'CALL uspAddEquipment_Users';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Types()
+    {
+        $sp = 'CALL uspAddEquipment_Types';
+        return DBHelper::Select($sp);
+    }
+    public static function AllocateEquipment_TechEmployees()
+    {
+        $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
+        return DBHelper::Select($sp);
+    }
+    public static function AllocateEquipment_Equipments()
+    {
+        $sp='CALL uspAllocateEquipment_Equipments';
+        return DBHelper::Select($sp);
+    }
 
     //User Setting component methods
     public static function UserSetting_SpecificUser($userid)

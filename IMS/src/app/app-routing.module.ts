@@ -20,6 +20,7 @@ import { DeactivateUserComponent } from './components/deactivate-user/deactivate
 import { UserSettingComponent } from './components/user-setting/user-setting.component';
 import { UserPasswordResetComponent } from './components/user-password-reset/user-password-reset.component';
 import { ItPasswordResetComponent } from "./components/it-password-reset/it-password-reset.component";
+import { AllocateEquipmentComponent } from './components/allocate-equipment/allocate-equipment.component';
 
 // Path Array
 const appRoutes:Routes = [
@@ -63,5 +64,7 @@ export const routingComponents =
         DeactivateUserComponent,
         UserSettingComponent,
         UserPasswordResetComponent,
-        ItPasswordResetComponent
+        ItPasswordResetComponent,
+        AllocateEquipmentComponent
+        
     ];

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container">
+  <form>
+      <div class="py-5 text-center">
+          <img class="mb-4" src='../assets/logo.png' width="70" height="70">
+          <h1>Allocate Equipment</h1>
+        </div>
+
+    <div class="form-row">
+        <!-- ID -->
+      <div class="col-sm-6">
+        <label>Select Equipment</label>
+        <select class="form-control" (change)="equipmentSelect($event.target.value)" placeholder="Equipment ID">
+          <option *ngFor="let e of equipment" value="{{e.EquipmentID}}">{{e.Name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+          <!-- Name -->
+        <label>Employee</label>
+        <select class="form-control" placeholder="Employee">
+            <option *ngFor="let e of techEmployees" value={{e.UserID}}>{{e.TechEmployee}}</option>
+          </select>
+      </div>
+    </div>
+<div>
+    <div class="pt-3">
+      <!--Allocate button-->
+      <button type="submit" class="btn btn-primary col-lg-15">Allocate</button>
+    </div>
+</div>
+</form>
+</div>
