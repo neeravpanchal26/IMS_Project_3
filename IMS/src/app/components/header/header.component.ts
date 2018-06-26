@@ -10,7 +10,8 @@ export class HeaderComponent implements OnInit {
   // Global Declaration
   public iT = [
       {'path': '/Add User', 'name': 'Add User','icon':'person'},
-      {'path': '/Remove User', 'name': 'Update User','icon':'person'}
+      {'path': '/Remove User', 'name': 'Update User','icon':'person'},
+      {'path': '/Reset password','name':'Reset Password','icon':'key'}
       ];
 
   public tE = [

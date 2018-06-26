@@ -11,9 +11,10 @@ import { iLogin } from "./login.service";
 export class LoginComponent implements OnInit {
     // Global Declaration
     private result:any;
+    public status:boolean;
 
     // Default Constructor
-    constructor(private service:LoginService,private router:Router) { }
+    constructor(private service:LoginService,private router:Router) {}
 
     // Form Load
     ngOnInit() {}
@@ -41,8 +42,17 @@ export class LoginComponent implements OnInit {
                     this.result = data[0];
                     if(this.result['Status'] == 1)
                     {
-                        this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username']);
+                        this.status = true;
+                        this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
                         this.router.navigate(['dashboard']);
+                    }
+                    else if(this.result['Status'] == 0)
+                    {
+                        this.status = false;
+                    }
+                    else
+                    {
+                        this.status = false;
                     }
                 }
             );

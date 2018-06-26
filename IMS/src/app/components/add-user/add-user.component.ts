@@ -43,9 +43,9 @@ export class AddUserComponent implements OnInit {
     }
     // Suburb Load Method
     subLoad(e) {
-      let param: iSuburb = {
-          city: e
-      };
+        let param: iSuburb = {
+            city: e
+        };
         this.service.getSuburb(param).subscribe(data => this.suburbs=data);
     }
 }

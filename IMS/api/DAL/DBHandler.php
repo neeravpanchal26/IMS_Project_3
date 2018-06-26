@@ -69,4 +69,31 @@ class DBHandler
         $sp = 'CALL uspAddEquipment_Brands';
         return DBHelper::Select($sp);
     }
+
+    //User Setting component methods
+    public static function UserSetting_SpecificUser($userid)
+    {
+        $sp = 'CALL uspUserSetting_SpecificUser (?)';
+        $param = array(&$userid);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function UserSetting_Suburbs()
+    {
+        $sp = 'CALL uspUserSetting_Suburbs';
+        return DBHelper::Select($sp);
+    }
+
+    //User Password Reset component methods
+    public static function UserPassword_OldCheck ($userID,$password)
+    {
+        $sp = 'CALL uspUserPassword_OldCheck (?,?)';
+        $param = array(&$userID,&$password);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function UserPassword_UpdatePass ($userID,$password)
+    {
+        $sp = 'CALL uspUserPassword_UpdatePass (?,?)';
+        $param = array(&$userID,&$password);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
 }

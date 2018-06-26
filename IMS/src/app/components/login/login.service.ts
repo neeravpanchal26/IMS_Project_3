@@ -8,6 +8,7 @@ export class LoginService {
   private isLoggedIn;
   private userType;
   private username;
+  private userID;
 
   // Default Constructor
   constructor(private http:HttpClient) {
@@ -15,10 +16,11 @@ export class LoginService {
   }
 
   //Set user logged in
-  setUserLoggedIn(type,info) {
+  setUserLoggedIn(type,info,id) {
     this.isLoggedIn = true;
     this.userType = type;
     this.username = info;
+    this.userID = id;
   }
 
   // Get user logged in
@@ -35,10 +37,17 @@ export class LoginService {
   getUserName() {
     return this.username;
   }
+
+  // Get userID
+  getUserID()
+  {
+    return this.userID;
+  }
+
   // Login Check Service
-    check(param:iLogin):Observable<any> {
-        return this.http.post('/api/BLL/login.php',param) as Observable<any>;
-    }
+  check(param:iLogin):Observable<any> {
+      return this.http.post('/api/BLL/login.php',param) as Observable<any>;
+  }
 }
 // Wrapper Class
 export interface iLogin {

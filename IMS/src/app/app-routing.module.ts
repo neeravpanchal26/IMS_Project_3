@@ -18,6 +18,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DeactivateUserComponent } from './components/deactivate-user/deactivate-user.component';
 import { UserSettingComponent } from './components/user-setting/user-setting.component';
+import { UserPasswordResetComponent } from './components/user-password-reset/user-password-reset.component';
+import { ItPasswordResetComponent } from "./components/it-password-reset/it-password-reset.component";
 
 // Path Array
 const appRoutes:Routes = [
@@ -25,10 +27,12 @@ const appRoutes:Routes = [
     { path: '', component:LoginComponent },
     { path: 'dashboard', canActivate: [LoginGuard], component:DashboardComponent },
     { path: 'usersetting', canActivate:[LoginGuard],component:UserSettingComponent},
+    { path: 'userpassword',canActivate:[LoginGuard],component:UserPasswordResetComponent},
 
     // IT Technician
     { path: 'Add User', canActivate: [LoginGuard], component:AddUserComponent },
     { path: 'Remove User', canActivate:[LoginGuard], component:DeactivateUserComponent},
+    { path: 'Reset password',canActivate:[LoginGuard], component:ItPasswordResetComponent},
 
     // Technical Employee
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
@@ -57,5 +61,7 @@ export const routingComponents =
         ErrorComponent,
         DashboardComponent,
         DeactivateUserComponent,
-        UserSettingComponent
+        UserSettingComponent,
+        UserPasswordResetComponent,
+        ItPasswordResetComponent
     ];

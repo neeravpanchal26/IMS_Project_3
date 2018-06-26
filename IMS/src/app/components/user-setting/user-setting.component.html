@@ -12,7 +12,7 @@
       <div class="col-sm-6">
         <!--First name input-->
         <label for="firstName">First Name</label>
-        <input id="firstName" type="text" class="form-control" placeholder="First name">
+        <input id="firstName" type="text" class="form-control" placeholder="First name" value="{{user.FirstName}}">
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -23,7 +23,7 @@
       <div class="col-sm-6">
         <!--Last name input-->
         <label>Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name">
+        <input type="text" class="form-control" placeholder="Last name" value="{{user.Surname}}">
       </div>
     </div>
 
@@ -31,25 +31,20 @@
       <div class="col-sm-6">
         <!--Date of Birth input-->
         <label>Date of Birth</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control" value="{{user.Dob}}">
       </div>
       <div class="col-sm-6">
         <!--Phone input-->
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Contact Number">
+        <input type="text" class="form-control" placeholder="Contact Number" value="{{user.ContactNumber}}">
       </div>
     </div>
 
     <div class="form-row">
-      <div class="col-sm-6">
+      <div class="col-sm-12">
         <!--Email input-->
         <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="Email address">
-      </div>
-      <div class="col-sm-6">
-        <!--Password input-->
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="email" class="form-control" placeholder="Email address" value="{{user.Email}}">
       </div>
     </div>
 
@@ -57,7 +52,7 @@
       <div class="col-sm-12">
         <!--Address input-->
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St">
+        <input type="text" class="form-control" placeholder="1234 Main St" value="{{user.Address1}}">
       </div>
     </div>
 
@@ -65,7 +60,7 @@
       <div class="col-sm-12">
         <!--Address 2 input-->
         <label>Address 2</label>
-        <input type="text" class="form-control" placeholder="Apartment, studio, or floor">
+        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" value="{{user.Address2}}">
       </div>
     </div>
 
@@ -74,23 +69,21 @@
         <!--City input-->
         <label>City</label>
         <select class="form-control" (change)="subLoad($event.target.value)">
-          <option selected>Choose...</option>
-          <option *ngFor="let c of cities" value="{{c.cityID}}">{{c.cityName}}</option>
+          <option *ngFor="let c of cities" value="{{c.CityID}}" [selected]="c.CityID==user.CityID">{{c.cityName}}</option>
         </select>
       </div>
       <div class="col-lg-6">
         <!--Suburb input-->
         <label>Suburb</label>
         <select class="form-control">
-          <option selected>Choose...</option>
-          <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
+          <option *ngFor="let s of suburbs" value="{{s.suburbID}}" [selected]="s.suburbID==user.Suburb">{{s.suburbName}}</option>
         </select>
       </div>
     </div>
 
     <div class="pt-3">
       <!--Add user button-->
-      <button type="submit" class="btn btn-primary col-lg-2">Add User</button>
+      <button type="submit" class="btn btn-primary col-lg-2">Update Information</button>
     </div>
   </form>
 </div>
