@@ -40,7 +40,12 @@
             <div class="col-sm-6">
                 <!-- Cost -->
                 <label>Equipment Cost</label>
-                <input type="number" class="form-control" min=0.00 max=999999999 placeholder="Equipment Cost">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><b>R</b></span>
+                  </div>
+                  <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control">
+                </div>
                </div>
                <div class="col-sm-6">
                    <!-- Select Condition -->
@@ -101,4 +106,3 @@
 </form>
 </div>
 <!--Footer-->
-<app-footer></app-footer>
