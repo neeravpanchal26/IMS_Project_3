@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/IMS/api/BLL/userPasswordReset.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMS/api/BLL/userSetting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/userSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/userSetting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts" afterDir="false" />
@@ -30,17 +21,17 @@
       <file leaf-file-name="userSetting.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/api/BLL/userSetting.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+            <state relative-caret-position="289">
+              <caret line="17" column="186" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="186" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBHandler.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBHandler.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+            <state relative-caret-position="396">
+              <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -48,8 +39,8 @@
       <file leaf-file-name="user-setting.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="92" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
+            <state relative-caret-position="527">
+              <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -57,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-setting.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user-setting.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="77" lean-forward="true" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+            <state relative-caret-position="799">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -72,8 +63,8 @@
       <file leaf-file-name="user-setting.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="78" column="68" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
+            <state relative-caret-position="492">
+              <caret line="78" column="66" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -121,11 +112,11 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/userSetting.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" />
       </list>
     </option>
   </component>
@@ -254,7 +245,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Start">
+  <component name="RunManager" selected="npm.Stop">
     <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" host="127.0.0.1" />
     <configuration name="Start" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/IMS/package.json" />
@@ -320,29 +311,31 @@
       <workItem from="1530002364768" duration="6878000" />
       <workItem from="1530015235294" duration="5270000" />
       <workItem from="1530022433658" duration="6488000" />
+      <workItem from="1530082819777" duration="2912000" />
+      <workItem from="1530110561712" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88377000" />
+    <option name="totallyTimeSpent" value="91314000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13055556" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3044747" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.24292453" />
-      <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13125" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3042453" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24292453" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -573,9 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -625,9 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="27" />
-          <folding>
-            <element signature="e#347#415#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,9 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-186">
           <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -700,44 +681,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/userSetting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        <state relative-caret-position="289">
+          <caret line="17" column="186" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="186" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="92" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
+        <state relative-caret-position="527">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="78" column="68" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="77" lean-forward="true" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+        <state relative-caret-position="799">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="78" column="66" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
         </state>
       </provider>
     </entry>

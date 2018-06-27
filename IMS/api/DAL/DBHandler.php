@@ -102,6 +102,12 @@ class DBHandler
         $sp = 'CALL uspUserSetting_Suburbs';
         return DBHelper::Select($sp);
     }
+    public static function UserSetting_Update($uI,$fN,$lN,$dob,$cN,$eA,$a1,$a2,$sub)
+    {
+        $sp = 'CALL uspUserSetting_Update (?,?,?,?,?,?,?,?,?)';
+        $param = array(&$uI,&$fN,&$lN,&$dob,&$cN,&$eA,&$a1,&$a2,&$sub);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
 
     //User Password Reset component methods
     public static function UserPassword_OldCheck ($userID,$password)

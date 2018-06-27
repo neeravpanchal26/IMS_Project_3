@@ -15,7 +15,7 @@ $action =   $_GET['action'];
 if($action == 'update') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if ($display = DBHandler::addUser_Insert($json->firstName,$json->lastName,$json->dob,$json->contactNumber,$json->email,$json->password,$json->userType,$json->address1,$json->address2,$json->suburb)) {
+    if ($display = DBHandler::UserSetting_Update($json->userID,$json->firstName,$json->lastName,$json->dob,$json->contactNumber,$json->email,$json->address1,$json->address2,$json->suburb)) {
         $response = $display;
     } else {
         $response = $display;

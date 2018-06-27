@@ -2,7 +2,7 @@
 <app-header></app-header>
 <!--Update User Settings Form-->
 <div class="container">
-  <form (submit)="addUser($event)">
+  <form (submit)="updateUserInfo($event)">
     <!--Heading-->
     <div class="py-5 text-center">
       <h1>Update Personal Information</h1>
@@ -69,7 +69,7 @@
         <!--City input-->
         <label>City</label>
         <select class="form-control" (change)="subLoad($event.target.value)">
-          <option *ngFor="let c of cities" value="{{c.CityID}}" [selected]="c.CityID==user.CityID">{{c.cityName}}</option>
+          <option *ngFor="let c of cities" value="{{c.cityID}}" [selected]="c.cityID==user.CityID">{{c.cityName}}</option>
         </select>
       </div>
       <div class="col-lg-6">
