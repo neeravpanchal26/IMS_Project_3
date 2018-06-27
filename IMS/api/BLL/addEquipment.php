@@ -26,4 +26,18 @@ else if ($action=='types')
 {
     echo json_encode(DBHandler::AddEquipment_Types());
 }
+else if ($action=='condition')
+{
+    echo json_encode(DBHandler::AddEquipment_Conditions());
+}
+else if ($action=='section')
+{
+    echo json_encode(DBHandler::AddEquipment_Section());
+}
+else if($action=='insert')
+{
+    $incoming = file_get_contents('php://input');
+    $json = json_decode($incoming);
+    
+}
 ?>

@@ -24,6 +24,14 @@ export class AddEquipmentService {
   {
     return this.http.get('/api/BLL/addEquipment.php?action=types')as Observable<any>;
   }
+  GetConditions():Observable<any>
+  {
+    return this.http.get('/api/BLL/addEquipment.php?action=condition')as Observable<any>;
+  }
+  GetSections():Observable<any>
+  {
+    return this.http.get('/api/BLL/addEquipment.php?action=section') as Observable<any>;
+  }
   AddEquipment(param:iAddEquipment):Observable<any>
   {
     return this.http.post('',param)as Observable<any>;

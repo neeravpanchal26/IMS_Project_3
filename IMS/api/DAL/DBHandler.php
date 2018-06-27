@@ -58,37 +58,48 @@ class DBHandler
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
-    //Add Equipment component methods
-    public static function AddEquipment_Status()
-    {
-        $sp = 'CALL uspAddEquipment_Status';
-        return DBHelper::Select($sp);
-    }
-    public static function AddEquipment_Brand()
-    {
-        $sp = 'CALL uspAddEquipment_Brands';
-        return DBHelper::Select($sp);
-    }
-    public static function AddEquipment_Users()
-    {
-        $sp = 'CALL uspAddEquipment_Users';
-        return DBHelper::Select($sp);
-    }
-    public static function AddEquipment_Types()
-    {
-        $sp = 'CALL uspAddEquipment_Types';
-        return DBHelper::Select($sp);
-    }
-    public static function AllocateEquipment_TechEmployees()
-    {
-        $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
-        return DBHelper::Select($sp);
-    }
-    public static function AllocateEquipment_Equipments()
-    {
-        $sp='CALL uspAllocateEquipment_Equipments';
-        return DBHelper::Select($sp);
-    }
+        //Add Equipment component methods
+        public static function AddEquipment_Status()
+        {
+            $sp = 'CALL uspAddEquipment_Status';
+            return DBHelper::Select($sp);
+        }
+        public static function AddEquipment_Brand()
+        {
+            $sp = 'CALL uspAddEquipment_Brands';
+            return DBHelper::Select($sp);
+        }
+        public static function AddEquipment_Users()
+        {
+            $sp = 'CALL uspAddEquipment_Users';
+            return DBHelper::Select($sp);
+        }
+        public static function AddEquipment_Types()
+        {
+            $sp = 'CALL uspAddEquipment_Types';
+            return DBHelper::Select($sp);
+        }
+        public static function AddEquipment_Conditions()
+        {
+            $sp = 'CALL uspAddEquipment_Condition';
+            return DBHelper::Select($sp);
+        }
+        public static function AddEquipment_Section()
+        {
+            $sp='CALL uspAddEquipment_Section';
+            return DBHelper::Select($sp);
+        }
+        //Allocate Equipment componet methods
+        public static function AllocateEquipment_TechEmployees()
+        {
+            $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
+            return DBHelper::Select($sp);
+        }
+        public static function AllocateEquipment_Equipments()
+        {
+            $sp='CALL uspAllocateEquipment_Equipments';
+            return DBHelper::Select($sp);
+        }
 
     //User Setting component methods
     public static function UserSetting_SpecificUser($userid)

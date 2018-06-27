@@ -27,19 +27,10 @@
              <label>Equipment Description</label>
              <input type="text" class="form-control" placeholder="Description">
             </div>
-            <div class="col-sm-6" onload="this.getLocButton=false"><br>
+            <div class="col-sm-6"><br>
                 <!-- Location -->
-                <label>Equipment Location</label><br>
-                <input type="radio"  (click)="this.getLocButton=false" (click)="this.fixedClicked=true" name="fixedOrRemote" value="">Remote
-                <input type="radio"  (click)="this.getLocButton=true" (click)="this.remoteClicked=true" name="fixedOrRemote" value="">Fixed<br>
-                <input type="button" (click)="getLocation()" *ngIf="this.getLocButton" class="btn btn-primary col-lg-6" value="Get Coordinates" ><br>
+                <label>Equipment Location</label><br> <input type="button" (click)="getLocation()"class="btn btn-primary col-lg-5" value="Get Coordinates">
                 <input type="text" class="form-control" value="{{position.coords.latitude}}, {{position.coords.longitude}}" placeholder="Enter Coordinates">
-                <select class="form-control">
-                    <option disabled selected>Select user</option>
-                  <option *ngFor="let u of users" value="{{u.UserID}}">
-                      {{u.FullName}}
-                  </option>
-                </select>
               </div>  
     </div>
     <div class="form-row">
@@ -56,7 +47,10 @@
                <div class="col-sm-6">
                    <!-- Select Condition -->
                     <label>Equipment Condition</label>
-                    <input type="text" class="form-control" placeholder="Equipment Condition">
+                    <select type="text" class="form-control">
+                        <option disabled selected>Equipment Condition</option>
+                        <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
+                      </select>
                    </div>
        </div>
        <div class="form-row">
@@ -71,7 +65,10 @@
             <div class="col-sm-6">
                 <!-- Select Section -->
               <label>Section</label>
-              <input type="text" class="form-control" placeholder="Section">
+              <select class="form-control">
+                  <option disabled selected>Equipment Section</option>
+                  <option *ngFor="let s of sections" value="{{s.SectionID}}">{{s.SectionDesc}}</option>
+              </select>
             </div>
           </div>
           <div class="form-row">
