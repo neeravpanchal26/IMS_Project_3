@@ -17,6 +17,7 @@ export class AddEquipmentComponent implements OnInit {
   public types:any;
   public conditions:any;
   public sections:any;
+  public map:any;
 constructor(private service:AddEquipmentService, private location:GeoLocationService)
 {}
   
@@ -31,7 +32,8 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
   }
   getLocation()
   {
-    this.location.getLocation().subscribe(data=>this.position=data)
+    this.location.getLocation().subscribe(data=>this.position=data);
+
   }
   receiveEquipment(e)
   {
@@ -39,19 +41,18 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     e.preventDefault();
     let param:iAddEquipment=
     {
-      equipmentID:e.target.elements[0].value,
-      name:e.target.elements[1].value,
-      desc:e.target.elements[2].value,
-      locationGps:e.target.elements[4].value,
+      name:e.target.elements[0].value,
+      desc:e.target.elements[1].value,
+      locationGps:e.target.elements[3].value,
       locationPerson:null,
-      cost:e.target.elements[5].value,
-      equipmentCondition:e.target.elements[6].value,
-      brand:e.target.elements[7].value,
-      section:e.target.elements[8].value,
-      type:e.target.elements[9].value,
-      status:e.target.elements[10].value,
-      conditionPic:e.target.elements[11].value,
-      dateReceived:e.target.elements[12].value,
+      cost:e.target.elements[4].value,
+      equipmentCondition:e.target.elements[5].value,
+      brand:e.target.elements[6].value,
+      section:e.target.elements[7].value,
+      type:e.target.elements[8].value,
+      status:e.target.elements[11].value,
+      conditionPic:e.target.elements[9].value,
+      dateReceived:e.target.elements[10].value,
     };
     console.log(param);
     //this.service.AddEquipment(param);

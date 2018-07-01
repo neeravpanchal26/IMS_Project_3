@@ -89,6 +89,12 @@ class DBHandler
             $sp='CALL uspAddEquipment_Section';
             return DBHelper::Select($sp);
         }
+        public static function AddEquipment_Insert()
+        {
+            $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            $param = array(&$name,&$desc,&$locGps,&$locPerson,&$cost,&$equipCond,&$brand,&$section,&$type,&$status,&$condPic,&$dateReceive);
+            return DBHelper::SelectParam($sp,$param);
+        }
         //Allocate Equipment componet methods
         public static function AllocateEquipment_TechEmployees()
         {

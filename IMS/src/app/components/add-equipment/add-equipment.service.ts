@@ -34,11 +34,11 @@ export class AddEquipmentService {
   }
   AddEquipment(param:iAddEquipment):Observable<any>
   {
-    return this.http.post('',param)as Observable<any>;
+    return this.http.post('/ap/BLL/addEquipment.php?action=insert',param)as Observable<any>;
   }
 }
 export interface iAddEquipment
 {
-  equipmentID:any, name:any,desc:any,locationGps:any,locationPerson:any,cost:any,equipmentCondition:any,
+  name:any,desc:any,locationGps:any,locationPerson:any,cost:any,equipmentCondition:any,
   brand:any,section:any,type:any,status:any,conditionPic:any,dateReceived:any
 }
