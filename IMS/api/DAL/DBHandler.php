@@ -139,4 +139,10 @@ class DBHandler
         $param = array(&$userID,&$password);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+    // Dashboard components methods
+    public static function Dashboard_Users ()
+    {
+        $sp = 'CALL uspDashboard_Users';
+        return DBHelper::Select($sp);
+    }
 }

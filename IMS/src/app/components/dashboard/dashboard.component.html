@@ -1,7 +1,21 @@
 <!--Header-->
 <app-header></app-header>
+
 <div class="container">
 <h1>Welcome to IMS</h1>
+    <canvas id="canvas">{{chart}}</canvas>
+    <table class="table table-striped text-center">
+        <thead><tr>
+            <th># of Login's</th>
+            <th>Username</th>
+            <th>Latest Access</th>
+        </tr></thead>
+        <tr *ngFor="let u of user">
+            <td>{{u.count}}</td>
+            <td>{{u.FirstName}} {{u.Surname}}</td>
+            <td>{{u.lastAccess}}</td>
+        </tr>
+    </table>
 </div>
-<!--Footer-->
-<app-footer></app-footer>
+<!--Footer>
+<app-business-footer></app-business-footer-->
