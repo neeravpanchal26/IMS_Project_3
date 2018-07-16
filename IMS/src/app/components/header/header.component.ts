@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   public tE = [
       {'path': '/Add Equipment', 'name': 'Add Equipment','icon':'cart'},
-      {'path': '/Update Equipment', 'name': 'Update Equipment','icon':'cart'},
+      {'path': '/Allocate Equipment', 'name': 'Allocate Equipment','icon':'cart'},
       {'path': '/Locate Equipment', 'name': 'Locate Equipment','icon':'cart'}
       ];
 

@@ -13,14 +13,15 @@ export class DashboardComponent implements OnInit {
   // Global Variable
   chart = [];
   public user = [];
+  public userType;
 
   // Default Constructor
   constructor(private login:LoginService,private service:DashboardService) { }
 
   // Form Load
   ngOnInit() {
-    let userType = this.login.getUserType();
-    if(userType === 1) {
+      this.userType = this.login.getUserType();
+    if(this.userType === 1) {
         this.service.getUsers()
             .subscribe
             (data => {
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit {
                 }
 
                 // Parsing data to chart and generating chart
-                this.chartFunction('bar',firstName,count,color,'The users in past 7 days.');
+                this.chartFunction('bar',firstName,count,color,'User movement in past 7 days.');
             });
     }
   }

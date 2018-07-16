@@ -8,8 +8,8 @@ export class BusinessFooterService {
   constructor(private http:HttpClient) { }
 
   // Business info load
-  getBusinessInfo():Observable<any[]> {
-    return this.http.get('/api/BLL/business.php') as Observable <any[]>;
+  getBusinessInfo():Observable<any> {
+    return this.http.get('/api/BLL/business.php') as Observable <any>;
   }
 
 }

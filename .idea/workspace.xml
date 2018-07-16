@@ -2,24 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/IMS/api/BLL/business.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMS/api/BLL/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/circular-json/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/circular-json/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/appenders/rabbitmq.js" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/appenders/rabbitmq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/layouts.js" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/layouts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/log4js.js" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/log4js/lib/log4js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/log4js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/log4js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/mailgun-js/lib/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/mailgun-js/lib/schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/node_modules/mailgun-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/node_modules/mailgun-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,50 +34,48 @@
       <file leaf-file-name="DBHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2380">
-              <caret line="145" column="37" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="37" />
+            <state relative-caret-position="2482">
+              <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IMS/api/BLL/dashboard.php">
+      <file leaf-file-name="login.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="493">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.service.ts">
+      <file leaf-file-name="add-user.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app-routing.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/app-routing.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#347#415#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts">
+      <file leaf-file-name="addUser.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+            <state relative-caret-position="306">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -90,14 +89,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/api/BLL/addUser.php" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/login.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.guard.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/login.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.service.ts" />
         <option value="$PROJECT_DIR$/IMS/.angular-cli.json" />
         <option value="$PROJECT_DIR$/IMS/src/index.html" />
@@ -108,34 +103,39 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/voidUser.php" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/userSetting.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/business.php" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html" />
-        <option value="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/dashboard.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" />
+        <option value="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" />
+        <option value="$PROJECT_DIR$/IMS/api/BLL/addUser.php" />
       </list>
     </option>
   </component>
@@ -154,10 +154,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="42" />
-    <option name="y" value="25" />
     <option name="width" value="1440" />
-    <option name="height" value="821" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -165,7 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,7 +223,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="add-user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
@@ -235,12 +232,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Stop">
+  <component name="RunManager" selected="npm.Start">
     <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" host="127.0.0.1" />
     <configuration name="Start" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/IMS/package.json" />
@@ -358,29 +356,36 @@
       <workItem from="1530989208870" duration="194000" />
       <workItem from="1531033961563" duration="22000" />
       <workItem from="1531035332600" duration="3052000" />
+      <workItem from="1531044942810" duration="465000" />
+      <workItem from="1531065590405" duration="478000" />
+      <workItem from="1531211877584" duration="83000" />
+      <workItem from="1531422348451" duration="550000" />
+      <workItem from="1531462784103" duration="4705000" />
+      <workItem from="1531473641978" duration="1894000" />
+      <workItem from="1531662606331" duration="165000" />
+      <workItem from="1531733937198" duration="179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113256000" />
+    <option name="totallyTimeSpent" value="121775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23472223" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50039065" side_tool="true" weight="0.18871595" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960938" weight="0.18774319" />
-      <window_info anchor="bottom" id="TypeScript" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15546875" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49960938" weight="0.18632075" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -407,24 +412,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addUser.php">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -439,13 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -478,13 +462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/error/error.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -544,31 +521,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/voidUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
           <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -579,20 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -600,24 +542,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/userSetting.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -635,27 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="104" selection-start-line="104" selection-end-line="105" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -663,59 +570,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts">
+    <entry file="file://$PROJECT_DIR$/IMS/.angular-cli.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/business.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="145" column="37" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="7" selection-start-line="7" selection-end-line="35" />
+        <state relative-caret-position="249">
+          <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -728,42 +586,185 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/.angular-cli.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="23" column="73" lean-forward="true" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        <state relative-caret-position="64">
+          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="237">
+          <caret line="43" column="93" selection-start-line="43" selection-start-column="93" selection-end-line="43" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/business.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="107" column="21" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/error/error.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-319" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="3" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2482">
+          <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#347#415#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
         </state>
       </provider>
     </entry>

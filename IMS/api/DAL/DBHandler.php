@@ -145,4 +145,10 @@ class DBHandler
         $sp = 'CALL uspDashboard_Users';
         return DBHelper::Select($sp);
     }
+    // Business Footer methods
+    public static function Business()
+    {
+        $sp = 'CALL uspBusiness';
+        return DBHelper::Select($sp);
+    }
 }
