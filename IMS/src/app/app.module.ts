@@ -4,18 +4,22 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents} from "./app-routing.module";
-import { BusinessFooterComponent } from './components/business-footer/business-footer.component';
+import { ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
     AppComponent,
-      routingComponents,
-      BusinessFooterComponent
+      routingComponents
   ],
   imports: [
     BrowserModule,
       HttpClientModule,
-      AppRoutingModule
+      AppRoutingModule,
+      ToastrModule.forRoot({
+          timeOut: 2000,
+          positionClass: 'toast-bottom-right',
+          preventDuplicates: true,
+      })
   ],
   bootstrap: [AppComponent]
 })

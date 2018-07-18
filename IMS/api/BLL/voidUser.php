@@ -12,7 +12,7 @@ use DAL\DBHandler;
 
 $action =   $_GET['action'];
 
-if($action == 'update') {
+if ($action == 'update') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
     if ($display = DBHandler::VoidUser_Status($json->UserID,$json->Status)) {
@@ -22,11 +22,6 @@ if($action == 'update') {
     }
     echo json_encode($response);
 }
-elseif($action == 'userByType') {
-    $incoming = file_get_contents('php://input');
-    $json = json_decode($incoming);
-    echo json_encode(DBHandler::VoidUser_ByType($json->Type));
-}
-elseif($action == 'userType') {
-    echo json_encode(DBHandler::AddUser_UserType());
+else if ($action == 'users') {
+    echo json_encode(DBHandler::VoidUser_Users());
 }

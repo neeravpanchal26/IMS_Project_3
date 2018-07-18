@@ -2,47 +2,42 @@
 <app-header></app-header>
 <!--Reactivate/Deactivate Form-->
 <div class="container">
-  <form (submit)="updateUser($event)">
-    <!--Heading-->
-    <div class="py-5 text-center">
-      <h1>Update User Status</h1>
+  <!--Heading-->
+  <div class="py-5 text-center">
+  <h1>Manage Users</h1>
+  </div>
+  <!--Search Input-->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <span class="oi oi-magnifying-glass"></span>
+      </div>
     </div>
+    <input type="text" class="form-control" placeholder="Search Name or Surname">
+  </div>
+  <br>
 
-    <div class="form-row">
-      <div class="col-sm-12">
-        <!--User Type input-->
-        <label>User Type</label>
-        <select class="form-control" (change)="userLoad($event.target.value)">
-          <option selected>Choose...</option>
-          <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
+  <!--Users Table-->
+  <table class="table table-responsive-sm table-sm table-hover table-striped">
+    <thead><tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Status</th>
+    </tr></thead>
+    <tr *ngFor="let u of users">
+      <td>{{u.info}}</td>
+      <td>{{u.Email}}</td>
+      <td>
+        <select class="form-control-sm">
+          <option *ngFor="let ut of userType" [value]="ut.UserTypeID" [selected]="ut.UserTypeID == u.Type">{{ut.UserTypeDesc}}</option>
         </select>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-lg-10">
-        <!--Users Select-->
-        <label>Users</label>
-        <select class="form-control" (change)="status($event.target.value)">
-          <option selected>Choose...</option>
-          <option *ngFor="let u of users" value="{{u.UserID}}">{{u.FirstName}} {{u.SurName}} - ({{u.Email}})</option>
-        </select>
-      </div>
-      <div class="col-lg-2">
-        <!--User Active Status-->
-        <label>Status</label>
-        <br>
-        <div>
-            <input type="radio" name="status" [checked]="selectedStatus==1"> Active
-            <input type="radio" name="status" [checked]="selectedStatus==0"> Inactive
-        </div>
-      </div>
-    </div>
-    <div class="pt-3">
-      <!--Update user button-->
-      <button type="submit" class="btn btn-primary col-lg-2">Update User</button>
-    </div>
-  </form>
+      </td>
+      <td class="text-center">
+        <input type="checkbox" name="options" [checked]="u.Status==1" (change)="updateUser(u.UserID,$event.target.checked,u.info)">
+      </td>
+    </tr>
+  </table>
 </div>
 <!--Footer-->
 <app-business-footer></app-business-footer>

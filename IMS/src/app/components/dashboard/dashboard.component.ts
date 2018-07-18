@@ -11,7 +11,7 @@ import { DashboardService} from "./dashboard.service";
 })
 export class DashboardComponent implements OnInit {
   // Global Variable
-  chart = [];
+  chart = Chart;
   public user = [];
   public userType;
 
@@ -41,23 +41,68 @@ export class DashboardComponent implements OnInit {
                 }
 
                 // Parsing data to chart and generating chart
-                this.chartFunction('bar',firstName,count,color,'User movement in past 7 days.');
+                this.barChart(firstName,count,color,'User movement in past 7 days.','Users','# of logins');
             });
     }
   }
+  // User Data
+  userData(input,username) {
+      this.service.getIndivdualData(input)
+          .subscribe(data => {
+              //Dates Load up
+              let loginDate = data.map(function(value,index) {return value['loginDate'];});
+
+              // Count column for chart data
+              let count = data.map(function(value,index) {return value['count'];});
+
+              // Random color per column
+              let color = [];
+              for (let dataKey in data) {
+                  color.push(this.colorFunction());
+              }
+
+              // Parsing data to chart and generating chart
+              this.chart.destroy();
+              this.barChart(loginDate,count,color,username + "'s" + ' movement in past 7 days.','Dates','# of logins');
+          })
+  }
+
   // Dynamic chart function
-  chartFunction(type,label,data,color,title) {
+  barChart(xAxis, yAxis, color, title,xTitle,yTitle) {
       this.chart = new Chart('canvas', {
-          type: type,
+          type: 'bar',
           data: {
-              labels: label,
+              labels: xAxis,
               datasets: [{
-                  label: title,
-                  data: data,
+                  data: yAxis,
                   backgroundColor: color
               }]
           },
           options: {
+              title: {
+                  display: true,
+                  text: title
+              },
+              scales: {
+                  yAxes: [{
+                      scaleLabel: {
+                          display: true,
+                          labelString: yTitle
+                      },
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }],
+                  xAxes: [{
+                      scaleLabel: {
+                          display: true,
+                          labelString: xTitle
+                      }
+                  }]
+              },
+              legend: {
+                  display: false
+              },
               responsive: true
           }
       });

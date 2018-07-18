@@ -21,6 +21,7 @@ import { UserSettingComponent } from './components/user-setting/user-setting.com
 import { UserPasswordResetComponent } from './components/user-password-reset/user-password-reset.component';
 import { ItPasswordResetComponent } from "./components/it-password-reset/it-password-reset.component";
 import { AllocateEquipmentComponent } from './components/allocate-equipment/allocate-equipment.component';
+import { BusinessFooterComponent} from "./components/business-footer/business-footer.component";
 
 // Path Array
 const appRoutes:Routes = [
@@ -66,6 +67,6 @@ export const routingComponents =
         UserSettingComponent,
         UserPasswordResetComponent,
         ItPasswordResetComponent,
-        AllocateEquipmentComponent
-        
+        AllocateEquipmentComponent,
+        BusinessFooterComponent,
     ];

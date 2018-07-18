@@ -12,7 +12,7 @@ require_once '../DAL/DBHelper.php';
 
 class DBHandler
 {
-    //Login components methods
+    // Login components methods
     public static function Login_Check($username,$password)
     {
         $sp = 'CALL uspLogin_Check (?,?)';
@@ -20,7 +20,7 @@ class DBHandler
         return DBHelper::SelectParam($sp,$param);
     }
 
-    //Add User components methods
+    // Add User components methods
     public static function addUser_Insert ($fN,$lN,$dob,$cN,$eA,$pW,$uT,$a1,$a2,$sub)
     {
         $sp = 'CALL uspAddUser_Create (?,?,?,?,?,?,?,?,?,?)';
@@ -44,70 +44,68 @@ class DBHandler
         return DBHelper::Select($sp);
     }
 
-    //Void User Component methods
-    public static function VoidUser_ByType($typeID)
-    {
-        $sp = 'CALL uspVoidUser_ByType (?)';
-        $param = array(&$typeID);
-        return DBHelper::SelectParam($sp, $param);
-    }
+    // Void User Component methods
     public static function VoidUser_Status($id,$status)
     {
         $sp = 'CALL uspVoidUser_Status (?,?)';
         $param = array(&$id,&$status);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+    public static function VoidUser_Users()
+    {
+        $sp = 'CALL uspVoidUser_Users';
+        return DBHelper::Select($sp);
+    }
+    // Add Equipment component methods
+    public static function AddEquipment_Status()
+    {
+        $sp = 'CALL uspAddEquipment_Status';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Brand()
+    {
+        $sp = 'CALL uspAddEquipment_Brands';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Users()
+    {
+        $sp = 'CALL uspAddEquipment_Users';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Types()
+    {
+        $sp = 'CALL uspAddEquipment_Types';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Conditions()
+    {
+        $sp = 'CALL uspAddEquipment_Condition';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Section()
+    {
+        $sp='CALL uspAddEquipment_Section';
+        return DBHelper::Select($sp);
+    }
+    public static function AddEquipment_Insert()
+    {
+        $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $param = array(&$name,&$desc,&$locGps,&$locPerson,&$cost,&$equipCond,&$brand,&$section,&$type,&$status,&$condPic,&$dateReceive);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    // Allocate Equipment component methods
+    public static function AllocateEquipment_TechEmployees()
+    {
+        $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
+        return DBHelper::Select($sp);
+    }
+    public static function AllocateEquipment_Equipments()
+    {
+        $sp='CALL uspAllocateEquipment_Equipments';
+        return DBHelper::Select($sp);
+    }
 
-        //Add Equipment component methods
-        public static function AddEquipment_Status()
-        {
-            $sp = 'CALL uspAddEquipment_Status';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Brand()
-        {
-            $sp = 'CALL uspAddEquipment_Brands';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Users()
-        {
-            $sp = 'CALL uspAddEquipment_Users';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Types()
-        {
-            $sp = 'CALL uspAddEquipment_Types';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Conditions()
-        {
-            $sp = 'CALL uspAddEquipment_Condition';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Section()
-        {
-            $sp='CALL uspAddEquipment_Section';
-            return DBHelper::Select($sp);
-        }
-        public static function AddEquipment_Insert()
-        {
-            $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-            $param = array(&$name,&$desc,&$locGps,&$locPerson,&$cost,&$equipCond,&$brand,&$section,&$type,&$status,&$condPic,&$dateReceive);
-            return DBHelper::SelectParam($sp,$param);
-        }
-        //Allocate Equipment componet methods
-        public static function AllocateEquipment_TechEmployees()
-        {
-            $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
-            return DBHelper::Select($sp);
-        }
-        public static function AllocateEquipment_Equipments()
-        {
-            $sp='CALL uspAllocateEquipment_Equipments';
-            return DBHelper::Select($sp);
-        }
-
-    //User Setting component methods
+    // User Setting component methods
     public static function UserSetting_SpecificUser($userid)
     {
         $sp = 'CALL uspUserSetting_SpecificUser (?)';
@@ -126,7 +124,7 @@ class DBHandler
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
-    //User Password Reset component methods
+    // User Password Reset component methods
     public static function UserPassword_OldCheck ($userID,$password)
     {
         $sp = 'CALL uspUserPassword_OldCheck (?,?)';
@@ -139,11 +137,18 @@ class DBHandler
         $param = array(&$userID,&$password);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+
     // Dashboard components methods
     public static function Dashboard_Users ()
     {
         $sp = 'CALL uspDashboard_Users';
         return DBHelper::Select($sp);
+    }
+    public static function Dashboard_IndividualUser($userID)
+    {
+        $sp = 'CALL uspDashboard_IndividualUser (?)';
+        $param = array(&$userID);
+        return DBHelper::SelectParam($sp,$param);
     }
     // Business Footer methods
     public static function Business()

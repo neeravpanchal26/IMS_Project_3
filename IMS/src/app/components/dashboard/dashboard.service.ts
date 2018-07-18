@@ -13,4 +13,8 @@ export class DashboardService {
     return this.http.get('/api/BLL/dashboard.php?action=users') as Observable<any[]>;
   }
 
+  // Individual User graph
+  getIndivdualData(userID):Observable<any[]>{
+    return this.http.get('/api/BLL/dashboard.php?action=specificUser&userID='+userID) as Observable<any[]>;
+  }
 }
