@@ -25,7 +25,7 @@ export class ItPasswordResetComponent implements OnInit {
 
     // Users Load up
     userLoad(e) {
-        //let param: iUserType = {Type:e};
+        let param: iUserType = {Type:e};
         //this.service.UserByType(param).subscribe(data => this.users = data);
     }
     password(e) {
