@@ -13,12 +13,12 @@
         
       <div class="col-sm-6">
           <!-- Name -->
-        <label>Equipment Name</label>
-        <input type="text" class="form-control" placeholder="Equipment Name">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Name">
       </div>
       <div class="col-sm-6">
           <!-- Description -->
-          <label>Equipment Description</label>
+          <label>Description</label>
           <input type="text" class="form-control" placeholder="Description">
          </div>
     </div>
@@ -26,14 +26,14 @@
          
             <div class="col-sm-6">
                 <!-- Location -->
-                <label>Equipment Location</label><br> <input type="button" (click)="getLocation()"class="btn btn-primary col-lg-5" value="Get Coordinates">
+                <label>Location</label><br> <input type="button" (click)="getLocation()"class="btn btn-primary col-lg-5" value="Get Coordinates">
                 <!--<input type="text" class="form-control" value="{{position.coords.latitude}}, {{position.coords.longitude}}" placeholder="Enter Coordinates">
               -->
             
             </div>
               <div class="col-sm-6">
                   <!-- Cost -->
-                  <label>Equipment Cost</label>
+                  <label>Cost</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><b>R</b></span>
@@ -46,17 +46,17 @@
             
                <div class="col-sm-6">
                    <!-- Select Condition -->
-                    <label>Equipment Condition</label>
+                    <label>Condition</label>
                     <select type="text" class="form-control">
-                        <option disabled selected>Equipment Condition</option>
+                        <option disabled selected>Condition</option>
                         <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
                       </select>
                    </div>
                    <div class="col-sm-6">
                       <!-- Select Brand -->
-                    <label>Equipment Brand</label>
+                    <label>Brand</label>
                     <select class="form-control">
-                        <option disabled selected>Equipment Brand</option>
+                        <option disabled selected>Brand</option>
                         <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
                     </select>
                   </div>
@@ -67,15 +67,15 @@
                 <!-- Select Section -->
               <label>Section</label>
               <select class="form-control">
-                  <option disabled selected>Equipment Section</option>
+                  <option disabled selected>Section</option>
                   <option *ngFor="let s of sections" value="{{s.SectionID}}">{{s.SectionDesc}}</option>
               </select>
             </div>
             <div class="col-sm-6">
                 <!-- Select Status -->
-              <label>Equipment Status</label>
+              <label>Status</label>
               <select class="form-control" >
-                    <option disabled selected>Equipment Status</option>
+                    <option disabled selected>Status</option>
                     <option *ngFor="let s of status" value="{{s.StatusID}}">{{s.StatusDesc}}</option>
                 </select>
             </div>
@@ -87,8 +87,10 @@
               <div class="form-row">
                     <div class="col-sm-6">
                         <!--Add picture button-->
-                      <label> Add Picture</label><br>
-                      <input type="file" accept="image/png, image/jpeg">
+                      <label> Upload Picture</label><br>
+                      <input type="file" (change)="preview($event)" accept="image/*"><br>
+                      <canvas #mycanvas width="150" height="150" style="border: 1px solid blue"></canvas>
+
                     </div>
                     <div class="col-sm-6">
                         <!-- Select Date -->
@@ -106,3 +108,5 @@
 </div>
 <!--Footer-->
 <app-business-footer></app-business-footer>
+
+

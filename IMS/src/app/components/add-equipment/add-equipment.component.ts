@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
 import { GeoLocationService } from './geolocation.service';
 
@@ -18,6 +18,33 @@ export class AddEquipmentComponent implements OnInit {
   public conditions:any;
   public sections:any;
   public map:any;
+
+  @ViewChild('cropper',undefined)
+
+  context: Canvas2DContextAttributes;
+  @ViewChild("mycanvas") mycanvas;
+  preview(e:any): void
+  {
+    let canvas = this.mycanvas.nativeElement;
+    let context = canvas.getContext('2d');
+    context.clearRect(0,0,30,30);
+
+    var render = new FileReader();
+    render.onload=function(event)
+    {
+      var img = new Image();
+      img.onload = function()
+      {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        context.drawImage(img,0,0);
+      };
+      img.src=event.target.result;
+    };
+    render.readAsDataURL(e.target.files[0]);
+  }
+
+
 constructor(private service:AddEquipmentService, private location:GeoLocationService)
 {}
   
@@ -51,23 +78,11 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       section:e.target.elements[7].value,
       type:e.target.elements[8].value,
       status:e.target.elements[11].value,
-      conditionPic:e.target.elements[9].value,
+      conditionPic:e.target.files[0].value,
       dateReceived:e.target.elements[10].value,
     };
     console.log(param);
     //this.service.AddEquipment(param);
-  }
-  readUrl(input)
-  {
-    if(input.files && input.files[0])
-    {
-      var reader = new FileReader();
-      reader.onload = function(e)
-      {
-        //image('#imageID').attr('src', e.target.result).width(150).height(200);
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
   }
   
 }
