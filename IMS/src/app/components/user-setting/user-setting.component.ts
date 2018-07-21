@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
-import {iUpdateUserInfo, UserSettingService} from "./user-setting.service";
+import { iUpdateUserInfo, UserSettingService} from "./user-setting.service";
 import { AddUserService, iSuburb} from "../add-user/add-user.service";
-import {iUpdate} from "../user-password-reset/user-password-reset.service";
-import {e} from "@angular/core/src/render3";
+import { iUpdate} from "../user-password-reset/user-password-reset.service";
 
 @Component({
   selector: 'app-user-setting',
@@ -13,9 +12,9 @@ import {e} from "@angular/core/src/render3";
 })
 export class UserSettingComponent implements OnInit {
     // Global Variable
-    public user:any;
-    public cities: any;
-    public suburbs: any;
+    public user:any = [];
+    public cities: any = [];
+    public suburbs: any = [];
     public result:boolean;
 
     // Default Constructor

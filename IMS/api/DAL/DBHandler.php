@@ -51,10 +51,11 @@ class DBHandler
         $param = array(&$id,&$status);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
-    public static function VoidUser_Users()
+    public static function VoidUser_Users($id)
     {
-        $sp = 'CALL uspVoidUser_Users';
-        return DBHelper::Select($sp);
+        $sp = 'CALL uspVoidUser_Users (?)';
+        $param = array(&$id);
+        return DBHelper::SelectParam($sp,$param);
     }
     // Add Equipment component methods
     public static function AddEquipment_Status()

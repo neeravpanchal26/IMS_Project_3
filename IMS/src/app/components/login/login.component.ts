@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,9 @@ import { iLogin } from "./login.service";
 export class LoginComponent implements OnInit {
     // Global Declaration
     private result:any;
-    public status:boolean;
 
     // Default Constructor
-    constructor(private service:LoginService,private router:Router) {}
+    constructor(private service:LoginService,private router:Router,private toastr:ToastrService) {}
 
     // Form Load
     ngOnInit() {}
@@ -42,19 +42,19 @@ export class LoginComponent implements OnInit {
                     this.result = data[0];
                     if(this.result['Status'] == 1)
                     {
-                        this.status = true;
+                        this.toastr.success("Welcome "+this.result['username'],'Success!');
                         this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
                         this.router.navigate(['dashboard']);
                     }
-                    else if(this.result['Status'] == 0)
+                    else if(this.result['FALSE'] == 0)
                     {
-                        this.status = false;
+                        this.toastr.warning('Change a few things up and try submitting again.','Failure!');
                     }
-                    else
-                    {
-                        this.status = false;
+                    else if(this.result['Status'] == 0) {
+                        this.toastr.warning(this.result['username']+' Please contact the administrator. Your account has been deactivated.','Failure!');
                     }
-                }
+                },
+                error => this.toastr.error('A backend error has occurred '+error.message+' Please contact the administrator for further assistance.')
             );
     }
 }

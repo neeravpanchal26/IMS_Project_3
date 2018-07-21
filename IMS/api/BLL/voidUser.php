@@ -23,5 +23,6 @@ if ($action == 'update') {
     echo json_encode($response);
 }
 else if ($action == 'users') {
-    echo json_encode(DBHandler::VoidUser_Users());
+    $userID = json_decode($_GET['userID']);
+    echo json_encode(DBHandler::VoidUser_Users($userID));
 }

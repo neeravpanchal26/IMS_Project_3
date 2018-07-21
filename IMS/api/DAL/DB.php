@@ -13,11 +13,11 @@ class DB
 {
     // Local setup
     private static $dbHost = '127.0.0.1';
-    private static $dbUser = 'root';
-    private static $dbPass = '';
+    private static $dbUser = 'BIT1';
+    private static $dbPass = 'password1';
     private static $dbName = 'ims_schema';
 
-    //Nmmu setup
+    // Nmu setup
 //    private static $dbHost = 'sict-mysql.nmmu.ac.za';
 //    private static $dbUser = 'BIT1';
 //    private static $dbPass = 'password1';

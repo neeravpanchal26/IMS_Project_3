@@ -1,35 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { DeactivateUserService } from "../deactivate-user/deactivate-user.service";
+import { ActivatedRoute} from "@angular/router";
 import { iUpdate, UserPasswordResetService} from "../user-password-reset/user-password-reset.service";
+import { UserSettingService} from "../user-setting/user-setting.service";
+import { ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-it-password-reset',
   templateUrl: './it-password-reset.component.html',
   styleUrls: ['./it-password-reset.component.css'],
-    providers:[DeactivateUserService,UserPasswordResetService]
+    providers:[UserPasswordResetService,UserSettingService]
 })
 export class ItPasswordResetComponent implements OnInit {
     // Global variable
-    public userType:any;
-    public users:any;
-    public result:boolean;
+    public userID:number;
+    public userInfo:any = [];
 
     // Default Constructor
-    constructor(private service:DeactivateUserService,private user:UserPasswordResetService) { }
+    constructor(private user:UserPasswordResetService,private route:ActivatedRoute,private setting:UserSettingService,private notif:ToastrService) { }
 
     // Form Load
     ngOnInit() {
-        // User Type Load up
-        //this.service.getUserType().subscribe(data => this.userType = data);
+        this.userID = parseInt(this.route.snapshot.paramMap.get('id'));
+        this.setting.getSpecificUser(this.userID).subscribe(data => this.userInfo = data[0]);
     }
 
-    // Users Load up
-    userLoad(e) {
-        //let param: iUserType = {Type:e};
-        //this.service.UserByType(param).subscribe(data => this.users = data);
-    }
+    // Reset password method
     password(e) {
-      let param:iUpdate = { userID:e.target.elements[1].value, password:e.target.elements[2].value};
-      this.user.updatePassword(param).subscribe(data=> {if(data==true){this.result=true}else{this.result=false}});
+      e.preventDefault();
+      let param:iUpdate = { userID:this.userID, password:e.target.elements[0].value};
+      this.user.updatePassword(param).subscribe(
+          data=> {
+              if(data == true) {
+                  this.notif.success('Password has been reset for '+this.userInfo['FirstName']+' '+this.userInfo['Surname']+'.','Success!');
+              }
+          },
+          error => this.notif.error('An error has occurred. Your changes have not been updated. '+error.message+' Please contact the administrator.','Watch out!'));
     }
 }

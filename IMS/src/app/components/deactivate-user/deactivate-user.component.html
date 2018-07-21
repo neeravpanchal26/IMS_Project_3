@@ -18,12 +18,13 @@
   <br>
 
   <!--Users Table-->
-  <table class="table table-responsive-sm table-sm table-hover table-striped">
-    <thead><tr>
+  <table class="table table-responsive-sm table-sm table-hover">
+    <thead><tr class="bg-light">
       <th>Full Name</th>
       <th>Email</th>
       <th>Role</th>
       <th>Status</th>
+      <th>Security</th>
     </tr></thead>
     <tr *ngFor="let u of users">
       <td>{{u.info}}</td>
@@ -33,8 +34,11 @@
           <option *ngFor="let ut of userType" [value]="ut.UserTypeID" [selected]="ut.UserTypeID == u.Type">{{ut.UserTypeDesc}}</option>
         </select>
       </td>
-      <td class="text-center">
-        <input type="checkbox" name="options" [checked]="u.Status==1" (change)="updateUser(u.UserID,$event.target.checked,u.info)">
+      <td>
+        <ui-switch color="#007BFF" size="small" [checked]="u.Status==1" (change)="updateUser(u.UserID,$event,u.info)"></ui-switch>
+      </td>
+      <td>
+        <a routerLink="/Reset password/{{u.UserID}}"><span class="oi oi-key"></span></a>
       </td>
     </tr>
   </table>

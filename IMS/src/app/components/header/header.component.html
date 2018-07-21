@@ -10,12 +10,24 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <!--Dynamic Header Loading-->
-      <li class="nav-item active" *ngFor="let i of router">
-        <a class="nav-link" routerLink="{{i.path}}">
-          <span class="oi oi-{{i.icon}}"></span>
-          {{i.name}}
-        </a>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/dashboard"><span class="oi oi-home"></span> Dashboard</a>
+      </li>
+      <!--User links go here-->
+      <li class="nav-item" *ngIf="userType==1">
+        <span class="navbar-link dropdown">
+          <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="oi oi-people"></span> People
+          </a>
+          <div class="dropdown-menu dropright" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-secondary" routerLink="/Add User"><span class="oi oi-person"></span> Create user</a>
+            <a class="dropdown-item text-secondary" routerLink="/Remove User"><span class="oi oi-people"></span> Manage users</a>
+          </div>
+        </span>
+      </li>
+      <!--User Links end here -->
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/reports"><span class="oi oi-script"></span> Reports</a>
       </li>
     </ul>
 

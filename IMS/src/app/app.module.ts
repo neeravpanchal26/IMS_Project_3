@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents} from "./app-routing.module";
-import { ToastrModule} from "ngx-toastr";
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule} from "ngx-toastr";
+import { UiSwitchModule} from "ngx-toggle-switch";
 
 @NgModule({
   declarations: [
@@ -15,11 +16,14 @@ import { ToastrModule} from "ngx-toastr";
     BrowserModule,
       HttpClientModule,
       AppRoutingModule,
+      ToastNoAnimationModule,
       ToastrModule.forRoot({
-          timeOut: 2000,
+          toastComponent: ToastNoAnimation,
+          timeOut: 5000,
           positionClass: 'toast-bottom-right',
           preventDuplicates: true,
-      })
+      }),
+      UiSwitchModule
   ],
   bootstrap: [AppComponent]
 })

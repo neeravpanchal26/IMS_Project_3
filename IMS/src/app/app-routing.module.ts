@@ -34,7 +34,7 @@ const appRoutes:Routes = [
     // IT Technician
     { path: 'Add User', canActivate: [LoginGuard], component:AddUserComponent },
     { path: 'Remove User', canActivate:[LoginGuard], component:DeactivateUserComponent},
-    { path: 'Reset password',canActivate:[LoginGuard], component:ItPasswordResetComponent},
+    { path: 'Reset password/:id',canActivate:[LoginGuard], component:ItPasswordResetComponent},
 
     // Technical Employee
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},

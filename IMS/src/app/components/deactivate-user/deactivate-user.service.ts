@@ -8,8 +8,8 @@ export class DeactivateUserService {
   constructor(private http:HttpClient) { }
 
   //Get Users
-  getUsers():Observable<any[]> {
-    return this.http.get('/api/BLL/voidUser.php?action=users') as Observable<any[]>;
+  getUsers(ID):Observable<any[]> {
+    return this.http.get('/api/BLL/voidUser.php?action=users&userID='+ID) as Observable<any[]>;
   }
   updateStatus(param:iUser)
   {
