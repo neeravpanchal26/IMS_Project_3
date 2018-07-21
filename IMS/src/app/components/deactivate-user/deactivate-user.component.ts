@@ -3,6 +3,7 @@ import { DeactivateUserService, iUser } from "./deactivate-user.service";
 import { AddUserService } from "../add-user/add-user.service";
 import { ToastrService } from "ngx-toastr";
 import {LoginService} from "../login/login.service";
+import {handleError} from "../error/error";
 
 @Component({
   selector: 'app-deactivate-user',
@@ -14,40 +15,46 @@ export class DeactivateUserComponent implements OnInit {
   // Global variable
   public users:any;
   public userType:any;
-  public status:any;
 
   // Default Constructor
-  constructor(private service:DeactivateUserService,private adduser:AddUserService,private toastr: ToastrService,private login:LoginService) { }
+  constructor(private service:DeactivateUserService,
+              private adduser:AddUserService,
+              private toastr: ToastrService,
+              private login:LoginService) { }
 
   // Form Load
   ngOnInit() {
     // Load users array
-    this.service.getUsers(this.login.getUserID()).subscribe(data => this.users = data);
+    this.service.getUsers(this.login.getUserID())
+        .subscribe(
+            data => this.users = data,
+            error=>this.toastr.error(handleError(error),'Oops!'));
 
     // Load user types array
-    this.adduser.getUserType().subscribe(data => this.userType = data);
+    this.adduser.getUserType()
+        .subscribe(
+            data => this.userType = data,
+            error=>this.toastr.error(handleError(error),'Oops!'));
   }
 
   // Update Status
   updateUser(input,e,user) {
+    let status;
   if(e == true)
   {
-    this.status = 1;
+    status = 1;
   }
   else if (e == false)
   {
-    this.status = 0;
+    status = 0;
   }
-
   let param: iUser = {
       UserID:input,
       Status:status
   };
-
   this.service.updateStatus(param)
       .subscribe(data =>{
-    let result = data;
-    if(result = true){
+    if(data == true){
       if(e == true) {
           this.toastr.success(user + "'s status has been activated!", "Success!");
       }
@@ -56,7 +63,26 @@ export class DeactivateUserComponent implements OnInit {
       }
     }
   },
-  error => this.toastr.error('An error has occurred. Your changes have not been updated. '+error.message+'Please contact the administrator.','Watch out!')
+          //Error handling
+  error => this.toastr.error(handleError(error),'Oops!')
   );
+  }
+
+  // Change user type
+  userTypeFunc(id,e,user){
+    let param: iUser = {
+      UserID:id,
+      Status:e.target.value
+    };
+
+    this.service.updateType(param)
+        .subscribe(data =>{
+                if(data == true){
+                    this.toastr.success(user + "'s type has been changed!", "Success!");
+                }
+            },
+            //Error handling
+            error => this.toastr.error(handleError(error),'Oops!')
+        );
   }
 }

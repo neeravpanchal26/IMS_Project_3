@@ -18,7 +18,9 @@ export class DashboardComponent implements OnInit {
   public userType;
 
   // Default Constructor
-  constructor(private login:LoginService,private service:DashboardService,private toastr:ToastrService) { }
+  constructor(private login:LoginService,
+              private service:DashboardService,
+              private toastr:ToastrService) { }
 
   // Form Load
   ngOnInit() {
@@ -44,7 +46,9 @@ export class DashboardComponent implements OnInit {
 
                 // Parsing data to chart and generating chart
                 this.barChart(firstName,count,color,'User movement in past 7 days.','Users','# of logins');
-            });
+            },
+                //Error handling
+                error => this.toastr.error(handleError(error),'Oops!'));
     }
   }
   // User Data

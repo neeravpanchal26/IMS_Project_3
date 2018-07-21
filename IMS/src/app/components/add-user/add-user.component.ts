@@ -16,15 +16,27 @@ export class AddUserComponent implements OnInit {
     public cities: any;
     public suburbs: any;
     public userType: any;
-  constructor(private service:AddUserService,private toastr:ToastrService) { }
 
-  ngOnInit() {
+    // Default Constructor
+    constructor(private service:AddUserService,
+                private toastr:ToastrService) { }
+
+    // Form Load
+    ngOnInit() {
       // City Load up
-      this.service.getCity().subscribe(data => this.cities = data);
+      this.service.getCity()
+          .subscribe(
+              data => this.cities = data,
+              error=>this.toastr.error(handleError(error),'Oops!'))
+
       // User Type Load up
-      this.service.getUserType().subscribe(data => this.userType = data);
-  }
-  // Add User Method
+      this.service.getUserType()
+          .subscribe(
+              data => this.userType = data,
+              error=>this.toastr.error(handleError(error),'Oops!'));
+    }
+
+    // Add User Method
     addUser(e) {
         let param: iAddUser = {
             firstName: e.target.elements[0].value,
@@ -38,17 +50,22 @@ export class AddUserComponent implements OnInit {
             address2: e.target.elements[8].value,
             suburb: e.target.elements[9].value
         };
-        console.log(param);
+
         let result: any;
         this.service.createUser(param)
-            .subscribe(response => {result = response; console.log(result); },
-                    error => this.toastr.error(handleError(error),'Oops!'));
+            .subscribe(
+                data => result = data,
+                error => this.toastr.error(handleError(error),'Oops!'));
     }
+
     // Suburb Load Method
     subLoad(e) {
         let param: iSuburb = {
             city: e
         };
-        this.service.getSuburb(param).subscribe(data => this.suburbs=data);
+        this.service.getSuburb(param)
+            .subscribe(
+                data => this.suburbs=data,
+                error=>this.toastr.error(handleError(error),'Oops!'));
     }
 }

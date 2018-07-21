@@ -22,6 +22,16 @@ if ($action == 'update') {
     }
     echo json_encode($response);
 }
+else if ($action == 'type') {
+    $incoming = file_get_contents('php://input');
+    $json = json_decode($incoming);
+    if ($display = DBHandler::VoidUser_Type($json->UserID,$json->Status)) {
+        $response = $display;
+    } else {
+        $response = $display;
+    }
+    echo json_encode($response);
+}
 else if ($action == 'users') {
     $userID = json_decode($_GET['userID']);
     echo json_encode(DBHandler::VoidUser_Users($userID));

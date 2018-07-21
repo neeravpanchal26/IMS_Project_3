@@ -30,7 +30,7 @@
       <td>{{u.info}}</td>
       <td>{{u.Email}}</td>
       <td>
-        <select class="form-control-sm">
+        <select class="form-control-sm" (change)="userTypeFunc(u.UserID,$event,u.info)">
           <option *ngFor="let ut of userType" [value]="ut.UserTypeID" [selected]="ut.UserTypeID == u.Type">{{ut.UserTypeDesc}}</option>
         </select>
       </td>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../login/login.service";
-import {iUpdate, UserPasswordResetService} from "./user-password-reset.service";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
+import { LoginService} from "../login/login.service";
+import { iUpdate, UserPasswordResetService} from "./user-password-reset.service";
+import { handleError} from "../error/error";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-password-reset',
@@ -13,15 +14,26 @@ export class UserPasswordResetComponent implements OnInit {
   // Global Variable
   public oldPword:boolean = false;
   public result:boolean;
-  constructor(private login:LoginService,private service:UserPasswordResetService) { }
 
+  // Default Constructor
+  constructor(private login:LoginService,
+              private service:UserPasswordResetService,
+              private toastr:ToastrService) { }
+
+  // Form Load
   ngOnInit() {
   }
 
+  // Change password method
   changePassword(e) {
       let param:iUpdate = {userID:this.login.getUserID(), password:e.target.elements[1].value};
-      this.service.updatePassword(param).subscribe(data => {if(data==true) {this.result = true;} else {this.result = false;}});
+      this.service.updatePassword(param)
+          .subscribe(
+              data => {if(data==true) {this.result = true;} else {this.result = false;}},
+              error=>this.toastr.error(handleError(error),'Oops!'));
   }
+
+  // Old password check method
   oldPassword(e){
       this.service.oldPasswordCheck(this.login.getUserID(),e)
           .subscribe (
@@ -31,7 +43,8 @@ export class UserPasswordResetComponent implements OnInit {
                       this.oldPword = true;
                   else
                       this.oldPword = false;
-              }
+              },
+              error=>this.toastr.error(handleError(error),'Oops!')
               );
     }
 }

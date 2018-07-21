@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdateUserInfo, UserSettingService} from "./user-setting.service";
 import { AddUserService, iSuburb} from "../add-user/add-user.service";
-import { iUpdate} from "../user-password-reset/user-password-reset.service";
+import { handleError} from "../error/error";
+import { ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-setting',
@@ -18,22 +19,39 @@ export class UserSettingComponent implements OnInit {
     public result:boolean;
 
     // Default Constructor
-    constructor(private service:UserSettingService,private login:LoginService,private addUser:AddUserService) {}
+    constructor(private service:UserSettingService,
+                private login:LoginService,
+                private addUser:AddUserService,
+                private toastr:ToastrService) {}
 
     // Form Load
     ngOnInit() {
         // City Load up
-        this.addUser.getCity().subscribe(data => this.cities = data);
+        this.addUser.getCity()
+            .subscribe(
+                data => this.cities = data,
+                error=>this.toastr.error(handleError(error),'Oops!'));
+
         // Suburb Load up
-        this.service.getAllSuburb().subscribe(data => this.suburbs = data);
+        this.service.getAllSuburb()
+            .subscribe(
+                data => this.suburbs = data,
+                error=>this.toastr.error(handleError(error),'Oops!'));
+
         // User Load up
-        this.service.getSpecificUser(this.login.getUserID()).subscribe(data=> {let r = data[0];this.user=r});
+        this.service.getSpecificUser(this.login.getUserID())
+            .subscribe(
+                data=> {let r = data[0];this.user=r},
+                    error=>this.toastr.error(handleError(error),'Oops!'));
     }
 
     // Suburb Load Method
     subLoad(e) {
         let param: iSuburb = { city: e };
-        this.addUser.getSuburb(param).subscribe(data => this.suburbs = data);
+        this.addUser.getSuburb(param)
+            .subscribe(
+                data => this.suburbs = data,
+                error=>this.toastr.error(handleError(error),'Oops!'));
     }
 
     // Update user info Method
@@ -51,6 +69,8 @@ export class UserSettingComponent implements OnInit {
             suburb:e.target.elements[8].value
         }
         this.service.updateUserInfo(param)
-            .subscribe(data => this.result = data);
+            .subscribe(
+                data => this.result = data,
+                error=>this.toastr.error(handleError(error),'Oops!'));
     }
 }

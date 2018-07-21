@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
     private result:any;
 
     // Default Constructor
-    constructor(private service:LoginService,private router:Router,private toastr:ToastrService) {}
+    constructor(private service:LoginService,
+                private router:Router,
+                private toastr:ToastrService) {}
 
     // Form Load
     ngOnInit() {}
@@ -23,11 +25,11 @@ export class LoginComponent implements OnInit {
     // Login check method
     loginCheck(e)
     {
-        e.preventDefault();
         if(e.target.elements[0].value!=null && e.target.elements[1].value!=null) {
             this.login(e.target.elements[0].value,e.target.elements[1].value);
         }
     }
+
     // Login method
     login(username,password)
     {
