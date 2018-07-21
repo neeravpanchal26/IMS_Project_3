@@ -30,7 +30,7 @@ export class AddEquipmentComponent implements OnInit {
     context.clearRect(0,0,30,30);
 
     var render = new FileReader();
-    render.onload=function(event)
+    render.onload=function(event:any)
     {
       var img = new Image();
       img.onload = function()

@@ -38,7 +38,7 @@
         <ui-switch color="#007BFF" size="small" [checked]="u.Status==1" (change)="updateUser(u.UserID,$event,u.info)"></ui-switch>
       </td>
       <td>
-        <a routerLink="/Reset password/{{u.UserID}}"><span class="oi oi-key"></span></a>
+        <a routerLink="/Reset password/{{u.UserID}}">Reset Password</a>
       </td>
     </tr>
   </table>

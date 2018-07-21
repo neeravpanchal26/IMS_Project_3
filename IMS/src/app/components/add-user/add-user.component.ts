@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { iAddUser } from "./add-user.service";
 import { AddUserService } from "./add-user.service";
 import { iSuburb} from "./add-user.service";
+import { ToastrService} from "ngx-toastr";
+import {handleError} from "../error/error";
 
 @Component({
   selector: 'app-add-user',
@@ -14,7 +16,7 @@ export class AddUserComponent implements OnInit {
     public cities: any;
     public suburbs: any;
     public userType: any;
-  constructor(private service:AddUserService) { }
+  constructor(private service:AddUserService,private toastr:ToastrService) { }
 
   ngOnInit() {
       // City Load up
@@ -39,7 +41,8 @@ export class AddUserComponent implements OnInit {
         console.log(param);
         let result: any;
         this.service.createUser(param)
-            .subscribe(response => {result = response; console.log(result); });
+            .subscribe(response => {result = response; console.log(result); },
+                    error => this.toastr.error(handleError(error),'Oops!'));
     }
     // Suburb Load Method
     subLoad(e) {

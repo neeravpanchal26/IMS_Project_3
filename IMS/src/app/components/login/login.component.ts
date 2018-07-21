@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
 import { ToastrService } from "ngx-toastr";
+import { handleError} from "../error/error";
 
 @Component({
   selector: 'app-login',
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
                         this.toastr.warning(this.result['username']+' Please contact the administrator. Your account has been deactivated.','Failure!');
                     }
                 },
-                error => this.toastr.error('A backend error has occurred '+error.message+' Please contact the administrator for further assistance.')
+                error => this.toastr.error(handleError(error),'Oops!')
             );
     }
 }

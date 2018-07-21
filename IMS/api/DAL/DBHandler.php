@@ -57,6 +57,7 @@ class DBHandler
         $param = array(&$id);
         return DBHelper::SelectParam($sp,$param);
     }
+
     // Add Equipment component methods
     public static function AddEquipment_Status()
     {
@@ -94,6 +95,7 @@ class DBHandler
         $param = array(&$name,&$desc,&$locGps,&$locPerson,&$cost,&$equipCond,&$brand,&$section,&$type,&$status,&$condPic,&$dateReceive);
         return DBHelper::SelectParam($sp,$param);
     }
+
     // Allocate Equipment component methods
     public static function AllocateEquipment_TechEmployees()
     {
@@ -151,6 +153,7 @@ class DBHandler
         $param = array(&$userID);
         return DBHelper::SelectParam($sp,$param);
     }
+
     // Business Footer methods
     public static function Business()
     {
