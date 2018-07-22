@@ -85,4 +85,15 @@ class DBHelper extends DB
         //Return Result
         return $result;
     }
+    public static function BlobRetrieve($query)
+    {
+        //Open Connection
+        $conn = DB::Connect();
+        $call = $conn->query($query);
+        //Get result
+        $result = $call->fetch_assoc();
+        //Close Connection
+        mysqli_close($conn);
+        return $result;
+    }
 }

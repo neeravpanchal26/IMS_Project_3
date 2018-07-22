@@ -4,6 +4,7 @@ import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
 import { ToastrService } from "ngx-toastr";
 import { handleError} from "../error/error";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { handleError} from "../error/error";
 export class LoginComponent implements OnInit {
     // Global Declaration
     private result:any;
+    public loginForm:FormGroup;
 
     // Default Constructor
     constructor(private service:LoginService,
@@ -20,13 +22,25 @@ export class LoginComponent implements OnInit {
                 private toastr:ToastrService) {}
 
     // Form Load
-    ngOnInit() {}
+    ngOnInit() {
+        //Form validation
+        this.loginForm = new FormGroup({
+            email: new FormControl('', [
+                Validators.required,
+                Validators.pattern("[^ @]*@[^ @]*")
+            ]),
+            password: new FormControl('', [
+                Validators.minLength(8),
+                Validators.required
+            ])
+        });
+    }
 
     // Login check method
     loginCheck(e)
     {
         if(e.target.elements[0].value!=null && e.target.elements[1].value!=null) {
-            this.login(e.target.elements[0].value,e.target.elements[1].value);
+            this.login(e.target.elements[0].value.toLowerCase(),e.target.elements[1].value);
         }
     }
 

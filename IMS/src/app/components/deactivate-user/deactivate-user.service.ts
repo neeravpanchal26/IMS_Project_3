@@ -12,6 +12,11 @@ export class DeactivateUserService {
     return this.http.get('/api/BLL/voidUser.php?action=users&userID='+ID) as Observable<any[]>;
   }
 
+  // Get Users by name
+  getUsersByName(ID,Name):Observable<any[]> {
+    return this.http.get('/api/BLL/voidUser.php?action=specificUser&userID='+ID+'&userName='+Name) as Observable<any[]>;
+  }
+
   // Update user status
   updateStatus(param:iUser) {
     return this.http.post('/api/BLL/voidUser.php?action=update',param)as Observable<any>;

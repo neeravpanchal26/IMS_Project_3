@@ -36,3 +36,8 @@ else if ($action == 'users') {
     $userID = json_decode($_GET['userID']);
     echo json_encode(DBHandler::VoidUser_Users($userID));
 }
+else if ($action == 'specificUser') {
+    $userID = json_decode($_GET['userID']);
+    $userName = $_GET['userName'];
+    echo json_encode(DBHandler::VoidUser_UsersByName($userID,$userName));
+}

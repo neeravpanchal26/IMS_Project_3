@@ -63,6 +63,12 @@ class DBHandler
         $param = array(&$id,&$type);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+    public static function VoidUser_UsersByName($id,$name)
+    {
+        $sp = 'CALL uspVoidUser_UsersByName (?,?)';
+        $param = array(&$id,&$name);
+        return DBHelper::SelectParam($sp,$param);
+    }
 
     // Add Equipment component methods
     public static function AddEquipment_Status()
@@ -160,10 +166,17 @@ class DBHandler
         return DBHelper::SelectParam($sp,$param);
     }
 
-    // Business Footer methods
+    // Business Footer components methods
     public static function Business()
     {
         $sp = 'CALL uspBusiness';
         return DBHelper::Select($sp);
+    }
+
+    // Business Logo method
+    public static function Business_Logo()
+    {
+        $sp = 'CALL uspBusiness_Logo';
+        return DBHelper::BlobRetrieve($sp);
     }
 }

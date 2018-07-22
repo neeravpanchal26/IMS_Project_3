@@ -79,12 +79,13 @@ export class DashboardComponent implements OnInit {
   // Dynamic chart function
   barChart(xAxis, yAxis, color, title,xTitle,yTitle) {
       this.chart = new Chart('canvas', {
-          type: 'bar',
+          type: 'line',
           data: {
               labels: xAxis,
               datasets: [{
+                  borderColor:"#007BFF",
                   data: yAxis,
-                  backgroundColor: color
+                  fill: false
               }]
           },
           options: {
@@ -111,6 +112,11 @@ export class DashboardComponent implements OnInit {
               },
               legend: {
                   display: false
+              },
+              elements: {
+                  line: {
+                      tension: 0,
+                  }
               },
               responsive: true
           }

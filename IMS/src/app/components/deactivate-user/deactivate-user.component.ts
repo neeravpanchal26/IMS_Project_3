@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DeactivateUserService, iUser } from "./deactivate-user.service";
 import { AddUserService } from "../add-user/add-user.service";
 import { ToastrService } from "ngx-toastr";
-import {LoginService} from "../login/login.service";
-import {handleError} from "../error/error";
+import { LoginService} from "../login/login.service";
+import { handleError} from "../error/error";
+import { FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-deactivate-user',
@@ -15,6 +16,7 @@ export class DeactivateUserComponent implements OnInit {
   // Global variable
   public users:any;
   public userType:any;
+  public search: FormControl;
 
   // Default Constructor
   constructor(private service:DeactivateUserService,
@@ -24,6 +26,17 @@ export class DeactivateUserComponent implements OnInit {
 
   // Form Load
   ngOnInit() {
+    //Search users
+    this.search = new FormControl();
+    this.search.valueChanges
+        .subscribe(
+            data => this.service.getUsersByName(this.login.getUserID(),data)
+                .subscribe(
+                    data => this.users = data,
+                    error=>this.toastr.error(handleError(error),'Oops!')
+                    )
+        );
+
     // Load users array
     this.service.getUsers(this.login.getUserID())
         .subscribe(
@@ -78,7 +91,7 @@ export class DeactivateUserComponent implements OnInit {
     this.service.updateType(param)
         .subscribe(data =>{
                 if(data == true){
-                    this.toastr.success(user + "'s type has been changed!", "Success!");
+                    this.toastr.success(user + "'s role has been changed!", "Success!");
                 }
             },
             //Error handling

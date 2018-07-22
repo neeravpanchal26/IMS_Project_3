@@ -43,7 +43,7 @@ export class AddUserComponent implements OnInit {
             lastName: e.target.elements[1].value,
             dob: e.target.elements[2].value,
             contactNumber: e.target.elements[3].value,
-            email: e.target.elements[4].value,
+            email: e.target.elements[4].value.toLowerCase(),
             password: e.target.elements[5].value,
             userType: e.target.elements[6].value,
             address1: e.target.elements[7].value,
