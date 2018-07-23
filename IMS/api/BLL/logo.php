@@ -17,4 +17,4 @@ echo $result['Logo'];
 //$sth = $db->query($query);
 //$fetch=$sth->fetch_assoc();
 //echo $fetch['Logo'];
-echo '<img src="data:image/jpeg;base64,'.base64_encode( $fetch['Logo'] ).'"/>';
+//echo '<img src="data:image/jpeg;base64,'.base64_encode( $fetch['Logo'] ).'"/>';

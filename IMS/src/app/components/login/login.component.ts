@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
                 data =>
                 {
                     this.result = data[0];
-                    if(this.result['Status'] == 1)
+                    if(this.result['Active'] == 1)
                     {
                         this.toastr.success("Welcome "+this.result['username'],'Success!');
                         this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
                     {
                         this.toastr.warning('Change a few things up and try submitting again.','Failure!');
                     }
-                    else if(this.result['Status'] == 0) {
+                    else if(this.result['Active'] == 0) {
                         this.toastr.warning(this.result['username']+' Please contact the administrator. Your account has been deactivated.','Failure!');
                     }
                 },

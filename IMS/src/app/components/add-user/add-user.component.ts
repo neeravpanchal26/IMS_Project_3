@@ -27,7 +27,7 @@ export class AddUserComponent implements OnInit {
       this.service.getCity()
           .subscribe(
               data => this.cities = data,
-              error=>this.toastr.error(handleError(error),'Oops!'))
+              error=>this.toastr.error(handleError(error),'Oops!'));
 
       // User Type Load up
       this.service.getUserType()

@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
       this.userName = this.service.getUserName();
       this.header.getLogo()
           .subscribe(
-              data => this.businessLogo = data,
+              data => {this.businessLogo = data;console.log(data)},
               error => this.toastr.error(handleError(error),'Oops!'));
   }
 }
