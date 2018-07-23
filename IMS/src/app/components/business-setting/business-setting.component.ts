@@ -19,11 +19,17 @@ export class BusinessSettingComponent implements OnInit {
 
   // Form Load
   ngOnInit() {
-    // Load logo
-      this.header.getLogo()
-          .subscribe(
-              data => this.businessLogo = data,
-              error=>this.toastr.error(handleError(error),'Oops!'))
+    // // Load logo
+    //   this.header.getLogo()
+    //       .subscribe(
+    //           data => this.businessLogo = data,
+    //           error=>this.toastr.error(handleError(error),'Oops!'))
+  }
+
+  // Business info update
+  onSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.elements[0].files[0]);
   }
 
 }

@@ -26,10 +26,11 @@ export class HeaderComponent implements OnInit {
   // Page Load
   ngOnInit() {
       this.userType = this.service.getUserType();
+      console.log(this,this.userType);
       this.userName = this.service.getUserName();
       this.header.getLogo()
           .subscribe(
-              data => {this.businessLogo = data;console.log(data)},
-              error => this.toastr.error(handleError(error),'Oops!'));
+              data => console.log(data)/*,
+              error => this.toastr.error(handleError(error),'Oops!')*/);
   }
 }

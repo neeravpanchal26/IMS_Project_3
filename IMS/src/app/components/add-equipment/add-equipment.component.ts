@@ -78,7 +78,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     };
     console.log(param);
     let result:any;
-    this.service.AddEquipment(param).subscribe(data=>result=data,
+    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},
       error => this.toastr.error(handleError(error),'Oops!'));
   }
   

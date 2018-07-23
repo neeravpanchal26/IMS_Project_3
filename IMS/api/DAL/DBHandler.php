@@ -101,7 +101,7 @@ class DBHandler
         $sp='CALL uspAddEquipment_Section';
         return DBHelper::Select($sp);
     }
-    public static function AddEquipment_Insert()
+    public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section, $status, $dateReceive)
     {
         $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?)';
         $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$status,&$dateReceive);

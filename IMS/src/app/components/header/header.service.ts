@@ -21,8 +21,8 @@ export class HeaderService {
   }
 
   // Get Logo
-  public getLogo():Observable<any> {
-    return this.http.get('/api/BLL/logo.php') as Observable<any>;
+  public getLogo():Observable<Blob> {
+    return this.http.get('/api/BLL/logo.php') as Observable<Blob>;
   }
 
 }
