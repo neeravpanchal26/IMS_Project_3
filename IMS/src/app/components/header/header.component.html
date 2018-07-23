@@ -14,7 +14,7 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/dashboard"><span class="oi oi-home"></span> Dashboard</a>
       </li>
-      <!--User links go here-->
+      <!--It Admin links go here-->
       <li class="nav-item" *ngIf="userType==1">
         <span class="navbar-link dropdown">
           <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +26,10 @@
           </div>
         </span>
       </li>
-      <!--User Links end here -->
+      <li class="nav-item" *ngIf="userType==1">
+        <a class="nav-link text-white" routerLink="/BuinessSetting"><span class="oi oi-wrench"></span> Business Settings</a>
+      </li>
+      <!--It admin Links end here -->
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/reports"><span class="oi oi-script"></span> Reports</a>
       </li>
