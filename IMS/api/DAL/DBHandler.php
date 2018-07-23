@@ -179,4 +179,10 @@ class DBHandler
         $sp = 'CALL uspBusiness_Logo';
         return DBHelper::BlobRetrieve($sp);
     }
+    //Manage Equipment methods
+    public static function GetEquipmentInfo()
+    {
+        $sp = 'CALL uspManageEquipment_GetEquipmentInfo';
+        return DBHelper::Select($sp);
+    }
 }
