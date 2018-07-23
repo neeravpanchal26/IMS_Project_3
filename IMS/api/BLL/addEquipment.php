@@ -33,19 +33,13 @@ else if ($action=='condition')
 else if ($action=='section')
 {
     echo json_encode(DBHandler::AddEquipment_Section());
-}
-else if($action=='insert')
-{
+} 
+else if ($action == 'insert') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if($display = DBHandler::AddEquipment_Insert($json->name,$json->desc, $json->locationGps,$json->locationPerson
-    ,$json->cost,$json->equipmentCondition,$json->brand,$json->section,$json->type,$json->status,$json->section,
-    $json->conditionPicture,$json->dateReceived))
-    {
+    if ($display = DBHandler::AddEquipment_Insert($json->name, $json->desc, $json->cost, $json->equipmentCondition, $json->brand, $json->section,$json->status,  $json->dateReceived)) {
         $response=$display;
-    }
-    else
-    {
+    } else {
         $response=$display;
     }
     echo json_encode($response);

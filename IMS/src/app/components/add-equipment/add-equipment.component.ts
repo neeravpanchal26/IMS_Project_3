@@ -52,8 +52,6 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
   { 
     this.service.GetBrands().subscribe(data=>this.brands=data);
     this.service.GetStatus().subscribe(data=>this.status=data);
-    this.service.GetUsers().subscribe(data=>this.users=data);
-    this.service.GetTypes().subscribe(data=>this.types=data)
     this.service.GetConditions().subscribe(data=>this.conditions=data);
     this.service.GetSections().subscribe(data=>this.sections=data);
   }
@@ -62,7 +60,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     this.location.getLocation().subscribe(data=>this.position=data);
 
   }
-  receiveEquipment(e)
+  addEquipment(e)
   {
     
     e.preventDefault();
@@ -70,19 +68,15 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     {
       name:e.target.elements[0].value,
       desc:e.target.elements[1].value,
-      locationGps:e.target.elements[3].value,
-      locationPerson:null,
-      cost:e.target.elements[4].value,
-      equipmentCondition:e.target.elements[5].value,
-      brand:e.target.elements[6].value,
-      section:e.target.elements[7].value,
-      type:e.target.elements[8].value,
-      status:e.target.elements[11].value,
-      conditionPic:e.target.files[0].value,
-      dateReceived:e.target.elements[10].value,
+      cost:e.target.elements[2].value,
+      equipmentCondition:e.target.elements[3].value,
+      brand:e.target.elements[4].value,
+      section:e.target.elements[5].value,
+      status:e.target.elements[6].value,
+      dateReceived:e.target.elements[7].value
     };
     console.log(param);
-    //this.service.AddEquipment(param);
+    this.service.AddEquipment(param);
   }
   
 }

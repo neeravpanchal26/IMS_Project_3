@@ -103,9 +103,9 @@ class DBHandler
     }
     public static function AddEquipment_Insert()
     {
-        $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        $param = array(&$name,&$desc,&$locGps,&$locPerson,&$cost,&$equipCond,&$brand,&$section,&$type,&$status,&$condPic,&$dateReceive);
-        return DBHelper::SelectParam($sp,$param);
+        $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?)';
+        $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$status,&$dateReceive);
+        return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
     // Allocate Equipment component methods
