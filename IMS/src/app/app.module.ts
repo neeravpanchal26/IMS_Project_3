@@ -7,13 +7,11 @@ import { AppRoutingModule, routingComponents} from "./app-routing.module";
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule} from "ngx-toastr";
 import { UiSwitchModule} from "ngx-toggle-switch";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ManageEquipmentComponent } from './component/manage-equipment/manage-equipment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-      routingComponents,
-      ManageEquipmentComponent
+      routingComponents
   ],
   imports: [
     BrowserModule,
