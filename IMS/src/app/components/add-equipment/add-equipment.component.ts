@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
 import { GeoLocationService } from './geolocation.service';
+import { ToastrService } from '../../../../node_modules/ngx-toastr';
+import { handleError } from '../error/error';
 
 @Component({
   selector: 'app-add-equipment',
@@ -17,7 +19,6 @@ export class AddEquipmentComponent implements OnInit {
   public types:any;
   public conditions:any;
   public sections:any;
-  public map:any;
 
   @ViewChild('cropper',undefined)
 
@@ -45,7 +46,7 @@ export class AddEquipmentComponent implements OnInit {
   }
 
 
-constructor(private service:AddEquipmentService, private location:GeoLocationService)
+constructor(private service:AddEquipmentService, private location:GeoLocationService, private toastr:ToastrService)
 {}
   
   ngOnInit()
@@ -76,7 +77,9 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       dateReceived:e.target.elements[7].value
     };
     console.log(param);
-    this.service.AddEquipment(param);
+    let result:any;
+    this.service.AddEquipment(param).subscribe(data=>result=data,
+      error => this.toastr.error(handleError(error),'Oops!'));
   }
   
 }
