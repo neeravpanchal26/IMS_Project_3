@@ -1,3 +1,40 @@
 <app-header></app-header>
+<div class="container">
+    <form>
+        <div class="py-5 text-center">
+            <img class="mb-4" src='../assets/logo.png' width="70" height="70">
+            <h1>Manage Equipment</h1>
+        </div>
 
+        <div class="form-row">
+            <div class="col-sm-6">
+                <h4>List of equipment</h4>
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr class="bg-light">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Condition</th>
+                            <th>Brand</th>
+                            <th>Section</th>
+                            <th>Status</th>
+                            <th colspan="2">Update</th>
+                        </tr>
+                        <tr *ngFor="let i of info">
+                                <td>{{i.EquipmentID}}</td>
+                                <td>{{i.Name}}</td>
+                                <td>{{i.Desc}}</td>
+                                <td>{{i.ConditionDesc}}</td>
+                                <td>{{i.BrandDesc}}</td>
+                                <td>{{i.SectionDesc}}</td>
+                                <td>{{i.StatusDesc}}</td>
+                                <td><button>Update</button></td>
+                            </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
 <app-footer></app-footer>

@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
 import { GeoLocationService } from './geolocation.service';
-import { ToastrService } from '../../../../node_modules/ngx-toastr';
-import { handleError } from '../error/error';
+import { GlobalService } from '../../globalAssets/global.service';
 
 @Component({
   selector: 'app-add-equipment',
   templateUrl: './add-equipment.component.html',
   styleUrls: ['./add-equipment.component.css'],
-  providers:[AddEquipmentService, GeoLocationService]
+  providers:[AddEquipmentService, GeoLocationService, GlobalService]
 })
 export class AddEquipmentComponent implements OnInit {
   public brands:any;
@@ -46,7 +45,7 @@ export class AddEquipmentComponent implements OnInit {
   }
 
 
-constructor(private service:AddEquipmentService, private location:GeoLocationService, private toastr:ToastrService)
+constructor(private service:AddEquipmentService, private location:GeoLocationService, private gService:GlobalService)
 {}
   
   ngOnInit()
@@ -79,7 +78,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     console.log(param);
     let result:any;
     this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},
-      error => this.toastr.error(handleError(error),'Oops!'));
+      error => this.gService.handleError(error));
   }
   
 }
