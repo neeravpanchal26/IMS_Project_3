@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { LoginService} from "../login/login.service";
 import { DashboardService} from "./dashboard.service";
-import {ToastrService} from "ngx-toastr";
-import {handleError} from "../error/error";
+import {GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +19,7 @@ export class DashboardComponent implements OnInit {
   // Default Constructor
   constructor(private login:LoginService,
               private service:DashboardService,
-              private toastr:ToastrService) { }
+              private gService:GlobalService) { }
 
   // Form Load
   ngOnInit() {
@@ -48,7 +47,7 @@ export class DashboardComponent implements OnInit {
                 this.barChart(firstName,count,color,'User movement in past 7 days.','Users','# of logins');
             },
                 //Error handling
-                error => this.toastr.error(handleError(error),'Oops!'));
+                error => this.gService.handleError(error));
     }
   }
   // User Data
@@ -72,8 +71,7 @@ export class DashboardComponent implements OnInit {
               this.chart.destroy();
               this.barChart(loginDate,count,color,username + "'s" + ' movement in past 7 days.','Dates','# of logins');
           },
-              error => this.toastr.error(handleError(error),'Oops!')
-              )
+              error => this.gService.handleError(error))
   }
 
   // Dynamic chart function

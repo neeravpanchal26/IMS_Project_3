@@ -19,10 +19,4 @@ export class HeaderService {
   getUserName() {
     return this.username;
   }
-
-  // Get Logo
-  public getLogo():Observable<Blob> {
-    return this.http.get('/api/BLL/logo.php') as Observable<Blob>;
-  }
-
 }

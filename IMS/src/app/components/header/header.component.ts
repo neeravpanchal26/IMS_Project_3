@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { HeaderService} from "./header.service";
-import { handleError} from "../error/error";
-import { ToastrService} from "ngx-toastr";
-import { DomSanitizer } from "@angular/platform-browser";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-header',
@@ -20,17 +18,20 @@ export class HeaderComponent implements OnInit {
   // Default Constructor
   constructor(private service:LoginService,
               private header:HeaderService,
-              private toastr:ToastrService,
-              public sanitizer:DomSanitizer) { }
+              private gService:GlobalService) { }
 
   // Page Load
   ngOnInit() {
+      // Get user type
       this.userType = this.service.getUserType();
-      console.log(this,this.userType);
+
+      // Get username
       this.userName = this.service.getUserName();
-      this.header.getLogo()
+
+      // Load Logo
+      this.gService.getLogo()
           .subscribe(
-              data => console.log(data)/*,
-              error => this.toastr.error(handleError(error),'Oops!')*/);
+              data => this.businessLogo = this.gService.selectPhoto(data),
+              error => this.gService.handleError(error));
   }
 }

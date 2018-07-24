@@ -7,6 +7,7 @@ import { LoginGuard } from "./components/login/login.guard";
 
 // Import Services here
 import { LoginService } from "./components/login/login.service";
+import { GlobalService } from "./globalAssets/global.service";
 
 // Import Components here
 import { LoginComponent } from './components/login/login.component';
@@ -54,7 +55,7 @@ const appRoutes:Routes = [
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes), CommonModule],
     exports: [RouterModule],
-    providers: [LoginService,LoginGuard],
+    providers: [LoginService,LoginGuard,GlobalService],
   declarations: []
 })
 export class AppRoutingModule { }

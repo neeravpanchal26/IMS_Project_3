@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { iAddUser } from "./add-user.service";
 import { AddUserService } from "./add-user.service";
 import { iSuburb} from "./add-user.service";
-import { ToastrService} from "ngx-toastr";
-import {handleError} from "../error/error";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-add-user',
@@ -19,7 +18,7 @@ export class AddUserComponent implements OnInit {
 
     // Default Constructor
     constructor(private service:AddUserService,
-                private toastr:ToastrService) { }
+                private gService:GlobalService) { }
 
     // Form Load
     ngOnInit() {
@@ -27,13 +26,13 @@ export class AddUserComponent implements OnInit {
       this.service.getCity()
           .subscribe(
               data => this.cities = data,
-              error=>this.toastr.error(handleError(error),'Oops!'));
+              error=> this.gService.handleError(error));
 
       // User Type Load up
       this.service.getUserType()
           .subscribe(
               data => this.userType = data,
-              error=>this.toastr.error(handleError(error),'Oops!'));
+              error=> this.gService.handleError(error));
     }
 
     // Add User Method
@@ -55,7 +54,7 @@ export class AddUserComponent implements OnInit {
         this.service.createUser(param)
             .subscribe(
                 data => result = data,
-                error => this.toastr.error(handleError(error),'Oops!'));
+                error => this.gService.handleError(error));
     }
 
     // Suburb Load Method
@@ -66,6 +65,6 @@ export class AddUserComponent implements OnInit {
         this.service.getSuburb(param)
             .subscribe(
                 data => this.suburbs=data,
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
     }
 }

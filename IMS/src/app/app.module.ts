@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents} from "./app-routing.module";
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule} from "ngx-toastr";
 import { UiSwitchModule} from "ngx-toggle-switch";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [

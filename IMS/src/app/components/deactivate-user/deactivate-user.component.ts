@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DeactivateUserService, iUser } from "./deactivate-user.service";
 import { AddUserService } from "../add-user/add-user.service";
-import { ToastrService } from "ngx-toastr";
 import { LoginService} from "../login/login.service";
-import { handleError} from "../error/error";
 import { FormControl} from "@angular/forms";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-deactivate-user',
@@ -21,8 +20,8 @@ export class DeactivateUserComponent implements OnInit {
   // Default Constructor
   constructor(private service:DeactivateUserService,
               private adduser:AddUserService,
-              private toastr: ToastrService,
-              private login:LoginService) { }
+              private login:LoginService,
+              private gService:GlobalService) { }
 
   // Form Load
   ngOnInit() {
@@ -33,21 +32,20 @@ export class DeactivateUserComponent implements OnInit {
             data => this.service.getUsersByName(this.login.getUserID(),data)
                 .subscribe(
                     data => this.users = data,
-                    error=>this.toastr.error(handleError(error),'Oops!')
-                    )
+                    error=> this.gService.handleError(error))
         );
 
     // Load users array
     this.service.getUsers(this.login.getUserID())
         .subscribe(
             data => this.users = data,
-            error=>this.toastr.error(handleError(error),'Oops!'));
+            error=> this.gService.handleError(error));
 
     // Load user types array
     this.adduser.getUserType()
         .subscribe(
             data => this.userType = data,
-            error=>this.toastr.error(handleError(error),'Oops!'));
+            error=> this.gService.handleError(error));
   }
 
   // Update Status
@@ -69,16 +67,14 @@ export class DeactivateUserComponent implements OnInit {
       .subscribe(data =>{
     if(data == true){
       if(e == true) {
-          this.toastr.success(user + "'s status has been activated!", "Success!");
+        this.gService.activatedSuccess(user);
       }
       else if (e == false) {
-          this.toastr.warning(user + "'s status has been deactivated!", "Success!");
+        this.gService.deactivatedSuccess(user);
       }
     }
   },
-          //Error handling
-  error => this.toastr.error(handleError(error),'Oops!')
-  );
+  error => this.gService.handleError(error));
   }
 
   // Change user type
@@ -91,11 +87,9 @@ export class DeactivateUserComponent implements OnInit {
     this.service.updateType(param)
         .subscribe(data =>{
                 if(data == true){
-                    this.toastr.success(user + "'s role has been changed!", "Success!");
+                  this.gService.userRoleChange(user);
                 }
             },
-            //Error handling
-            error => this.toastr.error(handleError(error),'Oops!')
-        );
+            error => this.gService.handleError(error));
   }
 }

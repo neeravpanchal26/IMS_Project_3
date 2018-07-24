@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdateUserInfo, UserSettingService} from "./user-setting.service";
 import { AddUserService, iSuburb} from "../add-user/add-user.service";
-import { handleError} from "../error/error";
-import { ToastrService} from "ngx-toastr";
+import {GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-user-setting',
@@ -22,7 +21,7 @@ export class UserSettingComponent implements OnInit {
     constructor(private service:UserSettingService,
                 private login:LoginService,
                 private addUser:AddUserService,
-                private toastr:ToastrService) {}
+                private gService:GlobalService) {}
 
     // Form Load
     ngOnInit() {
@@ -30,19 +29,19 @@ export class UserSettingComponent implements OnInit {
         this.addUser.getCity()
             .subscribe(
                 data => this.cities = data,
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
 
         // Suburb Load up
         this.service.getAllSuburb()
             .subscribe(
                 data => this.suburbs = data,
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
 
         // User Load up
         this.service.getSpecificUser(this.login.getUserID())
             .subscribe(
                 data=> {let r = data[0];this.user=r},
-                    error=>this.toastr.error(handleError(error),'Oops!'));
+                    error=> this.gService.handleError(error));
     }
 
     // Suburb Load Method
@@ -51,7 +50,7 @@ export class UserSettingComponent implements OnInit {
         this.addUser.getSuburb(param)
             .subscribe(
                 data => this.suburbs = data,
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
     }
 
     // Update user info Method
@@ -71,6 +70,6 @@ export class UserSettingComponent implements OnInit {
         this.service.updateUserInfo(param)
             .subscribe(
                 data => this.result = data,
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
     }
 }

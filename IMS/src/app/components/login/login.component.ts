@@ -2,28 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
-import { ToastrService } from "ngx-toastr";
-import { handleError} from "../error/error";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HeaderService} from "../header/header.service";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+    providers:[HeaderService]
 })
 export class LoginComponent implements OnInit {
     // Global Declaration
     private result:any;
     public loginForm:FormGroup;
+    public logo:any;
 
     // Default Constructor
     constructor(private service:LoginService,
                 private router:Router,
-                private toastr:ToastrService) {}
+                private header:HeaderService,
+                private gService:GlobalService) {}
 
     // Form Load
     ngOnInit() {
-        //Form validation
+        // Form validation
         this.loginForm = new FormGroup({
             email: new FormControl('', [
                 Validators.required,
@@ -34,6 +37,12 @@ export class LoginComponent implements OnInit {
                 Validators.required
             ])
         });
+
+        // Load Logo
+        this.gService.getLogo()
+            .subscribe(
+                data => this.logo = this.gService.selectPhoto(data),
+                error => this.gService.handleError(error));
     }
 
     // Login check method
@@ -57,21 +66,18 @@ export class LoginComponent implements OnInit {
                 data =>
                 {
                     this.result = data[0];
-                    if(this.result['Active'] == 1)
-                    {
-                        this.toastr.success("Welcome "+this.result['username'],'Success!');
+                    if(this.result['Active'] == 1) {
+                        this.gService.loginSuccess(this.result['username']);
                         this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
                         this.router.navigate(['dashboard']);
                     }
-                    else if(this.result['FALSE'] == 0)
-                    {
-                        this.toastr.warning('Change a few things up and try submitting again.','Failure!');
+                    else if(this.result['FALSE'] == 0) {
+                        this.gService.loginFailure();
                     }
                     else if(this.result['Active'] == 0) {
-                        this.toastr.warning(this.result['username']+' Please contact the administrator. Your account has been deactivated.','Failure!');
+                        this.gService.loginDeactivated(this.result['username']);
                     }
                 },
-                error => this.toastr.error(handleError(error),'Oops!')
-            );
+                error => this.gService.handleError(error));
     }
 }

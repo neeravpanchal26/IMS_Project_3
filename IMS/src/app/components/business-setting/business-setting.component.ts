@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from "../header/header.service";
-import {handleError} from "../error/error";
-import {ToastrService} from "ngx-toastr";
+import {GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-business-setting',
@@ -11,19 +10,19 @@ import {ToastrService} from "ngx-toastr";
 })
 export class BusinessSettingComponent implements OnInit {
   // Global Variables
-  public businessLogo:Blob;
+  public businessLogo:any;
 
   // Default Constructor
   constructor(private header:HeaderService,
-              private toastr:ToastrService) { }
+              private gService:GlobalService) { }
 
   // Form Load
   ngOnInit() {
-    // // Load logo
-    //   this.header.getLogo()
-    //       .subscribe(
-    //           data => this.businessLogo = data,
-    //           error=>this.toastr.error(handleError(error),'Oops!'))
+      // Load Logo
+      this.gService.getLogo()
+          .subscribe(
+              data => this.businessLogo = this.gService.selectPhoto(data),
+              error => this.gService.handleError(error));
   }
 
   // Business info update

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdate, UserPasswordResetService} from "./user-password-reset.service";
-import { handleError} from "../error/error";
-import {ToastrService} from "ngx-toastr";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-user-password-reset',
@@ -18,7 +17,7 @@ export class UserPasswordResetComponent implements OnInit {
   // Default Constructor
   constructor(private login:LoginService,
               private service:UserPasswordResetService,
-              private toastr:ToastrService) { }
+              private gService:GlobalService) { }
 
   // Form Load
   ngOnInit() {
@@ -30,7 +29,7 @@ export class UserPasswordResetComponent implements OnInit {
       this.service.updatePassword(param)
           .subscribe(
               data => {if(data==true) {this.result = true;} else {this.result = false;}},
-              error=>this.toastr.error(handleError(error),'Oops!'));
+              error=> this.gService.handleError(error));
   }
 
   // Old password check method
@@ -44,7 +43,6 @@ export class UserPasswordResetComponent implements OnInit {
                   else
                       this.oldPword = false;
               },
-              error=>this.toastr.error(handleError(error),'Oops!')
-              );
+              error=> this.gService.handleError(error));
     }
 }

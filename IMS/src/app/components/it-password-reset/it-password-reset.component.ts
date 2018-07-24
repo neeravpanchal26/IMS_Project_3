@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from "@angular/router";
 import { iUpdate, UserPasswordResetService} from "../user-password-reset/user-password-reset.service";
 import { UserSettingService} from "../user-setting/user-setting.service";
-import { ToastrService} from "ngx-toastr";
-import {handleError} from "../error/error";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-it-password-reset',
@@ -20,7 +19,7 @@ export class ItPasswordResetComponent implements OnInit {
     constructor(private user:UserPasswordResetService,
                 private route:ActivatedRoute,
                 private setting:UserSettingService,
-                private toastr:ToastrService) { }
+                private gService:GlobalService) { }
 
     // Form Load
     ngOnInit() {
@@ -28,7 +27,7 @@ export class ItPasswordResetComponent implements OnInit {
         this.setting.getSpecificUser(this.userID)
             .subscribe(
                 data => this.userInfo = data[0],
-                error=>this.toastr.error(handleError(error),'Oops!'));
+                error=> this.gService.handleError(error));
     }
 
     // Reset password method
@@ -39,9 +38,9 @@ export class ItPasswordResetComponent implements OnInit {
           .subscribe(
           data=> {
               if(data == true) {
-                  this.toastr.success('Password has been reset for '+this.userInfo['FirstName']+' '+this.userInfo['Surname']+'.','Success!');
+                  this.gService.passwordResetSuccess(this.userInfo['FirstName'],this.userInfo['Surname']);
               }
           },
-          error => this.toastr.error('An error has occurred. Your changes have not been updated. '+error.message+' Please contact the administrator.','Watch out!'));
+          error => this.gService.handleError(error));
     }
 }
