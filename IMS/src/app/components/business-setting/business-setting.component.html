@@ -9,21 +9,47 @@
     </div>
 
     <div class="form-row">
+      <div class="row">
       <!--Current Logo-->
-      <div class="col-lg-12 text-center">
-        <img class="mx-auto d-block" [src]="businessLogo" style="max-height: 250px;max-width: 250px">
+      <div class="card col-lg-3" >
+        <img class="card-img-top" [src]="businessLogo">
+        <div class="card-body">
+          <h5 class="card-title">Current Logo</h5>
+        </div>
       </div>
 
-      <div class="col-lg-12">
-        <!--Business Logo input-->
-        <label for="BusinessLogo">Business Logo</label>
-        <input id="BusinessLogo" type="file" class="form-control">
+      <div class="col-lg-9">
+          <div class="col-lg-12">
+            <!--Business Logo input-->
+            <label for="BusinessLogo">Upload new Logo</label>
+            <input id="BusinessLogo" type="file" class="form-control">
+          </div>
+
+          <div class="col-lg-12">
+            <!--Business Name input-->
+            <label>Name</label>
+            <input type="text" class="form-control" [value]="business.BusinessName">
+          </div>
+
+          <div class="col-lg-12">
+            <!--Business Contact input-->
+            <label>Contact Details</label>
+            <input type="text" class="form-control" [value]="business.contact">
+          </div>
+
+          <div class="col-lg-12">
+            <!--Business Email input-->
+            <label>Email Address</label>
+            <input type="text" class="form-control" [value]="business.Email">
+          </div>
+          <br/>
+          <div class="col-lg-2">
+            <!--Add user button-->
+            <button type="submit" class="btn btn-primary">Update Information</button>
+          </div>
+      </div>
       </div>
     </div>
-      <div class="pt-3">
-        <!--Add user button-->
-        <button type="submit" class="btn btn-primary col-lg-2">Update Information</button>
-      </div>
   </form>
 </div>
 <!--Footer-->

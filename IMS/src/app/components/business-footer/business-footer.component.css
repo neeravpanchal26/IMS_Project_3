@@ -1,3 +1,6 @@
-.footer{
-    min-height: 100%;
+#footer{
+    padding-top: 70px;
+    bottom: 0;
+    height: 2em;
+    position: relative;
 }
