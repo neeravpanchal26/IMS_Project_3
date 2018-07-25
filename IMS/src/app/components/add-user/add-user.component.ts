@@ -53,7 +53,11 @@ export class AddUserComponent implements OnInit {
         let result: any;
         this.service.createUser(param)
             .subscribe(
-                data => result = data,
+                data => {
+                    if(data==true){
+                        this.gService.addUserSuccess(param.firstName,param.lastName);
+                    }
+                        },
                 error => this.gService.handleError(error));
     }
 

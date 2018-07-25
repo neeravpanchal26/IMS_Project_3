@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
+import { HttpClient} from "@angular/common/http";
+import { Observable} from "rxjs/Observable";
 
 @Injectable()
 export class BusinessSettingService {
@@ -11,9 +11,17 @@ export class BusinessSettingService {
   uploadImage(param:iImage):Observable<any> {
     return this.http.post('/api/BLL/imageUpload.php',param,{responseType:'blob'}) as Observable<any>;
   }
-
+  // Business Update info
+  updateInfo(param:iBusinesss):Observable<any> {
+      return this.http.post('/api/BLL/business.php?action=update',param) as Observable<any>;
+  }
 }
 // Wrapper Classes
 export interface iImage {
     image:any
+}
+export interface iBusinesss {
+    name:any,
+    contact:any,
+    email:any
 }

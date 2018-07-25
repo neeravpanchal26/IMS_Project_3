@@ -173,12 +173,19 @@ class DBHandler
         return DBHelper::Select($sp);
     }
 
-    // Business Logo method
+    // Business Setting components methods
     public static function Business_Logo()
     {
         $sp = 'CALL uspBusiness_Logo';
         return DBHelper::BlobRetrieve($sp);
     }
+    public static function Business_Update($name,$contact,$email)
+    {
+        $sp = 'CALL uspBusiness_Update(?,?,?)';
+        $param = array(&$name,&$contact,&$email);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+
     //Manage Equipment methods
     public static function GetEquipmentInfo()
     {

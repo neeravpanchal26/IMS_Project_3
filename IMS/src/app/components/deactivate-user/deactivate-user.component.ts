@@ -16,6 +16,7 @@ export class DeactivateUserComponent implements OnInit {
   public users:any;
   public userType:any;
   public search: FormControl;
+  public filter:null;
 
   // Default Constructor
   constructor(private service:DeactivateUserService,
@@ -25,16 +26,6 @@ export class DeactivateUserComponent implements OnInit {
 
   // Form Load
   ngOnInit() {
-    //Search users
-    this.search = new FormControl();
-    this.search.valueChanges
-        .subscribe(
-            data => this.service.getUsersByName(this.login.getUserID(),data)
-                .subscribe(
-                    data => this.users = data,
-                    error=> this.gService.handleError(error))
-        );
-
     // Load users array
     this.service.getUsers(this.login.getUserID())
         .subscribe(

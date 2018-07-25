@@ -11,4 +11,13 @@ require_once '../DAL/DBHandler.php';
 
 use DAL\DBHandler;
 
-echo json_encode(DBHandler::Business());
+$action =   $_GET['action'];
+
+if($action == 'info') {
+    echo json_encode(DBHandler::Business());
+}
+else if ($action == 'update') {
+    $incoming = file_get_contents('php://input');
+    $json = json_decode($incoming);
+    echo json_encode(DBHandler::Business_Update($json->name,$json->contact,$json->email));
+}

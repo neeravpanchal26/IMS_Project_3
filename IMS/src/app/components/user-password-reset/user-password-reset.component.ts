@@ -28,7 +28,12 @@ export class UserPasswordResetComponent implements OnInit {
       let param:iUpdate = {userID:this.login.getUserID(), password:e.target.elements[1].value};
       this.service.updatePassword(param)
           .subscribe(
-              data => {if(data==true) {this.result = true;} else {this.result = false;}},
+              data => {
+                  if(data==true) {
+                      this.gService.userPasswordResetSuccess();
+                  } else {
+                      this.result = false;}
+                      },
               error=> this.gService.handleError(error));
   }
 
@@ -38,8 +43,9 @@ export class UserPasswordResetComponent implements OnInit {
           .subscribe (
               data=> {
                   let r = data[0];
-                  if(r['result'] == 1)
+                  if(r['result'] == 1) {
                       this.oldPword = true;
+                  }
                   else
                       this.oldPword = false;
               },

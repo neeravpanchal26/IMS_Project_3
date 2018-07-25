@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {GlobalService} from "../../globalAssets/global.service";
-import {BusinessFooterService} from "../business-footer/business-footer.service";
-import {BusinessSettingService, iImage} from "./business-setting.service";
+import { GlobalService} from "../../globalAssets/global.service";
+import { BusinessFooterService} from "../business-footer/business-footer.service";
+import {BusinessSettingService, iBusinesss, iImage} from "./business-setting.service";
 
 @Component({
   selector: 'app-business-setting',
@@ -37,14 +37,26 @@ export class BusinessSettingComponent implements OnInit {
   // Business info update
   onSubmit(e) {
     e.preventDefault();
-    console.log(e.target.elements[0].files[0]);
-    console.log(window.URL.createObjectURL(e.target.elements[0].files[0]));
-    let param:iImage = {
-      image:window.URL.createObjectURL(e.target.elements[0].files[0])
-    };
-    this.service.uploadImage(param)
-        .subscribe();
-    console.log(e.target.elements);
+    // console.log(e.target.elements[0].files[0]);
+    // console.log(window.URL.createObjectURL(e.target.elements[0].files[0]));
+    // let param:iImage = {
+    //   image:window.URL.createObjectURL(e.target.elements[0].files[0])
+    // };
+    // this.service.uploadImage(param)
+    //     .subscribe();
+    let param: iBusinesss = {
+      name:e.target.elements[1].value,
+        contact:e.target.elements[2].value,
+        email:e.target.elements[3].value
+    }
+    this.service.updateInfo(param)
+        .subscribe(
+            data => {
+              if(data == true) {
+                this.gService.businessUpdateSuccess();
+              }
+            },
+            error => this.gService.handleError(error));
   }
 
 }

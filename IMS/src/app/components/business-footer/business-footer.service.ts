@@ -9,7 +9,7 @@ export class BusinessFooterService {
 
   // Business info load
   getBusinessInfo():Observable<any> {
-    return this.http.get('/api/BLL/business.php') as Observable <any>;
+    return this.http.get('/api/BLL/business.php?action=info') as Observable <any>;
   }
 
 }

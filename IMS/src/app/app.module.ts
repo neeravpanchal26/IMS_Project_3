@@ -7,6 +7,9 @@ import { AppRoutingModule, routingComponents} from "./app-routing.module";
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule} from "ngx-toastr";
 import { UiSwitchModule} from "ngx-toggle-switch";
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Ng2SearchPipeModule} from "ng2-search-filter";
+import { Ng2OrderModule } from "ng2-order-pipe";
+import { NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
       }),
       UiSwitchModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      Ng2SearchPipeModule,
+      Ng2OrderModule,
+      NgxPaginationModule
   ],
   bootstrap: [AppComponent]
 })

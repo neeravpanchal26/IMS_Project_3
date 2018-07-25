@@ -13,7 +13,7 @@
         <span class="oi oi-magnifying-glass"></span>
       </div>
     </div>
-    <input type="text" class="form-control" placeholder="Search Name or Surname" [formControl]="search">
+    <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
   </div>
   <br>
 
@@ -26,7 +26,7 @@
       <th>Status</th>
       <th>Security</th>
     </tr></thead>
-    <tr *ngFor="let u of users">
+    <tr *ngFor="let u of users | filter:filter | paginate: { itemsPerPage: 3, currentPage: p };">
       <td>{{u.info}}</td>
       <td>{{u.Email}}</td>
       <td>
@@ -42,6 +42,7 @@
       </td>
     </tr>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 <!--Footer-->
 <app-business-footer></app-business-footer>

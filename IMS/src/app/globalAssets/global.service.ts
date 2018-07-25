@@ -52,4 +52,24 @@ export class GlobalService {
   loginDeactivated(username) {
     return this.toast.error(username+' Please contact the administrator. Your account has been deactivated.','Failure!');
   }
+
+  // Add user component notification here
+  addUserSuccess(firstname,surname) {
+    return this.toast.success(firstname+' '+surname+' has been added to the system. User is currently deactivated.','Success!');
+  }
+
+  // Business Setting component notification here
+  businessUpdateSuccess() {
+    return this.toast.success('Your business information has been updated','Success!');
+  }
+
+  // User Setting component notifications here
+  userSettingUpdateSuccess(firstName,surname) {
+    return this.toast.success(firstName+' '+surname+' your personal information has been updated.','Success!');
+  }
+
+  // User password reset component notification here
+  userPasswordResetSuccess() {
+    return this.toast.success('Your password has been updated.','Success!');
+  }
 }

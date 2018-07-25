@@ -66,10 +66,14 @@ export class UserSettingComponent implements OnInit {
             address1:e.target.elements[5].value,
             address2:e.target.elements[6].value,
             suburb:e.target.elements[8].value
-        }
+        };
         this.service.updateUserInfo(param)
             .subscribe(
-                data => this.result = data,
+                data => {
+                    if(data == true) {
+                        this.gService.userSettingUpdateSuccess(param.firstName,param.lastName);
+                    }
+                },
                 error=> this.gService.handleError(error));
     }
 }
