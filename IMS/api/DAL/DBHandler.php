@@ -63,12 +63,6 @@ class DBHandler
         $param = array(&$id,&$type);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
-    public static function VoidUser_UsersByName($id,$name)
-    {
-        $sp = 'CALL uspVoidUser_UsersByName (?,?)';
-        $param = array(&$id,&$name);
-        return DBHelper::SelectParam($sp,$param);
-    }
 
     // Add Equipment component methods
     public static function AddEquipment_Status()
@@ -189,6 +183,11 @@ class DBHandler
         $sp = 'CALL uspBusiness_Update(?,?,?)';
         $param = array(&$name,&$contact,&$email);
         return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Business_Logo_Upload($image)
+    {
+        $sp = 'CALL uspBusiness_Logo_Upload(?)';
+        return DBHelper::BlobUpload($sp,$image);
     }
 
     //Manage Equipment methods
