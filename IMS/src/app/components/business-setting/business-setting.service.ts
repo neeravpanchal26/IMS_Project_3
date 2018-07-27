@@ -8,8 +8,8 @@ export class BusinessSettingService {
   constructor(private http:HttpClient) { }
 
   //upload image
-  uploadImage(param:iImage):Observable<any> {
-    return this.http.post('/api/BLL/imageUpload.php',param,{responseType:'blob'}) as Observable<any>;
+  uploadImage(param:FormData):Observable<any> {
+    return this.http.post('/api/BLL/imageUpload.php',param) as Observable<any>;
   }
   // Business Update info
   updateInfo(param:iBusinesss):Observable<any> {
@@ -17,9 +17,6 @@ export class BusinessSettingService {
   }
 }
 // Wrapper Classes
-export interface iImage {
-    image:any
-}
 export interface iBusinesss {
     name:any,
     contact:any,

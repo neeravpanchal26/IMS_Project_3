@@ -96,4 +96,19 @@ class DBHelper extends DB
         mysqli_close($conn);
         return $result;
     }
+    public static function BlobUpload($query,$image)
+    {
+        //Open Connection
+        $conn = DB::Connect();
+        //Prepare Query
+        $call = mysqli_prepare($conn, $query);
+        $null = NULL;
+        $call->bind_param('b',$null);
+        $call->send_long_data(0, $image);
+        $call->execute();
+        //Close Connection
+        mysqli_close($conn);
+        //Return Result
+        return $call;
+    }
 }
