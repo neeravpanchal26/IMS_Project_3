@@ -54,6 +54,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     this.service.GetStatus().subscribe(data=>this.status=data);
     this.service.GetConditions().subscribe(data=>this.conditions=data);
     this.service.GetSections().subscribe(data=>this.sections=data);
+    this.service.GetTypes().subscribe(data=>this.types=data);
   }
   getLocation()
   {
@@ -72,13 +73,13 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       equipmentCondition:e.target.elements[3].value,
       brand:e.target.elements[4].value,
       section:e.target.elements[5].value,
-      status:e.target.elements[6].value,
+      type:e.target.elements[6].value,
+      status:"2",
       dateReceived:e.target.elements[7].value
     };
     console.log(param);
     let result:any;
-    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},
-      error => this.gService.handleError(error));
+    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
   }
   
 }

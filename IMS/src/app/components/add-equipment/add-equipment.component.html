@@ -66,15 +66,13 @@
     </div>
     <div class="form-row">
       <div class="col-sm-6">
-        <!-- Select Status -->
-        <label>Status</label>
+        <label>Type</label>
         <select class="form-control">
-          <option disabled selected>Status</option>
-          <option *ngFor="let s of status" value="{{s.StatusID}}">{{s.StatusDesc}}</option>
+          <option disabled selected>Type</option>
+          <option *ngFor="let t of types" value={{t.TypeID}}>{{t.TypeDesc}}</option>
         </select>
       </div>
-      <div class="col-sm-6">
-        <!--Add picture button-->
+      <!--Add picture button-->
         <!--<label> Upload Picture</label>
                       <br>
                       <input type="file" (change)="preview($event)" accept="image/*">
@@ -84,20 +82,15 @@
                     </div>
                     <div class="col-sm-6">-->
         <!-- Select Date -->
-        <label>Date Received</label>
+        <div class="col-sm-6">
+          <label>Date Received</label>
         <input type="date" class="form-control" placeholder="Section">
       </div>
-    </div>
-    <div class="form-row">
-
-
-    </div>
-    <div class="form-row">
       
     </div>
-    <div>
-      <div class="pt-3">
-        <!--Add equipment button-->
+    <div class="form-row">
+      <div class="col-sm-6">
+        <!--Add equipment <button--><br><br>
         <button type="submit" class="btn btn-primary col-lg-15">Add Equipment</button>
       </div>
     </div>

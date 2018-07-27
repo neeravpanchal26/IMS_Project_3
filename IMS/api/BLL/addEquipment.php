@@ -37,7 +37,7 @@ else if ($action=='section')
 else if ($action == 'insert') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if ($display = DBHandler::AddEquipment_Insert($json->name, $json->desc, $json->cost, $json->equipmentCondition, $json->brand, $json->section,$json->status,  $json->dateReceived)) {
+    if ($display = DBHandler::AddEquipment_Insert($json->name, $json->desc, $json->cost, $json->equipmentCondition, $json->brand, $json->section,$json->type,$json->status,  $json->dateReceived)) {
         $response=$display;
     } else {
         $response=$display;

@@ -101,10 +101,10 @@ class DBHandler
         $sp='CALL uspAddEquipment_Section';
         return DBHelper::Select($sp);
     }
-    public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section, $status, $dateReceive)
+    public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section,$type, $status, $dateReceive)
     {
-        $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?, ?, ?, ?)';
-        $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$status,&$dateReceive);
+        $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?,?, ?, ?, ?)';
+        $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$type,&$status,&$dateReceive);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
@@ -117,6 +117,11 @@ class DBHandler
     public static function AllocateEquipment_Equipments()
     {
         $sp='CALL uspAllocateEquipment_Equipments';
+        return DBHelper::Select($sp);
+    }
+    public static function AllocateEquipment_UnassignedEquipment()
+    {
+        $sp='CALL uspAllocateEquipment_GetUnnassignedEquipment';
         return DBHelper::Select($sp);
     }
 
