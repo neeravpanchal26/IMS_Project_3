@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { LoginService} from "../login/login.service";
 import { DashboardService} from "./dashboard.service";
-import {GlobalService} from "../../globalAssets/global.service";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   chart = Chart;
   public user = [];
   public userType;
+  public filter = null;
 
   // Default Constructor
   constructor(private login:LoginService,
@@ -50,6 +51,7 @@ export class DashboardComponent implements OnInit {
                 error => this.gService.handleError(error));
     }
   }
+
   // User Data
   userData(input,username) {
       this.service.getIndivdualData(input)
@@ -120,11 +122,22 @@ export class DashboardComponent implements OnInit {
           }
       });
   }
+
   // Random color function
   colorFunction() {
       let r = Math.floor(Math.random() * 255);
       let g = Math.floor(Math.random() * 255);
       let b = Math.floor(Math.random() * 255);
       return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  // Sorting
+  key: string = 'lastAccess'; //set default
+  reverse: boolean = true;
+
+  // Sorting method
+  sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
   }
 }

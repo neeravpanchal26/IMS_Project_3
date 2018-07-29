@@ -20,13 +20,13 @@
   <!--Users Table-->
   <table class="table table-responsive-sm table-sm table-hover">
     <thead><tr class="bg-light">
-      <th>Full Name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Status</th>
+      <th (click)="sort('info')" class="btn-link">Full Name</th>
+      <th (click)="sort('Email')" class="btn-link">Email</th>
+      <th (click)="sort('Type')" class="btn-link">Role</th>
+      <th (click)="sort('Active')" class="btn-link">Status</th>
       <th>Security</th>
     </tr></thead>
-    <tr *ngFor="let u of users | filter:filter | paginate: { itemsPerPage: 3, currentPage: p };">
+    <tr *ngFor="let u of users | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };">
       <td>{{u.info}}</td>
       <td>{{u.Email}}</td>
       <td>

@@ -2,7 +2,7 @@
 <app-header></app-header>
 <!--Add User Form-->
 <div class="container">
-  <form (submit)="addUser($event)">
+  <form (ngSubmit)="addUser(addUserForm)" [formGroup]="addUserForm">
     <!--Heading-->
     <div class="py-5 text-center">
       <h1>Create New User</h1>
@@ -12,18 +12,13 @@
       <div class="col-sm-6">
         <!--First name input-->
         <label for="firstName">First Name</label>
-        <input id="firstName" type="text" class="form-control" placeholder="First name">
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-        <div class="invalid-feedback">
-          First name required.
-        </div>
+        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name">
       </div>
+
       <div class="col-sm-6">
         <!--Last name input-->
         <label>Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name">
+        <input type="text" class="form-control" placeholder="Last name" formControlName="surname">
       </div>
     </div>
 
@@ -31,12 +26,15 @@
       <div class="col-sm-6">
         <!--Date of Birth input-->
         <label>Date of Birth</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control" formControlName="dob">
       </div>
       <div class="col-sm-6">
         <!--Phone input-->
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Contact Number">
+        <input type="text" class="form-control" placeholder="Contact Number" [class.is-invalid]="phoneCheck == true" formControlName="contact">
+        <div class="invalid-feedback">
+          It seems this phone number exists on our system.
+        </div>
       </div>
     </div>
 
@@ -44,17 +42,20 @@
       <div class="col-sm-6">
         <!--Email input-->
         <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="Email address">
+        <input type="email" class="form-control" placeholder="Email address" [class.is-invalid]="emailCheck == true" formControlName="email">
+        <div class="invalid-feedback">
+          It seems this email exists on our system.
+        </div>
       </div>
       <div class="col-sm-3">
         <!--Password input-->
         <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password">
       </div>
       <div class="col-sm-3">
         <!--User Type input-->
         <label>User Type</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="type">
           <option selected>Choose...</option>
           <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
         </select>
@@ -65,7 +66,7 @@
       <div class="col-sm-12">
         <!--Address input-->
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St">
+        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1">
       </div>
     </div>
 
@@ -73,7 +74,7 @@
       <div class="col-sm-12">
         <!--Address 2 input-->
         <label>Address 2</label>
-        <input type="text" class="form-control" placeholder="Apartment, studio, or floor">
+        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2">
       </div>
     </div>
 
@@ -81,7 +82,7 @@
       <div class="col-lg-6">
         <!--City input-->
         <label>City</label>
-        <select class="form-control" (change)="subLoad($event.target.value)">
+        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city">
           <option selected>Choose...</option>
           <option *ngFor="let c of cities" value="{{c.cityID}}">{{c.cityName}}</option>
         </select>
@@ -89,7 +90,7 @@
       <div class="col-lg-6">
         <!--Suburb input-->
         <label>Suburb</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="suburb">
           <option selected>Choose...</option>
           <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
         </select>

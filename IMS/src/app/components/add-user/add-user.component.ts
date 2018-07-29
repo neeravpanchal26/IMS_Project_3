@@ -3,6 +3,7 @@ import { iAddUser } from "./add-user.service";
 import { AddUserService } from "./add-user.service";
 import { iSuburb} from "./add-user.service";
 import { GlobalService} from "../../globalAssets/global.service";
+import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 
 @Component({
   selector: 'app-add-user',
@@ -15,13 +16,20 @@ export class AddUserComponent implements OnInit {
     public cities: any;
     public suburbs: any;
     public userType: any;
+    public emailCheck:boolean;
+    public phoneCheck:boolean;
+    public addUserForm:FormGroup;
 
     // Default Constructor
     constructor(private service:AddUserService,
-                private gService:GlobalService) { }
+                private gService:GlobalService,
+                private formBuilder:FormBuilder) { }
 
     // Form Load
     ngOnInit() {
+      // Form Validation
+      this.buildForm();
+
       // City Load up
       this.service.getCity()
           .subscribe(
@@ -38,24 +46,35 @@ export class AddUserComponent implements OnInit {
     // Add User Method
     addUser(e) {
         let param: iAddUser = {
-            firstName: e.target.elements[0].value,
-            lastName: e.target.elements[1].value,
-            dob: e.target.elements[2].value,
-            contactNumber: e.target.elements[3].value,
-            email: e.target.elements[4].value.toLowerCase(),
-            password: e.target.elements[5].value,
-            userType: e.target.elements[6].value,
-            address1: e.target.elements[7].value,
-            address2: e.target.elements[8].value,
-            suburb: e.target.elements[9].value
+            firstName: e.value['name'],
+            lastName: e.value['surname'],
+            dob: e.value['dob'],
+            contactNumber: e.value['contact'],
+            email: e.value['email'].toLowerCase(),
+            password: e.value['password'],
+            userType: e.value['type'],
+            address1: e.value['address1'],
+            address2: e.value['address2'],
+            suburb: e.value['suburb']
         };
 
         let result: any;
         this.service.createUser(param)
             .subscribe(
                 data => {
-                    if(data==true){
+                    let r = data[0];
+                    if(r['TRUE'] == 1) {
                         this.gService.addUserSuccess(param.firstName,param.lastName);
+                    }
+                    if(r['emailExists'] == 1) {
+                        this.emailCheck = true;
+                    }
+                    else if (r['phoneExists'] == 1) {
+                        this.phoneCheck = true;
+                    }
+                    else if (r['bothExists'] == 1) {
+                        this.phoneCheck = true;
+                        this.emailCheck = true;
                     }
                         },
                 error => this.gService.handleError(error));
@@ -70,5 +89,23 @@ export class AddUserComponent implements OnInit {
             .subscribe(
                 data => this.suburbs=data,
                 error=> this.gService.handleError(error));
+    }
+
+    // Form Builder
+    buildForm():void {
+        let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+        this.addUserForm = this.formBuilder.group({
+            'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
+            'surname':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
+            'dob':['',Validators.required],
+            'contact':['',Validators.compose([Validators.required,Validators.maxLength(10)])],
+            'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(100)])],
+            'password':['',Validators.compose([Validators.required,Validators.minLength(8)])],
+            'type':['',Validators.required],
+            'address1':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
+            'address2':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
+            'city':['',Validators.required],
+            'suburb':['',Validators.required]
+        });
     }
 }

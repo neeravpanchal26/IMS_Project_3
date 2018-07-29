@@ -1,6 +1,6 @@
 <div class="container">
     <!--Form Start-->
-    <form class="form-signin text-center" (submit)=loginCheck($event)>
+    <form class="form-signin text-center" (ngSubmit)="loginCheck(loginForm)" [formGroup]="loginForm">
         <!--Logo-->
         <img class="mb-4" [src]="logo" width="150" height="150">
 
@@ -12,7 +12,15 @@
                     <span class="oi oi-envelope-closed"></span>
                 </div>
             </div>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="loginForm.controls['email'].valid"  [class.is-invalid]="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+            <div [class.invalid-feedback] = "loginForm.controls['email'].hasError('required')">
+                <div *ngIf="loginForm.controls['email'].hasError('required')">Email is required.</div>
+            </div>
+            <div [class.invalid-feedback] = "loginForm.controls['email'].hasError('pattern')">
+                <div *ngIf="loginForm.controls['email'].hasError('pattern')">Check you email format.</div>
+            </div>
+            <div class="valid-feedback">
+            </div>
         </div>
 
         <!--Password Input-->
@@ -23,7 +31,15 @@
                     <span class="oi oi-key"></span>
                 </div>
             </div>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" formControlName="password" [class.is-valid]="loginForm.controls['password'].valid" [class.is-invalid]="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+            <div [class.invalid-feedback] = "loginForm.controls['password'].hasError('required')">
+                <div *ngIf="loginForm.controls['password'].hasError('required')">Password is required.</div>
+            </div>
+            <div [class.invalid-feedback] = "loginForm.controls['password'].hasError('minlength')">
+                <div *ngIf="loginForm.controls['password'].hasError('minlength')">Password should contain 8 characters.</div>
+            </div>
+            <div class="valid-feedback">
+            </div>
         </div>
 
         <!--Login Button-->
@@ -32,6 +48,4 @@
     </form>
 </div>
 <!--Footer-->
-<div class="container fixed-bottom">
-    <span class="text-muted text-right">©2018 BIT-1</span>
-</div>
+<app-footer></app-footer>

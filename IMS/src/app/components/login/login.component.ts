@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { HeaderService} from "../header/header.service";
 import { GlobalService} from "../../globalAssets/global.service";
 
@@ -15,28 +15,20 @@ import { GlobalService} from "../../globalAssets/global.service";
 export class LoginComponent implements OnInit {
     // Global Declaration
     private result:any;
-    public loginForm:FormGroup;
     public logo:any;
+    loginForm:FormGroup;
 
     // Default Constructor
     constructor(private service:LoginService,
                 private router:Router,
                 private header:HeaderService,
-                private gService:GlobalService) {}
+                private gService:GlobalService,
+                private formBuilder:FormBuilder) {}
 
     // Form Load
     ngOnInit() {
         // Form validation
-        this.loginForm = new FormGroup({
-            email: new FormControl('', [
-                Validators.required,
-                Validators.pattern("[^ @]*@[^ @]*")
-            ]),
-            password: new FormControl('', [
-                Validators.minLength(8),
-                Validators.required
-            ])
-        });
+        this.buildForm();
 
         // Load Logo
         this.gService.getLogo()
@@ -48,8 +40,8 @@ export class LoginComponent implements OnInit {
     // Login check method
     loginCheck(e)
     {
-        if(e.target.elements[0].value!=null && e.target.elements[1].value!=null) {
-            this.login(e.target.elements[0].value.toLowerCase(),e.target.elements[1].value);
+        if(e.valid == true) {
+            this.login(e.value['email'].toLowerCase(), e.value['password']);
         }
     }
 
@@ -79,5 +71,14 @@ export class LoginComponent implements OnInit {
                     }
                 },
                 error => this.gService.handleError(error));
+    }
+
+    // Form Builder
+    buildForm():void {
+        let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+        this.loginForm = this.formBuilder.group({
+            'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern)])],
+            'password':['',Validators.compose([Validators.required,Validators.minLength(8)])]
+        });
     }
 }

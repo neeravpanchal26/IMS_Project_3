@@ -25,7 +25,7 @@ class DBHandler
     {
         $sp = 'CALL uspAddUser_Create (?,?,?,?,?,?,?,?,?,?)';
         $param = array(&$fN,&$lN,&$dob,&$cN,&$eA,&$pW,&$uT,&$a1,&$a2,&$sub);
-        return DBHelper::ExecuteNonQuery($sp,$param);
+        return DBHelper::SelectParam($sp,$param);
     }
     public static function AddUser_City ()
     {

@@ -83,4 +83,14 @@ export class DeactivateUserComponent implements OnInit {
             },
             error => this.gService.handleError(error));
   }
+
+  // Sorting
+  key: string = 'Active'; //set default
+  reverse: boolean = false;
+
+  // Sorting method
+  sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+  }
 }
