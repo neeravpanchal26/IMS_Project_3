@@ -40,37 +40,34 @@ export class LoginComponent implements OnInit {
     // Login check method
     loginCheck(e)
     {
-        if(e.valid == true) {
-            this.login(e.value['email'].toLowerCase(), e.value['password']);
+        if(e.valid) {
+            let param:iLogin = {
+                username: e.value['email'].toLowerCase(),
+                password: e.value['password']
+            };
+            this.service.check(param)
+                .subscribe
+                (
+                    data =>
+                    {
+                        this.result = data[0];
+                        if(this.result['Active'] == 1) {
+                            this.gService.loginSuccess(this.result['username']);
+                            this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
+                            this.router.navigate(['dashboard']);
+                            e.reset();
+                        }
+                        else if(this.result['FALSE'] == 0) {
+                            this.gService.loginFailure();
+                            e.reset();
+                        }
+                        else if(this.result['Active'] == 0) {
+                            this.gService.loginDeactivated(this.result['username']);
+                            e.reset();
+                        }
+                    },
+                    error => this.gService.handleError(error));
         }
-    }
-
-    // Login method
-    login(username,password)
-    {
-        let param:iLogin = {
-            username: username,
-            password: password
-        };
-        this.service.check(param)
-            .subscribe
-            (
-                data =>
-                {
-                    this.result = data[0];
-                    if(this.result['Active'] == 1) {
-                        this.gService.loginSuccess(this.result['username']);
-                        this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
-                        this.router.navigate(['dashboard']);
-                    }
-                    else if(this.result['FALSE'] == 0) {
-                        this.gService.loginFailure();
-                    }
-                    else if(this.result['Active'] == 0) {
-                        this.gService.loginDeactivated(this.result['username']);
-                    }
-                },
-                error => this.gService.handleError(error));
     }
 
     // Form Builder

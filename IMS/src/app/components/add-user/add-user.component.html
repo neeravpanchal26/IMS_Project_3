@@ -12,13 +12,33 @@
       <div class="col-sm-6">
         <!--First name input-->
         <label for="firstName">First Name</label>
-        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name">
+        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name" [class.is-valid]="addUserForm.controls['name'].valid" [class.is-invalid]="addUserForm.controls['name'].invalid && (addUserForm.controls['name'].dirty || addUserForm.controls['name'].touched)">
+        <div [class.invalid-feedback] = "addUserForm.controls['name'].hasError('required')">
+          <div *ngIf="addUserForm.controls['name'].hasError('required')">
+            First name is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['name'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['name'].hasError('maxlength')">
+            First name may only contain 45 characters.
+          </div>
+        </div>
       </div>
 
       <div class="col-sm-6">
         <!--Last name input-->
         <label>Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name" formControlName="surname">
+        <input type="text" class="form-control" placeholder="Last name" formControlName="surname" [class.is-valid]="addUserForm.controls['surname'].valid" [class.is-invalid]="addUserForm.controls['surname'].invalid && (addUserForm.controls['surname'].dirty || addUserForm.controls['surname'].touched)">
+        <div [class.invalid-feedback] = "addUserForm.controls['surname'].hasError('required')">
+          <div *ngIf="addUserForm.controls['surname'].hasError('required')">
+            Last name is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['surname'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['surname'].hasError('maxlength')">
+            Last name may only contain 45 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -26,14 +46,29 @@
       <div class="col-sm-6">
         <!--Date of Birth input-->
         <label>Date of Birth</label>
-        <input type="date" class="form-control" formControlName="dob">
+        <input type="date" class="form-control" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="addUserForm.controls['dob'].valid" [class.is-invalid]="addUserForm.controls['dob'].invalid && (addUserForm.controls['dob'].dirty || addUserForm.controls['dob'].touched)">
+        <div [class.invalid-feedback] = "addUserForm.controls['dob'].hasError('required')">
+          <div *ngIf="addUserForm.controls['dob'].hasError('required')">
+            Date of birth is required.
+          </div>
+        </div>
       </div>
       <div class="col-sm-6">
         <!--Phone input-->
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Contact Number" [class.is-invalid]="phoneCheck == true" formControlName="contact">
-        <div class="invalid-feedback">
-          It seems this phone number exists on our system.
+        <input type="text" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addUserForm.controls['contact'].valid || (addUserForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addUserForm.controls['contact'].invalid || phoneCheck == true) && (addUserForm.controls['contact'].dirty || addUserForm.controls['contact'].touched)">
+        <div [class.invalid-feedback]="phoneCheck">
+          <div *ngIf="phoneCheck">It seems this phone number exists on our system.</div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['contact'].hasError('required')">
+          <div *ngIf="addUserForm.controls['contact'].hasError('required')">
+            Contact number is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['contact'].hasError('maxlength') || addUserForm.controls['contact'].hasError('minlength')">
+          <div *ngIf="addUserForm.controls['contact'].hasError('maxlength') || addUserForm.controls['contact'].hasError('minlength')">
+            Contact number may only be 10 characters.
+          </div>
         </div>
       </div>
     </div>
@@ -42,23 +77,54 @@
       <div class="col-sm-6">
         <!--Email input-->
         <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="Email address" [class.is-invalid]="emailCheck == true" formControlName="email">
-        <div class="invalid-feedback">
-          It seems this email exists on our system.
+        <input type="email" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="addUserForm.controls['email'].valid || (addUserForm.controls['email'].touched && emailCheck == false)" [class.is-invalid]="(addUserForm.controls['email'].invalid || emailCheck == true) && (addUserForm.controls['email'].dirty || addUserForm.controls['email'].touched)">
+        <div [class.invalid-feedback]="emailCheck">
+          <div *ngIf="emailCheck">It seems this email exists on our system.</div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['email'].hasError('required')">
+          <div *ngIf="addUserForm.controls['email'].hasError('required')">
+            Email is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['email'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['email'].hasError('maxlength')">
+            Email may only be 100 characters.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['email'].hasError('pattern')">
+          <div *ngIf="addUserForm.controls['email'].hasError('pattern')">
+            Check your email format.
+          </div>
         </div>
       </div>
       <div class="col-sm-3">
         <!--Password input-->
         <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password" [class.is-valid]="addUserForm.controls['password'].valid" [class.is-invalid]="addUserForm.controls['password'].invalid && (addUserForm.controls['password'].dirty || addUserForm.controls['password'].touched)">
+        <ng2-password-strength-bar [passwordToCheck]="addUserForm.controls['password'].value" [barColors]="myColors"></ng2-password-strength-bar>
+        <div [class.invalid-feedback] = "addUserForm.controls['password'].hasError('required')">
+          <div *ngIf="addUserForm.controls['password'].hasError('required')">
+            Password is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['password'].hasError('minlength')">
+          <div *ngIf="addUserForm.controls['password'].hasError('minlength')">
+            Password should contain 8 characters.
+          </div>
+        </div>
       </div>
       <div class="col-sm-3">
         <!--User Type input-->
         <label>User Type</label>
-        <select class="form-control" formControlName="type">
-          <option selected>Choose...</option>
+        <select class="form-control" formControlName="type" [class.is-valid]="addUserForm.controls['type'].valid" [class.is-invalid]="addUserForm.controls['type'].invalid && (addUserForm.controls['type'].dirty || addUserForm.controls['type'].touched)">
+          <option selected disabled>Choose...</option>
           <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
         </select>
+        <div [class.invalid-feedback] = "addUserForm.controls['type'].hasError('required')">
+          <div *ngIf="addUserForm.controls['type'].hasError('required')">
+            A user type must be selected.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -66,7 +132,17 @@
       <div class="col-sm-12">
         <!--Address input-->
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1">
+        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1" [class.is-valid]="addUserForm.controls['address1'].valid" [class.is-invalid]="addUserForm.controls['address1'].invalid && (addUserForm.controls['address1'].dirty || addUserForm.controls['address1'].touched)">
+        <div [class.invalid-feedback] = "addUserForm.controls['address1'].hasError('required')">
+          <div *ngIf="addUserForm.controls['address1'].hasError('required')">
+            Address is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['address1'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['address1'].hasError('maxlength')">
+            Address should not exceed 100 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -74,7 +150,17 @@
       <div class="col-sm-12">
         <!--Address 2 input-->
         <label>Address 2</label>
-        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2">
+        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2" [class.is-valid]="addUserForm.controls['address2'].valid" [class.is-invalid]="addUserForm.controls['address2'].invalid && (addUserForm.controls['address2'].dirty || addUserForm.controls['address2'].touched)">
+        <div [class.invalid-feedback] = "addUserForm.controls['address2'].hasError('required')">
+          <div *ngIf="addUserForm.controls['address2'].hasError('required')">
+            Address 2 is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['address2'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['address2'].hasError('maxlength')">
+            Address 2 should not exceed 100 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -82,18 +168,28 @@
       <div class="col-lg-6">
         <!--City input-->
         <label>City</label>
-        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city">
-          <option selected>Choose...</option>
+        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="addUserForm.controls['city'].valid" [class.is-invalid]="addUserForm.controls['city'].invalid && (addUserForm.controls['city'].dirty || addUserForm.controls['city'].touched)">
+          <option selected disabled>Choose...</option>
           <option *ngFor="let c of cities" value="{{c.cityID}}">{{c.cityName}}</option>
         </select>
+        <div [class.invalid-feedback] = "addUserForm.controls['city'].hasError('required')">
+          <div *ngIf="addUserForm.controls['city'].hasError('required')">
+            A city must be selected.
+          </div>
+        </div>
       </div>
       <div class="col-lg-6">
         <!--Suburb input-->
         <label>Suburb</label>
-        <select class="form-control" formControlName="suburb">
-          <option selected>Choose...</option>
+        <select class="form-control" formControlName="suburb" [class.is-valid]="addUserForm.controls['suburb'].valid" [class.is-invalid]="addUserForm.controls['suburb'].invalid && (addUserForm.controls['suburb'].dirty || addUserForm.controls['suburb'].touched)">
+          <option selected disabled>Choose...</option>
           <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
         </select>
+        <div [class.invalid-feedback] = "addUserForm.controls['suburb'].hasError('required')">
+          <div *ngIf="addUserForm.controls['suburb'].hasError('required')">
+            A suburb must be selected.
+          </div>
+        </div>
       </div>
     </div>
 

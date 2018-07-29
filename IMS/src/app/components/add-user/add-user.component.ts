@@ -5,6 +5,7 @@ import { iSuburb} from "./add-user.service";
 import { GlobalService} from "../../globalAssets/global.service";
 import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -19,6 +20,8 @@ export class AddUserComponent implements OnInit {
     public emailCheck:boolean;
     public phoneCheck:boolean;
     public addUserForm:FormGroup;
+    public maxDate:any;
+    public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
 
     // Default Constructor
     constructor(private service:AddUserService,
@@ -27,6 +30,10 @@ export class AddUserComponent implements OnInit {
 
     // Form Load
     ngOnInit() {
+      // Max Date of birth
+      let date = new Date();
+      this.maxDate = new Date((date.getFullYear()-18),date.getMonth(),date.getDate());
+
       // Form Validation
       this.buildForm();
 
@@ -45,39 +52,46 @@ export class AddUserComponent implements OnInit {
 
     // Add User Method
     addUser(e) {
-        let param: iAddUser = {
-            firstName: e.value['name'],
-            lastName: e.value['surname'],
-            dob: e.value['dob'],
-            contactNumber: e.value['contact'],
-            email: e.value['email'].toLowerCase(),
-            password: e.value['password'],
-            userType: e.value['type'],
-            address1: e.value['address1'],
-            address2: e.value['address2'],
-            suburb: e.value['suburb']
-        };
+        if(e.valid) {
+            // Setting Variables
+            this.phoneCheck=false;
+            this.emailCheck=false;
 
-        let result: any;
-        this.service.createUser(param)
-            .subscribe(
-                data => {
-                    let r = data[0];
-                    if(r['TRUE'] == 1) {
-                        this.gService.addUserSuccess(param.firstName,param.lastName);
-                    }
-                    if(r['emailExists'] == 1) {
-                        this.emailCheck = true;
-                    }
-                    else if (r['phoneExists'] == 1) {
-                        this.phoneCheck = true;
-                    }
-                    else if (r['bothExists'] == 1) {
-                        this.phoneCheck = true;
-                        this.emailCheck = true;
-                    }
-                        },
-                error => this.gService.handleError(error));
+            let param: iAddUser = {
+                firstName: e.value['name'],
+                lastName: e.value['surname'],
+                dob: e.value['dob'],
+                contactNumber: e.value['contact'],
+                email: e.value['email'].toLowerCase(),
+                password: e.value['password'],
+                userType: e.value['type'],
+                address1: e.value['address1'],
+                address2: e.value['address2'],
+                suburb: e.value['suburb']
+            };
+
+            let result: any;
+            this.service.createUser(param)
+                .subscribe(
+                    data => {
+                        let r = data[0];
+                        if (r['TRUE'] == 1) {
+                            this.gService.addUserSuccess(param.firstName, param.lastName);
+                            e.reset();
+                        }
+                        if (r['emailExists'] == 1) {
+                            this.emailCheck = true;
+                        }
+                        else if (r['phoneExists'] == 1) {
+                            this.phoneCheck = true;
+                        }
+                        else if (r['bothExists'] == 1) {
+                            this.phoneCheck = true;
+                            this.emailCheck = true;
+                        }
+                    },
+                    error => this.gService.handleError(error));
+        }
     }
 
     // Suburb Load Method
@@ -97,8 +111,8 @@ export class AddUserComponent implements OnInit {
         this.addUserForm = this.formBuilder.group({
             'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
             'surname':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'dob':['',Validators.required],
-            'contact':['',Validators.compose([Validators.required,Validators.maxLength(10)])],
+            'dob':['',Validators.compose([Validators.required])],
+            'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
             'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(100)])],
             'password':['',Validators.compose([Validators.required,Validators.minLength(8)])],
             'type':['',Validators.required],

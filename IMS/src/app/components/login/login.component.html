@@ -19,8 +19,6 @@
             <div [class.invalid-feedback] = "loginForm.controls['email'].hasError('pattern')">
                 <div *ngIf="loginForm.controls['email'].hasError('pattern')">Check you email format.</div>
             </div>
-            <div class="valid-feedback">
-            </div>
         </div>
 
         <!--Password Input-->
@@ -37,8 +35,6 @@
             </div>
             <div [class.invalid-feedback] = "loginForm.controls['password'].hasError('minlength')">
                 <div *ngIf="loginForm.controls['password'].hasError('minlength')">Password should contain 8 characters.</div>
-            </div>
-            <div class="valid-feedback">
             </div>
         </div>
 
