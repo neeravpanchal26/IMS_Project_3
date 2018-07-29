@@ -118,6 +118,12 @@ class DBHandler
         $sp='CALL uspAllocateEquipment_GetUnnassignedEquipment';
         return DBHelper::Select($sp);
     }
+    public static function AllocateEquipment_Allocation($date,$condition,$value,$equipmentID,$userID)
+    {
+        $sp = "CALL uspAllocateEquipment_Allocation(?,?,?,?,?)";
+        $param = array(&$date,&$condition,&$value,&$equipmentID,&$userID);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
 
     // User Setting component methods
     public static function UserSetting_SpecificUser($userid)

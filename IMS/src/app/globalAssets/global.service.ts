@@ -72,4 +72,8 @@ export class GlobalService {
   userPasswordResetSuccess() {
     return this.toast.success('Your password has been updated.','Success!');
   }
+  allocationSuccess(equipmentID,userID)
+  {
+    return this.toast.success('Equipment ID ' + equipmentID+ ' has successfully been allocated to user '+userID)
+  }
 }

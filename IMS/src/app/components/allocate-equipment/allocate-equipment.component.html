@@ -5,29 +5,41 @@
           <img class="mb-4" src='../assets/logo.png' width="70" height="70">
           <h1>Allocate Equipment</h1>
         </div>
-
-    <div class="form-row">
-        <!-- ID -->
-      <div class="col-sm-6">
-        <label>Select Equipment</label>
-        <select class="form-control" (change)="equipmentSelect($event.target.value)" placeholder="Equipment ID">
-          <option *ngFor="let e of equipment" value="{{e.EquipmentID}}">{{e.Name}}</option>
-        </select>
-      </div>
-      <div class="col-sm-6">
-          <!-- Name -->
-        <label>Employee</label>
-        <select class="form-control" placeholder="Employee">
-            <option *ngFor="let e of techEmployees" value={{e.UserID}}>{{e.TechEmployee}}</option>
-          </select>
-      </div>
-    </div>
-<div>
-    <div class="pt-3">
-      <!--Allocate button-->
-      <button type="submit" class="btn btn-primary col-lg-15">Allocate</button>
-    </div>
-</div>
+        <div class="form-row">
+          <div class="col-sm-6">
+              <h4>List of equipment</h4>
+              <table class="table table-responsive-sm table-sm table-hover">
+                  <thead>
+                      <tr class="bg-light">
+                          <th colspan="2">ID</th>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Cost</th>
+                          <th>Brand</th>
+                          <th>Type</th>
+                          <th>Condition</th>
+                          <th colspan=2>Assign user</th>
+                      </tr>
+                      <tr *ngFor="let e of equipment">
+                              <td colspan=2>{{e.EquipmentID}}</td>
+                              <td>{{e.Name}}</td>
+                              <td>{{e.Desc}}</td>
+                              <td>{{e.Cost|currency}}</td>
+                              <td>{{e.BrandDesc}}</td>
+                              <td>{{e.TypeDesc}}</td>
+                              <td>{{e.ConditionDesc}}</td>
+                              <td colspan=2 >
+                                  <select class="form-control" width="100" (change)="allocateEquipment($event,e.EquipmentCondition,e.Cost,e.EquipmentID)">
+                                      <option disabled selected>Select Technical Employee</option>
+                                      <option *ngFor="let t of techEmployees" [value]="t.UserID" >{{t.TechEmployee}}</option>
+                                    </select>
+                              </td>
+                          </tr>
+                  </thead>
+              </table>
+          </div>
+        </div>
+    
 </form>
 </div>
 <!--Footer-->
