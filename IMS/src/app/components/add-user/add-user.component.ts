@@ -94,6 +94,12 @@ export class AddUserComponent implements OnInit {
         }
     }
 
+    // Form Failure
+    onClick(e) {
+        if(e.invalid)
+            this.gService.formFailure();
+    }
+
     // Suburb Load Method
     subLoad(e) {
         let param: iSuburb = {
@@ -114,7 +120,7 @@ export class AddUserComponent implements OnInit {
             'dob':['',Validators.compose([Validators.required])],
             'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
             'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(100)])],
-            'password':['',Validators.compose([Validators.required,Validators.minLength(8)])],
+            'password':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
             'type':['',Validators.required],
             'address1':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
             'address2':['',Validators.compose([Validators.required,Validators.maxLength(45)])],

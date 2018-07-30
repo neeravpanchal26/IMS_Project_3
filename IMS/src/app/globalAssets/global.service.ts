@@ -57,6 +57,9 @@ export class GlobalService {
   addUserSuccess(firstname,surname) {
     return this.toast.success(firstname+' '+surname+' has been added to the system. User is currently deactivated.','Success!');
   }
+  formFailure() {
+    return this.toast.warning('Your form is invalid.','Warning!');
+  }
 
   // Business Setting component notification here
   businessUpdateSuccess() {

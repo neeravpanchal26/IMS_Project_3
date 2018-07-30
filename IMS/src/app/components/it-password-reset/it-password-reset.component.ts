@@ -3,6 +3,7 @@ import { ActivatedRoute} from "@angular/router";
 import { iUpdate, UserPasswordResetService} from "../user-password-reset/user-password-reset.service";
 import { UserSettingService} from "../user-setting/user-setting.service";
 import { GlobalService} from "../../globalAssets/global.service";
+import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 
 @Component({
   selector: 'app-it-password-reset',
@@ -14,16 +15,25 @@ export class ItPasswordResetComponent implements OnInit {
     // Global variable
     public userID:number;
     public userInfo:any = [];
+    public resetForm:FormGroup;
+    public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
 
     // Default Constructor
     constructor(private user:UserPasswordResetService,
                 private route:ActivatedRoute,
                 private setting:UserSettingService,
-                private gService:GlobalService) { }
+                private gService:GlobalService,
+                private formBuilder:FormBuilder) { }
 
     // Form Load
     ngOnInit() {
+        // Form Validation
+        this.buildForm();
+
+        // Set User ID
         this.userID = parseInt(this.route.snapshot.paramMap.get('id'));
+
+        // Get specific user by ID
         this.setting.getSpecificUser(this.userID)
             .subscribe(
                 data => this.userInfo = data[0],
@@ -32,15 +42,29 @@ export class ItPasswordResetComponent implements OnInit {
 
     // Reset password method
     password(e) {
-      e.preventDefault();
-      let param:iUpdate = { userID:this.userID, password:e.target.elements[0].value};
-      this.user.updatePassword(param)
-          .subscribe(
-          data=> {
-              if(data == true) {
-                  this.gService.passwordResetSuccess(this.userInfo['FirstName'],this.userInfo['Surname']);
-              }
-          },
-          error => this.gService.handleError(error));
+      if(e.valid) {
+          let param: iUpdate = {userID: this.userID, password: e.value['password']};
+          this.user.updatePassword(param)
+              .subscribe(
+                  data => {
+                      if (data == true) {
+                          this.gService.passwordResetSuccess(this.userInfo['FirstName'], this.userInfo['Surname']);
+                      }
+                  },
+                  error => this.gService.handleError(error));
+      }
+    }
+
+    // Form Failure
+    onClick(e) {
+        if(e.invalid)
+            this.gService.formFailure();
+    }
+
+    // Form Builder
+    buildForm():void {
+        this.resetForm = this.formBuilder.group({
+            'password':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])]
+        });
     }
 }

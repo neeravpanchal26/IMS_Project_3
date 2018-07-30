@@ -112,6 +112,11 @@
             Password should contain 8 characters.
           </div>
         </div>
+        <div [class.invalid-feedback] = "addUserForm.controls['password'].hasError('maxlength')">
+          <div *ngIf="addUserForm.controls['password'].hasError('maxlength')">
+            Password should not be more than 20 characters.
+          </div>
+        </div>
       </div>
       <div class="col-sm-3">
         <!--User Type input-->
@@ -192,10 +197,32 @@
         </div>
       </div>
     </div>
+    <br/>
 
-    <div class="pt-3">
-      <!--Add user button-->
-      <button type="submit" class="btn btn-primary col-lg-2">Add User</button>
+    <!--Add user button-->
+    <button type="button" class="btn btn-primary col-lg-2" data-toggle="modal" data-target="#exampleModalCenter">Add User</button>
+    <!--Cancel button-->
+    <button class="btn btn-outline-primary col-lg-2" (click)="addUserForm.reset()">Cancel</button>
+
+    <!-- Confirmation Dialog-->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to add the new user?
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="onClick(addUserForm)">Save changes</button>
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
