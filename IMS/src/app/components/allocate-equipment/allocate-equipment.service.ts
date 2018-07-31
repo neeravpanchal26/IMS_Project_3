@@ -30,7 +30,6 @@ export interface iUser {
 }
 export interface iAllocation
 {
-  date:any,
   condition:any,
   value:any,
   equipmentID:any,

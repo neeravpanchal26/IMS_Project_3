@@ -23,7 +23,7 @@ else if($action=="allocate")
 {   
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if($display=DBHandler::AllocateEquipment_Allocation($json->date,$json->condition,$json->value,$json->equipmentID,$json->userID))
+    if($display=DBHandler::AllocateEquipment_Allocation($json->condition,$json->value,$json->equipmentID,$json->userID))
     {
         $response=$display;
     }

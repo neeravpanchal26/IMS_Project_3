@@ -30,7 +30,7 @@ export class AllocateEquipmentComponent implements OnInit {
     let today = date.getFullYear() +'-'+date.getMonth()+ '-'+date.getDate();
     console.log(today);
     let uID=e.target.value;
-    let param:iAllocation = {date:today,condition:condi,value:val,equipmentID:equip,userID:uID};
+    let param:iAllocation = {condition:condi,value:val,equipmentID:equip,userID:uID};
     console.log(param);
     var result:any;
     this.service.allocateEquipment(param).subscribe(data => {
