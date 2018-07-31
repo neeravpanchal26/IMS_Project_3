@@ -55,15 +55,15 @@ export class LoginComponent implements OnInit {
                             this.gService.loginSuccess(this.result['username']);
                             this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
                             this.router.navigate(['dashboard']);
-                            e.reset();
+                            e.controls['password'].reset();
                         }
                         else if(this.result['FALSE'] == 0) {
                             this.gService.loginFailure();
-                            e.reset();
+                            e.controls['password'].reset();
                         }
                         else if(this.result['Active'] == 0) {
                             this.gService.loginDeactivated(this.result['username']);
-                            e.reset();
+                            e.controls['password'].reset();
                         }
                     },
                     error => this.gService.handleError(error));

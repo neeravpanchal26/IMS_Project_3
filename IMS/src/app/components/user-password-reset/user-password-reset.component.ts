@@ -12,8 +12,6 @@ import { FormGroup, FormBuilder, Validators, Form, AbstractControl} from '@angul
 })
 export class UserPasswordResetComponent implements OnInit {
   // Global Variable
-  public oldPword:boolean = false;
-  public result:boolean;
   public passwordForm:FormGroup;
   public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
 
@@ -21,46 +19,53 @@ export class UserPasswordResetComponent implements OnInit {
   constructor(private login:LoginService,
               private service:UserPasswordResetService,
               private gService:GlobalService,
-              private formBUilder:FormBuilder) { }
+              private formBuilder:FormBuilder) { }
 
   // Form Load
   ngOnInit() {
-  }
-
-  // Change password method
-  changePassword(e) {
-      let param:iUpdate = {userID:this.login.getUserID(), password:e.target.elements[1].value};
-      this.service.updatePassword(param)
-          .subscribe(
-              data => {
-                  if(data==true) {
-                      this.gService.userPasswordResetSuccess();
-                  } else {
-                      this.result = false;}
-                      },
-              error=> this.gService.handleError(error));
+      // Form Validation
+      this.buildForm();
   }
 
   // Old password check method
   oldPassword(e){
-      this.service.oldPasswordCheck(this.login.getUserID(),e)
+      this.service.oldPasswordCheck(this.login.getUserID(),e.value['oldPassword'])
           .subscribe (
               data=> {
-                  let r = data[0];
+                  let r =data[0];
                   if(r['result'] == 1) {
-                      this.oldPword = true;
+                      this.changePassword(e);
                   }
-                  else
-                      this.oldPword = false;
-              },
-              error=> this.gService.handleError(error));
-    }
+                  else if(r['result'] == 0){
+                      this.passwordForm.controls['oldPassword'].setErrors({'incorrect': true});
+                  }},
+                error=> this.gService.handleError(error));
+  }
+
+  // Change password method
+  changePassword(e) {
+      if(e.valid) {
+          let param: iUpdate = {
+              userID: this.login.getUserID(),
+              password: e.value['passwords']['cNewPassword']
+          };
+          this.service.updatePassword(param)
+              .subscribe(
+                  data => {
+                      if (data == true) {
+                          this.gService.userPasswordResetSuccess();
+                          e.reset();
+                      }
+                  },
+                  error => this.gService.handleError(error));
+      }
+  }
 
   // Form Builder
   buildForm():void {
-      this.passwordForm = this.formBUilder.group({
+      this.passwordForm = this.formBuilder.group({
           'oldPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
-          'passwords':this.formBUilder.group({
+          'passwords':this.formBuilder.group({
           'newPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
           'cNewPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])]},{validator:this.passwordConfirming})
       });
@@ -68,7 +73,7 @@ export class UserPasswordResetComponent implements OnInit {
 
   // Password Validator
   passwordConfirming(c: AbstractControl): { invalid: boolean } {
-      if (c.get('password').value !== c.get('confirm_password').value) {
+      if (c.get('newPassword').value !== c.get('cNewPassword').value) {
           return {invalid: true};
       }
   }

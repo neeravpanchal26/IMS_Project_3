@@ -12,7 +12,7 @@
       <div class="col-sm-6">
         <!--First name input-->
         <label for="firstName">First Name</label>
-        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name" [class.is-valid]="settingForm.controls['name'].valid" [class.is-invalid]="settingForm.controls['name'].invalid && (settingForm.controls['name'].dirty || settingForm.controls['name'].touched)">
+        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name" [class.is-valid]="settingForm.controls['name'].touched && settingForm.controls['name'].valid" [class.is-invalid]="settingForm.controls['name'].invalid && (settingForm.controls['name'].dirty || settingForm.controls['name'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['name'].hasError('required')">
           <div *ngIf="settingForm.controls['name'].hasError('required')">
             First name is required.
@@ -27,7 +27,7 @@
       <div class="col-sm-6">
         <!--Last name input-->
         <label>Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name" formControlName="surname" [class.is-valid]="settingForm.controls['surname'].valid" [class.is-invalid]="settingForm.controls['surname'].invalid && (settingForm.controls['surname'].dirty || settingForm.controls['surname'].touched)">
+        <input type="text" class="form-control" placeholder="Last name" formControlName="surname" [class.is-valid]="settingForm.controls['surname'].touched && settingForm.controls['surname'].valid" [class.is-invalid]="settingForm.controls['surname'].invalid && (settingForm.controls['surname'].dirty || settingForm.controls['surname'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['surname'].hasError('required')">
           <div *ngIf="settingForm.controls['surname'].hasError('required')">
             Last name is required.
@@ -45,7 +45,7 @@
       <div class="col-sm-6">
         <!--Date of Birth input-->
         <label>Date of Birth</label>
-        <input type="date" class="form-control" formControlName="dob" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="settingForm.controls['dob'].valid" [class.is-invalid]="settingForm.controls['dob'].invalid && (settingForm.controls['dob'].dirty || settingForm.controls['dob'].touched)">
+        <input type="date" class="form-control" formControlName="dob" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="settingForm.controls['dob'].touched && settingForm.controls['dob'].valid" [class.is-invalid]="settingForm.controls['dob'].invalid && (settingForm.controls['dob'].dirty || settingForm.controls['dob'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['dob'].hasError('required')">
           <div *ngIf="settingForm.controls['dob'].hasError('required')">
             Date of birth is required.
@@ -55,7 +55,7 @@
       <div class="col-sm-6">
         <!--Phone input-->
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="settingForm.controls['contact'].valid" [class.is-invalid]="settingForm.controls['contact'].invalid && (settingForm.controls['contact'].dirty || settingForm.controls['contact'].touched)">
+        <input type="text" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="settingForm.controls['contact'].touched && settingForm.controls['contact'].valid" [class.is-invalid]="settingForm.controls['contact'].invalid && (settingForm.controls['contact'].dirty || settingForm.controls['contact'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['contact'].hasError('required')">
           <div *ngIf="settingForm.controls['contact'].hasError('required')">
             Contact number is required.
@@ -73,7 +73,7 @@
       <div class="col-sm-12">
         <!--Email input-->
         <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="settingForm.controls['email'].valid" [class.is-invalid]="settingForm.controls['email'].invalid && (settingForm.controls['email'].dirty || settingForm.controls['email'].touched)">
+        <input type="email" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="settingForm.controls['email'].touched &&settingForm.controls['email'].valid" [class.is-invalid]="settingForm.controls['email'].invalid && (settingForm.controls['email'].dirty || settingForm.controls['email'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['email'].hasError('required')">
           <div *ngIf="settingForm.controls['email'].hasError('required')">
             Email is required.
@@ -96,7 +96,7 @@
       <div class="col-sm-12">
         <!--Address input-->
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1" [class.is-valid]="settingForm.controls['address1'].valid" [class.is-invalid]="settingForm.controls['address1'].invalid && (settingForm.controls['address1'].dirty || settingForm.controls['address1'].touched)">
+        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1" [class.is-valid]="settingForm.controls['address1'].touched && settingForm.controls['address1'].valid" [class.is-invalid]="settingForm.controls['address1'].invalid && (settingForm.controls['address1'].dirty || settingForm.controls['address1'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['address1'].hasError('required')">
           <div *ngIf="settingForm.controls['address1'].hasError('required')">
             Address is required.
@@ -114,7 +114,7 @@
       <div class="col-sm-12">
         <!--Address 2 input-->
         <label>Address 2</label>
-        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2" [class.is-valid]="settingForm.controls['address2'].valid" [class.is-invalid]="settingForm.controls['address2'].invalid && (settingForm.controls['address2'].dirty || settingForm.controls['address2'].touched)">
+        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2" [class.is-valid]="settingForm.controls['address2'].touched && settingForm.controls['address2'].valid" [class.is-invalid]="settingForm.controls['address2'].invalid && (settingForm.controls['address2'].dirty || settingForm.controls['address2'].touched)">
         <div [class.invalid-feedback] = "settingForm.controls['address2'].hasError('required')">
           <div *ngIf="settingForm.controls['address2'].hasError('required')">
             Address 2 is required.
@@ -132,7 +132,7 @@
       <div class="col-lg-6">
         <!--City input-->
         <label>City</label>
-        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="settingForm.controls['city'].valid" [class.is-invalid]="settingForm.controls['city'].invalid && (settingForm.controls['city'].dirty || settingForm.controls['city'].touched)">
+        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="settingForm.controls['city'].touched && settingForm.controls['city'].valid" [class.is-invalid]="settingForm.controls['city'].invalid && (settingForm.controls['city'].dirty || settingForm.controls['city'].touched)">
           <option *ngFor="let c of cities" value="{{c.cityID}}" [selected]="c.cityID==user.CityID">{{c.cityName}}</option>
         </select>
         <div [class.invalid-feedback] = "settingForm.controls['city'].hasError('required')">
@@ -144,8 +144,8 @@
       <div class="col-lg-6">
         <!--Suburb input-->
         <label>Suburb</label>
-        <select class="form-control" formControlName="suburb" [class.is-valid]="settingForm.controls['suburb'].valid" [class.is-invalid]="settingForm.controls['suburb'].invalid && (settingForm.controls['suburb'].dirty || settingForm.controls['suburb'].touched)">
-          <option *ngFor="let s of suburbs" value="{{s.suburbID}}" [selected]="s.suburbID==user.Suburb">{{s.suburbName}}</option>
+        <select class="form-control" formControlName="suburb" [class.is-valid]="settingForm.controls['suburb'].touched && settingForm.controls['suburb'].valid" [class.is-invalid]="settingForm.controls['suburb'].invalid && (settingForm.controls['suburb'].dirty || settingForm.controls['suburb'].touched)">
+          <option *ngFor="let s of suburbs" value="{{s.SuburbID}}" [selected]="s.SuburbID==user.Suburb">{{s.suburbName}}</option>
         </select>
         <div [class.invalid-feedback] = "settingForm.controls['suburb'].hasError('required')">
           <div *ngIf="settingForm.controls['suburb'].hasError('required')">
