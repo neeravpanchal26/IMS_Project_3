@@ -19,6 +19,6 @@ export class BusinessSettingService {
 // Wrapper Classes
 export interface iBusinesss {
     name:any,
-    contact:any,
+    contact:string,
     email:any
 }

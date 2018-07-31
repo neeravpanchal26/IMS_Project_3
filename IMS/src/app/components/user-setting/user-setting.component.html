@@ -2,7 +2,7 @@
 <app-header></app-header>
 <!--Update User Settings Form-->
 <div class="container">
-  <form (submit)="updateUserInfo($event)">
+  <form (ngSubmit)="updateUserInfo(settingForm)" [formGroup]="settingForm">
     <!--Heading-->
     <div class="py-5 text-center">
       <h1>Personal Information</h1>
@@ -12,18 +12,32 @@
       <div class="col-sm-6">
         <!--First name input-->
         <label for="firstName">First Name</label>
-        <input id="firstName" type="text" class="form-control" placeholder="First name" value="{{user.FirstName}}">
-        <div class="valid-feedback">
-          Looks good!
+        <input id="firstName" type="text" class="form-control" placeholder="First name" formControlName="name" [class.is-valid]="settingForm.controls['name'].valid" [class.is-invalid]="settingForm.controls['name'].invalid && (settingForm.controls['name'].dirty || settingForm.controls['name'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['name'].hasError('required')">
+          <div *ngIf="settingForm.controls['name'].hasError('required')">
+            First name is required.
+          </div>
         </div>
-        <div class="invalid-feedback">
-          First name required.
+        <div [class.invalid-feedback] = "settingForm.controls['name'].hasError('maxlength')">
+          <div *ngIf="settingForm.controls['name'].hasError('maxlength')">
+            First name may only contain 45 characters.
+          </div>
         </div>
       </div>
       <div class="col-sm-6">
         <!--Last name input-->
         <label>Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name" value="{{user.Surname}}">
+        <input type="text" class="form-control" placeholder="Last name" formControlName="surname" [class.is-valid]="settingForm.controls['surname'].valid" [class.is-invalid]="settingForm.controls['surname'].invalid && (settingForm.controls['surname'].dirty || settingForm.controls['surname'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['surname'].hasError('required')">
+          <div *ngIf="settingForm.controls['surname'].hasError('required')">
+            Last name is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['surname'].hasError('maxlength')">
+          <div *ngIf="settingForm.controls['surname'].hasError('maxlength')">
+            Last name may only contain 45 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -31,12 +45,27 @@
       <div class="col-sm-6">
         <!--Date of Birth input-->
         <label>Date of Birth</label>
-        <input type="date" class="form-control" value="{{user.Dob}}">
+        <input type="date" class="form-control" formControlName="dob" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="settingForm.controls['dob'].valid" [class.is-invalid]="settingForm.controls['dob'].invalid && (settingForm.controls['dob'].dirty || settingForm.controls['dob'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['dob'].hasError('required')">
+          <div *ngIf="settingForm.controls['dob'].hasError('required')">
+            Date of birth is required.
+          </div>
+        </div>
       </div>
       <div class="col-sm-6">
         <!--Phone input-->
         <label>Contact Number</label>
-        <input type="text" class="form-control" placeholder="Contact Number" value="{{user.ContactNumber}}">
+        <input type="text" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="settingForm.controls['contact'].valid" [class.is-invalid]="settingForm.controls['contact'].invalid && (settingForm.controls['contact'].dirty || settingForm.controls['contact'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['contact'].hasError('required')">
+          <div *ngIf="settingForm.controls['contact'].hasError('required')">
+            Contact number is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['contact'].hasError('maxlength') || settingForm.controls['contact'].hasError('minlength')">
+          <div *ngIf="settingForm.controls['contact'].hasError('maxlength') || settingForm.controls['contact'].hasError('minlength')">
+            Contact number may only be 10 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -44,7 +73,22 @@
       <div class="col-sm-12">
         <!--Email input-->
         <label>Email Address</label>
-        <input type="email" class="form-control" placeholder="Email address" value="{{user.Email}}">
+        <input type="email" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="settingForm.controls['email'].valid" [class.is-invalid]="settingForm.controls['email'].invalid && (settingForm.controls['email'].dirty || settingForm.controls['email'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['email'].hasError('required')">
+          <div *ngIf="settingForm.controls['email'].hasError('required')">
+            Email is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['email'].hasError('maxlength')">
+          <div *ngIf="settingForm.controls['email'].hasError('maxlength')">
+            Email may only be 100 characters.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['email'].hasError('pattern')">
+          <div *ngIf="settingForm.controls['email'].hasError('pattern')">
+            Check your email format.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -52,7 +96,17 @@
       <div class="col-sm-12">
         <!--Address input-->
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St" value="{{user.Address1}}">
+        <input type="text" class="form-control" placeholder="1234 Main St" formControlName="address1" [class.is-valid]="settingForm.controls['address1'].valid" [class.is-invalid]="settingForm.controls['address1'].invalid && (settingForm.controls['address1'].dirty || settingForm.controls['address1'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['address1'].hasError('required')">
+          <div *ngIf="settingForm.controls['address1'].hasError('required')">
+            Address is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['address1'].hasError('maxlength')">
+          <div *ngIf="settingForm.controls['address1'].hasError('maxlength')">
+            Address should not exceed 100 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -60,7 +114,17 @@
       <div class="col-sm-12">
         <!--Address 2 input-->
         <label>Address 2</label>
-        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" value="{{user.Address2}}">
+        <input type="text" class="form-control" placeholder="Apartment, studio, or floor" formControlName="address2" [class.is-valid]="settingForm.controls['address2'].valid" [class.is-invalid]="settingForm.controls['address2'].invalid && (settingForm.controls['address2'].dirty || settingForm.controls['address2'].touched)">
+        <div [class.invalid-feedback] = "settingForm.controls['address2'].hasError('required')">
+          <div *ngIf="settingForm.controls['address2'].hasError('required')">
+            Address 2 is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "settingForm.controls['address2'].hasError('maxlength')">
+          <div *ngIf="settingForm.controls['address2'].hasError('maxlength')">
+            Address 2 should not exceed 100 characters.
+          </div>
+        </div>
       </div>
     </div>
 
@@ -68,24 +132,53 @@
       <div class="col-lg-6">
         <!--City input-->
         <label>City</label>
-        <select class="form-control" (change)="subLoad($event.target.value)">
+        <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="settingForm.controls['city'].valid" [class.is-invalid]="settingForm.controls['city'].invalid && (settingForm.controls['city'].dirty || settingForm.controls['city'].touched)">
           <option *ngFor="let c of cities" value="{{c.cityID}}" [selected]="c.cityID==user.CityID">{{c.cityName}}</option>
         </select>
+        <div [class.invalid-feedback] = "settingForm.controls['city'].hasError('required')">
+          <div *ngIf="settingForm.controls['city'].hasError('required')">
+            A city must be selected.
+          </div>
+        </div>
       </div>
       <div class="col-lg-6">
         <!--Suburb input-->
         <label>Suburb</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="suburb" [class.is-valid]="settingForm.controls['suburb'].valid" [class.is-invalid]="settingForm.controls['suburb'].invalid && (settingForm.controls['suburb'].dirty || settingForm.controls['suburb'].touched)">
           <option *ngFor="let s of suburbs" value="{{s.suburbID}}" [selected]="s.suburbID==user.Suburb">{{s.suburbName}}</option>
         </select>
+        <div [class.invalid-feedback] = "settingForm.controls['suburb'].hasError('required')">
+          <div *ngIf="settingForm.controls['suburb'].hasError('required')">
+            A suburb must be selected.
+          </div>
+        </div>
       </div>
     </div>
     <br/>
 
     <!--Update info button-->
-    <button type="submit" class="btn btn-primary col-lg-2">Update Information</button>
-    <!--Cancel button-->
-    <button class="btn btn-outline-primary col-lg-2">Cancel</button>
+    <button type="button" class="btn btn-primary col-lg-2" data-toggle="modal" data-target="#exampleModalCenter">Update Information</button>
+
+    <!-- Confirmation Dialog-->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to apply the new changes?
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 </div>
 <!--Footer-->

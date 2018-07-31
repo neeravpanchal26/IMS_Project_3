@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdate, UserPasswordResetService} from "./user-password-reset.service";
 import { GlobalService} from "../../globalAssets/global.service";
+import { FormGroup, FormBuilder, Validators, Form, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-user-password-reset',
@@ -13,11 +14,14 @@ export class UserPasswordResetComponent implements OnInit {
   // Global Variable
   public oldPword:boolean = false;
   public result:boolean;
+  public passwordForm:FormGroup;
+  public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
 
   // Default Constructor
   constructor(private login:LoginService,
               private service:UserPasswordResetService,
-              private gService:GlobalService) { }
+              private gService:GlobalService,
+              private formBUilder:FormBuilder) { }
 
   // Form Load
   ngOnInit() {
@@ -51,4 +55,21 @@ export class UserPasswordResetComponent implements OnInit {
               },
               error=> this.gService.handleError(error));
     }
+
+  // Form Builder
+  buildForm():void {
+      this.passwordForm = this.formBUilder.group({
+          'oldPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
+          'passwords':this.formBUilder.group({
+          'newPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
+          'cNewPassword':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])]},{validator:this.passwordConfirming})
+      });
+  }
+
+  // Password Validator
+  passwordConfirming(c: AbstractControl): { invalid: boolean } {
+      if (c.get('password').value !== c.get('confirm_password').value) {
+          return {invalid: true};
+      }
+  }
 }

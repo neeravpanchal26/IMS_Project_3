@@ -28,7 +28,7 @@
           <div class="col-12">
             <!--Business Name input-->
             <label>Name</label>
-            <input type="text" class="form-control" value="{{business.BusinessName}}" formControlName="name" [class.is-valid]="businessForm.controls['name'].valid" [class.is-invalid]="businessForm.controls['name'].invalid && (businessForm.controls['name'].dirty || businessForm.controls['name'].touched)">
+            <input type="text" class="form-control" formControlName="name" [class.is-valid]="businessForm.controls['name'].valid" [class.is-invalid]="businessForm.controls['name'].invalid && (businessForm.controls['name'].dirty || businessForm.controls['name'].touched)">
               <div [class.invalid-feedback] = "businessForm.controls['name'].hasError('required')">
                   <div *ngIf="businessForm.controls['name'].hasError('required')">
                       Business name is required.
@@ -44,7 +44,7 @@
           <div class="col-12">
             <!--Business Contact input-->
             <label>Contact Details</label>
-            <input type="text" class="form-control" value="{{business.contact}}" formControlName="contact" [class.is-valid]="businessForm.controls['contact'].valid" [class.is-invalid]="businessForm.controls['contact'].invalid && (businessForm.controls['contact'].dirty || businessForm.controls['contact'].touched)">
+            <input type="text" class="form-control" formControlName="contact" [class.is-valid]="businessForm.controls['contact'].valid" [class.is-invalid]="businessForm.controls['contact'].invalid && (businessForm.controls['contact'].dirty || businessForm.controls['contact'].touched)">
               <div [class.invalid-feedback] = "businessForm.controls['contact'].hasError('required')">
                   <div *ngIf="businessForm.controls['contact'].hasError('required')">
                       Business contact number is required.
@@ -60,7 +60,7 @@
           <div class="col-12">
             <!--Business Email input-->
             <label>Email Address</label>
-            <input type="text" class="form-control" value="{{business.Email}}" formControlName="email" [class.is-valid]="businessForm.controls['email'].valid" [class.is-invalid]="businessForm.controls['email'].invalid && (businessForm.controls['email'].dirty || businessForm.controls['email'].touched)">
+            <input type="text" class="form-control" formControlName="email" [class.is-valid]="businessForm.controls['email'].valid" [class.is-invalid]="businessForm.controls['email'].invalid && (businessForm.controls['email'].dirty || businessForm.controls['email'].touched)">
               <div [class.invalid-feedback] = "businessForm.controls['email'].hasError('required')">
                   <div *ngIf="businessForm.controls['email'].hasError('required')">
                       Email is required.
@@ -86,8 +86,6 @@
 
           <!--Update info button-->
           <button type="button" class="btn btn-primary col-3" data-toggle="modal" data-target="#exampleModalCenter">Update Information</button>
-          <!--Cancel button-->
-          <button class="btn btn-outline-primary col-2" (click)="businessForm.reset()">Cancel</button>
 
           <!-- Confirmation Dialog-->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

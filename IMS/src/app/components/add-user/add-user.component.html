@@ -122,7 +122,7 @@
         <!--User Type input-->
         <label>User Type</label>
         <select class="form-control" formControlName="type" [class.is-valid]="addUserForm.controls['type'].valid" [class.is-invalid]="addUserForm.controls['type'].invalid && (addUserForm.controls['type'].dirty || addUserForm.controls['type'].touched)">
-          <option selected disabled>Choose...</option>
+          <option value="" disabled>Choose...</option>
           <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
         </select>
         <div [class.invalid-feedback] = "addUserForm.controls['type'].hasError('required')">
@@ -174,8 +174,8 @@
         <!--City input-->
         <label>City</label>
         <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="addUserForm.controls['city'].valid" [class.is-invalid]="addUserForm.controls['city'].invalid && (addUserForm.controls['city'].dirty || addUserForm.controls['city'].touched)">
-          <option selected disabled>Choose...</option>
-          <option *ngFor="let c of cities" value="{{c.cityID}}">{{c.cityName}}</option>
+          <option value="" disabled>Choose...</option>
+          <option *ngFor="let c of cities" [value]="c.cityID">{{c.cityName}}</option>
         </select>
         <div [class.invalid-feedback] = "addUserForm.controls['city'].hasError('required')">
           <div *ngIf="addUserForm.controls['city'].hasError('required')">
@@ -187,7 +187,7 @@
         <!--Suburb input-->
         <label>Suburb</label>
         <select class="form-control" formControlName="suburb" [class.is-valid]="addUserForm.controls['suburb'].valid" [class.is-invalid]="addUserForm.controls['suburb'].invalid && (addUserForm.controls['suburb'].dirty || addUserForm.controls['suburb'].touched)">
-          <option selected disabled>Choose...</option>
+          <option value="" disabled>Choose...</option>
           <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
         </select>
         <div [class.invalid-feedback] = "addUserForm.controls['suburb'].hasError('required')">

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService} from "../../globalAssets/global.service";
 import { BusinessFooterService} from "../business-footer/business-footer.service";
 import { BusinessSettingService, iBusinesss} from "./business-setting.service";
-import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, Form, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-business-setting',
@@ -36,13 +36,17 @@ export class BusinessSettingComponent implements OnInit {
       // Load Business info
       this.bFooter.getBusinessInfo()
           .subscribe(
-              data => this.business = data[0],
+              data => {
+                  // Load values onto form
+                  this.businessForm.controls['name'].setValue(data[0].BusinessName);
+                  this.businessForm.controls['contact'].setValue(data[0].contact);
+                  this.businessForm.controls['email'].setValue(data[0].Email);
+                  },
               error => this.gService.handleError(error));
   }
 
   // Business info update
   onSubmit(e) {
-      console.log(JSON.stringify(e.value));
     if(e.valid) {
         let param: iBusinesss = {
             name: e.value['name'],
@@ -62,11 +66,11 @@ export class BusinessSettingComponent implements OnInit {
 
   // upload
   upload(e,type) {
-      console.log(e.target.files[0]);
+      let file = e.target.files[0];
       if(type == 1) {
           // Logo upload
           let frmData = new FormData();
-          frmData.append('file', e.target.files[0]);
+          frmData.append('file', file);
           this.service.uploadImage(frmData)
               .subscribe();
       }
