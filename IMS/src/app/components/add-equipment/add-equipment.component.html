@@ -2,7 +2,7 @@
 <app-header></app-header>
 <!--Add equipment Form-->
 <div class="container">
-  <form (ngsubmit)="addEquipment(addEquipmentForm)"[formGroup]="addEquipmentForm">
+  <form (ngSubmit)="addEquipment(addEquipmentForm)"[formGroup]="addEquipmentForm">
     <div class="py-5 text-center">
       <img class="mb-4" src='../assets/logo.png' width="70" height="70">
       <h1>Receive Equipment</h1>
@@ -47,7 +47,7 @@
         <!-- Select Condition -->
         <label>Condition</label>
         <select type="text" class="form-control" formControlName="condition" [class.is-valid]="addEquipmentForm.controls['condition'].valid" [class.is-invalid]="addEquipmentForm.controls['condition'].invalid && (addEquipmentForm.controls['condition'].dirty || addEquipmentForm.controls['condition'].touched)">
-          <option disabled selected>Condition</option>
+          <option value="" disabled selected>Condition</option>
           <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
         </select>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['condition'].hasError('required')">
@@ -64,7 +64,7 @@
         <!-- Select Brand -->
         <label>Brand</label>
         <select class="form-control" formControlName="brand" [class.is-valid]="addEquipmentForm.controls['brand'].valid" [class.is-invalid]="addEquipmentForm.controls['brand'].invalid && (addEquipmentForm.controls['brand'].dirty || addEquipmentForm.controls['brand'].touched)">
-          <option disabled selected>Brand</option>
+          <option value="" disabled selected>Brand</option>
           <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
         </select>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['brand'].hasError('required')">
@@ -77,7 +77,7 @@
         <!-- Select Section -->
         <label>Section</label>
         <select class="form-control" formControlName="section" [class.is-valid]="addEquipmentForm.controls['section'].valid" [class.is-invalid]="addEquipmentForm.controls['section'].invalid && (addEquipmentForm.controls['section'].dirty || addEquipmentForm.controls['section'].touched)">
-          <option disabled selected>Section</option>
+          <option value="" disabled selected>Section</option>
           <option *ngFor="let s of sections" value="{{s.SectionID}}">{{s.SectionDesc}}</option>
         </select>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['section'].hasError('required')">
@@ -91,18 +91,18 @@
       <div class="col-sm-6">
         <label>Type</label>
         <select class="form-control" formControlName="type" [class.is-valid]="addEquipmentForm.controls['type'].valid" [class.is-invalid]="addEquipmentForm.controls['type'].invalid && (addEquipmentForm.controls['type'].dirty || addEquipmentForm.controls['type'].touched)">
-          <option disabled selected>Type</option>
-          <option *ngFor="let t of types" value={{t.TypeID}}>{{t.TypeDesc}}</option>
+          <option value="" disabled selected>Type</option>
+          <option *ngFor="let t of types" [value]="t.TypeID">{{t.TypeDesc}}</option>
         </select>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['type'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['type'].hasError('required')">
             The equipment's type is required.
-          </div>
-        </div>
+          </div>"
+        </div>"
       </div>
       <!--Add picture button-->
         <!--<label> Upload Picture</label>
-                      <br>
+                      <br>"
                       <input type="file" (change)="preview($event)" accept="image/*">
                       <br>
                       <canvas #mycanvas width="150" height="150" style="border: 1px solid blue"></canvas>
@@ -112,11 +112,11 @@
         <!-- Select Date -->
         <div class="col-sm-6">
           <label>Date Received</label>
-          <input type="date" class="form-control" placeholder="Section" formControlName="date" [class.is-valid]="addEquipmentForm.controls['date'].valid"
-            [class.is-invalid]="addEquipmentForm.controls['date'].invalid && (addEquipmentForm.controls['date'].dirty || addEquipmentForm.controls['date'].touched)">
+          <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
+            [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
         </div>
-        <div [class.invalid-feedback] = "addEquipmentForm.controls['date'].hasError('required')">
-          <div *ngIf="addEquipmentForm.controls['date'].hasError('required')">
+        <div [class.invalid-feedback] = "addEquipmentForm.controls['dateReceived'].hasError('required')">
+          <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">
             The receival date is required.
           </div>
         </div>

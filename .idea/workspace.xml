@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/user-setting/user-setting.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,11 +29,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user-password-reset.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html">
+      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+            <state relative-caret-position="306">
+              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-equipment.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="93" column="44" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-equipment.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -71,7 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/IMS/api/BLL/userPasswordReset.php" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/logo.php" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.ts" />
@@ -79,7 +85,6 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/addUser.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.css" />
@@ -99,7 +104,6 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.css" />
-        <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/globalAssets/global.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" />
@@ -122,6 +126,9 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html" />
+        <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
       </list>
     </option>
   </component>
@@ -140,8 +147,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="2560" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -149,7 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,6 +172,19 @@
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
               <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
               <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="DAL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -190,7 +209,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="user-password-reset" type="462c0819:PsiDirectoryNode" />
+              <item name="add-equipment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="add-user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
@@ -204,6 +232,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -405,11 +434,14 @@
       <workItem from="1533017898142" duration="301000" />
       <workItem from="1533021208477" duration="7189000" />
       <workItem from="1533036453821" duration="14800000" />
+      <workItem from="1533058089455" duration="201000" />
+      <workItem from="1533061770757" duration="1230000" />
+      <workItem from="1533063204998" duration="48000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305969000" />
+    <option name="totallyTimeSpent" value="307448000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,16 +454,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32935324" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.26666668" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32969698" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49928468" weight="0.15024875" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4985694" weight="0.21393035" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49928468" weight="0.14909092" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4985694" weight="0.21333334" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.22460657" />
+      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.23319027" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
@@ -465,22 +496,24 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -596,13 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" selection-start-line="14" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -684,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -697,32 +720,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.ts" />
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/footer/footer.component.html" />
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/login/login.component.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -742,18 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,9 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
           <caret line="122" column="12" lean-forward="true" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="118" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -771,9 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -781,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="649">
           <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -791,9 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-          <folding>
-            <element signature="e#23#81#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -801,11 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-123">
           <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#255#319#0" expanded="true" />
-            <element signature="e#410#478#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -823,17 +799,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="200" column="4" selection-start-line="200" selection-start-column="4" selection-end-line="200" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
           <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="93" column="44" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
         </state>
       </provider>
     </entry>
