@@ -13,9 +13,11 @@ use DAL\DBHandler;
 $action =   $_GET['action'];
 
 if($action == 'users') {
-    echo json_encode(DBHandler::Dashboard_Users());
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_Users($days));
 }
 else if($action == 'specificUser') {
     $userID = json_decode($_GET['userID']);
-    echo json_encode(DBHandler::Dashboard_IndividualUser($userID));
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_IndividualUser($userID,$days));
 }

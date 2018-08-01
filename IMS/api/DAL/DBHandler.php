@@ -159,15 +159,16 @@ class DBHandler
     }
 
     // Dashboard components methods
-    public static function Dashboard_Users ()
+    public static function Dashboard_Users ($days)
     {
-        $sp = 'CALL uspDashboard_Users';
-        return DBHelper::Select($sp);
+        $sp = 'CALL uspDashboard_Users (?)';
+        $param = array(&$days);
+        return DBHelper::SelectParam($sp,$param);
     }
-    public static function Dashboard_IndividualUser($userID)
+    public static function Dashboard_IndividualUser($userID,$days)
     {
-        $sp = 'CALL uspDashboard_IndividualUser (?)';
-        $param = array(&$userID);
+        $sp = 'CALL uspDashboard_IndividualUser (?,?)';
+        $param = array(&$userID,&$days);
         return DBHelper::SelectParam($sp,$param);
     }
 

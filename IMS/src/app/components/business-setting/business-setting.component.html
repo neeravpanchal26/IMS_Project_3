@@ -10,15 +10,17 @@
 
     <div class="form-row">
       <div class="row">
-          <!--Current Logo-->
-          <div class="card col-lg-3" >
-            <img class="card-img-top" *ngIf="businessLogo" [src]="businessLogo">
-            <div class="card-body">
-              <h5 class="card-title">Current Logo</h5>
-            </div>
+          <div class="col-lg-4 col-md-6">
+              <!--Current Logo-->
+              <div class="card">
+                    <img class="card-img-top" *ngIf="businessLogo" [src]="businessLogo">
+                    <div class="card-body">
+                      <h5 class="card-title">Current Logo</h5>
+                    </div>
+              </div>
           </div>
 
-          <div class="col-lg-9">
+          <div class="col-lg-8 col-md-6">
               <div class="col-12">
                 <!--Business Logo input-->
                 <label for="BusinessLogo">Upload new Logo</label>
@@ -86,7 +88,7 @@
 
               <!--Update info button-->
               <div class="col-12">
-              <button type="button" class="btn btn-primary col-lg-3" data-toggle="modal" data-target="#exampleModalCenter">Update Information</button>
+              <button type="button" class="btn btn-primary col-lg-4" data-toggle="modal" data-target="#exampleModalCenter">Update Information</button>
               </div>
 
               <!-- Confirmation Dialog-->

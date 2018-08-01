@@ -9,12 +9,12 @@ export class DashboardService {
   constructor(private http:HttpClient) { }
 
   // Users graph
-  getUsers():Observable<any[]> {
-    return this.http.get('/api/BLL/dashboard.php?action=users') as Observable<any[]>;
+  getUsers(days):Observable<any[]> {
+    return this.http.get('/api/BLL/dashboard.php?action=users&days='+days) as Observable<any[]>;
   }
 
   // Individual User graph
-  getIndivdualData(userID):Observable<any[]>{
-    return this.http.get('/api/BLL/dashboard.php?action=specificUser&userID='+userID) as Observable<any[]>;
+  getIndivdualData(userID,days):Observable<any[]>{
+    return this.http.get('/api/BLL/dashboard.php?action=specificUser&userID='+userID+'&days='+days) as Observable<any[]>;
   }
 }

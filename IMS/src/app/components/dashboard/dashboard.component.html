@@ -2,8 +2,26 @@
 <app-header></app-header>
 
 <div class="container">
-<h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-5">
+        <h1>Dashboard</h1>
+        </div>
+        <div class="col-7">
+            <div class="dropdown float-right mt-1">
+                <button class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="oi oi-ellipses"></span> Filter
+                </button>
+
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <hr/>
+
     <div *ngIf="userType==1">
         <canvas id="canvas">{{chart}}</canvas>
         <h1>List of users</h1>
@@ -30,7 +48,11 @@
                 <td>{{u.lastAccess}}</td>
             </tr>
         </table>
-        <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+        <div class="row" [hidden]="user.length<=10">
+            <div class="col-lg-12">
+                <pagination-controls (pageChange)="p = $event" class="my-pagination float-right"></pagination-controls>
+            </div>
+        </div>
     </div>
 </div>
 <!--Footer-->

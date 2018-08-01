@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   public user = [];
   public userType;
   public filter = null;
+  public days:number=7;
 
   // Default Constructor
   constructor(private login:LoginService,
@@ -26,35 +27,45 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
       this.userType = this.login.getUserType();
     if(this.userType === 1) {
-        this.service.getUsers()
-            .subscribe
-            (data => {
-                // Full Data for table display
-                this.user = data;
-
-                // First name column data for labels
-                let firstName = data.map(function(value,index) {return value['FirstName'];});
-
-                // Count column for chart data
-                let count = data.map(function(value,index) {return value['count'];});
-
-                // Random color per column
-                let color = [];
-                for (let dataKey in data) {
-                    color.push(this.colorFunction());
-                }
-
-                // Parsing data to chart and generating chart
-                this.barChart(firstName,count,color,'User movement in past 7 days.','Users','# of logins');
-            },
-                //Error handling
-                error => this.gService.handleError(error));
+        this.dashboardChart();
     }
   }
 
+  // Set days
+  setDays(e) {
+      this.days=e;
+      this.dashboardChart();
+  }
+
+  // Users dashboard chart
+  dashboardChart() {
+      this.service.getUsers(this.days)
+          .subscribe
+          (data => {
+                  // Full Data for table display
+                  this.user = data;
+
+                  // First name column data for labels
+                  let firstName = data.map(function(value,index) {return value['FirstName'];});
+
+                  // Count column for chart data
+                  let count = data.map(function(value,index) {return value['count'];});
+
+                  // Random color per column
+                  let color = [];
+                  for (let dataKey in data) {
+                      color.push(this.colorFunction());
+                  }
+
+                  // Parsing data to chart and generating chart
+                  this.barChart(firstName,count,color,'User movement in past '+this.days+' days.','Users','# of logins');
+              },
+              //Error handling
+              error => this.gService.handleError(error));
+  }
   // User Data
   userData(input,username) {
-      this.service.getIndivdualData(input)
+      this.service.getIndivdualData(input,this.days)
           .subscribe(
               data => {
               //Dates Load up
@@ -71,7 +82,7 @@ export class DashboardComponent implements OnInit {
 
               // Parsing data to chart and generating chart
               this.chart.destroy();
-              this.barChart(loginDate,count,color,username + "'s" + ' movement in past 7 days.','Dates','# of logins');
+              this.barChart(loginDate,count,color,username + "'s" + ' movement in past '+this.days+' days.','Dates','# of logins');
           },
               error => this.gService.handleError(error))
   }
