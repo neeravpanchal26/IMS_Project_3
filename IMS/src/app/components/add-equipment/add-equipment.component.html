@@ -97,8 +97,8 @@
         <div [class.invalid-feedback] = "addEquipmentForm.controls['type'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['type'].hasError('required')">
             The equipment's type is required.
-          </div>"
-        </div>"
+          </div>
+        </div>
       </div>
       <!--Add picture button-->
         <!--<label> Upload Picture</label>
@@ -118,6 +118,39 @@
         <div [class.invalid-feedback] = "addEquipmentForm.controls['dateReceived'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">
             The receival date is required.
+          </div>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <label>Barcode</label>
+        <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="addEquipmentForm.controls['barcode'].valid" [class.is-invalid]="addEquipmentForm.controls['barcode'].invalid && (addEquipmentForm.controls['barcode'].dirty || addEquipmentForm.controls['barcode'].touched)">
+      </div>
+      <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('required')">
+          <div *ngIf="addEquipmentForm.controls['barcode'].hasError('required')">
+            Barcode is required.
+          </div>
+      </div>
+      <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('maxlength')">
+          <div *ngIf="addEquipmentForm.controls['barcode'].hasError('maxlength')">
+            Barcode must be 12 characters long.
+          </div>
+      </div>
+      <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('maxlength')">
+          <div *ngIf="barcodeInUse">
+              Barcode must be 12 characters long.
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <label>Supplier</label>
+          <select class="form-control" formControlName="suppliers" [class.is-valid]="addEquipmentForm.controls['suppliers'].valid" [class.is-invalid]="addEquipmentForm.controls['suppliers'].invalid && (addEquipmentForm.controls['suppliers'].dirty || addEquipmentForm.controls['suppliers'].touched)">
+            <option disabled selected>Supplier</option>
+            <option  *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
+          </select>
+        </div>
+        <div [class.invalid-feedback] = "addEquipmentForm.controls['suppliers'].hasError('required')">
+          <div *ngIf="addEquipmentForm.controls['suppliers'].hasError('required')">
+            The equipment's supplier is required.
           </div>
         </div>
     </div>

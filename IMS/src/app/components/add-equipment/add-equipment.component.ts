@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
+import { AddEquipmentService, iAddEquipment, iBarcodeCheck } from './add-equipment.service';
 import { GeoLocationService } from './geolocation.service';
 import { GlobalService } from '../../globalAssets/global.service';
 import { FormGroup, FormBuilder,Validators,Form } from '../../../../node_modules/@angular/forms';
@@ -19,6 +19,7 @@ export class AddEquipmentComponent implements OnInit {
   public types:any;
   public conditions:any;
   public sections:any;
+  public suppliers:any;
   public addEquipmentForm:FormGroup;
   @ViewChild('cropper',undefined)
 
@@ -57,12 +58,20 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     this.service.GetConditions().subscribe(data=>this.conditions=data);
     this.service.GetSections().subscribe(data=>this.sections=data);
     this.service.GetTypes().subscribe(data=>this.types=data);
+    this.service.GetSuppliers().subscribe(data=>this.suppliers=data);
     this.buildForm();
   }
   getLocation()
   {
     this.location.getLocation().subscribe(data=>this.position=data);
 
+  }
+  barcodeCheck(e)
+  {
+    let param:iBarcodeCheck=
+    {
+      barcode:e.target.elements[8].value
+    }
   }
   addEquipment(e)
   {
@@ -77,12 +86,12 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       brand:e.target.elements[4].value,
       section:e.target.elements[5].value,
       type:e.target.elements[6].value,
-      status:"2",
-      dateReceived:e.target.elements[7].value
+      dateReceived:e.target.elements[7].value,
+      barcode:e.target.elements[8].value
     };
     console.log(param);
     let result:any;
-    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
+    //this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
   }
   buildForm():void {
     this.addEquipmentForm = this.fBuilder.group({
@@ -92,7 +101,9 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
         'brand':['',Validators.required],
         'section':['',Validators.required],
         'type':['',Validators.required],
-        'dateReceived':['',Validators.required]
+        'dateReceived':['',Validators.required],
+        'suppliers':['',Validators.required],
+        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12)])]
     });
 }
   

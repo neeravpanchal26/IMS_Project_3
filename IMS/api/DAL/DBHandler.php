@@ -95,10 +95,10 @@ class DBHandler
         $sp='CALL uspAddEquipment_Section';
         return DBHelper::Select($sp);
     }
-    public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section,$type, $status, $dateReceive)
+    public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section,$type, $dateReceive, $barcode)
     {
         $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?,?, ?, ?, ?)';
-        $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$type,&$status,&$dateReceive);
+        $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$type,&$dateReceive,&$barcode);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
@@ -123,6 +123,11 @@ class DBHandler
         $sp = "CALL uspAllocateEquipment_Allocation(?,?,?,?)";
         $param = array(&$condition,&$value,&$equipmentID,&$userID);
         return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function AllocateEquipment_Suppliers()
+    {
+        $sp='CALL uspAllocateEquipment_Suppliers';
+        return DBHelper::Select($sp);
     }
 
     // User Setting component methods

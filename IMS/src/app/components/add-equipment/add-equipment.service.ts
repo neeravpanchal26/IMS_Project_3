@@ -32,13 +32,22 @@ export class AddEquipmentService {
   {
     return this.http.get('/api/BLL/addEquipment.php?action=section') as Observable<any>;
   }
+  GetSuppliers():Observable<any>
+  {
+    return this.http.get('/api/BLL/addEquipment.php?action=suppliers') as Observable<any>;
+  }
   AddEquipment(param:iAddEquipment):Observable<any>
   {
     return this.http.post('/api/BLL/addEquipment.php?action=insert',param)as Observable<any>;
   }
 }
+export interface iBarcodeCheck
+{
+  barcode:any
+}
 export interface iAddEquipment
 {
   name: any, desc: any,  cost: any, equipmentCondition: any,
-  brand: any, section: any, type: any, status: any,  dateReceived: any
+  brand: any, section: any, type: any,  dateReceived: any, barcode:any
 }
+

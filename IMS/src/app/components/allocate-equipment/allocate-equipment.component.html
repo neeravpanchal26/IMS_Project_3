@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container-fluid">
+<div>
   <form>
       <div class="py-5 text-center">
           <img class="mb-4" src='../assets/logo.png' width="70" height="70">
@@ -18,7 +18,7 @@
                           <th>Brand</th>
                           <th>Type</th>
                           <th>Condition</th>
-                          <th >Assign user</th>
+                          <th colspan=5>Assign user</th>
                       </tr>
                       <tr *ngFor="let e of equipment">
                               <td >{{e.EquipmentID}}</td>
@@ -28,7 +28,7 @@
                               <td>{{e.BrandDesc}}</td>
                               <td>{{e.TypeDesc}}</td>
                               <td>{{e.ConditionDesc}}</td>
-                              <td >
+                              <td colspan=5>
                                   <select class="form-control" width="100" (change)="allocateEquipment($event,e.EquipmentCondition,e.Cost,e.EquipmentID)">
                                       <option disabled selected>Select Technical Employee</option>
                                       <option *ngFor="let t of techEmployees" [value]="t.UserID" >{{t.TechEmployee}}</option>
