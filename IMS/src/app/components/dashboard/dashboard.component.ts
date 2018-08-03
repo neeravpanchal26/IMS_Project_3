@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   public userType;
   public filter = null;
   public days:number=7;
+  public title:any;
 
   // Default Constructor
   constructor(private login:LoginService,
@@ -63,6 +64,7 @@ export class DashboardComponent implements OnInit {
               //Error handling
               error => this.gService.handleError(error));
   }
+
   // User Data
   userData(input,username) {
       this.service.getIndivdualData(input,this.days)
@@ -89,6 +91,10 @@ export class DashboardComponent implements OnInit {
 
   // Dynamic chart function
   barChart(xAxis, yAxis, color, title,xTitle,yTitle) {
+      // Chart Title assign
+      this.title = title;
+
+      // Chart creation
       this.chart = new Chart('canvas', {
           type: 'line',
           data: {
@@ -100,10 +106,6 @@ export class DashboardComponent implements OnInit {
               }]
           },
           options: {
-              title: {
-                  display: true,
-                  text: title
-              },
               scales: {
                   yAxes: [{
                       scaleLabel: {

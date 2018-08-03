@@ -33,17 +33,17 @@
       <li class="nav-item" *ngIf="userType==3">
         <span class="navbar-link dropdown">
           <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="oi oi-box"></span> Equipment
+            <span class="oi oi-cart"></span> Equipment
           </a>
           <div class="dropdown-menu dropright" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item text-secondary" routerLink="/Add Equipment"><span class="oi oi-box"></span> Receive Equipment</a>
-            <a class="dropdown-item text-secondary" routerLink="/Allocate Equipment"><span class="oi oi-box"></span> Allocate Equipment</a>
+            <a class="dropdown-item text-secondary" routerLink="/Add Equipment"><span class="oi oi-cart"></span> Receive Equipment</a>
+            <a class="dropdown-item text-secondary" routerLink="/Allocate Equipment"><span class="oi oi-cart"></span> Allocate Equipment</a>
           </div>
         </span>
       </li>
       <!--Section Head Links end here-->
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/reports"><span class="oi oi-script"></span> Reports</a>
+        <a class="nav-link text-white" routerLink="/reports"><span class="oi oi-document"></span> Reports</a>
       </li>
     </ul>
 
@@ -56,13 +56,14 @@
           <a class="dropdown-item text-secondary" routerLink="/usersetting"><span class="oi oi-wrench"></span> Settings</a>
           <a class="dropdown-item text-secondary" routerLink="/userpassword"><span class="oi oi-reload"></span> Change password</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-secondary" data-toggle="modal" data-target="#exampleModalCenter"><span class="oi oi-account-logout"></span> Logout</a>
+          <a class="dropdown-item text-secondary" data-toggle="modal" data-target="#logout"><span class="oi oi-account-logout"></span> Logout</a>
         </div>
     </span>
     <a class="nav-item" href="/"><span class="oi oi-account-logout"></span></a>
   </div>
+
     <!-- Confirmation Dialog-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">

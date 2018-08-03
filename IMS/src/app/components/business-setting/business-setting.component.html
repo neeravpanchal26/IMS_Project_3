@@ -24,7 +24,7 @@
               <div class="col-12">
                 <!--Business Logo input-->
                 <label for="BusinessLogo">Upload new Logo</label>
-                <input id="BusinessLogo" type="file" class="form-control" (change)="upload($event,1)">
+                <input id="BusinessLogo" type="file" class="form-control-file" (change)="upload($event,1)">
               </div>
 
               <div class="col-12">
@@ -82,13 +82,13 @@
               <div class="col-12">
                   <!--Business Policy input-->
                   <label for="BusinessLogo">Upload new Policy</label>
-                  <input id="BusinessGroupPolicy" type="file" class="form-control" (change)="upload($event,2)">
+                  <input id="BusinessGroupPolicy" type="file" class="form-control-file" (change)="upload($event,2)">
               </div>
               <br/>
 
               <!--Update info button-->
               <div class="col-12">
-              <button type="button" class="btn btn-primary col-lg-4" data-toggle="modal" data-target="#exampleModalCenter">Update Information</button>
+              <button type="button" class="btn btn-primary col-lg-2" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
               </div>
 
               <!-- Confirmation Dialog-->

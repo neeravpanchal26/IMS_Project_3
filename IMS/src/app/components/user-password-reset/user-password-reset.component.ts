@@ -14,6 +14,7 @@ export class UserPasswordResetComponent implements OnInit {
   // Global Variable
   public passwordForm:FormGroup;
   public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
+  public Labels = ['Weak', 'Fair', 'Good', 'Strong', 'Great'];
 
   // Default Constructor
   constructor(private login:LoginService,

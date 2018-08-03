@@ -22,6 +22,7 @@ export class AddUserComponent implements OnInit {
     public addUserForm:FormGroup;
     public maxDate:any;
     public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
+    public Labels = ['Weak', 'Fair', 'Good', 'Strong', 'Great'];
 
     // Default Constructor
     constructor(private service:AddUserService,
