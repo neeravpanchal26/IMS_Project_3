@@ -17,6 +17,7 @@ export class DeactivateUserComponent implements OnInit {
   public userType:any;
   public search: FormControl;
   public filter:null;
+  public p = null;
 
   // Default Constructor
   constructor(private service:DeactivateUserService,

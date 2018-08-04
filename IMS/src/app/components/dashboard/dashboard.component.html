@@ -32,30 +32,30 @@
             <div class="card mt-3">
                 <div class="card-body">
                     <h5 class="card-title">List of users</h5>
-        <!--Search Input-->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text">
-                    <span class="oi oi-magnifying-glass"></span>
-                </div>
-            </div>
-            <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
-        </div>
-        <br>
+                        <!--Search Input-->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="oi oi-magnifying-glass"></span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
+                        </div>
+                        <br>
 
-        <table class="table table-sm table-hover">
-            <thead><tr class="bg-light">
-                <th (click)="sort('FirstName')" class="btn-link">Username</th>
-                <th (click)="sort('count')" class="btn-link"># of Login's</th>
-                <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
-            </tr></thead>
-            <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };" (click)="userData(u.UserID,u.FirstName)">
-                <td>{{u.FirstName}} {{u.Surname}}</td>
-                <td>{{u.count}}</td>
-                <td>{{u.lastAccess}}</td>
-            </tr>
-        </table>
-        <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="user.length<=10"></pagination-controls>
+                        <table class="table table-sm table-hover">
+                            <thead><tr class="bg-light">
+                                <th (click)="sort('FirstName')" class="btn-link">Username</th>
+                                <th (click)="sort('count')" class="btn-link"># of Login's</th>
+                                <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
+                            </tr></thead>
+                            <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };" (click)="userData(u.UserID,u.FirstName)">
+                                <td>{{u.FirstName}} {{u.Surname}}</td>
+                                <td>{{u.count}}</td>
+                                <td>{{u.lastAccess}}</td>
+                            </tr>
+                        </table>
+                        <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="user.length<=10"></pagination-controls>
                 </div>
             </div>
         </div>
