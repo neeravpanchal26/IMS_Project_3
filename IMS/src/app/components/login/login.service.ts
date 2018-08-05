@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from "@angular/common/http";
 import { Observable} from "rxjs/Observable";
+import { environment} from "../../../environments/environment";
 
 @Injectable()
 export class LoginService {
@@ -9,6 +10,7 @@ export class LoginService {
   private userType;
   private username;
   private userID;
+  apiUrl = environment.api;
 
   // Default Constructor
   constructor(private http:HttpClient) {
@@ -46,7 +48,7 @@ export class LoginService {
 
   // Login Check Service
   check(param:iLogin):Observable<any> {
-      return this.http.post('/api/BLL/login.php',param) as Observable<any>;
+      return this.http.post(this.apiUrl+'/api/BLL/login.php',param) as Observable<any>;
   }
 }
 // Wrapper Class

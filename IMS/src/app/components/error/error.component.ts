@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GlobalService} from "../../globalAssets/global.service";
+import { GlobalService} from "../../globalAssets/global.service";
 
 @Component({
   selector: 'app-error',

@@ -5,8 +5,14 @@
  * Date: 2018/06/25
  * Time: 15:56
  */
+// Default Header
+header('Access-Control-Allow-Methods:GET,PUT,POST,DELETE');
+header('Access-Control-Allow-Headers:Content-Type, Authorization');
 header('Access-Control-Allow-Origin: *');
+
+// Response type header
 header('Content-Type: application/json');
+
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
 

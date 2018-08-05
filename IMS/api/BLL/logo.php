@@ -5,10 +5,17 @@
  * Date: 2018/07/22
  * Time: 17:06
  */
+// Default Header
+header('Access-Control-Allow-Methods:GET,PUT,POST,DELETE');
+header('Access-Control-Allow-Headers:Content-Type, Authorization');
 header('Access-Control-Allow-Origin: *');
-header("Content-type: image/png");
+
+// Response type header
+header('Content-Type: application/json');
+
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
+
 $result = DBHandler::Business_Logo();
 echo $result['Logo'];
 

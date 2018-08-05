@@ -3,27 +3,30 @@ import { ToastrService } from "ngx-toastr";
 import { Observable} from "rxjs/Observable";
 import { HttpClient} from "@angular/common/http";
 import { DomSanitizer} from "@angular/platform-browser";
+import { environment} from "../../environments/environment";
 
 @Injectable()
 export class GlobalService {
+  // Global Variable
+  apiUrl = environment.api;
+
   // Default Constructor
   constructor(private toast:ToastrService,
               private http:HttpClient,
               private sanitizer:DomSanitizer) { }
-
-  // Error message
-  handleError(error:Error) {
-    return this.toast.error('An error has occurred\n'+error.message+'\nPlease contact the administrator for further assistance.','Oops!');
-  }
-
   // Get Logo
   public getLogo():Observable<Blob> {
-    return this.http.get('/api/BLL/logo.php',{responseType:'blob'}) as Observable<Blob>;
+    return this.http.get(this.apiUrl+'/api/BLL/logo.php',{responseType:'blob'}) as Observable<Blob>;
   }
 
   // Image to URL
   selectPhoto(photos: any) {
     return this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(photos));
+  }
+
+  // Error message
+  handleError(error:Error) {
+    return this.toast.error('An error has occurred\n'+error.message+'\nPlease contact the administrator for further assistance.','Oops!');
   }
 
   // Deactivated user component notifications here
