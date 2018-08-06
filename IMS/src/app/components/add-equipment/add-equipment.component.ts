@@ -66,16 +66,8 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     this.location.getLocation().subscribe(data=>this.position=data);
 
   }
-  barcodeCheck(e)
-  {
-    let param:iBarcodeCheck=
-    {
-      barcode:e.target.elements[8].value
-    }
-  }
   addEquipment(e)
   {
-    
     e.preventDefault();
     let param:iAddEquipment=
     {
@@ -87,11 +79,12 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       section:e.target.elements[5].value,
       type:e.target.elements[6].value,
       dateReceived:e.target.elements[7].value,
-      barcode:e.target.elements[8].value
+      barcode:e.target.elements[8].value,
+      supplier:e.target.elements[9].value
     };
     console.log(param);
     let result:any;
-    //this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
+    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
   }
   buildForm():void {
     this.addEquipmentForm = this.fBuilder.group({

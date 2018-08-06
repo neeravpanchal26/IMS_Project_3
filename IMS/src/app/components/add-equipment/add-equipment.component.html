@@ -20,7 +20,7 @@
       </div>
       <div class="col-sm-6">
         <!-- Description -->
-        <label>Description</label>
+        <label>Description (Optional)</label>
         <input type="text" class="form-control" placeholder="Description">
       </div>
     </div>
@@ -89,6 +89,7 @@
     </div>
     <div class="form-row">
       <div class="col-sm-6">
+        <!-- Select Type -->
         <label>Type</label>
         <select class="form-control" formControlName="type" [class.is-valid]="addEquipmentForm.controls['type'].valid" [class.is-invalid]="addEquipmentForm.controls['type'].invalid && (addEquipmentForm.controls['type'].dirty || addEquipmentForm.controls['type'].touched)">
           <option value="" disabled selected>Type</option>
@@ -112,6 +113,7 @@
         <!-- Select Date -->
         <div class="col-sm-6">
           <label>Date Received</label>
+          <!-- Select Date -->
           <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
             [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
         </div>
@@ -123,6 +125,7 @@
     </div>
     <div class="form-row">
       <div class="col-sm-6">
+        <!-- Type in Barcode -->
         <label>Barcode</label>
         <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="addEquipmentForm.controls['barcode'].valid" [class.is-invalid]="addEquipmentForm.controls['barcode'].invalid && (addEquipmentForm.controls['barcode'].dirty || addEquipmentForm.controls['barcode'].touched)">
       </div>
@@ -136,16 +139,15 @@
             Barcode must be 12 characters long.
           </div>
       </div>
-      <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('maxlength')">
-          <div *ngIf="barcodeInUse">
-              Barcode must be 12 characters long.
-          </div>
-      </div>
+      <!--<div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('maxlength')">
+          
+      </div> -->
       <div class="col-sm-6">
+        <!-- Select Supplier -->
           <label>Supplier</label>
           <select class="form-control" formControlName="suppliers" [class.is-valid]="addEquipmentForm.controls['suppliers'].valid" [class.is-invalid]="addEquipmentForm.controls['suppliers'].invalid && (addEquipmentForm.controls['suppliers'].dirty || addEquipmentForm.controls['suppliers'].touched)">
-            <option disabled selected>Supplier</option>
-            <option  *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
+            <option value="" disabled selected>Supplier</option>
+            <option *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
           </select>
         </div>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['suppliers'].hasError('required')">
