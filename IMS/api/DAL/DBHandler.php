@@ -64,7 +64,7 @@ class DBHandler
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 
-    // Add Equipment component methods
+    // ADD Equipment component methods AND equipment details caller for UPDATE page
     public static function AddEquipment_Status()
     {
         $sp = 'CALL uspAddEquipment_Status';
@@ -94,6 +94,10 @@ class DBHandler
     {
         $sp='CALL uspAddEquipment_Section';
         return DBHelper::Select($sp);
+    }public static function AddEquipment_Suppliers()
+    {
+        $sp='CALL uspAddEquipment_Suppliers';
+        return DBHelper::Select($sp);
     }
     public static function AddEquipment_Insert($name, $desc, $cost, $equipCondition, $brand, $section,$type, $dateReceive, $barcode,$supplier)
     {
@@ -101,7 +105,13 @@ class DBHandler
         $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$type,&$dateReceive,&$barcode,&$supplier);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
-
+    //Update Equipment
+    public static function UpdateEquipment_GetEquipmentDetailsViaID($id)
+    {
+        $sp='CALL uspUpdateEquipment_GetEquipmentDetailsViaID (?)';
+        $param = array(&$id);
+        return DBHelper::SelectParam($sp,$param);
+    }
     // Allocate Equipment component methods
     public static function AllocateEquipment_TechEmployees()
     {
@@ -124,11 +134,7 @@ class DBHandler
         $param = array(&$condition,&$value,&$equipmentID,&$userID);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
-    public static function AllocateEquipment_Suppliers()
-    {
-        $sp='CALL uspAllocateEquipment_Suppliers';
-        return DBHelper::Select($sp);
-    }
+    
 
     // User Setting component methods
     public static function UserSetting_SpecificUser($userid)

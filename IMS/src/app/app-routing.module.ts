@@ -44,7 +44,7 @@ const appRoutes:Routes = [
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
     { path: 'Allocate Equipment', canActivate:[LoginGuard],component:AllocateEquipmentComponent},
     { path: 'ManageEquipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
-    { path: 'Update Equipment', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
+    { path: 'Update details/:id', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
     /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
 
     // Section Head
