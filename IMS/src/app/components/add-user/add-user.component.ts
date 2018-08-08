@@ -93,10 +93,6 @@ export class AddUserComponent implements OnInit {
                     },
                     error => this.gService.handleError(error));
         }
-    }
-
-    // Form Failure
-    onClick(e) {
         if(e.invalid)
             this.gService.formFailure();
     }

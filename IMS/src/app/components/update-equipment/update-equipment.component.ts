@@ -27,10 +27,11 @@ export class UpdateEquipmentComponent implements OnInit {
   ngOnInit() {
     let e:any;
     this.id = parseInt(this.router.snapshot.paramMap.get('id'));
+
     let param:iGetEquipmentDetails=
     {
       id:this.id
-    }
+    };
     this.service.GetBrands().subscribe(data=>this.brands=data);
     this.service.GetStatus().subscribe(data=>this.status=data);
     this.service.GetConditions().subscribe(data=>this.conditions=data);
@@ -41,7 +42,7 @@ export class UpdateEquipmentComponent implements OnInit {
     console.log(e);
     console.log(500);
     this.buildForm();
-    this.service.getEquipmentDetails(this.id).subscribe((res:any)=>
+    this.service.getEquipmentDetails(param).subscribe((res:any)=>
     {
       console.log(res);
       this.equipmentDetails=res[0];

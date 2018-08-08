@@ -4,6 +4,7 @@ import { iUpdate, UserPasswordResetService} from "../user-password-reset/user-pa
 import { UserSettingService} from "../user-setting/user-setting.service";
 import { GlobalService} from "../../globalAssets/global.service";
 import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
+import * as $ from 'jquery/dist/jquery.js';
 
 @Component({
   selector: 'app-it-password-reset',
@@ -50,15 +51,12 @@ export class ItPasswordResetComponent implements OnInit {
                   data => {
                       if (data == true) {
                           this.gService.passwordResetSuccess(this.userInfo['FirstName'], this.userInfo['Surname']);
+                          $('#exampleModalCenter').modal('toggle');
                       }
                   },
                   error => this.gService.handleError(error));
       }
-    }
-
-    // Form Failure
-    onClick(e) {
-        if(e.invalid)
+      if(e.invalid)
             this.gService.formFailure();
     }
 
