@@ -1,7 +1,10 @@
 <?php
+header('Access-Control-Allow-Methods:GET,PUT,POST,DELETE');
+header('Access-Control-Allow-Headers:Content-Type, Authorization');
 header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
 
+// Response type header
+header('Content-Type: application/json');
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
 

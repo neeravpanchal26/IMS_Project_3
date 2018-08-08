@@ -11,7 +11,7 @@
       <div class="col-sm-6">
         <!-- Name -->
         <label>Name</label>
-        <input type="text" class="form-control" placeholder="Name" formControlName="name" [class.is-valid]="updateEquipmentForm.controls['name'].valid" [class.is-invalid]="updateEquipmentForm.controls['name'].invalid && (updateEquipmentForm.controls['name'].dirty || updateEquipmentForm.controls['name'].touched)">
+        <input type="text" class="form-control" placeholder="Name" formControlName="name" [class.is-valid]="updateEquipmentForm.controls['name'].valid && updateEquipmentForm.controls['name'].touched" [class.is-invalid]="updateEquipmentForm.controls['name'].invalid && (updateEquipmentForm.controls['name'].dirty || updateEquipmentForm.controls['name'].touched)">
         <div [class.invalid-feedback] = "updateEquipmentForm.controls['name'].hasError('required')">
           <div *ngIf="updateEquipmentForm.controls['name'].hasError('required')">
             Equipment name is required.
@@ -34,7 +34,7 @@
               <b>R</b>
             </span>
           </div>
-          <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control" formControlName="cost" [class.is-valid]="updateEquipmentForm.controls['cost'].valid" [class.is-invalid]="updateEquipmentForm.controls['cost'].invalid && (updateEquipmentForm.controls['cost'].dirty || updateEquipmentForm.controls['cost'].touched)">
+          <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control" formControlName="cost" [class.is-valid]="updateEquipmentForm.controls['cost'].valid && updateEquipmentForm.controls['cost'].touched" [class.is-invalid]="updateEquipmentForm.controls['cost'].invalid && (updateEquipmentForm.controls['cost'].dirty || updateEquipmentForm.controls['cost'].touched)">
           <div [class.invalid-feedback] = "updateEquipmentForm.controls['name'].hasError('required')">
             <div *ngIf="updateEquipmentForm.controls['cost'].hasError('required')">
               Equipment cost/value is required.
@@ -46,7 +46,7 @@
       <div class="col-sm-6">
         <!-- Select Condition -->
         <label>Condition</label>
-        <select type="text" class="form-control" formControlName="condition" [class.is-valid]="updateEquipmentForm.controls['condition'].valid" [class.is-invalid]="updateEquipmentForm.controls['condition'].invalid && (updateEquipmentForm.controls['condition'].dirty || updateEquipmentForm.controls['condition'].touched)">
+        <select type="text" class="form-control" formControlName="condition" [class.is-valid]="updateEquipmentForm.controls['condition'].valid && updateEquipmentForm.controls['condition'].touched" [class.is-invalid]="updateEquipmentForm.controls['condition'].invalid && (updateEquipmentForm.controls['condition'].dirty || updateEquipmentForm.controls['condition'].touched)">
           <option value="" disabled selected>Condition</option>
           <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
         </select>
@@ -63,7 +63,7 @@
       <div class="col-sm-6">
         <!-- Select Brand -->
         <label>Brand</label>
-        <select class="form-control" formControlName="brand" [class.is-valid]="updateEquipmentForm.controls['brand'].valid" [class.is-invalid]="updateEquipmentForm.controls['brand'].invalid && (updateEquipmentForm.controls['brand'].dirty || updateEquipmentForm.controls['brand'].touched)">
+        <select class="form-control" formControlName="brand" [class.is-valid]="updateEquipmentForm.controls['brand'].valid && updateEquipmentForm.controls['brand'].touched" [class.is-invalid]="updateEquipmentForm.controls['brand'].invalid && (updateEquipmentForm.controls['brand'].dirty || updateEquipmentForm.controls['brand'].touched)">
           <option value="" disabled selected>Brand</option>
           <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
         </select>
@@ -76,7 +76,7 @@
       <div class="col-sm-6">
         <!-- Select Section -->
         <label>Section</label>
-        <select class="form-control" formControlName="section" [class.is-valid]="updateEquipmentForm.controls['section'].valid" [class.is-invalid]="updateEquipmentForm.controls['section'].invalid && (updateEquipmentForm.controls['section'].dirty || updateEquipmentForm.controls['section'].touched)">
+        <select class="form-control" formControlName="section" [class.is-valid]="updateEquipmentForm.controls['section'].valid && updateEquipmentForm.controls['name'].touched" [class.is-invalid]="updateEquipmentForm.controls['section'].invalid && (updateEquipmentForm.controls['section'].dirty || updateEquipmentForm.controls['section'].touched)">
           <option value="" disabled selected>Section</option>
           <option *ngFor="let s of sections" value="{{s.SectionID}}">{{s.SectionDesc}}</option>
         </select>
@@ -91,7 +91,7 @@
       <div class="col-sm-6">
         <!-- Select Type -->
         <label>Type</label>
-        <select class="form-control" formControlName="type" [class.is-valid]="updateEquipmentForm.controls['type'].valid" [class.is-invalid]="updateEquipmentForm.controls['type'].invalid && (updateEquipmentForm.controls['type'].dirty || updateEquipmentForm.controls['type'].touched)">
+        <select class="form-control" formControlName="type" [class.is-valid]="updateEquipmentForm.controls['type'].valid && updateEquipmentForm.controls['type'].touched" [class.is-invalid]="updateEquipmentForm.controls['type'].invalid && (updateEquipmentForm.controls['type'].dirty || updateEquipmentForm.controls['type'].touched)">
           <option value="" disabled selected>Type</option>
           <option *ngFor="let t of types" [value]="t.TypeID">{{t.TypeDesc}}</option>
         </select>
@@ -114,7 +114,7 @@
         <div class="col-sm-6">
           <label>Date Received</label>
           <!-- Select Date -->
-          <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="updateEquipmentForm.controls['dateReceived'].valid"
+          <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="updateEquipmentForm.controls['dateReceived'].valid && updateEquipmentForm.controls['name'].touched"
             [class.is-invalid]="updateEquipmentForm.controls['dateReceived'].invalid && (updateEquipmentForm.controls['dateReceived'].dirty || updateEquipmentForm.controls['dateReceived'].touched)">
         </div>
         <div [class.invalid-feedback] = "updateEquipmentForm.controls['dateReceived'].hasError('required')">
@@ -127,7 +127,7 @@
       <div class="col-sm-6">
         <!-- Type in Barcode -->
         <label>Barcode</label>
-        <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="updateEquipmentForm.controls['barcode'].valid" [class.is-invalid]="updateEquipmentForm.controls['barcode'].invalid && (updateEquipmentForm.controls['barcode'].dirty || updateEquipmentForm.controls['barcode'].touched)">
+        <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="updateEquipmentForm.controls['barcode'].valid && updateEquipmentForm.controls['barcode'].touched" [class.is-invalid]="updateEquipmentForm.controls['barcode'].invalid && (updateEquipmentForm.controls['barcode'].dirty || updateEquipmentForm.controls['barcode'].touched)">
       </div>
       <div [class.invalid-feedback] = "updateEquipmentForm.controls['barcode'].hasError('required')">
           <div *ngIf="updateEquipmentForm.controls['barcode'].hasError('required')">
@@ -145,7 +145,7 @@
       <div class="col-sm-6">
         <!-- Select Supplier -->
           <label>Supplier</label>
-          <select class="form-control" formControlName="suppliers" [class.is-valid]="updateEquipmentForm.controls['suppliers'].valid" [class.is-invalid]="updateEquipmentForm.controls['suppliers'].invalid && (updateEquipmentForm.controls['suppliers'].dirty || updateEquipmentForm.controls['suppliers'].touched)">
+          <select class="form-control" formControlName="suppliers" [class.is-valid]="updateEquipmentForm.controls['suppliers'].valid && updateEquipmentForm.controls['suppliers'].touched" [class.is-invalid]="updateEquipmentForm.controls['suppliers'].invalid && (updateEquipmentForm.controls['suppliers'].dirty || updateEquipmentForm.controls['suppliers'].touched)">
             <option value="" disabled selected>Supplier</option>
             <option *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
           </select>
