@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateEquipmentService, iGetEquipmentDetails } from './update-equipment.service';
 import { FormGroup, Validators, FormBuilder,Form } from '../../../../node_modules/@angular/forms';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-update-equipment',
@@ -10,7 +11,7 @@ import { FormGroup, Validators, FormBuilder,Form } from '../../../../node_module
 })
 export class UpdateEquipmentComponent implements OnInit {
 
-  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder) { }
+  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder, private router:ActivatedRoute) { }
   public brands:any;
   public status:any;
   public position:any;
@@ -22,24 +23,13 @@ export class UpdateEquipmentComponent implements OnInit {
   public suppliers:any;
   public equipmentDetails:any;
   public updateEquipmentForm:FormGroup;
-  
-  //Variables to load equipment details.
-  public eName:any;
-  public eDesc:any;
-  public eCost:any;
-  public eCondition:any;
-  public eBrand:any;
-  public eSection:any;
-  public eType:any;
-  public eDate:any;
-  public eBarcode:any;
-  public eSupplier:any;
-
+  public id:any;
   ngOnInit() {
     let e:any;
+    this.id = parseInt(this.router.snapshot.paramMap.get('id'));
     let param:iGetEquipmentDetails=
     {
-      id:"2"
+      id:this.id
     }
     this.service.GetBrands().subscribe(data=>this.brands=data);
     this.service.GetStatus().subscribe(data=>this.status=data);
@@ -51,7 +41,7 @@ export class UpdateEquipmentComponent implements OnInit {
     console.log(e);
     console.log(500);
     this.buildForm();
-    this.service.getEquipmentDetails(param).subscribe((res:any)=>
+    this.service.getEquipmentDetails(this.id).subscribe((res:any)=>
     {
       console.log(res);
       this.equipmentDetails=res[0];
