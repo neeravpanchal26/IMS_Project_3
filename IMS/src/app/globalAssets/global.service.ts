@@ -82,4 +82,14 @@ export class GlobalService {
   {
     return this.toast.success('Equipment ID ' + equipmentID+ ' has successfully been allocated to user '+userID)
   }
+
+  //Adding of equipment
+  addEquipmentSuccess(name)
+  {
+    return this.toast.success('The equipment named '+ name +' has successfully been added');
+  }
+  barcodeInUse(barcode)
+  {
+    return this.toast.error('The barcode '+barcode+ ' is already in use');
+  }
 }

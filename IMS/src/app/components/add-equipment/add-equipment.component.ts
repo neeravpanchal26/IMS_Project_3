@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddEquipmentService, iAddEquipment, iBarcodeCheck } from './add-equipment.service';
+import { AddEquipmentService, iAddEquipment} from './add-equipment.service';
 import { GeoLocationService } from './geolocation.service';
 import { GlobalService } from '../../globalAssets/global.service';
 import { FormGroup, FormBuilder,Validators,Form } from '../../../../node_modules/@angular/forms';
+import { DatePipe } from '../../../../node_modules/@angular/common';
 
 @Component({
   selector: 'app-add-equipment',
   templateUrl: './add-equipment.component.html',
   styleUrls: ['./add-equipment.component.css'],
-  providers:[AddEquipmentService, GeoLocationService, GlobalService]
+  providers:[AddEquipmentService, GeoLocationService, GlobalService,DatePipe]
 })
 export class AddEquipmentComponent implements OnInit {
   public brands:any;
@@ -21,34 +22,12 @@ export class AddEquipmentComponent implements OnInit {
   public sections:any;
   public suppliers:any;
   public addEquipmentForm:FormGroup;
-  @ViewChild('cropper',undefined)
-
-  context: Canvas2DContextAttributes;
-  @ViewChild("mycanvas") mycanvas;
-  preview(e:any): void
-  {
-    let canvas = this.mycanvas.nativeElement;
-    let context = canvas.getContext('2d');
-    context.clearRect(0,0,30,30);
-
-    var render = new FileReader();
-    render.onload=function(event:any)
-    {
-      var img = new Image();
-      img.onload = function()
-      {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img,0,0);
-      };
-      img.src=event.target.result;
-    };
-    render.readAsDataURL(e.target.files[0]);
-  }
-
+  public barcodeError:boolean;
+  public imageSrc:string;
+  public today:any;
 
 constructor(private service:AddEquipmentService, private location:GeoLocationService, private gService:GlobalService
-,private fBuilder:FormBuilder)
+,private fBuilder:FormBuilder, private date:DatePipe)
 {}
   
   ngOnInit()
@@ -60,35 +39,77 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
     this.service.GetTypes().subscribe(data=>this.types=data);
     this.service.GetSuppliers().subscribe(data=>this.suppliers=data);
     this.buildForm();
+
+
+    this.today = new Date();
   }
   getLocation()
   {
     this.location.getLocation().subscribe(data=>this.position=data);
 
   }
-  addEquipment(e)
+  readURL(event:any): void
   {
-    e.preventDefault();
+    if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = e => this.imageSrc = reader.result;
+
+        reader.readAsDataURL(file);
+    }
+  }
+  getToday(e)
+  {
+    let now=this.date.transform(this.today,'yyyy-MM-dd');
+    console.log(now);
+
+    this.addEquipmentForm.controls['dateReceived'].setValue(now);
+  }
+  addEquipment(e,type)
+  {
     let param:iAddEquipment=
     {
-      name:e.target.elements[0].value,
-      desc:e.target.elements[1].value,
-      cost:e.target.elements[2].value,
-      equipmentCondition:e.target.elements[3].value,
-      brand:e.target.elements[4].value,
-      section:e.target.elements[5].value,
-      type:e.target.elements[6].value,
-      dateReceived:e.target.elements[7].value,
-      barcode:e.target.elements[8].value,
-      supplier:e.target.elements[9].value
+      name:e.value['name'],
+      desc:e.value['desc'],
+      cost:e.value['cost'],
+      equipmentCondition:e.value['condition'],
+      brand:e.value['brand'],
+      section:e.value['section'],
+      type:e.value['type'],
+      dateReceived:e.value['dateReceived'],
+      barcode:e.value['barcode'],
+      supplier:e.value['suppliers']
     };
     console.log(param);
-    let result:any;
-    this.service.AddEquipment(param).subscribe(data=> {result=data,console.log(data)},error => this.gService.handleError(error));
+    this.service.AddEquipment(param).subscribe(data=> {
+      console.log(data);
+      let r=data[0];
+      if(r['barcodeError']==1)
+      {
+        this.barcodeError=true;
+        this.gService.barcodeInUse(e.value['barcode']);
+      }
+      else
+      {
+        let file=e.target.files[0];
+        console.log(file);
+        if(type==1)
+        {
+          
+          let fData = new FormData();
+          fData.append('file',file);
+          this.service.uploadImage(fData).subscribe();
+        }
+        this.gService.addEquipmentSuccess(e.value['name']);
+      
+    }},
+    error =>this.gService.handleError(error));
   }
   buildForm():void {
     this.addEquipmentForm = this.fBuilder.group({
         'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
+        'desc':[],
         'cost':['',Validators.compose([Validators.required,Validators.maxLength(50)])],
         'condition':['',Validators.required],
         'brand':['',Validators.required],
@@ -96,7 +117,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
         'type':['',Validators.required],
         'dateReceived':['',Validators.required],
         'suppliers':['',Validators.required],
-        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12)])]
+        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12),Validators.minLength(12)])]
     });
 }
   

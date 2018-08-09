@@ -2,9 +2,8 @@
 <app-header></app-header>
 <!--Add equipment Form-->
 <div class="container">
-  <form (ngSubmit)="addEquipment(addEquipmentForm)"[formGroup]="addEquipmentForm">
+  <form (ngSubmit)="addEquipment(addEquipmentForm,1)"[formGroup]="addEquipmentForm">
     <div class="py-5 text-center">
-      <img class="mb-4" src='../assets/logo.png' width="70" height="70">
       <h1>Receive Equipment</h1>
     </div>
     <div class="form-row">
@@ -21,7 +20,7 @@
       <div class="col-sm-6">
         <!-- Description -->
         <label>Description (Optional)</label>
-        <input type="text" class="form-control" placeholder="Description">
+        <input type="text" class="form-control" placeholder="Description" formControlName="desc">
       </div>
     </div>
     <div class="form-row">
@@ -35,7 +34,7 @@
             </span>
           </div>
           <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control" formControlName="cost" [class.is-valid]="addEquipmentForm.controls['cost'].valid" [class.is-invalid]="addEquipmentForm.controls['cost'].invalid && (addEquipmentForm.controls['cost'].dirty || addEquipmentForm.controls['cost'].touched)">
-          <div [class.invalid-feedback] = "addEquipmentForm.controls['name'].hasError('required')">
+          <div [class.invalid-feedback] = "addEquipmentForm.controls['cost'].hasError('required')">
             <div *ngIf="addEquipmentForm.controls['cost'].hasError('required')">
               Equipment cost/value is required.
             </div>
@@ -102,21 +101,17 @@
         </div>
       </div>
       <!--Add picture button-->
-        <!--<label> Upload Picture</label>
-                      <br>"
-                      <input type="file" (change)="preview($event)" accept="image/*">
-                      <br>
-                      <canvas #mycanvas width="150" height="150" style="border: 1px solid blue"></canvas>
-                    
-                    </div>
-                    <div class="col-sm-6">-->
+        
         <!-- Select Date -->
-        <div class="col-sm-6">
+        <div class="col-sm-2">
           <label>Date Received</label>
           <!-- Select Date -->
           <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
             [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
-        </div>
+            </div>
+            <div class="col-sm-1"> <br>
+            <input type="button" class="btn btn-primary" value="Today" (click)="getToday($event)">
+          </div>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['dateReceived'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">
             The receival date is required.
@@ -130,6 +125,9 @@
         <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="addEquipmentForm.controls['barcode'].valid" [class.is-invalid]="addEquipmentForm.controls['barcode'].invalid && (addEquipmentForm.controls['barcode'].dirty || addEquipmentForm.controls['barcode'].touched)">
       </div>
       <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('required')">
+          <div [class.invalid-feedback]="barcodeError">
+              <div *ngIf="barcodeError">Barcode already in use.</div>
+          </div>
           <div *ngIf="addEquipmentForm.controls['barcode'].hasError('required')">
             Barcode is required.
           </div>
@@ -157,6 +155,12 @@
         </div>
     </div>
     <div class="form-row">
+      <div class="col-lg-6">
+          <label> Upload Picture</label>
+          <br>
+          <input type='file' class="form-control-file" (change)="readURL($event)" /><br>
+          <img id="image" [src]="imageSrc || 'http://via.placeholder.com/350x150'" alt="your image" />
+        </div>
       <div class="col-sm-6">
         <!--Add equipment <button--><br><br>
         <button type="submit" class="btn btn-primary col-lg-15">Add Equipment</button>

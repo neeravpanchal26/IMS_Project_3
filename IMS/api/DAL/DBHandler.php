@@ -103,7 +103,12 @@ class DBHandler
     {
         $sp='CALL uspAddEquipment_Insert (?, ?, ?, ?, ?,?, ?, ?, ?,?)';
         $param = array(&$name,&$desc,&$cost,&$equipCondition,&$brand,&$section,&$type,&$dateReceive,&$barcode,&$supplier);
-        return DBHelper::ExecuteNonQuery($sp,$param);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function AddEquipment_UploadImage($img)
+    {
+        $sp='CALL uspAddEquipment_UploadImage(?)';
+        return DBHelper::BlobUpload($sp,$img);
     }
     //Update Equipment
     public static function UpdateEquipment_GetEquipmentDetailsViaID($id)
