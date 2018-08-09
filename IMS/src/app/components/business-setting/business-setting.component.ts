@@ -28,10 +28,7 @@ export class BusinessSettingComponent implements OnInit {
       this.buildForm();
 
       // Load Logo
-      this.gService.getLogo()
-          .subscribe(
-              data => this.businessLogo = this.gService.selectPhoto(data),
-              error => this.gService.handleError(error));
+      this.logo();
 
       // Load Business info
       this.bFooter.getBusinessInfo()
@@ -42,6 +39,13 @@ export class BusinessSettingComponent implements OnInit {
                   this.businessForm.controls['contact'].setValue(data[0].contact);
                   this.businessForm.controls['email'].setValue(data[0].Email);
                   },
+              error => this.gService.handleError(error));
+  }
+  // logo
+  logo() {
+      this.gService.getLogo()
+          .subscribe(
+              data => this.businessLogo = this.gService.selectPhoto(data),
               error => this.gService.handleError(error));
   }
 
@@ -73,6 +77,9 @@ export class BusinessSettingComponent implements OnInit {
           frmData.append('file', file);
           this.service.uploadImage(frmData)
               .subscribe();
+
+          // Logo Update
+          this.logo();
       }
       else if (type == 2) {
           // Group Policy upload

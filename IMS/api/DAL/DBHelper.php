@@ -101,10 +101,10 @@ class DBHelper extends DB
         //Open Connection
         $conn = DB::Connect();
         //Prepare Query
-        $call = mysqli_prepare($conn, $query);
-        $null = NULL;
-        $call->bind_param('b',$null);
-        $call->send_long_data(0, $image);
+        $call = $conn->prepare($query);
+        $null = null;
+        $call->bind_param('b', $null);
+        $call->send_long_data(0, file_get_contents($image));
         $call->execute();
         //Close Connection
         mysqli_close($conn);

@@ -26,6 +26,6 @@ move_uploaded_file($tempPath,$actualPath);
 
 $realpath =  realpath(__DIR__ .'/'.$actualPath);
 
-echo json_encode(DBHandler::Business_Logo_Upload($realpath));
+echo json_encode(DBHandler::Business_Logo_Upload($actualPath));
 
 unlink($realpath);
