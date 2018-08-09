@@ -89,11 +89,15 @@ class DBHelper extends DB
     {
         //Open Connection
         $conn = DB::Connect();
-        $call = $conn->query($query);
+        $call = $conn->prepare($query);
         //Get result
-        $result = $call->fetch_assoc();
+        $call->execute();
+        $call->store_result();
+        $call->bind_result($result);
+        $call->fetch();
         //Close Connection
         mysqli_close($conn);
+        //Return Result
         return $result;
     }
     public static function BlobUpload($query,$image)

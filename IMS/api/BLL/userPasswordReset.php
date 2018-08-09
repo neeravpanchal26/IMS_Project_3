@@ -5,31 +5,18 @@
  * Date: 2018/06/26
  * Time: 11:26
  */
-// Default Header
-header('Access-Control-Allow-Methods:GET,PUT,POST,DELETE');
-header('Access-Control-Allow-Headers:Content-Type, Authorization');
-header('Access-Control-Allow-Origin: *');
-
-// Response type header
-header('Content-Type: application/json');
-
+require_once '../BLL/CORS_Headers.php';
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
 
-$action =   $_GET['action'];
+$action = $_GET['action'];
 
 if($action == 'oldPassword') {
     $userID = json_decode($_GET['userID']);
     $password = $_GET['password'];
-    echo json_encode(DBHandler::UserPassword_OldCheck($userID,$password));
+    echo json_encode(DBHandler::UserPassword_OldCheck($userID, $password));
 }
 else if($action == 'update') {
-    $incoming = file_get_contents('php://input');
-    $json = json_decode($incoming);
-    if ($display = DBHandler::UserPassword_UpdatePass($json->userID,$json->password)) {
-        $response = $display;
-    } else {
-        $response = $display;
-    }
-    echo json_encode($response);
+    $json = json_decode(file_get_contents('php://input'));
+    echo json_encode(DBHandler::UserPassword_UpdatePass($json->userID, $json->password));
 }
