@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalService} from "../../globalAssets/global.service";
 import { BusinessFooterService} from "../business-footer/business-footer.service";
 import { BusinessSettingService, iBusinesss} from "./business-setting.service";
-import {FormGroup, FormBuilder, Validators, Form, FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, Form, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-business-setting',
@@ -15,6 +15,9 @@ export class BusinessSettingComponent implements OnInit {
   public businessLogo:any;
   public business:any = [];
   public businessForm:FormGroup;
+
+  // Native Html Elements
+  @ViewChild ('BusinessLogo') newBusinessLogo;
 
   // Default Constructor
   constructor(private gService:GlobalService,
@@ -41,6 +44,7 @@ export class BusinessSettingComponent implements OnInit {
                   },
               error => this.gService.handleError(error));
   }
+
   // logo
   logo() {
       this.gService.getLogo()
@@ -52,11 +56,12 @@ export class BusinessSettingComponent implements OnInit {
   // Business info update
   onSubmit(e) {
     if(e.valid) {
+        // Business Information Update
         let param: iBusinesss = {
             name: e.value['name'],
             contact: e.value['contact'],
             email: e.value['email']
-        }
+        };
         this.service.updateInfo(param)
             .subscribe(
                 data => {
@@ -65,31 +70,25 @@ export class BusinessSettingComponent implements OnInit {
                     }
                 },
                 error => this.gService.handleError(error));
+
+        // Logo upload
+        let image = this.newBusinessLogo.nativeElement;
+        let file = image.files[0];
+        let frmData = new FormData();
+        frmData.append('file', file);
+        this.service.uploadImage(frmData)
+            .subscribe(data=>{
+                this.logo();
+            });
+
     }
-  }
-
-  // upload
-  upload(e,type) {
-      let file = e.target.files[0];
-      if(type == 1) {
-          // Logo upload
-          let frmData = new FormData();
-          frmData.append('file', file);
-          this.service.uploadImage(frmData)
-              .subscribe();
-
-          // Logo Update
-          this.logo();
-      }
-      else if (type == 2) {
-          // Group Policy upload
-      }
   }
 
   // Form Builder
   buildForm():void {
       let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
       this.businessForm = this.formBuilder.group({
+          'logo':[''],
           'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
           'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
           'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(45)])],

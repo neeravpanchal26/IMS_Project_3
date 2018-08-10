@@ -24,7 +24,7 @@
               <div class="col-12">
                 <!--Business Logo input-->
                 <label for="BusinessLogo">Upload new Logo</label>
-                <input id="BusinessLogo" type="file" class="form-control-file" (change)="upload($event,1)">
+                <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file" formControlName="logo">
               </div>
 
               <div class="col-12">
