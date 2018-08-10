@@ -80,7 +80,6 @@ export class BusinessSettingComponent implements OnInit {
             .subscribe(data=>{
                 this.logo();
             });
-
     }
   }
 

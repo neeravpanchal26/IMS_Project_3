@@ -13,7 +13,7 @@ export class BusinessSettingService {
 
   //upload image
   uploadImage(param:FormData):Observable<any> {
-    return this.http.post(this.apiUrl+'/api/BLL/imageUpload.php',param) as Observable<any>;
+    return this.http.post(this.apiUrl+'/api/BLL/business.php?action=logoUpload',param) as Observable<any>;
   }
   // Business Update info
   updateInfo(param:iBusinesss):Observable<any> {

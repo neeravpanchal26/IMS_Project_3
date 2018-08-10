@@ -16,7 +16,7 @@ export class GlobalService {
               private sanitizer:DomSanitizer) { }
   // Get Logo
   public getLogo():Observable<Blob> {
-    return this.http.get(this.apiUrl+'/api/BLL/logo.php',{responseType:'blob'}) as Observable<Blob>;
+    return this.http.get(this.apiUrl+'/api/BLL/business.php?action=logoDownload',{responseType:'blob'}) as Observable<Blob>;
   }
 
   // Image to URL
