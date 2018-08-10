@@ -18,6 +18,7 @@ export class BusinessSettingComponent implements OnInit {
 
   // Native Html Elements
   @ViewChild ('BusinessLogo') newBusinessLogo;
+  @ViewChild ('BusinessGroupPolicy') newGroupPolicy;
 
   // Default Constructor
   constructor(private gService:GlobalService,
@@ -56,6 +57,39 @@ export class BusinessSettingComponent implements OnInit {
   // Business info update
   onSubmit(e) {
     if(e.valid) {
+        try {
+            // File validation
+            let image = this.newBusinessLogo.nativeElement;
+            let logoFile = image.files[0];
+            let allowedImages = ['image/jpg','image/png'];
+            if(allowedImages.indexOf(logoFile.type) >-1) {
+                // Logo upload
+                let frmData = new FormData();
+                frmData.append('file', logoFile);
+                this.service.uploadImage(frmData)
+                    .subscribe(data => {
+                        this.logo();
+                    });
+            }
+            else
+                this.businessForm.controls['logo'].setErrors({'incorrect':true});
+        } catch {}
+
+        try {
+            let pdf = this.newGroupPolicy.nativeElement;
+            let groupPolicy = pdf.files[0];
+            let allowedPdf = ['application/pdf'];
+            if(allowedPdf.indexOf(groupPolicy.type) >-1){
+                // Group Policy upload
+                let frmData = new FormData();
+                frmData.append('file',groupPolicy);
+                this.service.uploadGroupPolicy(frmData)
+                    .subscribe();
+            }
+            else
+                this.businessForm.controls['pdf'].setErrors({'incorrect':true});
+        } catch {}
+
         // Business Information Update
         let param: iBusinesss = {
             name: e.value['name'],
@@ -70,16 +104,6 @@ export class BusinessSettingComponent implements OnInit {
                     }
                 },
                 error => this.gService.handleError(error));
-
-        // Logo upload
-        let image = this.newBusinessLogo.nativeElement;
-        let file = image.files[0];
-        let frmData = new FormData();
-        frmData.append('file', file);
-        this.service.uploadImage(frmData)
-            .subscribe(data=>{
-                this.logo();
-            });
     }
   }
 
@@ -91,6 +115,7 @@ export class BusinessSettingComponent implements OnInit {
           'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
           'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
           'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(45)])],
+          'pdf':['']
       });
   }
 }

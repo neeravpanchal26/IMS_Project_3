@@ -24,7 +24,12 @@
               <div class="col-12">
                 <!--Business Logo input-->
                 <label for="BusinessLogo">Upload new Logo</label>
-                <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file" formControlName="logo">
+                <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file" formControlName="logo" [class.is-invalid]="businessForm.controls['logo'].invalid">
+                  <div [class.invalid-feedback]="businessForm.controls['logo'].touched && businessForm.controls['logo'].invalid">
+                      <div *ngIf="businessForm.controls['logo'].touched && businessForm.controls['logo'].invalid">
+                          Only Jpeg and Png files allowed.
+                      </div>
+                  </div>
               </div>
 
               <div class="col-12">
@@ -82,7 +87,12 @@
               <div class="col-12">
                   <!--Business Policy input-->
                   <label for="BusinessLogo">Upload new Policy</label>
-                  <input id="BusinessGroupPolicy" type="file" class="form-control-file" (change)="upload($event,2)">
+                  <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file" class="form-control-file" formControlName="pdf" [class.is-invalid]="businessForm.controls['pdf'].invalid">
+                  <div [class.invalid-feedback]="businessForm.controls['pdf'].touched && businessForm.controls['pdf'].invalid">
+                      <div *ngIf="businessForm.controls['pdf'].touched && businessForm.controls['pdf'].invalid">
+                          Only Pdf files allowed.
+                      </div>
+                  </div>
               </div>
               <br/>
 

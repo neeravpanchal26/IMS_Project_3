@@ -207,10 +207,15 @@ class DBHandler
         $param = array(&$name,&$contact,&$email);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
-    public static function Business_Logo_Upload($image)
+    public static function Business_Logo_Upload($file)
     {
         $sp = 'CALL uspBusiness_Logo_Upload(?)';
-        return DBHelper::BlobUpload($sp,$image);
+        return DBHelper::BlobUpload($sp,$file);
+    }
+    public static function Business_GroupPolicy_Upload($file)
+    {
+        $sp = 'CALL uspBusiness_GroupPolicy_Upload(?)';
+        return DBHelper::BlobUpload($sp,$file);
     }
 
     //Manage Equipment methods
