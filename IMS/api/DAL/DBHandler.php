@@ -224,4 +224,10 @@ class DBHandler
         $sp = 'CALL uspManageEquipment_GetEquipmentInfo';
         return DBHelper::Select($sp);
     }
+    //Install Equipment methods
+    public static function InstallEquipment_Coordinates()
+    {
+        $sp = 'CALL uspInstallEquipment_GetEquipmentCoordinates';
+        return DBHelper::Select($sp);
+    }
 }

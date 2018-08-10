@@ -25,6 +25,7 @@ import { BusinessFooterComponent } from "./components/business-footer/business-f
 import { BusinessSettingComponent } from "./components/business-setting/business-setting.component";
 import { ManageEquipmentComponent } from "./components/manage-equipment/manage-equipment.component";
 import { UpdateEquipmentComponent } from './components/update-equipment/update-equipment.component';
+import { InstallEquipmentComponent } from './components/install-equipment/install-equipment.component';
 
 // Path Array
 const appRoutes:Routes = [
@@ -43,8 +44,9 @@ const appRoutes:Routes = [
     // Technical Employee
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
     { path: 'Allocate Equipment', canActivate:[LoginGuard],component:AllocateEquipmentComponent},
-    { path: 'ManageEquipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
+    { path: 'Manage Equipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
     { path: 'Update details/:id', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
+    { path: 'Install Equipment',canActivate:[LoginGuard], component:InstallEquipmentComponent},
     /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
 
     // Section Head
@@ -75,5 +77,6 @@ export const routingComponents =
         BusinessFooterComponent,
         BusinessSettingComponent,
         ManageEquipmentComponent,
-        UpdateEquipmentComponent
+        UpdateEquipmentComponent,
+        InstallEquipmentComponent
     ];
