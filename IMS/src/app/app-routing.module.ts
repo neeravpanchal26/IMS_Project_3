@@ -26,6 +26,7 @@ import { BusinessSettingComponent } from "./components/business-setting/business
 import { ManageEquipmentComponent } from "./components/manage-equipment/manage-equipment.component";
 import { UpdateEquipmentComponent } from './components/update-equipment/update-equipment.component';
 import { InstallEquipmentComponent } from './components/install-equipment/install-equipment.component';
+import { QrtestingComponent} from "./components/qrtesting/qrtesting.component";
 
 // Path Array
 const appRoutes:Routes = [
@@ -35,11 +36,12 @@ const appRoutes:Routes = [
     { path: 'usersetting', canActivate:[LoginGuard],component:UserSettingComponent},
     { path: 'userpassword',canActivate:[LoginGuard],component:UserPasswordResetComponent},
 
-    // IT Technician
+    // IT Admin
     { path: 'Add User', canActivate: [LoginGuard], component:AddUserComponent },
     { path: 'Remove User', canActivate:[LoginGuard], component:DeactivateUserComponent},
     { path: 'Reset password/:id',canActivate:[LoginGuard], component:ItPasswordResetComponent},
     { path: 'BuinessSetting', canActivate:[LoginGuard], component:BusinessSettingComponent},
+    { path: 'qr',canActivate:[LoginGuard],component:QrtestingComponent},
 
     // Technical Employee
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
@@ -78,5 +80,6 @@ export const routingComponents =
         BusinessSettingComponent,
         ManageEquipmentComponent,
         UpdateEquipmentComponent,
-        InstallEquipmentComponent
+        InstallEquipmentComponent,
+        QrtestingComponent
     ];
