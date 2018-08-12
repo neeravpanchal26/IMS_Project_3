@@ -13,7 +13,7 @@ import { Subscription} from "rxjs/Subscription";
 })
 export class QrtestingComponent implements OnInit {
   // Global Variable
-  public test = 'masterpanchieneerav@ims.com';
+  public test = 'I won!';
 
   subscription:Subscription;
   result;

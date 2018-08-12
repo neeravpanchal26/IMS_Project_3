@@ -71,23 +71,19 @@ export class BusinessSettingComponent implements OnInit {
                         this.logo();
                     });
             }
-            else
-                this.businessForm.controls['logo'].setErrors({'incorrect':true});
         } catch {}
 
         try {
             let pdf = this.newGroupPolicy.nativeElement;
             let groupPolicy = pdf.files[0];
             let allowedPdf = ['application/pdf'];
-            if(allowedPdf.indexOf(groupPolicy.type) >-1){
+            if(allowedPdf.indexOf(groupPolicy.type) >-1) {
                 // Group Policy upload
                 let frmData = new FormData();
-                frmData.append('file',groupPolicy);
+                frmData.append('file', groupPolicy);
                 this.service.uploadGroupPolicy(frmData)
                     .subscribe();
             }
-            else
-                this.businessForm.controls['pdf'].setErrors({'incorrect':true});
         } catch {}
 
         // Business Information Update
