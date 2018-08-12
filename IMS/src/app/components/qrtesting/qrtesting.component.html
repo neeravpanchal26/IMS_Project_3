@@ -1,13 +1,10 @@
 <app-header></app-header>
-
-<div class="btn btn-primary">Open Scanner</div>
-<qr-scanner class="border-primary" [debug]="false" [canvasWidth]="100" [canvasHeight]="100" [stopAfterScan]="true" [updateTime]="500"></qr-scanner>
-<!-- canvas width                                 (default: 640) -->
-<!-- canvas height                                (default: 480) -->
-<!-- should the scanner stop after first success? (default: true) -->
-<!-- miliseconds between new capture              (default: 500) -->
-
-<h1>Qr Generator</h1>
-<div>
-    <qr-code [value]="test" [size]="150"></qr-code>
+<div class="container">
+    <h1>Qr Generator</h1>
+    <div>
+        <qr-code [value]="test" [size]="150"></qr-code>
+    </div>
+    <h1>Qr Reader</h1>
+    <input type="file" accept="image/*" (change)="onFileChange($event)">
+    <p>Your result:{{result}}</p>
 </div>

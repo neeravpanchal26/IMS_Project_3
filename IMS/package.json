@@ -25,6 +25,8 @@
     "@ng-bootstrap/ng-bootstrap": "^2.1.1",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
     "@types/leaflet": "^1.2.9",
+    "@zxing/library": "^0.7.0",
+    "@zxing/ngx-scanner": "^1.2.0",
     "angular2-qrcode": "^2.0.1",
     "angular2-qrscanner": "^1.0.4",
     "bootstrap": "^4.1.1",

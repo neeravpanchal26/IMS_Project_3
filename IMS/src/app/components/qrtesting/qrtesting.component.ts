@@ -1,53 +1,37 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
 
 // Scanner
-import { QrScannerComponent} from "angular2-qrscanner";
-
-// Generator
-
+import { QrCodeReaderService} from "./qr-code-reader.service";
+import { Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-qrtesting',
   templateUrl: './qrtesting.component.html',
   styleUrls: ['./qrtesting.component.css'],
-  encapsulation: ViewEncapsulation.None,
+    providers:[QrCodeReaderService]
 })
 export class QrtestingComponent implements OnInit {
   // Global Variable
   public test = 'masterpanchieneerav@ims.com';
 
-  @ViewChild(QrScannerComponent) qrScannerComponent: QrScannerComponent ;
+  subscription:Subscription;
+  result;
 
-  constructor() { }
+  // Default Constructor
+  constructor(private qrReader:QrCodeReaderService) { }
 
-    ngOnInit() {
-        this.qrScannerComponent.getMediaDevices().then(devices => {
-            console.log(devices);
-            const videoDevices: MediaDeviceInfo[] = [];
-            for (const device of devices) {
-                if (device.kind.toString() === 'videoinput') {
-                    videoDevices.push(device);
-                }
-            }
-            if (videoDevices.length > 0) {
-                let choosenDev;
-                for (const dev of videoDevices) {
-                    if (dev.label.includes('front')) {
-                        choosenDev = dev;
-                        break;
-                    }
-                }
-                if (choosenDev) {
-                    this.qrScannerComponent.chooseCamera.next(choosenDev);
-                } else {
-                    this.qrScannerComponent.chooseCamera.next(videoDevices[0]);
-                }
-            }
-        });
+  // Destoryer
+  ngOnDestroy():void {
+    this.subscription.unsubscribe();
+  }
 
-        this.qrScannerComponent.capturedQr.subscribe(result => {
-            console.log(result);
-        });
-    }
-
+  // File reading
+  onFileChange(event) {
+      const file = event.target.files[0];
+      this.subscription = this.qrReader.decode(file)
+          .subscribe(decodedString => console.log(this.result = decodedString));
+  }
+  ngOnInit() {
+  }
 }

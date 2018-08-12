@@ -35,8 +35,25 @@
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
 
+        "../src/assets/js/jsqrcode/grid.js",
+        "../src/assets/js/jsqrcode/version.js",
+        "../src/assets/js/jsqrcode/detector.js",
+        "../src/assets/js/jsqrcode/formatinf.js",
+        "../src/assets/js/jsqrcode/errorlevel.js",
+        "../src/assets/js/jsqrcode/bitmat.js",
+        "../src/assets/js/jsqrcode/datablock.js",
+        "../src/assets/js/jsqrcode/bmparser.js",
+        "../src/assets/js/jsqrcode/datamask.js",
+        "../src/assets/js/jsqrcode/rsdecoder.js",
+        "../src/assets/js/jsqrcode/gf256poly.js",
+        "../src/assets/js/jsqrcode/gf256.js",
+        "../src/assets/js/jsqrcode/decoder.js",
+        "../src/assets/js/jsqrcode/qrcode.js",
+        "../src/assets/js/jsqrcode/findpat.js",
+        "../src/assets/js/jsqrcode/alignpat.js",
+        "../src/assets/js/jsqrcode/databr.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

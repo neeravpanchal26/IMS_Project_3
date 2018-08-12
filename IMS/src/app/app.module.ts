@@ -11,9 +11,8 @@ import { Ng2SearchPipeModule} from "ng2-search-filter";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { NgxPaginationModule} from "ngx-pagination";
 import { PasswordStrengthBarModule} from "ng2-password-strength-bar";
-import { NgQrScannerModule} from "angular2-qrscanner";
 import { QRCodeModule} from "angular2-qrcode";
-import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
       Ng2OrderModule,
       NgxPaginationModule,
       PasswordStrengthBarModule,
-      NgQrScannerModule,
       QRCodeModule,
       LeafletModule.forRoot(),
       LeafletModule

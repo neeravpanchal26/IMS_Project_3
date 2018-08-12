@@ -34,6 +34,19 @@
       </li>
       <!--It admin Links end here -->
 
+      <!--Technical employee links here-->
+      <li class="nav-item" *ngIf="userType==2">
+        <span class="navbar-link dropdown">
+          <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button" href="#">
+            <span class="oi oi-cart"></span> Equipment
+          </a>
+          <div class="dropdown-menu dropright" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-secondary" routerLink="/Install Equipment"><span class="oi oi-cart"></span> Install Equipment</a>
+          </div>
+        </span>
+      </li>
+      <!--Technical employee Links end here-->
+
       <!--Section Head links here-->
       <li class="nav-item" *ngIf="userType==3">
         <span class="navbar-link dropdown">
