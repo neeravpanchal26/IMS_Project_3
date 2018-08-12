@@ -13,6 +13,7 @@ import { NgxPaginationModule} from "ngx-pagination";
 import { PasswordStrengthBarModule} from "ng2-password-strength-bar";
 import { NgQrScannerModule} from "angular2-qrscanner";
 import { QRCodeModule} from "angular2-qrcode";
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { QRCodeModule} from "angular2-qrcode";
       NgxPaginationModule,
       PasswordStrengthBarModule,
       NgQrScannerModule,
-      QRCodeModule
+      QRCodeModule,
+      LeafletModule.forRoot(),
+      LeafletModule
   ],
   bootstrap: [AppComponent]
 })

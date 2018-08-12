@@ -7,7 +7,11 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
+      "assets": [{
+        "glob": "**/*",
+        "input": "./node_modules/leaflet/dist/images",
+        "output": "leaflet/"
+      },
         "assets",
         "logo.png",
         "web.config"
