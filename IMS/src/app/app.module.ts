@@ -38,8 +38,6 @@ import { LeafletModule} from '@asymmetrik/ngx-leaflet';
       NgxPaginationModule,
       PasswordStrengthBarModule,
       QRCodeModule,
-      LeafletModule.forRoot(),
-      LeafletModule
   ],
   bootstrap: [AppComponent]
 })

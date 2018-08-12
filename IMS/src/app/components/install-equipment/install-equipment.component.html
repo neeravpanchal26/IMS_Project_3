@@ -1,4 +1,9 @@
 <app-header></app-header>
-<div style="height: 300px; width: 280px"
-     leaflet [leafletOptions]="options"></div>
+<form><div class="py-5 text-center">
+    <h1>Install Equipment</h1>
+  </div>
+  <div id="mapid" style="width: 300px; height: 300px;"></div>
+  <input type="button" value="Home" (click)="alt($event)">
+</form>
+
 <app-business-footer></app-business-footer>
