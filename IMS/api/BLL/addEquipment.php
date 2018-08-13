@@ -44,4 +44,20 @@ else if ($action == 'insert') {
     }
     echo json_encode($response);
 }
+else if($action=='imageUpload')
+{
+    $tempPath = $_FILES['file']['tmp_name'];
+    // Get File Name
+        $actualName = $_FILES['file']['name'];
+    // New path
+        $actualPath = '../uploads/'.$actualName;
+    // Move File into new path
+        move_uploaded_file($tempPath,$actualPath);
+    // Get real path of moved file here
+        $realPath =  realpath(__DIR__ .'/'.$actualPath);
+    // Execute the non query
+        echo json_encode(DBHandler::AddEquipment_UploadImage($actualPath));
+    // Delete the file
+    unlink($realPath);
+}
 ?>

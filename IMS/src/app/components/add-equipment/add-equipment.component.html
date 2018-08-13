@@ -158,7 +158,7 @@
       <div class="col-lg-6">
           <label> Upload Picture</label>
           <br>
-          <input type='file' class="form-control-file" (change)="readURL($event)" /><br>
+          <input id="EquipmentImage" #EquipmentImage type='file' class="form-control-file" (change)="readURL($event)" /><br>
           <img id="image" [src]="imageSrc || 'http://via.placeholder.com/350x150'" alt="your image" />
         </div>
       <div class="col-sm-6">

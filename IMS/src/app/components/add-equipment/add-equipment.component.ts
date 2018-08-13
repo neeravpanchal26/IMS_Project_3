@@ -11,7 +11,9 @@ import { DatePipe } from '../../../../node_modules/@angular/common';
   styleUrls: ['./add-equipment.component.css'],
   providers:[AddEquipmentService, GeoLocationService, GlobalService,DatePipe]
 })
+
 export class AddEquipmentComponent implements OnInit {
+  @ViewChild ('EquipmentImage') newEquipmentImage;
   public brands:any;
   public status:any;
   public position:any;
@@ -92,19 +94,18 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       }
       else
       {
-        let file=e.target.files[0];
-        console.log(file);
-        if(type==1)
-        {
-          
-          let fData = new FormData();
-          fData.append('file',file);
-          this.service.uploadImage(fData).subscribe();
-        }
-        this.gService.addEquipmentSuccess(e.value['name']);
-      
-    }},
-    error =>this.gService.handleError(error));
+        try {
+          let image = this.newEquipmentImage.nativeElement;
+          let newImage = image.files[0];
+          console.log(image.files[0]);
+          let allowedImages = ['image/jpg','image/png'];
+          if(allowedImages.indexOf(newImage.type) >-1) {
+              let frmData = new FormData();
+              frmData.append('file', newImage);
+              this.service.uploadImage(frmData).subscribe();
+          }
+      } catch {}
+      }});
   }
   buildForm():void {
     this.addEquipmentForm = this.fBuilder.group({
@@ -116,8 +117,9 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
         'section':['',Validators.required],
         'type':['',Validators.required],
         'dateReceived':['',Validators.required],
-        'suppliers':['',Validators.required],
-        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12),Validators.minLength(12)])]
+        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12),Validators.minLength(12)])],
+        'suppliers':['',Validators.required]
+        
     });
 }
   

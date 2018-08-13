@@ -42,7 +42,7 @@ export class AddEquipmentService {
     return this.http.post(this.apiURL+'/api/BLL/addEquipment.php?action=insert',param)as Observable<any>;
   }
   uploadImage(param:FormData):Observable<any> {
-    return this.http.post(this.apiURL+'/api/BLL/equipmentImage.php',param) as Observable<any>;
+    return this.http.post(this.apiURL+'/api/BLL/addEquipment.php?action=imageUpload',param) as Observable<any>;
   }
 }
 export interface iAddEquipment

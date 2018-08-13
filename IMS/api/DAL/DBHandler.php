@@ -107,7 +107,7 @@ class DBHandler
     }
     public static function AddEquipment_UploadImage($img)
     {
-        $sp='CALL uspAddEquipment_UploadImage(?)';
+        $sp='CALL uspAddEquipment_UploadImage (?)';
         return DBHelper::BlobUpload($sp,$img);
     }
     //Update Equipment
