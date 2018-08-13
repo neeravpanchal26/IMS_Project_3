@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-    api:'http://192.168.2.107:3000'
+    api:'http://sict-iis.nmmu.ac.za/bit1'
 };

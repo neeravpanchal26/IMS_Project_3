@@ -5,6 +5,9 @@ import { HttpClient} from "@angular/common/http";
 import { DomSanitizer} from "@angular/platform-browser";
 import { environment} from "../../environments/environment";
 
+// Qr code decoder
+declare const qrcode:any;
+
 @Injectable()
 export class GlobalService {
   // Global Variable
@@ -22,6 +25,22 @@ export class GlobalService {
   // Image to URL
   selectPhoto(photos: any) {
     return this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(photos));
+  }
+
+  // Qr code decoder
+  decode(file:any):Observable<string> {
+      return new Observable(observer =>{
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = (e:any) => {
+              const data = e.target.result;
+              qrcode.callback = (res) => {
+                  observer.next(res);
+                  observer.complete();
+              };
+              qrcode.decode(data);
+          }
+      });
   }
 
   // Error message
