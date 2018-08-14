@@ -27,7 +27,14 @@ export class InstallEquipmentService {
           id: 'mapbox.streets',
           accessToken: 'pk.eyJ1IjoibWxhbmdldmVsZDE1IiwiYSI6ImNqa2R1a3A5aTFpeXkza252cDlkbDQ2MXIifQ.uTJ2w8n_rjeHtl1usY3K9Q'
         }).addTo(mymap);
-        this.marker = L.marker([lat, long]).addTo(mymap);
+        this.marker = L.marker([lat, long],{
+            icon: L.icon({
+                iconSize: [ 25, 41 ],
+                iconAnchor: [ 13, 41 ],
+                iconUrl: '../assets/marker-icon.png',
+                shadowUrl: '../assets/marker-shadow.png'
+            })
+        }).addTo(mymap);
         this.marker.bindPopup('Hello').openPopup();
     }
 }
