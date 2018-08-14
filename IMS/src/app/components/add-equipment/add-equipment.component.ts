@@ -102,6 +102,7 @@ constructor(private service:AddEquipmentService,
           console.log(image.files[0]);
           let allowedImages = ['image/jpg','image/png'];
           if(allowedImages.indexOf(newImage.type) >=0) {
+            console.log('IF statement was true');
               let frmData = new FormData();
               frmData.append('file', newImage);
               this.service.uploadImage(frmData).subscribe();
