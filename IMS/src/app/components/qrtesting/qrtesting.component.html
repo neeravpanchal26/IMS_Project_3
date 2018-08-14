@@ -1,10 +1,12 @@
 <app-header></app-header>
 <div class="container">
     <h1>Qr Generator</h1>
-    <div>
+    <div id="qrCode">
         <qr-code [value]="test" [size]="150"></qr-code>
+        <p style="width: 150px">{{test}}</p>
     </div>
-    
+    <button class="btn btn-primary" (click)="onClick()">Qr code to PDF</button>
+
     <h1>Qr Reader</h1>
     <div class="input-group">
         <input type="text" class="form-control" [value]="result">
