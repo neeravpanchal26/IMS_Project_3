@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService} from "../../globalAssets/global.service";
+import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 
 @Component({
   selector: 'app-error',
@@ -11,15 +12,16 @@ export class ErrorComponent implements OnInit {
   public businessLogo:any;
 
   // Default Constructor
-  constructor(private gService:GlobalService) { }
+  constructor(private iService:ImageRetrieveService,
+              private tService:ToastrNotificationService) { }
 
   // Form load
   ngOnInit() {
       // Load Logo
-      this.gService.getLogo()
+      this.iService.getLogo()
           .subscribe(
-              data => this.businessLogo = this.gService.selectPhoto(data),
-              error => this.gService.handleError(error));
+              data => this.businessLogo = this.iService.selectPhoto(data),
+              error => this.tService.handleError(error));
   }
 
 }

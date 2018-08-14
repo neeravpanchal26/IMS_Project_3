@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { iAddUser } from "./add-user.service";
 import { AddUserService } from "./add-user.service";
 import { iSuburb} from "./add-user.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 
 
@@ -26,7 +26,7 @@ export class AddUserComponent implements OnInit {
 
     // Default Constructor
     constructor(private service:AddUserService,
-                private gService:GlobalService,
+                private tService:ToastrNotificationService,
                 private formBuilder:FormBuilder) { }
 
     // Form Load
@@ -42,13 +42,13 @@ export class AddUserComponent implements OnInit {
       this.service.getCity()
           .subscribe(
               data => this.cities = data,
-              error=> this.gService.handleError(error));
+              error=> this.tService.handleError(error));
 
       // User Type Load up
       this.service.getUserType()
           .subscribe(
               data => this.userType = data,
-              error=> this.gService.handleError(error));
+              error=> this.tService.handleError(error));
     }
 
     // Add User Method
@@ -77,7 +77,7 @@ export class AddUserComponent implements OnInit {
                     data => {
                         let r = data[0];
                         if (r['TRUE'] == 1) {
-                            this.gService.addUserSuccess(param.firstName, param.lastName);
+                            this.tService.addUserSuccess(param.firstName, param.lastName);
                             e.reset();
                         }
                         if (r['emailExists'] == 1) {
@@ -91,10 +91,10 @@ export class AddUserComponent implements OnInit {
                             this.emailCheck = true;
                         }
                     },
-                    error => this.gService.handleError(error));
+                    error => this.tService.handleError(error));
         }
         if(e.invalid)
-            this.gService.formFailure();
+            this.tService.formFailure();
     }
 
     // Suburb Load Method
@@ -105,7 +105,7 @@ export class AddUserComponent implements OnInit {
         this.service.getSuburb(param)
             .subscribe(
                 data => this.suburbs=data,
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
     }
 
     // Form Builder

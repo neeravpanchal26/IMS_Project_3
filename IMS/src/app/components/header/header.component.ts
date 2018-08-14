@@ -1,7 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { HeaderService} from "./header.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit {
   // Default Constructor
   constructor(private service:LoginService,
               private header:HeaderService,
-              private gService:GlobalService) { }
+              private tService:ToastrNotificationService,
+              private iService:ImageRetrieveService) { }
 
   // Page Load
   ngOnInit() {
@@ -30,9 +32,9 @@ export class HeaderComponent implements OnInit {
       this.userName = this.service.getUserName();
 
       // Load Logo
-      this.gService.getLogo()
+      this.iService.getLogo()
           .subscribe(
-              data => this.businessLogo = this.gService.selectPhoto(data),
-              error => this.gService.handleError(error));
+              data => this.businessLogo = this.iService.selectPhoto(data),
+              error => this.tService.handleError(error));
   }
 }

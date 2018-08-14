@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdate, UserPasswordResetService} from "./user-password-reset.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder, Validators, Form, AbstractControl} from '@angular/forms';
 
 @Component({
@@ -19,7 +19,7 @@ export class UserPasswordResetComponent implements OnInit {
   // Default Constructor
   constructor(private login:LoginService,
               private service:UserPasswordResetService,
-              private gService:GlobalService,
+              private tService:ToastrNotificationService,
               private formBuilder:FormBuilder) { }
 
   // Form Load
@@ -40,7 +40,7 @@ export class UserPasswordResetComponent implements OnInit {
                   else if(r['result'] == 0){
                       this.passwordForm.controls['oldPassword'].setErrors({'incorrect': true});
                   }},
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
   }
 
   // Change password method
@@ -54,14 +54,14 @@ export class UserPasswordResetComponent implements OnInit {
               .subscribe(
                   data => {
                       if (data == true) {
-                          this.gService.userPasswordResetSuccess();
+                          this.tService.userPasswordResetSuccess();
                           e.reset();
                       }
                   },
-                  error => this.gService.handleError(error));
+                  error => this.tService.handleError(error));
       }
       if(e.invalid)
-          this.gService.formFailure();
+          this.tService.formFailure();
   }
 
   // Form Builder

@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 
 
 // Scanner
-import { GlobalService} from "../../globalAssets/global.service";
+import { QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service";
 import { Subscription} from "rxjs/Subscription";
 
 @Component({
@@ -17,7 +17,7 @@ export class QrtestingComponent implements OnInit {
   subscription:Subscription;
 
   // Default Constructor
-  constructor(private qrReader:GlobalService) { }
+  constructor(private qrService:QrCodeDecoderService) { }
 
   // Form Load
   ngOnInit() {
@@ -31,7 +31,7 @@ export class QrtestingComponent implements OnInit {
   // File reading
   onFileChange(event) {
       const file = event.target.files[0];
-      this.subscription = this.qrReader.decode(file)
+      this.subscription = this.qrService.decode(file)
           .subscribe(decodedString => console.log(this.result = decodedString));
   }
 }

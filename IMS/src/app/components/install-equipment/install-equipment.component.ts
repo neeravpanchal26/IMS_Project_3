@@ -1,12 +1,13 @@
 import { Component, OnInit} from '@angular/core';
 import { InstallEquipmentService } from './install-equipment.service';
 import * as L from 'leaflet';
-import { GeoLocationService } from './geolocation.service';
+import { GeoLocationService} from "../../globalServices/geolocation.service";
+
 @Component({
   selector: 'app-install-equipment',
   templateUrl: './install-equipment.component.html',
   styleUrls: ['./install-equipment.component.css'],
-  providers: [InstallEquipmentService,GeoLocationService]
+  providers: [InstallEquipmentService]
 })
 export class InstallEquipmentComponent implements OnInit {
 

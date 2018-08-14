@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddEquipmentService, iAddEquipment} from './add-equipment.service';
-import { GeoLocationService } from './geolocation.service';
-import { GlobalService } from '../../globalAssets/global.service';
+import { GeoLocationService } from '../../globalServices/geolocation.service';
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder,Validators,Form } from '../../../../node_modules/@angular/forms';
 import { DatePipe } from '../../../../node_modules/@angular/common';
 
@@ -9,7 +9,7 @@ import { DatePipe } from '../../../../node_modules/@angular/common';
   selector: 'app-add-equipment',
   templateUrl: './add-equipment.component.html',
   styleUrls: ['./add-equipment.component.css'],
-  providers:[AddEquipmentService, GeoLocationService, GlobalService,DatePipe]
+  providers:[AddEquipmentService,DatePipe]
 })
 
 export class AddEquipmentComponent implements OnInit {
@@ -28,9 +28,11 @@ export class AddEquipmentComponent implements OnInit {
   public imageSrc:string;
   public today:any;
 
-constructor(private service:AddEquipmentService, private location:GeoLocationService, private gService:GlobalService
-,private fBuilder:FormBuilder, private date:DatePipe)
-{}
+constructor(private service:AddEquipmentService,
+            private location:GeoLocationService,
+            private tService:ToastrNotificationService,
+            private fBuilder:FormBuilder,
+            private date:DatePipe) {}
   
   ngOnInit()
   {
@@ -90,7 +92,7 @@ constructor(private service:AddEquipmentService, private location:GeoLocationSer
       if(r['barcodeError']==1)
       {
         this.barcodeError=true;
-        this.gService.barcodeInUse(e.value['barcode']);
+        this.tService.barcodeInUse(e.value['barcode']);
       }
       else
       {

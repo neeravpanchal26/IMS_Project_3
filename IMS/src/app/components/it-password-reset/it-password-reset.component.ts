@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from "@angular/router";
 import { iUpdate, UserPasswordResetService} from "../user-password-reset/user-password-reset.service";
 import { UserSettingService} from "../user-setting/user-setting.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 import * as $ from 'jquery/dist/jquery.js';
 
@@ -24,7 +24,7 @@ export class ItPasswordResetComponent implements OnInit {
     constructor(private user:UserPasswordResetService,
                 private route:ActivatedRoute,
                 private setting:UserSettingService,
-                private gService:GlobalService,
+                private tService:ToastrNotificationService,
                 private formBuilder:FormBuilder) { }
 
     // Form Load
@@ -39,7 +39,7 @@ export class ItPasswordResetComponent implements OnInit {
         this.setting.getSpecificUser(this.userID)
             .subscribe(
                 data => this.userInfo = data[0],
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
     }
 
     // Reset password method
@@ -50,14 +50,14 @@ export class ItPasswordResetComponent implements OnInit {
               .subscribe(
                   data => {
                       if (data == true) {
-                          this.gService.passwordResetSuccess(this.userInfo['FirstName'], this.userInfo['Surname']);
+                          this.tService.passwordResetSuccess(this.userInfo['FirstName'], this.userInfo['Surname']);
                           $('#exampleModalCenter').modal('toggle');
                       }
                   },
-                  error => this.gService.handleError(error));
+                  error => this.tService.handleError(error));
       }
       if(e.invalid)
-            this.gService.formFailure();
+            this.tService.formFailure();
     }
 
     // Form Builder

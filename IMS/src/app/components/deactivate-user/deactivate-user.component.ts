@@ -3,7 +3,7 @@ import { DeactivateUserService, iUser } from "./deactivate-user.service";
 import { AddUserService } from "../add-user/add-user.service";
 import { LoginService} from "../login/login.service";
 import { FormControl} from "@angular/forms";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 
 @Component({
   selector: 'app-deactivate-user',
@@ -23,7 +23,7 @@ export class DeactivateUserComponent implements OnInit {
   constructor(private service:DeactivateUserService,
               private adduser:AddUserService,
               private login:LoginService,
-              private gService:GlobalService) { }
+              private tService:ToastrNotificationService) { }
 
   // Form Load
   ngOnInit() {
@@ -31,13 +31,13 @@ export class DeactivateUserComponent implements OnInit {
     this.service.getUsers(this.login.getUserID())
         .subscribe(
             data => this.users = data,
-            error=> this.gService.handleError(error));
+            error=> this.tService.handleError(error));
 
     // Load user types array
     this.adduser.getUserType()
         .subscribe(
             data => this.userType = data,
-            error=> this.gService.handleError(error));
+            error=> this.tService.handleError(error));
   }
 
   // Update Status
@@ -59,14 +59,14 @@ export class DeactivateUserComponent implements OnInit {
       .subscribe(data =>{
     if(data == true){
       if(e == true) {
-        this.gService.activatedSuccess(user);
+        this.tService.activatedSuccess(user);
       }
       else if (e == false) {
-        this.gService.deactivatedSuccess(user);
+        this.tService.deactivatedSuccess(user);
       }
     }
   },
-  error => this.gService.handleError(error));
+  error => this.tService.handleError(error));
   }
 
   // Change user type
@@ -79,10 +79,10 @@ export class DeactivateUserComponent implements OnInit {
     this.service.updateType(param)
         .subscribe(data =>{
                 if(data == true){
-                  this.gService.userRoleChange(user);
+                  this.tService.userRoleChange(user);
                 }
             },
-            error => this.gService.handleError(error));
+            error => this.tService.handleError(error));
   }
 
   // Sorting

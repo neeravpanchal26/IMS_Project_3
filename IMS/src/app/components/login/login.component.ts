@@ -4,7 +4,8 @@ import { LoginService } from "./login.service";
 import { iLogin } from "./login.service";
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { HeaderService} from "../header/header.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     constructor(private service:LoginService,
                 private router:Router,
                 private header:HeaderService,
-                private gService:GlobalService,
+                private tService:ToastrNotificationService,
+                private iService:ImageRetrieveService,
                 private formBuilder:FormBuilder) {}
 
     // Form Load
@@ -31,10 +33,10 @@ export class LoginComponent implements OnInit {
         this.buildForm();
 
         // Load Logo
-        this.gService.getLogo()
+        this.iService.getLogo()
             .subscribe(
-                data => this.logo = this.gService.selectPhoto(data),
-                error => this.gService.handleError(error));
+                data => this.logo = this.iService.selectPhoto(data),
+                error => this.tService.handleError(error));
     }
 
     // Login check method
@@ -52,21 +54,21 @@ export class LoginComponent implements OnInit {
                     {
                         this.result = data[0];
                         if(this.result['Active'] == 1) {
-                            this.gService.loginSuccess(this.result['username']);
+                            this.tService.loginSuccess(this.result['username']);
                             this.service.setUserLoggedIn(this.result['UserTypeID'],this.result['username'],this.result['UserID']);
                             this.router.navigate(['dashboard']);
                             e.controls['password'].reset();
                         }
                         else if(this.result['FALSE'] == 0) {
-                            this.gService.loginFailure();
+                            this.tService.loginFailure();
                             e.controls['password'].reset();
                         }
                         else if(this.result['Active'] == 0) {
-                            this.gService.loginDeactivated(this.result['username']);
+                            this.tService.loginDeactivated(this.result['username']);
                             e.controls['password'].reset();
                         }
                     },
-                    error => this.gService.handleError(error));
+                    error => this.tService.handleError(error));
         }
     }
 

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { BusinessFooterService} from "../business-footer/business-footer.service";
 import { BusinessSettingService, iBusinesss} from "./business-setting.service";
 import { FormGroup, FormBuilder, Validators, Form, FormControl} from '@angular/forms';
+import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 
 @Component({
   selector: 'app-business-setting',
@@ -21,10 +22,11 @@ export class BusinessSettingComponent implements OnInit {
   @ViewChild ('BusinessGroupPolicy') newGroupPolicy;
 
   // Default Constructor
-  constructor(private gService:GlobalService,
+  constructor(private tService:ToastrNotificationService,
               private bFooter:BusinessFooterService,
               private service:BusinessSettingService,
-              private formBuilder:FormBuilder) { }
+              private formBuilder:FormBuilder,
+              private iService:ImageRetrieveService) { }
 
   // Form Load
   ngOnInit() {
@@ -43,15 +45,15 @@ export class BusinessSettingComponent implements OnInit {
                   this.businessForm.controls['contact'].setValue(data[0].contact);
                   this.businessForm.controls['email'].setValue(data[0].Email);
                   },
-              error => this.gService.handleError(error));
+              error => this.tService.handleError(error));
   }
 
   // logo
   logo() {
-      this.gService.getLogo()
+      this.iService.getLogo()
           .subscribe(
-              data => this.businessLogo = this.gService.selectPhoto(data),
-              error => this.gService.handleError(error));
+              data => this.businessLogo = this.iService.selectPhoto(data),
+              error => this.tService.handleError(error));
   }
 
   // Business info update
@@ -96,10 +98,10 @@ export class BusinessSettingComponent implements OnInit {
             .subscribe(
                 data => {
                     if (data == true) {
-                        this.gService.businessUpdateSuccess();
+                        this.tService.businessUpdateSuccess();
                     }
                 },
-                error => this.gService.handleError(error));
+                error => this.tService.handleError(error));
     }
   }
 

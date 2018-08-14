@@ -5,9 +5,12 @@ import { RouterModule, Routes } from "@angular/router";
 // Import Guards here
 import { LoginGuard } from "./components/login/login.guard";
 
-// Import Services here
+// Import Global Services here
 import { LoginService } from "./components/login/login.service";
-import { GlobalService } from "./globalAssets/global.service";
+import { ToastrNotificationService} from "./globalServices/toastr-notification.service";
+import { QrCodeDecoderService} from "./globalServices/qr-code-decoder.service";
+import { ImageRetrieveService} from "./globalServices/image-retrieve.service";
+import { GeoLocationService} from "./globalServices/geolocation.service";
 
 // Import Components here
 import { LoginComponent } from './components/login/login.component';
@@ -59,7 +62,15 @@ const appRoutes:Routes = [
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes), CommonModule],
     exports: [RouterModule],
-    providers: [LoginService,LoginGuard,GlobalService],
+    providers: [
+        // Global Service Providers here
+        LoginService,
+        LoginGuard,
+        ToastrNotificationService,
+        QrCodeDecoderService,
+        ImageRetrieveService,
+        GeoLocationService
+    ],
   declarations: []
 })
 export class AppRoutingModule { }

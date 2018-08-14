@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login/login.service";
 import { iUpdateUserInfo, UserSettingService} from "./user-setting.service";
 import { AddUserService, iSuburb} from "../add-user/add-user.service";
-import { GlobalService} from "../../globalAssets/global.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 
 @Component({
@@ -24,7 +24,7 @@ export class UserSettingComponent implements OnInit {
     constructor(private service:UserSettingService,
                 private login:LoginService,
                 private addUser:AddUserService,
-                private gService:GlobalService,
+                private tService:ToastrNotificationService,
                 private formBuilder:FormBuilder) {}
 
     // Form Load
@@ -52,19 +52,19 @@ export class UserSettingComponent implements OnInit {
                     this.settingForm.controls['city'].setValue(this.user.CityID);
                     this.settingForm.controls['suburb'].setValue(this.user.Suburb);
                 },
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
 
         // City Load up
         this.addUser.getCity()
             .subscribe(
                 data => this.cities = data,
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
 
         // Suburb Load up
         this.service.getAllSuburb()
             .subscribe(
                 data => this.suburbs = data,
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
 
     }
 
@@ -74,7 +74,7 @@ export class UserSettingComponent implements OnInit {
         this.addUser.getSuburb(param)
             .subscribe(
                 data => this.suburbs = data,
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
     }
 
     // Update user info Method
@@ -96,10 +96,10 @@ export class UserSettingComponent implements OnInit {
                 .subscribe(
                     data => {
                         if (data == true) {
-                            this.gService.userSettingUpdateSuccess(param.firstName, param.lastName);
+                            this.tService.userSettingUpdateSuccess(param.firstName, param.lastName);
                         }
                     },
-                    error => this.gService.handleError(error));
+                    error => this.tService.handleError(error));
         }
     }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllocateEquipmentService, iAllocation } from './allocate-equipment.service';
-import { GlobalService } from '../../globalAssets/global.service';
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { DatePipe } from '../../../../node_modules/@angular/common';
 
 @Component({
@@ -11,7 +11,7 @@ import { DatePipe } from '../../../../node_modules/@angular/common';
 })
 export class AllocateEquipmentComponent implements OnInit {
 
-  constructor(private service:AllocateEquipmentService, private gService:GlobalService,private date:DatePipe) { }
+  constructor(private service:AllocateEquipmentService, private tService:ToastrNotificationService,private date:DatePipe) { }
   public equipment:any;
   public techEmployees:any;
   public userEquipment:any;
@@ -41,13 +41,13 @@ export class AllocateEquipmentComponent implements OnInit {
     console.log(param);
     this.service.allocateEquipment(param).subscribe(data => {
       if (data == true) {
-        this.gService.allocationSuccess(equip, uID);
+        this.tService.allocationSuccess(equip, uID);
         location.reload();
       }
       else{
         console.log("something went wrong.");
       }
     },
-      error => this.gService.handleError(error));
+      error => this.tService.handleError(error));
   }
 }

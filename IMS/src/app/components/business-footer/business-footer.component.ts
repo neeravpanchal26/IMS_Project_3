@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BusinessFooterService} from "./business-footer.service";
-import {GlobalService} from "../../globalAssets/global.service";
+import { BusinessFooterService} from "./business-footer.service";
+import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 
 @Component({
   selector: 'app-business-footer',
@@ -14,14 +14,14 @@ export class BusinessFooterComponent implements OnInit {
 
   // Default Constructor
   constructor(private service:BusinessFooterService,
-              private gService:GlobalService) { }
+              private tService:ToastrNotificationService) { }
 
   // Form Load
   ngOnInit() {
     this.service.getBusinessInfo()
         .subscribe(
             data => this.business = data[0],
-                error=> this.gService.handleError(error));
+                error=> this.tService.handleError(error));
   }
 
 }
