@@ -101,10 +101,14 @@ constructor(private service:AddEquipmentService,
           let newImage = image.files[0];
           console.log(image.files[0]);
           let allowedImages = ['image/jpg','image/png'];
-          if(allowedImages.indexOf(newImage.type) >-1) {
+          if(allowedImages.indexOf(newImage.type) >=0) {
               let frmData = new FormData();
               frmData.append('file', newImage);
               this.service.uploadImage(frmData).subscribe();
+          }
+          else
+          {
+            console.log("IF statement was false")
           }
       } catch {}
       }});
