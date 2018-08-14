@@ -14,7 +14,7 @@ public info:any;
 
 
   constructor(private service:ManageEquipmentService) { }
-
+  public filter:null;
   ngOnInit() {
     this.service.GetEquipmentInfo().subscribe(data=>this.info=data);
   }

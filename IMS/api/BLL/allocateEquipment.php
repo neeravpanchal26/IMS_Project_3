@@ -15,21 +15,14 @@ else if($action=='equipment')
 }
 else if($action=='unassigned')
 {
-    echo json_encode(DBHandler::AllocateEquipment_UnassignedEquipment());
+    $json=json_decode(file_get_contents('php://input'));
+    echo json_encode(DBHandler::AllocateEquipment_UnassignedEquipment($json->id));
 }
 else if($action=="allocate")
 {   
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if($display=DBHandler::AllocateEquipment_Allocation($json->condition,$json->value,$json->equipmentID,$json->userID))
-    {
-        $response=$display;
-    }
-    else
-    {
-        $response=$display;
-    }
-    echo $response;
+    echo json_encode(DBHandler::AllocateEquipment_Allocation($json->condition,$json->value,$json->equipmentID,$json->userID));
 }
 //else if ($action=='userequipment')
 //{
@@ -37,4 +30,3 @@ else if($action=="allocate")
 //    $json = json_decode($incoming);
 //    echo json_encode(DBHandler::AllocateEquipment_GetUserEquipment($json->equipmentID));
 //}
-?>

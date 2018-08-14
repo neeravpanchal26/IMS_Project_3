@@ -34,7 +34,7 @@ export class InstallEquipmentService {
                 iconUrl: '../assets/marker-icon.png',
                 shadowUrl: '../assets/marker-shadow.png'
             })
-        }).addTo(mymap);
+        }).openTooltip().addTo(mymap);
         this.marker.bindPopup('Hello').openPopup();
     }
 }

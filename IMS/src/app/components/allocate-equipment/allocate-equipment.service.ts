@@ -8,9 +8,9 @@ export class AllocateEquipmentService {
 
   constructor(private http:HttpClient) { }
   apiURL=environment.api;
-  getUnnassignedEquipment():Observable<any>
+  getUnnassignedEquipment(param:iEquipment):Observable<any>
   {
-    return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=unassigned') as Observable<any>;
+    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=unassigned',param) as Observable<any>;
   }
   getTechEmployees():Observable<any>
   {
@@ -27,6 +27,10 @@ export class AllocateEquipmentService {
   
 }
 export interface iUser {
+  id:any
+}
+export interface iEquipment
+{
   id:any
 }
 export interface iAllocation

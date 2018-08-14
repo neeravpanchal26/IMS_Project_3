@@ -2,10 +2,9 @@
 <div class="container">
     <form>
         <div class="py-5 text-center">
-            <img class="mb-4" src='../assets/logo.png' width="70" height="70">
             <h1>Manage Equipment</h1>
         </div>
-
+        <input type="text" class="form-control" placeholder="Enter keyword" [(ngModel)]="filter">
         <div class="form-row">
             <div class="col-12">
                 <h4>List of equipment</h4>
@@ -21,18 +20,23 @@
                             <th>Status</th>
                             <th colspan="2">Update</th>
                         </tr>
-                        <tr *ngFor="let i of info">
+                        <tr *ngFor="let i of info | filter:filter| paginate: { itemsPerPage: 10, currentPage: p };">
                                 <td>{{i.EquipmentID}}</td>
                                 <td>{{i.Name}}</td>
                                 <td>{{i.Desc}}</td>
                                 <td>{{i.ConditionDesc}}</td>
                                 <td>{{i.BrandDesc}}</td>
                                 <td>{{i.SectionDesc}}</td>
-                                <td>{{i.StatusDesc}}</td>
+                                <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate</a></td>
                                 <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
                             </tr>
                     </thead>
                 </table>
+                <div class="row">
+                    <div class="col-lg-12">
+                      <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="info.length<=10"></pagination-controls>
+                    </div>
+                  </div>
             </div>
         </div>
     </form>

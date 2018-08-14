@@ -128,10 +128,11 @@ class DBHandler
         $sp='CALL uspAllocateEquipment_Equipments';
         return DBHelper::Select($sp);
     }
-    public static function AllocateEquipment_UnassignedEquipment()
+    public static function AllocateEquipment_UnassignedEquipment($equipmentID)
     {
-        $sp='CALL uspAllocateEquipment_GetUnnassignedEquipment';
-        return DBHelper::Select($sp);
+        $sp='CALL uspAllocateEquipment_GetUnnassignedEquipment (?)';
+        $param = array(&$equipmentID);
+        return DBHelper::SelectParam($sp,$param);
     }
     public static function AllocateEquipment_Allocation($condition,$value,$eID,$userID)
     {

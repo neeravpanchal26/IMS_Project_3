@@ -4,6 +4,7 @@ import { GeoLocationService } from '../../globalServices/geolocation.service';
 import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { FormGroup, FormBuilder,Validators,Form } from '../../../../node_modules/@angular/forms';
 import { DatePipe } from '../../../../node_modules/@angular/common';
+import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
 
 @Component({
   selector: 'app-add-equipment',
@@ -89,13 +90,14 @@ constructor(private service:AddEquipmentService,
     this.service.AddEquipment(param).subscribe(data=> {
       console.log(data);
       let r=data[0];
-      if(r['barcodeError']==1)
+      if(r['barcodeError']>=0)
       {
         this.barcodeError=true;
         this.tService.barcodeInUse(e.value['barcode']);
       }
       else
       {
+        console.log("Im in the else");
         try {
           let image = this.newEquipmentImage.nativeElement;
           let newImage = image.files[0];

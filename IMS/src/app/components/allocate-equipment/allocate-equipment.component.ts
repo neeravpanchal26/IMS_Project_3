@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AllocateEquipmentService, iAllocation } from './allocate-equipment.service';
+import { AllocateEquipmentService, iAllocation, iEquipment } from './allocate-equipment.service';
 import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import { DatePipe } from '../../../../node_modules/@angular/common';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-allocate-equipment',
@@ -11,17 +12,20 @@ import { DatePipe } from '../../../../node_modules/@angular/common';
 })
 export class AllocateEquipmentComponent implements OnInit {
 
-  constructor(private service:AllocateEquipmentService, private tService:ToastrNotificationService,private date:DatePipe) { }
+  constructor(private service:AllocateEquipmentService, private tService:ToastrNotificationService,private date:DatePipe,private router:ActivatedRoute) { }
   public equipment:any;
   public techEmployees:any;
   public userEquipment:any;
   public today:any;
   public filter:null;
   public p=null;
+  public id:any;
+  public getImage:any;
   ngOnInit()
   {
-    
-    this.service.getUnnassignedEquipment().subscribe(data=>this.equipment=data);
+    this.id=parseInt(this.router.snapshot.paramMap.get('id'));
+    let param:iEquipment = {id:2};
+    this.service.getUnnassignedEquipment(param).subscribe(data=>console.log(this.equipment=data));
     this.service.getTechEmployees().subscribe(data=>this.techEmployees=data);
     
     //this.service.getUserEquipment().subscribe(data=>this.userEquipment=data);

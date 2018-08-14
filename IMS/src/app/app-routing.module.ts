@@ -48,7 +48,7 @@ const appRoutes:Routes = [
 
     // Technical Employee
     { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
-    { path: 'Allocate Equipment', canActivate:[LoginGuard],component:AllocateEquipmentComponent},
+    { path: 'Allocate Equipment/:id', canActivate:[LoginGuard],component:AllocateEquipmentComponent},
     { path: 'Manage Equipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
     { path: 'Update details/:id', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
     { path: 'Install Equipment',canActivate:[LoginGuard], component:InstallEquipmentComponent},
