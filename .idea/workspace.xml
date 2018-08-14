@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +64,8 @@
       <file leaf-file-name="addEquipment.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="39" column="213" selection-start-line="39" selection-start-column="213" selection-end-line="39" selection-end-column="213" />
+            <state relative-caret-position="292">
+              <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -547,7 +546,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="400638000" />
+    <option name="totallyTimeSpent" value="400689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1034,8 +1033,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="39" column="213" selection-start-line="39" selection-start-column="213" selection-end-line="39" selection-end-column="213" />
+        <state relative-caret-position="292">
+          <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
         </state>
       </provider>
     </entry>
