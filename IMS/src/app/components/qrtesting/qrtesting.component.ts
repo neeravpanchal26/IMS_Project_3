@@ -57,7 +57,7 @@ export class QrtestingComponent implements OnInit {
         var leftPx = 5;
         pdf.addImage(contentDataURL, 'PNG', leftPx, topPx, imgWidth, imgHeight);
         // Generated PDF
-        pdf.save('MYPdf.pdf');
+        pdf.save(this.test+'.pdf');
     });
   }
 }

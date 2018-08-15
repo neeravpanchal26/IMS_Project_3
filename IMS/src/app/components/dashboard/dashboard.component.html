@@ -11,15 +11,18 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h5 class="float-left">{{title}}</h5>
-                        <div class="dropdown float-right">
-                            <button class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="oi oi-calendar"></span> Filter
-                            </button>
+                        <div class="float-right">
+                            <button class="btn-group btn btn-outline-primary" (click)="dashboardChart()"><span class="oi oi-reload align-middle"></span> Reset</button>
+                            <div class="dropdown btn-group">
+                                <button class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="oi oi-calendar"></span> Filter
+                                </button>
 
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
-                                <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
-                                <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,11 +48,13 @@
 
                         <table class="table table-sm table-hover">
                             <thead><tr class="bg-light">
+                                <th (click)="sort('UserID')" class="btn-link">ID</th>
                                 <th (click)="sort('FirstName')" class="btn-link">Username</th>
                                 <th (click)="sort('count')" class="btn-link"># of Login's</th>
                                 <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
                             </tr></thead>
                             <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };" (click)="userData(u.UserID,u.FirstName)">
+                                <td>{{u.UserID}}</td>
                                 <td>{{u.FirstName}} {{u.Surname}}</td>
                                 <td>{{u.count}}</td>
                                 <td>{{u.lastAccess}}</td>

@@ -103,14 +103,16 @@
       <!--Add picture button-->
         
         <!-- Select Date -->
-        <div class="col-sm-2">
+        <div class="col-sm-6">
           <label>Date Received</label>
-          <!-- Select Date -->
-          <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
-            [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
+          <div class="input-group">
+            <!-- Select Date -->
+            <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
+              [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
+            <div class="input-group-append">
+                <button class="input-group-text" (click)="getToday($event)"><span class="oi oi-calendar"></span> Today</button>
             </div>
-            <div class="col-sm-1"> <br>
-            <input type="button" class="btn btn-primary" value="Today" (click)="getToday($event)">
+          </div>
           </div>
         <div [class.invalid-feedback] = "addEquipmentForm.controls['dateReceived'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">

@@ -12,16 +12,16 @@ namespace DAL;
 class DB
 {
     // Local setup
-    private static $dbHost = '127.0.0.1';
-    private static $dbUser = 'BIT1';
-    private static $dbPass = 'password1';
-    private static $dbName = 'ims_schema';
-
-    // Nmu setup
-//    private static $dbHost = 'sict-mysql.nmmu.ac.za';
+//    private static $dbHost = '127.0.0.1';
 //    private static $dbUser = 'BIT1';
 //    private static $dbPass = 'password1';
 //    private static $dbName = 'ims_schema';
+
+    // Nmu setup
+    private static $dbHost = 'sict-mysql.nmmu.ac.za';
+    private static $dbUser = 'BIT1';
+    private static $dbPass = 'password1';
+    private static $dbName = 'ims_schema';
 
     protected static function Connect()
     {

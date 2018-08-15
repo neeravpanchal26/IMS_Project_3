@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import { Location} from "@angular/common";
 
 @Component({
   selector: 'app-error',
@@ -13,7 +14,8 @@ export class ErrorComponent implements OnInit {
 
   // Default Constructor
   constructor(private iService:ImageRetrieveService,
-              private tService:ToastrNotificationService) { }
+              private tService:ToastrNotificationService,
+              private location:Location) { }
 
   // Form load
   ngOnInit() {
@@ -22,6 +24,11 @@ export class ErrorComponent implements OnInit {
           .subscribe(
               data => this.businessLogo = this.iService.selectPhoto(data),
               error => this.tService.handleError(error));
+  }
+
+  // Locate Back
+  locateBack() {
+    this.location.back();
   }
 
 }

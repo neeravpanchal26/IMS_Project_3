@@ -5,36 +5,45 @@
             <h1>Allocate Equipment</h1>
         </div>
         <div class="form-row">
-            <div class="col-10">
+            <div class="col-12">
                 <!--Current Logo-->
-                <div class="card">
+                <div class="card mt-3">
                     <img class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Equipment Picture</h5>
                     </div>
                 </div><br>
             </div>
-            <div class="col-10" *ngFor="let e of equipment">
+            <div class="col-6">
                 <label>Name: </label>
-                <input type="text" class="form-control" value="{{e.Name}}" readonly>
-                <label>Description: </label>
-                <input type="text" class="form-control" value="{{e.Desc}}" readonly>
-                <label>Brand: </label>
-                <input type="text" class="form-control" value="{{e.BrandDesc}}" readonly>
-                <label>Cost: </label>
-                <input type="text" class="form-control" value="{{e.Cost|currency:'R'}}" readonly>
-                <label>Condition: </label>
-                <input type="text" class="form-control" value="{{e.ConditionDesc}}" readonly>
-                <label>Type: </label>
-                <input type="text" class="form-control" value="{{e.TypeDesc}}" readonly>
-                <label>Supplier: </label>
-                <input type="text" class="form-control" value="{{e.Supplier}}" readonly>
-                <br>
+                <input type="text" class="form-control" value="{{equipment.Name}}" readonly>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="col-10">
-                <div class="card">
+            <div class="col-6">
+                <label>Description: </label>
+                <input type="text" class="form-control" value="{{equipment.Desc}}" readonly>
+            </div>
+            <div class="col-6">
+                <label>Brand: </label>
+                <input type="text" class="form-control" value="{{equipment.BrandDesc}}" readonly>
+            </div>
+            <div class="col-6">
+                <label>Cost: </label>
+                <input type="text" class="form-control" value="{{equipment.Cost|currency:'R'}}" readonly>
+            </div>
+            <div class="col-6">
+                <label>Condition: </label>
+                <input type="text" class="form-control" value="{{equipment.ConditionDesc}}" readonly>
+            </div>
+            <div class="col-6">
+                <label>Type: </label>
+                <input type="text" class="form-control" value="{{equipment.TypeDesc}}" readonly>
+            </div>
+            <div class="col-6">
+                <label>Supplier: </label>
+                <input type="text" class="form-control" value="{{equipment.Supplier}}" readonly>
+            </div>
+            <div class="col-6">
+                <div class="card mt-3">
                     <img class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Assign to:</h5>
@@ -46,7 +55,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </form>
 </div>

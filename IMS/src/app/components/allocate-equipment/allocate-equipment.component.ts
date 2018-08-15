@@ -24,8 +24,8 @@ export class AllocateEquipmentComponent implements OnInit {
   ngOnInit()
   {
     this.id=parseInt(this.router.snapshot.paramMap.get('id'));
-    let param:iEquipment = {id:2};
-    this.service.getUnnassignedEquipment(param).subscribe(data=>console.log(this.equipment=data));
+    let param:iEquipment = {id:this.id};
+    this.service.getUnnassignedEquipment(param).subscribe(data=>console.log(this.equipment=data[0]));
     this.service.getTechEmployees().subscribe(data=>this.techEmployees=data);
     
     //this.service.getUserEquipment().subscribe(data=>this.userEquipment=data);
