@@ -86,32 +86,24 @@ constructor(private service:AddEquipmentService,
       barcode:e.value['barcode'],
       supplier:e.value['suppliers']
     };
-    console.log(param);
     this.service.AddEquipment(param).subscribe(data=> {
-      console.log(data);
       let r=data[0];
       if(r['barcodeError']>=0)
       {
         this.barcodeError=true;
         this.tService.barcodeInUse(e.value['barcode']);
       }
-      else
+      else if(r['TRUE']>=1)
       {
-        console.log("Im in the else");
         try {
           let image = this.newEquipmentImage.nativeElement;
           let newImage = image.files[0];
-          console.log(image.files[0]);
           let allowedImages = ['image/jpg','image/png'];
           if(allowedImages.indexOf(newImage.type) >=0) {
             console.log('IF statement was true');
               let frmData = new FormData();
               frmData.append('file', newImage);
               this.service.uploadImage(frmData).subscribe();
-          }
-          else
-          {
-            console.log("IF statement was false")
           }
       } catch {}
       }});

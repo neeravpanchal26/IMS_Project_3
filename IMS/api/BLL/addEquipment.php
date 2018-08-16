@@ -36,7 +36,7 @@ else if($action=='suppliers')
 }
 else if ($action == 'insert') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode (DBHandler::AddEquipment_Insert($json->name, $json->desc, $json->cost, $json->equipmentCondition, $json->brand, $json->section,$json->type, $json->dateReceived,$json->barcode,$json->supplier));
+    echo json_encode (DBHandler::AddEquipment_Insert($json->name, $json->desc, $json->cost, $json->equipmentCondition, $json->brand, $json->section, $json->type, $json->dateReceived, $json->barcode, $json->supplier));
 }
 else if($action=='imageUpload')
 {
