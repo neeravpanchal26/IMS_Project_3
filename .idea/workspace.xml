@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,11 +27,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
+      <file leaf-file-name="add-equipment.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="556">
+              <caret line="162" column="147" selection-start-line="162" selection-start-column="147" selection-end-line="162" selection-end-column="147" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="business-setting.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="26" column="145" selection-start-line="26" selection-start-column="116" selection-end-line="26" selection-end-column="145" />
             </state>
           </provider>
         </entry>
@@ -105,7 +111,6 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.html" />
@@ -113,6 +118,7 @@
         <option value="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
       </list>
     </option>
   </component>
@@ -157,26 +163,6 @@
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
               <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
               <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="BLL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="DAL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -185,6 +171,32 @@
               <item name="IMS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="add-equipment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
+              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
+              <item name="IMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="business-setting" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,11 +487,12 @@
       <workItem from="1534339307746" duration="2365000" />
       <workItem from="1534441708953" duration="455000" />
       <workItem from="1534445753382" duration="949000" />
+      <workItem from="1534447747943" duration="145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="416806000" />
+    <option name="totallyTimeSpent" value="416951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -492,7 +505,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
@@ -501,10 +513,9 @@
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.20121212" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.27110156" />
+      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.2746781" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
@@ -516,12 +527,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.33547926" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -529,15 +541,15 @@
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.20121212" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="9" />
       <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
@@ -596,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -863,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="113" column="18" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -923,6 +921,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="145" selection-start-line="26" selection-start-column="116" selection-end-line="26" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="162" column="147" selection-start-line="162" selection-start-column="147" selection-end-line="162" selection-end-column="147" />
         </state>
       </provider>
     </entry>
