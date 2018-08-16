@@ -18,6 +18,7 @@
                             <th>Brand</th>
                             <th>Section</th>
                             <th>Status</th>
+                            <th>Allocate</th>
                             <th colspan="2">Update</th>
                         </tr>
                         <tr *ngFor="let i of info | filter:filter| paginate: { itemsPerPage: 10, currentPage: p };">
@@ -27,7 +28,8 @@
                                 <td>{{i.ConditionDesc}}</td>
                                 <td>{{i.BrandDesc}}</td>
                                 <td>{{i.SectionDesc}}</td>
-                                <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate</a></td>
+                                <td>{{i.StatusDescription}}</td>
+                                <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate to user</a></td>
                                 <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
                             </tr>
                     </thead>

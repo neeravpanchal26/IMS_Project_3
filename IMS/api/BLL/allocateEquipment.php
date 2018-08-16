@@ -9,14 +9,10 @@ if($action=='techEmployees')
 {
     echo json_encode(DBHandler::AllocateEquipment_TechEmployees());
 }
-else if($action=='equipment')
-{
-    echo json_encode(DBHandler::AllocateEquipment_Equipments());
-}
-else if($action=='unassigned')
+else if($action=='info')
 {
     $json=json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::AllocateEquipment_UnassignedEquipment($json->id));
+    echo json_encode(DBHandler::AllocateEquipment_GetEquipmentInfo($json->id));
 }
 else if($action=="allocate")
 {   
@@ -24,9 +20,9 @@ else if($action=="allocate")
     $json = json_decode($incoming);
     echo json_encode(DBHandler::AllocateEquipment_Allocation($json->condition,$json->value,$json->equipmentID,$json->userID));
 }
-//else if ($action=='userequipment')
-//{
-//    $incoming = file_get_contents('php://input');
-//    $json = json_decode($incoming);
-//    echo json_encode(DBHandler::AllocateEquipment_GetUserEquipment($json->equipmentID));
-//}
+else if($action=='image')
+{
+    $incoming = json_decode(file_get_contents('php://input'));
+    $json = json_decode($incoming);
+    echo DBHandler::AllocateEquipment_GetEquipmentPicture($json->id);
+}

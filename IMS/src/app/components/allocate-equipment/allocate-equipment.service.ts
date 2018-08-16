@@ -8,23 +8,22 @@ export class AllocateEquipmentService {
 
   constructor(private http:HttpClient) { }
   apiURL=environment.api;
-  getUnnassignedEquipment(param:iEquipment):Observable<any>
+  getEquipmentDetails(param:iEquipment):Observable<any>
   {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=unassigned',param) as Observable<any>;
+    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=info',param) as Observable<any>;
   }
   getTechEmployees():Observable<any>
   {
     return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=techEmployees')as Observable<any>;
   }
-  getUserEquipment(param:iUser):Observable<any>
-  {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=userequipment',param)as Observable<any>;
-  }
   allocateEquipment(param:iAllocation):Observable<any>
   {
     return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=allocate',param) as Observable<any>;
   }
-  
+  getEquipmentPicture(param:iEquipment):Observable<any>
+  {
+    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=image',param)as Observable<any>;
+  }
 }
 export interface iUser {
   id:any

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-    <form>
+    <form (ngSubmit)="allocateEquipment(allocateEquipmentForm)" [formGroup]="allocateEquipmentForm">
         <div class="py-5 text-center">
             <h1>Allocate Equipment</h1>
         </div>
@@ -8,7 +8,7 @@
             <div class="col-12">
                 <!--Current Logo-->
                 <div class="card mt-3">
-                    <img class="card-img-top">
+                    <img class="card-img-top" *ngIf='equipmentPicture' [src]='equipmentPicture'>
                     <div class="card-body">
                         <h5 class="card-title">Equipment Picture</h5>
                     </div>
@@ -16,41 +16,47 @@
             </div>
             <div class="col-6">
                 <label>Name: </label>
-                <input type="text" class="form-control" value="{{equipment.Name}}" readonly>
+                <input type="text" class="form-control" formControlName="name" value="{{equipment.Name}}" readonly>
             </div>
             <div class="col-6">
                 <label>Description: </label>
-                <input type="text" class="form-control" value="{{equipment.Desc}}" readonly>
+                <input type="text" class="form-control" formControlName="desc" value="{{equipment.Desc}}" readonly>
             </div>
             <div class="col-6">
                 <label>Brand: </label>
-                <input type="text" class="form-control" value="{{equipment.BrandDesc}}" readonly>
+                <input type="text" class="form-control" formControlName="brand" value="{{equipment.BrandDesc}}" readonly>
             </div>
             <div class="col-6">
                 <label>Cost: </label>
-                <input type="text" class="form-control" value="{{equipment.Cost|currency:'R'}}" readonly>
+                <input type="text" class="form-control" formControlName="cost" value="{{equipment.Cost|currency:'R'}}" readonly>
             </div>
             <div class="col-6">
                 <label>Condition: </label>
-                <input type="text" class="form-control" value="{{equipment.ConditionDesc}}" readonly>
+                <input type="text" class="form-control" formControlName="condition" value="{{equipment.ConditionDesc}}" readonly>
             </div>
             <div class="col-6">
                 <label>Type: </label>
-                <input type="text" class="form-control" value="{{equipment.TypeDesc}}" readonly>
+                <input type="text" class="form-control" formControlName="type" value="{{equipment.TypeDesc}}" readonly>
             </div>
             <div class="col-6">
                 <label>Supplier: </label>
-                <input type="text" class="form-control" value="{{equipment.Supplier}}" readonly>
+                <input type="text" class="form-control" formControlName="supplier" value="{{equipment.Supplier}}" readonly>
             </div>
             <div class="col-6">
                 <div class="card mt-3">
                     <img class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Assign to:</h5>
-                        <select class="form-control">
+                        <select class="form-control" formControlName="user" [class.is-valid]="allocateEquipmentForm.controls['user'].valid" [class.is-invalid]="allocateEquipmentForm.controls['user'].invalid && (allocateEquipmentForm.controls['user'].dirty || allocateEquipmentForm.controls['user'].touched)">
                             <option disabled selected>Technical Employee</option>
                             <option *ngFor="let t of techEmployees" value="{{t.UserID}}">{{t.TechEmployee}}</option>
-                        </select><br>
+                        </select>
+                        <div [class.invalid-feedback] = "allocateEquipmentForm.controls['user'].hasError('required')">
+                            <div *ngIf="allocateEquipmentForm.controls['user'].hasError('required')">
+                                Please select a Technical Employee.
+                            </div>
+                        </div>
+                        <br>
                         <button type="submit" class="btn btn-primary col-lg-15">Allocate</button>
                     </div>
                 </div>

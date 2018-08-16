@@ -123,23 +123,26 @@ class DBHandler
         $sp = 'CALL uspAllocateEquipment_TechnicalEmployees';
         return DBHelper::Select($sp);
     }
-    public static function AllocateEquipment_Equipments()
+    public static function AllocateEquipment_GetEquipmentInfo($equipmentID)
     {
-        $sp='CALL uspAllocateEquipment_Equipments';
-        return DBHelper::Select($sp);
-    }
-    public static function AllocateEquipment_UnassignedEquipment($equipmentID)
-    {
-        $sp='CALL uspAllocateEquipment_GetUnnassignedEquipment (?)';
+        $sp='CALL uspAllocateEquipment_GetEquipmentInfo (?)';
         $param = array(&$equipmentID);
         return DBHelper::SelectParam($sp,$param);
     }
+
     public static function AllocateEquipment_Allocation($condition,$value,$eID,$userID)
     {
         $sp = "CALL uspAllocateEquipment_Allocation(?,?,?,?)";
         $param = array(&$condition,&$value,&$eID,&$userID);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+    public static function AllocateEquipment_GetEquipmentPicture($eID)
+    {
+        $sp='CALL uspAllocateEquipment_GetEquipmentPicture (?)';
+        $param = array(&$eID);
+        return DBHelper::BlobParamRetrieve($sp,$param);
+    }
+
     
 
     // User Setting component methods
