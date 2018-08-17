@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DeactivateUserService, iUser } from "./deactivate-user.service";
 import { AddUserService } from "../add-user/add-user.service";
 import { LoginService} from "../login/login.service";
-import { FormControl} from "@angular/forms";
 import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 
 @Component({
@@ -20,7 +19,7 @@ export class DeactivateUserComponent implements OnInit {
 
   // Default Constructor
   constructor(private service:DeactivateUserService,
-              private adduser:AddUserService,
+              private addUser:AddUserService,
               private login:LoginService,
               private tService:ToastrNotificationService) { }
 
@@ -33,7 +32,7 @@ export class DeactivateUserComponent implements OnInit {
             error=> this.tService.handleError(error));
 
     // Load user types array
-    this.adduser.getUserType()
+    this.addUser.getUserType()
         .subscribe(
             data => this.userType = data,
             error=> this.tService.handleError(error));

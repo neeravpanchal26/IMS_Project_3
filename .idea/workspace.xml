@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,17 +29,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="17" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,7 +79,6 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.service.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/IMS/tsconfig.json" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts" />
@@ -106,10 +98,11 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" />
       </list>
     </option>
   </component>
@@ -137,6 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,7 +206,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -501,11 +494,12 @@
       <workItem from="1534447747943" duration="145000" />
       <workItem from="1534491114767" duration="3294000" />
       <workItem from="1534510899431" duration="486000" />
+      <workItem from="1534520102055" duration="511000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="420731000" />
+    <option name="totallyTimeSpent" value="421242000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -518,16 +512,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.20121212" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" visible="true" weight="0.28" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.27825466" />
+      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.28183118" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
@@ -544,28 +537,28 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" visible="true" weight="0.20121212" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.27825466" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="9" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,16 +604,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -741,13 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -926,10 +902,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="102" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/node_modules/@angular/core/src/metadata/ng_module.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#23#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="391">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -938,25 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="102" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="102" />
+        <state relative-caret-position="357">
+          <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
       </provider>
     </entry>
