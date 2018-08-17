@@ -4,7 +4,8 @@
         <div class="py-5 text-center">
             <h1>Manage Equipment</h1>
         </div>
-        <input type="text" class="form-control" placeholder="Enter keyword" [(ngModel)]="filter">
+        <input type="text" class="form-control" placeholder="Search Keywords" [(ngModel)]="filter">
+        <h1>{{filter}}</h1>
         <div class="form-row">
             <div class="col-12">
                 <h4>List of equipment</h4>
@@ -21,7 +22,7 @@
                             <th>Allocate</th>
                             <th colspan="2">Update</th>
                         </tr>
-                        <tr *ngFor="let i of info | filter:filter| paginate: { itemsPerPage: 10, currentPage: p };">
+                        <tr *ngFor="let i of info | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
                                 <td>{{i.EquipmentID}}</td>
                                 <td>{{i.Name}}</td>
                                 <td>{{i.Desc}}</td>

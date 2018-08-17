@@ -13,7 +13,11 @@ import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@an
 })
 export class AllocateEquipmentComponent implements OnInit {
 
-  constructor(private service:AllocateEquipmentService, private tService:ToastrNotificationService,private date:DatePipe,private router:ActivatedRoute,private formBuilder:FormBuilder) { }
+  constructor(private service:AllocateEquipmentService,
+              private tService:ToastrNotificationService,
+              private date:DatePipe,
+              private router:ActivatedRoute,
+              private formBuilder:FormBuilder) { }
   public equipment:any;
   public techEmployees:any;
   public userEquipment:any;
@@ -26,7 +30,6 @@ export class AllocateEquipmentComponent implements OnInit {
   ngOnInit()
   {
     this.id=parseInt(this.router.snapshot.paramMap.get('id'));
-    console.log(this.id);
     let param:iEquipment = {id:this.id};
     this.service.getEquipmentDetails(param).subscribe(data=>console.log(this.equipment=data[0]));
     this.getImage(param);
@@ -37,7 +40,14 @@ export class AllocateEquipmentComponent implements OnInit {
   }
   getImage(param)
   {
-   this.service.getEquipmentPicture(param).subscribe(data=>console.log(this.equipmentPicture=data)); 
+   this.service.getEquipmentPicture(param)
+       .subscribe(
+           data=>
+           {
+             this.equipmentPicture = this.service.sanitizeEquipmentPicture(data);
+           console.log(this.equipmentPicture);
+
+           });
   }
   allocateEquipment(e)
   {

@@ -139,8 +139,7 @@ class DBHandler
     public static function AllocateEquipment_GetEquipmentPicture($eID)
     {
         $sp='CALL uspAllocateEquipment_GetEquipmentPicture (?)';
-        $param = array(&$eID);
-        return DBHelper::BlobParamRetrieve($sp,$param);
+        return DBHelper::BlobParamRetrieve($sp,$eID);
     }
 
     

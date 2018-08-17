@@ -11,7 +11,7 @@ if($action=='techEmployees')
 }
 else if($action=='info')
 {
-    $json=json_decode(file_get_contents('php://input'));
+    $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::AllocateEquipment_GetEquipmentInfo($json->id));
 }
 else if($action=="allocate")
@@ -22,7 +22,6 @@ else if($action=="allocate")
 }
 else if($action=='image')
 {
-    $incoming = json_decode(file_get_contents('php://input'));
-    $json = json_decode($incoming);
+    $json = json_decode(file_get_contents('php://input'));
     echo DBHandler::AllocateEquipment_GetEquipmentPicture($json->id);
 }

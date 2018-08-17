@@ -85,21 +85,20 @@ class DBHelper extends DB
         //Return Result
         return $result;
     }
-    public static function BlobParamRetrieve($query,array $param)
+    public static function BlobParamRetrieve($query,$id)
     {
         $conn = DB::Connect();
-        $call = $conn->prepare($query,$param->id);
-        $call->bind_param('b',$id);
+        $call = $conn->prepare($query);
+        $call->bind_param('i',$id);
         $call->execute();
         $call->store_result();
         $call->bind_result($result);
         $call->fetch();
-        msql_close($conn);
         
         //Return Result
         return $result;
     }
-    public static function BlobRetrieve()
+    public static function BlobRetrieve($query)
     {
         
         //Open Connection

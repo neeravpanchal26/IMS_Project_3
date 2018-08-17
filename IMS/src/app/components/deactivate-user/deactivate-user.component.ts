@@ -15,7 +15,6 @@ export class DeactivateUserComponent implements OnInit {
   // Global variable
   public users:any;
   public userType:any;
-  public search: FormControl;
   public filter:null;
   public p = null;
 

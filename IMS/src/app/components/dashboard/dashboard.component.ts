@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   // Form Load
   ngOnInit() {
-      this.userType = this.login.getUserType();
+    this.userType = this.login.getUserType();
     if(this.userType === 1) {
         this.dashboardChart();
     }

@@ -9,12 +9,12 @@ import { ManageEquipmentService } from './manage-equipment.service';
   
 })
 export class ManageEquipmentComponent implements OnInit {
-public info:any;
-
-
+  // Global Variables
+  public info:any;
+  public filter:null;
 
   constructor(private service:ManageEquipmentService) { }
-  public filter:null;
+
   ngOnInit() {
     this.service.GetEquipmentInfo().subscribe(data=>this.info=data);
   }

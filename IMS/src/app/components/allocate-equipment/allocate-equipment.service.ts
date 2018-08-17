@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
+import { ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 
 @Injectable()
 export class AllocateEquipmentService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+              private iService:ImageRetrieveService) { }
   apiURL=environment.api;
   getEquipmentDetails(param:iEquipment):Observable<any>
   {
@@ -20,9 +22,13 @@ export class AllocateEquipmentService {
   {
     return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=allocate',param) as Observable<any>;
   }
-  getEquipmentPicture(param:iEquipment):Observable<any>
+  getEquipmentPicture(param:iEquipment):Observable<Blob>
   {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=image',param)as Observable<any>;
+    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=image',param,{responseType:'blob'})as Observable<Blob>;
+  }
+  sanitizeEquipmentPicture(photo)
+  {
+    return this.iService.selectPhoto(photo);
   }
 }
 export interface iUser {
