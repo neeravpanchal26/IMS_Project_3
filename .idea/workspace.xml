@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/allocateEquipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/allocateEquipment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DBHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DBHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DBHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +30,8 @@
       <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="153">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="17" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -510,12 +500,12 @@
       <workItem from="1534445753382" duration="949000" />
       <workItem from="1534447747943" duration="145000" />
       <workItem from="1534491114767" duration="3294000" />
-      <workItem from="1534510899431" duration="125000" />
+      <workItem from="1534510899431" duration="486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="420370000" />
+    <option name="totallyTimeSpent" value="420731000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -972,8 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="23" selection-end-column="42" />
+        <state relative-caret-position="153">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="17" selection-end-column="42" />
         </state>
       </provider>
     </entry>
