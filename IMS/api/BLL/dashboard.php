@@ -20,3 +20,11 @@ else if($action == 'specificUser') {
     $days = json_decode($_GET['days']);
     echo json_encode(DBHandler::Dashboard_IndividualUser($userID,$days));
 }
+else if($action == 'equipment') {
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_Equipment($days));
+}
+else if($action == 'equipmentExtras') {
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_EquipmentExtras($days));
+}

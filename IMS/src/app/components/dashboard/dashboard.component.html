@@ -5,14 +5,15 @@
     <h1>Dashboard</h1>
     <hr/>
 
+    <!-- IT Admin Dashboard-->
     <div *ngIf="userType==1" class="row">
         <div class="col-12">
-            <div class="card mt-3">
+            <div class="card mt-3 border-primary">
                 <div class="card-body">
                     <div class="card-title">
-                        <h5 class="float-left">{{title}}</h5>
+                        <h5 class="float-left text-primary">{{title}}</h5>
                         <div class="float-right">
-                            <button class="btn-group btn btn-outline-primary" (click)="dashboardChart()"><span class="oi oi-reload align-middle"></span> Reset</button>
+                            <button class="btn-group btn btn-outline-primary" (click)="setDays(7);userChart()"><span class="oi oi-reload"></span> Reset</button>
                             <div class="dropdown btn-group">
                                 <button class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="oi oi-calendar"></span> Filter
@@ -26,15 +27,15 @@
                             </div>
                         </div>
                     </div>
-                    <canvas id="canvas">{{chart}}</canvas>
+                    <canvas id="ItAdminCanvas">{{chart}}</canvas>
                 </div>
             </div>
         </div>
 
         <div class="col-12">
-            <div class="card mt-3">
+            <div class="card mt-3 border-primary">
                 <div class="card-body">
-                    <h5 class="card-title">List of users</h5>
+                    <h5 class="card-title text-primary">List of users</h5>
                         <!--Search Input-->
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -53,7 +54,7 @@
                                 <th (click)="sort('count')" class="btn-link"># of Login's</th>
                                 <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
                             </tr></thead>
-                            <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };" (click)="userData(u.UserID,u.FirstName)">
+                            <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: p };" (click)="userData(u.UserID,u.FirstName)">
                                 <td>{{u.UserID}}</td>
                                 <td>{{u.FirstName}} {{u.Surname}}</td>
                                 <td>{{u.count}}</td>
@@ -65,6 +66,59 @@
             </div>
         </div>
     </div>
+    <!-- It Admin Dashboard ends here-->
+
+    <!-- Section Head Dashboard-->
+    <div *ngIf="userType==3" class="row">
+        <div class="col-lg-12">
+            <div class="card mt-3 border-primary">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5 class="float-left text-primary">{{title}}</h5>
+                        <div class="float-right">
+                            <button class="btn-group btn btn-outline-primary" (click)="setDays(7);equipmentChart()"><span class="oi oi-reload align-middle"></span> Reset</button>
+                            <div class="dropdown btn-group">
+                                <button class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="2dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="oi oi-calendar"></span> Filter
+                                </button>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="SectionHeadCanvas">{{chart}}</canvas>
+                </div>
+            </div>
+        </div>
+        <!-- Latest Equipment card-->
+        <div class="col-lg-6 mt-3 pr-3">
+            <div class="card border-primary">
+                <div class="card-header text-primary"><span class="oi oi-cart"></span> Latest Equipment Received</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">{{equipmentExtras['Name']}}</h5>
+                    <p class="card-text">{{equipmentExtras['Desc']}}</p>
+                    <p class="card-text">{{equipmentExtras['DateReceived']}}</p>
+                    <h1 class="card-text">{{equipmentExtras['Cost'] | currency:'R'}}</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Equipment Card-->
+        <div class="col-lg-6 mt-3 pl-3">
+            <div class="card border-primary">
+                <div class="card-header text-primary"><span class="oi oi-cart"></span> Total Equipment Received in past {{days}} days</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">Equipment Total</h5>
+                    <h1 class="card-text">{{equipmentExtras['count']}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Section Head Dashboard ends here-->
 </div>
 <!--Footer-->
 <app-business-footer></app-business-footer>

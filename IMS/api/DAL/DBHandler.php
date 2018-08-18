@@ -190,6 +190,18 @@ class DBHandler
         $param = array(&$userID,&$days);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function Dashboard_Equipment ($days)
+    {
+        $sp = 'CALL uspDashboard_Equipment (?)';
+        $param = array(&$days);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function Dashboard_EquipmentExtras($days)
+    {
+        $sp = 'CALL uspDashboard_EquipmentExtras(?)';
+        $param = array(&$days);
+        return DBHelper::SelectParam($sp,$param);
+    }
 
     // Business Footer components methods
     public static function Business()

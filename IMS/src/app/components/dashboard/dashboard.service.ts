@@ -21,4 +21,14 @@ export class DashboardService {
   getIndivdualData(userID,days):Observable<any[]>{
     return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=specificUser&userID='+userID+'&days='+days) as Observable<any[]>;
   }
+
+  // Equipment Received graph
+  getEquipment(days):Observable<any> {
+    return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=equipment&days='+days) as Observable<any>;
+  }
+
+  // Equipment Extras
+  getEquipmentExtras(days):Observable<any> {
+      return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=equipmentExtras&days='+days) as Observable<any>;
+  }
 }
