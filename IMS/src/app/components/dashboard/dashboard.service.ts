@@ -31,4 +31,14 @@ export class DashboardService {
   getEquipmentExtras(days):Observable<any> {
       return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=equipmentExtras&days='+days) as Observable<any>;
   }
+
+  // Equipment User
+  getEquipmentUser(userID, days):Observable<any> {
+    return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=equipmentUser&userID='+userID+'&days='+days) as Observable<any>;
+  }
+
+  // Equipment History User
+  getEquipmentHistoryUser(userID, days):Observable<any> {
+    return this.http.get(this.apiUrl+'/api/BLL/dashboard.php?action=equipmentHistoryUser&userID='+userID+'&days='+days) as Observable<any>;
+  }
 }

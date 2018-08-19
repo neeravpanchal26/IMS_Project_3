@@ -190,7 +190,7 @@ class DBHandler
         $param = array(&$userID,&$days);
         return DBHelper::SelectParam($sp,$param);
     }
-    public static function Dashboard_Equipment ($days)
+    public static function Dashboard_Equipment($days)
     {
         $sp = 'CALL uspDashboard_Equipment (?)';
         $param = array(&$days);
@@ -200,6 +200,18 @@ class DBHandler
     {
         $sp = 'CALL uspDashboard_EquipmentExtras(?)';
         $param = array(&$days);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function Dashboard_EquipmentUser($userID,$days)
+    {
+        $sp = 'CALL uspDashboard_EquipmentUser (?,?)';
+        $param = array(&$userID,&$days);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function Dashboard_EquipmentHistoryUser($userID,$days)
+    {
+        $sp = 'CALL uspDashboard_EquipmentHistoryUser(?,?)';
+        $param = array(&$userID,&$days);
         return DBHelper::SelectParam($sp,$param);
     }
 

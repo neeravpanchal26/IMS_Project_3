@@ -28,3 +28,13 @@ else if($action == 'equipmentExtras') {
     $days = json_decode($_GET['days']);
     echo json_encode(DBHandler::Dashboard_EquipmentExtras($days));
 }
+else if($action == 'equipmentUser') {
+    $userID = json_decode($_GET['userID']);
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_EquipmentUser($userID,$days));
+}
+else if($action == 'equipmentHistoryUser') {
+    $userID = json_decode($_GET['userID']);
+    $days = json_decode($_GET['days']);
+    echo json_encode(DBHandler::Dashboard_EquipmentHistoryUser($userID,$days));
+}

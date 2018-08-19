@@ -15,10 +15,12 @@ export class DashboardComponent implements OnInit {
   chart = Chart;
   public user = [];
   public userType;
+  public userID:any;
   public filter = null;
   public days:number=7;
   public title:any;
   public equipmentExtras:any;
+  public equipmentHistoryExtras:any;
 
   // Default Constructor
   constructor(private login:LoginService,
@@ -28,27 +30,36 @@ export class DashboardComponent implements OnInit {
   // Form Load
   ngOnInit() {
     this.userType = this.login.getUserType();
+    this.userID = this.login.getUserID();
+
     if(this.userType === 1) {
-        this.userChart();
+        this.itAdminChart();
+    }
+    else if(this.userType ===2) {
+        this.technicalEmployeeEquipmentChart();
     }
     else if (this.userType === 3) {
-        this.equipmentChart();
+        this.sectionHeadEquipmentChart();
     }
   }
 
   // Set days
   setDays(e) {
-      this.days=e;
+      this.days = e;
+
       if(this.userType === 1) {
-          this.userChart();
+          this.itAdminChart();
+      }
+      else if(this.userType ===2) {
+          this.technicalEmployeeEquipmentChart();
       }
       else if (this.userType === 3) {
-          this.equipmentChart();
+          this.sectionHeadEquipmentChart();
       }
   }
 
-  // Users dashboard chart
-  userChart() {
+  // IT Admin dashboard chart
+  itAdminChart() {
       this.service.getUsers(this.days)
           .subscribe
           (data => {
@@ -69,7 +80,7 @@ export class DashboardComponent implements OnInit {
   }
 
   // User Data
-  userData(input,username) {
+  itAdminUserData(input, username) {
       this.service.getIndivdualData(input,this.days)
           .subscribe(
               data => {
@@ -86,8 +97,34 @@ export class DashboardComponent implements OnInit {
               error => this.tService.handleError(error));
   }
 
+  // Equipment for specific user
+  technicalEmployeeEquipmentChart() {
+      this.service.getEquipmentUser(this.userID,this.days)
+          .subscribe(
+              data=> {
+                  // Count column for chart data
+                  let count = data.map(function(value,index) {return value['count'];});
+
+                  // Date column for chart data
+                  let date = data.map(function (value,index) {return value['Date'];});
+
+                  // Parsing data to chart and generating chart
+                  this.barChart(date,count,'Equipment allocated to you in '+this.days+' days.','Dates','# of Equipment', 'TechnicalHeadCanvas');
+              },
+              //Error handling
+              error => this.tService.handleError(error)
+          );
+      this.service.getEquipmentHistoryUser(this.userID,this.days)
+          .subscribe
+          (
+              data=> this.equipmentHistoryExtras = data[0],
+              //Error handling
+              error => this.tService.handleError(error));
+
+  }
+
   // Equipment dashboard chart
-  equipmentChart() {
+  sectionHeadEquipmentChart() {
     this.service.getEquipment(this.days)
         .subscribe
         (
