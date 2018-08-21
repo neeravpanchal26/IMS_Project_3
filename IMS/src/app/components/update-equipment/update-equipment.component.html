@@ -100,15 +100,6 @@
           </div>
         </div>
       </div>
-      <!--Add picture button-->
-        <!--<label> Upload Picture</label>
-                      <br>"
-                      <input type="file" (change)="preview($event)" accept="image/*">
-                      <br>
-                      <canvas #mycanvas width="150" height="150" style="border: 1px solid blue"></canvas>
-                    
-                    </div>
-                    <div class="col-sm-6">-->
         <!-- Select Date -->
         <div class="col-sm-6">
           <label>Date Received</label>
@@ -156,8 +147,19 @@
         </div>
     </div>
     <div class="form-row">
+        <div class="col-6">
+            <!--Current Logo-->
+            <div class="card mt-3">
+                
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center">Equipment Picture</h5>
+                    <input type="file" class="form-control-file" (change)="readURL($event)" accept="image/jpeg,image/png">
+                <img class="card-img-top" id="image" *ngIf='defaultImage' [src]="defaultImage" (change)="readURL($event)">
+                  </div>
+            </div><br>
+        </div>
       <div class="col-sm-6">
-        <!--Add equipment <button--><br><br>
+        <!--Add equipment <button--><br>
         <button type="submit" class="btn btn-primary col-lg-15">Update Equipment</button>
       </div>
     </div>

@@ -157,14 +157,19 @@
         </div>
     </div>
     <div class="form-row">
-      <div class="col-lg-6">
-          <label> Upload Picture</label>
-          <br>
-          <input id="EquipmentImage" #EquipmentImage type='file' class="form-control-file" (change)="readURL($event)" accept="image/jpeg,image/png"><br>
-          <img id="image" [src]="imageSrc || 'http://via.placeholder.com/350x150'" alt="your image" />
+        <div class="col-6">
+            <!--Current Logo-->
+            <div class="card mt-3">
+                
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center">Equipment Picture</h5>
+                    <input type="file" #EquipmentImage class="form-control-file" (change)="readURL($event)" accept="image/jpeg,image/png">
+                <img class="card-img-top" id="image" [src]="defaultImage" (change)="readURL($event)">
+                  </div>
+            </div><br>
         </div>
       <div class="col-sm-6">
-        <!--Add equipment <button--><br><br>
+        <!--Add equipment <button--><br>
         <button type="submit" class="btn btn-primary col-lg-15">Add Equipment</button>
       </div>
     </div>

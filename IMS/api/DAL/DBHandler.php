@@ -117,6 +117,22 @@ class DBHandler
         $param = array(&$id);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function UpdateEquipment_GetEquipmentImageViaID($id)
+    {
+        $sp='CALL uspUpdateEquipment_GetEquipmentImageViaID (?)';
+        $param = array(&$id);
+        return DBHelper::BlobParamRetrieve($sp,$param);
+    }
+    public static function UpdateEquipment_UpdateEquipment($id,$name, $desc, $cost, $equipmentCondition, $brand, $section, $type, $dateReceived, $barcode, $supplier)
+    {
+        $sp='CALL uspUpdateEquipment_UpdateEquipment(?,?,?,?,?,?,?,?,?,?,?)';
+        $param = array(&$id,&$name,&$desc,&$cost,&$equipmentCondition,&$brand,&$section,&$type,&$dateReceived,&$barcode,&$supplier);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function UpdateEquipment_UpdateEquipmentImage()
+    {
+        
+    }
     // Allocate Equipment component methods
     public static function AllocateEquipment_TechEmployees()
     {

@@ -26,8 +26,8 @@ export class AddEquipmentComponent implements OnInit {
   public suppliers:any;
   public addEquipmentForm:FormGroup;
   public barcodeError:boolean;
-  public imageSrc:string;
   public today:any;
+  public defaultImage:any;
 
 constructor(private service:AddEquipmentService,
             private location:GeoLocationService,
@@ -43,6 +43,7 @@ constructor(private service:AddEquipmentService,
     this.service.GetSections().subscribe(data=>this.sections=data);
     this.service.GetTypes().subscribe(data=>this.types=data);
     this.service.GetSuppliers().subscribe(data=>this.suppliers=data);
+    this.defaultImage='/assets/blank350x150.png';
     this.buildForm();
 
 
@@ -59,7 +60,7 @@ constructor(private service:AddEquipmentService,
         const file = event.target.files[0];
 
         const reader = new FileReader();
-        reader.onload = e => this.imageSrc = reader.result;
+        reader.onload = e => this.defaultImage = reader.result;
 
         reader.readAsDataURL(file);
     }
@@ -88,22 +89,27 @@ constructor(private service:AddEquipmentService,
     };
     this.service.AddEquipment(param).subscribe(data=> {
       let r=data[0];
+      console.log(data[0]);
       if(r['barcodeError']>=0)
       {
         this.barcodeError=true;
         this.tService.barcodeInUse(e.value['barcode']);
       }
-      else if(r['TRUE']>=1)
+      else if(r['TRUE']==1)
       {
+        console.log(r['TRUE']);
         try {
+          
           let image = this.newEquipmentImage.nativeElement;
           let newImage = image.files[0];
+          console.log(newImage);
           let allowedImages = ['image/jpg','image/png'];
           if(allowedImages.indexOf(newImage.type) >=0) {
             console.log('IF statement was true');
               let frmData = new FormData();
               frmData.append('file', newImage);
               this.service.uploadImage(frmData).subscribe();
+              this.tService.addEquipmentSuccess(e.value['name']);
           }
       } catch {}
       }});

@@ -37,14 +37,17 @@ else if($action=='getEquipmentDetails')
 {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    if($display = DBHandler::UpdateEquipment_GetEquipmentDetailsViaID($json->id))
-    {
-        $response=$display;
-    }
-    else
-    {
-        $response=$display;
-    }
-    echo json_encode($response);
+    echo json_encode(DBHandler::UpdateEquipment_GetEquipmentDetailsViaID($json->id));
 }
-?>
+else if($action=='getEquipmentImage')
+{
+    $incoming=file_get_contents('php://input');
+    $json = json_decode($incoming);
+    echo json_encode(DBHandler::UpdateEquipment_GetEquipmentImageViaID($json->id));
+}
+else if($action=='updateEquipment')
+{
+    $incoming=file_get_contents('php://input');
+    $json = json_decode($incoming);
+    echo json_encode(DBHandler::UpdateEquipment_UpdateEquipment($json->id,$json->name,$json->desc,$json->cost,$json->equipmentCondition,$json->brand,$json->section,$json->type,$json->dateReceived, $json->barcode, $json->supplier));
+}

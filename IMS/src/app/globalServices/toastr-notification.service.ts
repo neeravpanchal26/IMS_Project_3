@@ -62,16 +62,26 @@ export class ToastrNotificationService {
   }
   allocationSuccess(equipmentID,userID)
   {
-      return this.toast.success('Equipment ID ' + equipmentID+ ' has successfully been allocated to user '+userID)
+      return this.toast.success('Equipment ID ' + equipmentID+ ' has successfully been allocated to user '+userID+'.');
   }
 
   //Adding of equipment
   addEquipmentSuccess(name)
   {
-      return this.toast.success('The equipment named '+ name +' has successfully been added');
+      return this.toast.success('The equipment named '+ name +' has successfully been added.');
   }
   barcodeInUse(barcode)
   {
-      return this.toast.error('The barcode '+barcode+ ' is already in use');
+      return this.toast.error('The barcode '+barcode+ ' is already in use.');
+  }
+
+  //Update of equipment
+  equipmentIsActive(id)
+  {
+      return this.toast.error('Equipment '+id+' is currently active.');
+  }
+  updateEquipmentSuccess(id)
+  {
+    return this.toast.success('Equipment '+id+' has successfully been updated.');
   }
 }

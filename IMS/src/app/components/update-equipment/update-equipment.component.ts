@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateEquipmentService, iGetEquipmentDetails } from './update-equipment.service';
+import { UpdateEquipmentService, iGetEquipmentDetails, iUpdateEquipment } from './update-equipment.service';
 import { FormGroup, Validators, FormBuilder,Form } from '../../../../node_modules/@angular/forms';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
 
 @Component({
   selector: 'app-update-equipment',
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 })
 export class UpdateEquipmentComponent implements OnInit {
 
-  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder, private router:ActivatedRoute) { }
+  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder, private router:ActivatedRoute,private toastr:ToastrNotificationService) { }
   public brands:any;
   public status:any;
   public position:any;
@@ -24,6 +25,7 @@ export class UpdateEquipmentComponent implements OnInit {
   public equipmentDetails:any;
   public updateEquipmentForm:FormGroup;
   public id:any;
+  public defaultImage:any;
   ngOnInit() {
     let e:any;
     this.id = parseInt(this.router.snapshot.paramMap.get('id'));
@@ -39,12 +41,13 @@ export class UpdateEquipmentComponent implements OnInit {
     this.service.GetTypes().subscribe(data=>this.types=data);
     this.service.GetSuppliers().subscribe(data=>this.suppliers=data);
 
-    console.log(e);
+    console.log(param);
     console.log(500);
     this.buildForm();
     this.service.getEquipmentDetails(param).subscribe((res:any)=>
     {
-      console.log(res);
+      console.log(res);this.getImage(param);
+      console.log("Im here");
       this.equipmentDetails=res[0];
       this.updateEquipmentForm.controls['name'].setValue(this.equipmentDetails.Name);
       this.updateEquipmentForm.controls['desc'].setValue(this.equipmentDetails.Desc);
@@ -56,6 +59,9 @@ export class UpdateEquipmentComponent implements OnInit {
       this.updateEquipmentForm.controls['dateReceived'].setValue(this.equipmentDetails.DateReceived);
       this.updateEquipmentForm.controls['barcode'].setValue(this.equipmentDetails.Barcode);
       this.updateEquipmentForm.controls['suppliers'].setValue(this.equipmentDetails.Supplier);
+
+      
+      
 
       //this.eName=res[0].Name;
       //this.eDesc=res[0].Desc;
@@ -69,9 +75,63 @@ export class UpdateEquipmentComponent implements OnInit {
       //this.eSupplier=res[0].Supplier;
     });
   }
+  readURL(event:any): void
+  {
+    if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = e => this.defaultImage = reader.result;
+
+        reader.readAsDataURL(file);
+    }
+  }
+  getImage(param)
+  {
+   this.service.getEquipmentImage(param)
+       .subscribe(
+           data=>
+           {
+             this.defaultImage = this.service.sanitizeEquipmentPicture(data);
+           console.log(this.defaultImage);
+
+           });
+  }
   updateEquipment(e)
   {
-
+    let param:iUpdateEquipment=
+    {
+      id:this.id,
+      name:e.value['name'],
+      desc:e.value['desc'],
+      cost:e.value['cost'],
+      equipmentCondition:e.value['condition'],
+      brand:e.value['brand'],
+      section:e.value['section'],
+      type:e.value['type'],
+      dateReceived:e.value['dateReceived'],
+      barcode:e.value['barcode'],
+      supplier:e.value['suppliers']
+    }
+    console.log(param);
+    this.service.UpdateEquipment(param).subscribe(data=>
+      {
+        let res=data[0];
+        console.log(res);
+        
+        if(res['eActive']>0)
+        {
+          this.toastr.equipmentIsActive(this.id);
+        }
+        else if(res['barcodeError']>0)
+        {
+          this.toastr.barcodeInUse(e.value['barcode']);
+        }
+        else
+        {
+          this.toastr.updateEquipmentSuccess(this.id);
+        }
+      });
   }
   buildForm():void {
     this.updateEquipmentForm = this.fBuilder.group({

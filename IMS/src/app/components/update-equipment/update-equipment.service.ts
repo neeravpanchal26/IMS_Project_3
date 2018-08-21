@@ -2,15 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../../environments/environment';
+import { ImageRetrieveService } from '../../globalServices/image-retrieve.service';
 
 @Injectable()
 export class UpdateEquipmentService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private iService:ImageRetrieveService) { }
   apiURL = environment.api;
   getEquipmentDetails(param:iGetEquipmentDetails)
   {
-    return this.http.post(this.apiURL+'/api/bll/updateEquipment.php?action=getEquipmentDetails', param) as Observable<any>;
+    return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=getEquipmentDetails', param) as Observable<any>;
+  }
+  getEquipmentImage(param:iGetEquipmentDetails)
+  {
+    return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=getEquipmentImage',param) as Observable<any>;
+  }
+  UpdateEquipment(param)
+  {
+    return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=updateEquipment',param);
   }
   GetBrands():Observable<any>
   {
@@ -36,8 +45,16 @@ export class UpdateEquipmentService {
   {
     return this.http.get(this.apiURL+'/api/BLL/updateEquipment.php?action=suppliers') as Observable<any>;
   }
+  sanitizeEquipmentPicture(photo)
+  {
+    return this.iService.selectPhoto(photo);
+  }
 }
 export interface iGetEquipmentDetails
 {
   id:any
+}
+export interface iUpdateEquipment
+{
+  id:any,name:any, desc:any, cost:any, equipmentCondition:any, brand:any, section:any, type:any, dateReceived:any, barcode:any, supplier:any
 }
