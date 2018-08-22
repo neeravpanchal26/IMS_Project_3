@@ -1,7 +1,5 @@
 <?php
-
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+require_once '../BLL/CORS_Headers.php';
 require_once '../DAL/DBHandler.php';
 use DAL\DBHandler;
 

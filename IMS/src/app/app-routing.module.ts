@@ -30,6 +30,7 @@ import { ManageEquipmentComponent } from "./components/manage-equipment/manage-e
 import { UpdateEquipmentComponent } from './components/update-equipment/update-equipment.component';
 import { InstallEquipmentComponent } from './components/install-equipment/install-equipment.component';
 import { QrtestingComponent} from "./components/qrtesting/qrtesting.component";
+import { TechManageEquipmentComponent } from './components/tech-manage-equipment/tech-manage-equipment.component';
 
 // Path Array
 const appRoutes:Routes = [
@@ -52,6 +53,7 @@ const appRoutes:Routes = [
     { path: 'Manage Equipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
     { path: 'Update details/:id', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
     { path: 'Install Equipment',canActivate:[LoginGuard], component:InstallEquipmentComponent},
+    { path: 'Tech Manage Equipment',canActivate:[LoginGuard],component:TechManageEquipmentComponent},
     /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
 
     // Section Head
@@ -92,5 +94,6 @@ export const routingComponents =
         ManageEquipmentComponent,
         UpdateEquipmentComponent,
         InstallEquipmentComponent,
-        QrtestingComponent
+        QrtestingComponent,
+        TechManageEquipmentComponent
     ];

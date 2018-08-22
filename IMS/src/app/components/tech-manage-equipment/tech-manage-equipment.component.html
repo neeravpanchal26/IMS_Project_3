@@ -1,0 +1,9 @@
+<app-header></app-header>
+
+<select>
+  <option disabled selected>Install equipment...</option>
+  <option *ngFor="let i of info" value="{{i.EquipmentID}}">{{i.Name}}</option>
+</select>
+
+
+<app-business-footer></app-business-footer>

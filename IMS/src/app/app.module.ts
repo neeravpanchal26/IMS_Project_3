@@ -17,7 +17,7 @@ import { QRCodeModule} from "angular2-qrcode";
 @NgModule({
   declarations: [
     AppComponent,
-      routingComponents
+      routingComponents,
   ],
   imports: [
     BrowserModule,

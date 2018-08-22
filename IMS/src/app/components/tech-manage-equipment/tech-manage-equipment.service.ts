@@ -4,14 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { environment} from "../../../environments/environment";
 
 @Injectable()
-export class ManageEquipmentService {
+export class TechManageEquipmentService {
     apiURL=environment.api;
   constructor(private http:HttpClient) { }
-
-
-  GetEquipmentInfo():Observable<any>
+  getInfo(param):Observable<any>
   {
-    return this.http.get(this.apiURL+'/api/BLL/manageEquipment.php?action=info')as Observable<any>;
-    
+    return this.http.post(this.apiURL+'/api/bll/techManageEquipment.php?action=getInfo',param);
   }
+
+}
+export interface iUserID
+{
+    id:any
 }
