@@ -106,7 +106,12 @@
           <!-- Select Date -->
           <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="updateEquipmentForm.controls['dateReceived'].valid && updateEquipmentForm.controls['name'].touched"
             [class.is-invalid]="updateEquipmentForm.controls['dateReceived'].invalid && (updateEquipmentForm.controls['dateReceived'].dirty || updateEquipmentForm.controls['dateReceived'].touched)">
-        </div>
+            <div class="input-group-append">
+                <button class="input-group-text" (click)="getToday($event)">
+                  <span class="oi oi-calendar"></span> Today
+                </button>
+            </div>
+          </div>
         <div [class.invalid-feedback] = "updateEquipmentForm.controls['dateReceived'].hasError('required')">
           <div *ngIf="updateEquipmentForm.controls['dateReceived'].hasError('required')">
             The receival date is required.

@@ -3,16 +3,18 @@ import { UpdateEquipmentService, iGetEquipmentDetails, iUpdateEquipment } from '
 import { FormGroup, Validators, FormBuilder,Form } from '../../../../node_modules/@angular/forms';
 import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-update-equipment',
   templateUrl: './update-equipment.component.html',
   styleUrls: ['./update-equipment.component.css'],
-  providers:[UpdateEquipmentService]
+  providers:[UpdateEquipmentService,DatePipe]
 })
 export class UpdateEquipmentComponent implements OnInit {
 
-  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder, private router:ActivatedRoute,private toastr:ToastrNotificationService) { }
+  constructor(private service:UpdateEquipmentService, private fBuilder:FormBuilder, private router:ActivatedRoute,private toastr:ToastrNotificationService,
+    private date:DatePipe) { }
   public brands:any;
   public status:any;
   public position:any;
@@ -26,7 +28,10 @@ export class UpdateEquipmentComponent implements OnInit {
   public updateEquipmentForm:FormGroup;
   public id:any;
   public defaultImage:any;
+  
+  public today:any;
   ngOnInit() {
+    this.today=new Date();
     let e:any;
     this.id = parseInt(this.router.snapshot.paramMap.get('id'));
 
@@ -85,6 +90,13 @@ export class UpdateEquipmentComponent implements OnInit {
 
         reader.readAsDataURL(file);
     }
+  }
+  getToday(e)
+  {
+    let now=this.date.transform(this.today,'yyyy-MM-dd');
+    console.log(now);
+
+    this.updateEquipmentForm.controls['dateReceived'].setValue(now);
   }
   getImage(param)
   {
