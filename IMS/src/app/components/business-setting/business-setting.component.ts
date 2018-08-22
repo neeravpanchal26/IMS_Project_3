@@ -63,15 +63,13 @@ export class BusinessSettingComponent implements OnInit {
             // File validation
             let image = this.newBusinessLogo.nativeElement;
             let logoFile = image.files[0];
-            let allowedImages = ['image/jpg','image/png'];
+            let allowedImages = ['image/jpeg','image/png'];
             if(allowedImages.indexOf(logoFile.type) >-1) {
                 // Logo upload
                 let frmData = new FormData();
                 frmData.append('file', logoFile);
                 this.service.uploadImage(frmData)
-                    .subscribe(data => {
-                        this.logo();
-                    });
+                    .subscribe(data=> this.logo());
             }
         } catch {}
 

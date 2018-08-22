@@ -123,8 +123,8 @@
     <div class="form-row">
       <div class="col-sm-6">
         <!-- Type in Barcode -->
-        <label>Barcode</label>
-        <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="addEquipmentForm.controls['barcode'].valid" [class.is-invalid]="addEquipmentForm.controls['barcode'].invalid && (addEquipmentForm.controls['barcode'].dirty || addEquipmentForm.controls['barcode'].touched)">
+        <label>Serial Number</label>
+        <input type="text" class="form-control" placeholder="Serial Number" formControlName="barcode" [class.is-valid]="addEquipmentForm.controls['barcode'].valid" [class.is-invalid]="addEquipmentForm.controls['barcode'].invalid && (addEquipmentForm.controls['barcode'].dirty || addEquipmentForm.controls['barcode'].touched)">
       </div>
       <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('required')">
           <div [class.invalid-feedback]="barcodeError">
