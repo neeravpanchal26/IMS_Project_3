@@ -54,17 +54,6 @@ constructor(private service:AddEquipmentService,
     this.location.getLocation().subscribe(data=>this.position=data);
 
   }
-  readURL(event:any): void
-  {
-    if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-
-        const reader = new FileReader();
-        reader.onload = e => this.defaultImage = reader.result;
-
-        reader.readAsDataURL(file);
-    }
-  }
   getToday(e)
   {
     let now=this.date.transform(this.today,'yyyy-MM-dd');
@@ -90,10 +79,10 @@ constructor(private service:AddEquipmentService,
     this.service.AddEquipment(param).subscribe(data=> {
       console.log(JSON.stringify(data));
       let r = data[0];
-      if(r['barcodeError']>=0)
+      if(r['barcodeError']==1)
       {
+        console.log(r);
         this.barcodeError=true;
-        this.tService.barcodeInUse(e.value['barcode']);
       }
       else if(r['TRUE']==1)
       {
@@ -121,7 +110,7 @@ constructor(private service:AddEquipmentService,
         'section':['',Validators.required],
         'type':['',Validators.required],
         'dateReceived':['',Validators.required],
-        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(12),Validators.minLength(12)])],
+        'barcode':['',Validators.compose([Validators.required,Validators.maxLength(24),Validators.minLength(12)])],
         'suppliers':['',Validators.required]
         
     });

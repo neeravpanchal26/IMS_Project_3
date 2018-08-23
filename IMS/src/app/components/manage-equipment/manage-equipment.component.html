@@ -15,8 +15,8 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Condition</th>
-                            <th>Brand</th>
                             <th>Section</th>
+                            <th>Active</th>
                             <th>Status</th>
                             <th>Allocate</th>
                             <th colspan="2">Update</th>
@@ -26,8 +26,10 @@
                                 <td>{{i.Name}}</td>
                                 <td>{{i.Desc}}</td>
                                 <td>{{i.ConditionDesc}}</td>
-                                <td>{{i.BrandDesc}}</td>
                                 <td>{{i.SectionDesc}}</td>
+                                <td>
+                                    <ui-switch color="#007BFF" size="small" [checked]="i.Active==1" (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
+                                  </td>
                                 <td>{{i.StatusDescription}}</td>
                                 <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate to user</a></td>
                                 <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
@@ -43,3 +45,7 @@
         </div>
     </form>
 </div>
+    <div id="qrCode">
+    <qr-code [value]="qrSerial" [size]="150"></qr-code>
+    </div>
+<app-business-footer></app-business-footer>

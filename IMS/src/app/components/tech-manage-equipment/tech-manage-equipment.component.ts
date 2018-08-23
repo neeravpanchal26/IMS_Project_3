@@ -6,7 +6,7 @@ import { LoginService } from '../login/login.service';
   selector: 'app-tech-manage-equipment',
   templateUrl: './tech-manage-equipment.component.html',
   styleUrls: ['./tech-manage-equipment.component.css'],
-  providers:[TechManageEquipmentService,LoginService]
+  providers:[TechManageEquipmentService]
 })
 export class TechManageEquipmentComponent implements OnInit {
 
@@ -16,7 +16,7 @@ public info:any;
   ngOnInit() {
     this.userID=this.lService.getUserID();
     console.log(this.userID);
-    let param:iUserID = {id:4}
+    let param:iUserID = {id:this.userID}
     this.tService.getInfo(param).subscribe(data=>console.log(this.info=data));
   }
 

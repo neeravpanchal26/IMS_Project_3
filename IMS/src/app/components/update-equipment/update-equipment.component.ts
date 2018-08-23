@@ -137,7 +137,6 @@ export class UpdateEquipmentComponent implements OnInit {
         }
         else if(res['barcodeError']>0)
         {
-          this.toastr.barcodeInUse(e.value['barcode']);
         }
         else
         {

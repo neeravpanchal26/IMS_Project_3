@@ -19,24 +19,29 @@ export class InstallEquipmentComponent implements OnInit {
   public coords: any;
   public map:any;
 
-  ngOnInit() {this.IEService.getCoords().subscribe(data => {
-    let tosplit = data[0].LocationGPS;
-    let split = tosplit.split(", ", 2);
+  ngOnInit() {
+
     console.log(this.lat = -33.960556);
     console.log(this.long = 25.606811);
     this.map= L.map('mapid').setView([this.lat, this.long], 14);
-    this.IEService.newCoords(this.map,this.lat,this.long);
-  });
-  };
+    this.IEService.loadMap(this.map,this.lat,this.long);
+  }
+
   alt(e:any)
   {
+    if (this.map!=null)
+    {
+      console.log(this.map);
+      this.map=null;
+      this.map= L.map('mapid').setView([this.lat, this.long], 14);
+    }
     this.geo.getLocation().subscribe(data=>
       {
         this.lat=data.coords.latitude;
         this.long=data.coords.longitude;
 
       });
-    this.IEService.newCoords(this.map,this.lat,this.long);
+    this.IEService.loadMap(this.map,this.lat,this.long);
   }
 }
 

@@ -70,10 +70,6 @@ export class ToastrNotificationService {
   {
       return this.toast.success('The equipment named '+ name +' has successfully been added.');
   }
-  barcodeInUse(barcode)
-  {
-      return this.toast.error('The barcode '+barcode+ ' is already in use.');
-  }
 
   //Update of equipment
   equipmentIsActive(id)
@@ -83,5 +79,14 @@ export class ToastrNotificationService {
   updateEquipmentSuccess(id)
   {
     return this.toast.success('Equipment '+id+' has successfully been updated.');
+  }
+  //Manage Equipment
+  equipmentActivateSuccess(equipment)
+  {
+      return this.toast.success(equipment+' has been activated','Success');
+  }
+  equipmentDeactivateSuccess(equipment)
+  {
+    return this.toast.success(equipment+' has been deactivated','Success');
   }
 }

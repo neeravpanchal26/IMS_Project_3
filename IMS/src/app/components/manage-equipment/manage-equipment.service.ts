@@ -14,4 +14,12 @@ export class ManageEquipmentService {
     return this.http.get(this.apiURL+'/api/BLL/manageEquipment.php?action=info')as Observable<any>;
     
   }
+  ActivateEquipment(param:iActivateEquipment):Observable<any>
+  {
+    return this.http.post(this.apiURL+'/api/BLL/manageEquipment.php?action=active',param)as Observable<any>;
+  }
+}
+export interface iActivateEquipment
+{
+  id:any,active:any
 }

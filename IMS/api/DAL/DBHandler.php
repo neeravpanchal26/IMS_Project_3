@@ -267,6 +267,12 @@ class DBHandler
         $sp = 'CALL uspManageEquipment_GetEquipmentInfo';
         return DBHelper::Select($sp);
     }
+    public static function ManageEquipment_Active($id,$act)
+    {
+        $sp='CALL uspManageEquipment_Active (?,?)';
+        $param = array(&$id,&$act);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
     //Tech Manage Equipment methods
     public static function TechManageEquipment_GetAllocatedEquipment($id)
     {

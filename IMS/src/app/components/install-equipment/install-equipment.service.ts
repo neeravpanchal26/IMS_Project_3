@@ -18,7 +18,7 @@ export class InstallEquipmentService {
   {
       return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=coords')as Observable<any>;
   }
-  newCoords(mymap,lat,long)
+  loadMap(mymap,lat,long)
   {
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
       {
