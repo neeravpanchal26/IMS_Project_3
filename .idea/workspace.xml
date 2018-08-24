@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ERD/BIT1 - ERD - 02-08.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/ERD/BIT1 - ERD - 02-08.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/business.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/business.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/api/BLL/voidUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/BLL/voidUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,18 +27,20 @@
     <expand />
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1246403755">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add-equipment.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="108" column="60" lean-forward="true" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -67,8 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.css" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qr-code-reader.service.ts" />
@@ -91,7 +85,6 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.service.ts" />
         <option value="$PROJECT_DIR$/IMS/tsconfig.json" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.service.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/allocate-equipment/allocate-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/error/error.component.ts" />
@@ -116,8 +109,11 @@
         <option value="$PROJECT_DIR$/IMS/api/BLL/business.php" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.ts" />
         <option value="$PROJECT_DIR$/IMS/api/BLL/addEquipment.php" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html" />
+        <option value="$PROJECT_DIR$/IMS/api/BLL/voidUser.php" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html" />
       </list>
     </option>
   </component>
@@ -145,6 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,13 +171,6 @@
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
               <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
               <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="DAL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -197,30 +187,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="add-equipment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
-              <item name="I_M_S" type="462c0819:PsiDirectoryNode" />
-              <item name="IMS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="qrtesting" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,18 +233,22 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.Start">
-    <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" host="127.0.0.1" />
+    <configuration name="Unnamed" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" host="127.0.0.1">
+      <method v="2" />
+    </configuration>
     <configuration name="Build" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/IMS/package.json" />
       <command value="build" />
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
     <configuration name="Start" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/IMS/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="npm.Build" />
@@ -520,11 +495,17 @@
       <workItem from="1534832672753" duration="693000" />
       <workItem from="1534918921491" duration="714000" />
       <workItem from="1534947319288" duration="4368000" />
+      <workItem from="1535008200126" duration="107000" />
+      <workItem from="1535023923815" duration="4509000" />
+      <workItem from="1535039193321" duration="8000" />
+      <workItem from="1535108278549" duration="32000" />
+      <workItem from="1535108917635" duration="39000" />
+      <workItem from="1535127510369" duration="160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439100000" />
+    <option name="totallyTimeSpent" value="443955000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -538,52 +519,52 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.2" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.27860695" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.20532168" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.21961874" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.27860695" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.2" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="9" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.27825466" />
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.27825466" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" visible="true" weight="0.20121212" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32848486" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32969698" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" visible="true" weight="0.20121212" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3272727" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49761716" weight="0.28" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5023828" side_tool="true" weight="0.2039801" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4985694" weight="0.32969698" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969698" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="9" />
-      <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,40 +604,7 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="28" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/globalServices/toastr-notification.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-551">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-footer/business-footer.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/header/header.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="57" lean-forward="true" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -744,20 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="105" column="73" selection-start-line="105" selection-start-column="73" selection-end-line="105" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/error/error.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -842,31 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="11" lean-forward="true" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -919,26 +832,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DBHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="214" column="49" selection-start-line="214" selection-start-column="49" selection-end-line="214" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -949,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/dashboard/dashboard.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1232">
@@ -963,20 +853,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
-          <caret line="108" column="60" lean-forward="true" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
+          <caret line="108" column="60" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="77" column="109" selection-start-line="77" selection-start-column="109" selection-end-line="77" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/add-user/add-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-644">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="64" lean-forward="true" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="38" column="11" lean-forward="true" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/manage-equipment/manage-equipment.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/user-password-reset/user-password-reset.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/voidUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/globalServices/toastr-notification.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/deactivate-user/deactivate-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/qrtesting/qrtesting.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/api/BLL/addEquipment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
         </state>
       </provider>
     </entry>

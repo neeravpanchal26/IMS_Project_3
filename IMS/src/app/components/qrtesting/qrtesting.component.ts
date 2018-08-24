@@ -41,7 +41,7 @@ export class QrtestingComponent implements OnInit {
 
   // Qr to PDF
   onClick() {
-    var data = document.getElementById('qrCode');
+    let data = document.getElementById('qrCode');
     html2Canvas(data).then(
         canvas => {
         // Image settings
