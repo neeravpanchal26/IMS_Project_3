@@ -14,9 +14,9 @@ export class InstallEquipmentService {
   // Default Constructor
   constructor(private http:HttpClient) { }
 
-  getCoords():Observable<any>
+  getInstallEquipment(userID):Observable<any>
   {
-      return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=coords')as Observable<any>;
+      return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=install&userID='+userID)as Observable<any>;
   }
   loadMap(mymap,lat,long)
   {
@@ -35,6 +35,5 @@ export class InstallEquipmentService {
                 shadowUrl: '../assets/marker-shadow.png'
             })
         }).openTooltip().addTo(mymap);
-        this.marker.bindPopup(lat+', '+long).openPopup();
     }
 }

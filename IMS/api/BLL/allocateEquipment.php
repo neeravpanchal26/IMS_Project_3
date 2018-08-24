@@ -18,10 +18,14 @@ else if($action=="allocate")
 {   
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    echo json_encode(DBHandler::AllocateEquipment_Allocation($json->condition,$json->value,$json->equipmentID,$json->userID));
+    echo json_encode(DBHandler::AllocateEquipment_Allocation($json->desc,$json->alType,$json->equipmentID,$json->userID));
 }
 else if($action=='image')
 {
     $json = json_decode(file_get_contents('php://input'));
     echo DBHandler::AllocateEquipment_GetEquipmentPicture($json->id);
+}
+else if($action=='types')
+{
+    echo json_encode(DBHandler::AllocateEquipment_GetAllocationTypes());
 }

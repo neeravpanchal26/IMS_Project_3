@@ -18,6 +18,10 @@ export class AllocateEquipmentService {
   {
     return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=techEmployees')as Observable<any>;
   }
+  getAllocationTypes():Observable<any>
+  {
+    return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=types')as Observable<any>;
+  }
   allocateEquipment(param:iAllocation):Observable<any>
   {
     return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=allocate',param) as Observable<any>;
@@ -40,8 +44,8 @@ export interface iEquipment
 }
 export interface iAllocation
 {
-  condition:any,
-  value:any,
+  desc:any,
+  alType:any,
   equipmentID:any,
   userID:any,
 }

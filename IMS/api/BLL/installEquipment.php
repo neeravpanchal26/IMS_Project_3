@@ -6,9 +6,10 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action=='coords')
+if($action=='install')
 {
-    echo json_encode(DBHandler::InstallEquipment_Coordinates());
+    $userID = json_decode($_GET['userID']);
+    echo json_encode(DBHandler::InstallEquipment_InstallEquipmentViaUserID($userID));
 }
 
 ?>

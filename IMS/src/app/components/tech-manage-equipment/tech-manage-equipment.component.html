@@ -1,9 +1,21 @@
 <app-header></app-header>
-
-<select>
-  <option disabled selected>Install equipment...</option>
-  <option *ngFor="let i of info" value="{{i.EquipmentID}}">{{i.Name}}</option>
-</select>
+<div class="container">
+  <h1 class="text-center">Allocated Jobs</h1>
+  <table class="table table-responsive-sm table-sm table-hover">
+    <tr>
+    <th>Equipment Name</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Job Type</th>
+  </tr>
+  <tr *ngFor="let i of info">
+    <td >{{i.Name}}</td>
+    <td >{{i.Desc}}</td>
+    <td >{{i.Date}}</td>
+    <td >{{i.TypeDesc}}</td>
+  </tr>
+  </table>
+</div>
 
 
 <app-business-footer></app-business-footer>

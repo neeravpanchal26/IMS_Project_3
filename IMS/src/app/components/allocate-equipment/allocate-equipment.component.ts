@@ -27,6 +27,7 @@ export class AllocateEquipmentComponent implements OnInit {
   public p=null;
   public id:any;
   public equipmentPicture:any;
+  public allocationTypes:any;
   ngOnInit()
   {
     this.id=parseInt(this.router.snapshot.paramMap.get('id'));
@@ -34,7 +35,7 @@ export class AllocateEquipmentComponent implements OnInit {
     this.service.getEquipmentDetails(param).subscribe(data=>console.log(this.equipment=data[0]));
     this.getImage(param);
     this.service.getTechEmployees().subscribe(data=>this.techEmployees=data);
-    
+    this.service.getAllocationTypes().subscribe(data=>this.allocationTypes=data);
     //this.service.getUserEquipment().subscribe(data=>this.userEquipment=data);
     this.buildForm();
   }
@@ -51,16 +52,11 @@ export class AllocateEquipmentComponent implements OnInit {
   }
   allocateEquipment(e)
   {
-    this.today=new Date();
-    console.log(this.date.transform(this.today,'yyyy-MM-dd'));
     let uID=e.value['user'];
     let param:iAllocation = {
-      condition:this.equipment.EquipmentCondition,
-      value:this.equipment.Cost,
-      equipmentID:this.id,
-      userID:uID
+      desc:e.value['desc'],alType:e.value['allocation'],equipmentID:this.id,userID:e.value['user']
     };
-    console.log(param);
+    console.log(JSON.stringify(param));
     this.service.allocateEquipment(param).subscribe(data => {
       if (data == true) {
         this.tService.allocationSuccess(this.id, uID);
@@ -73,14 +69,11 @@ export class AllocateEquipmentComponent implements OnInit {
   }
   buildForm():void {
       this.allocateEquipmentForm = this.formBuilder.group({
+        'serial':[''],
         'name':[''],
-        'desc':[''],
-        'brand':[''],
-        'cost':[''],
-        'condition':[''],
-        'type':[''],
-        'supplier':[''],
-        'user':['',Validators.compose([Validators.required])]
+        'desc':[],
+        'user':['',Validators.compose([Validators.required])],
+        'allocation':['',Validators.compose([Validators.required])]
     });
 }
 }
