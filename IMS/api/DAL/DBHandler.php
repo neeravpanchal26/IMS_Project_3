@@ -294,4 +294,17 @@ class DBHandler
         $param = array(&$id);
         return DBHelper::SelectParam($sp,$param);
     }
+    // All secondary component methods
+    public static function SecondaryCity_Add($name)
+    {
+        $sp = 'CALL uspSecondary_City_Add (?)';
+        $param = array(&$name);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Suburb_Add($cityID,$suburbName)
+    {
+        $sp = 'CALL uspSecondary_Suburb_Add (?,?)';
+        $param = array(&$cityID,&$suburbName);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
 }

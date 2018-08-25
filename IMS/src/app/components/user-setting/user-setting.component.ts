@@ -1,37 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService} from "../login/login.service";
-import { iUpdateUserInfo, UserSettingService} from "./user-setting.service";
-import { AddUserService, iSuburb} from "../add-user/add-user.service";
-import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
-import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from "../login/login.service";
+import {iUpdateUserInfo, UserSettingService} from "./user-setting.service";
+import {AddUserService, iSuburb} from "../add-user/add-user.service";
+import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
+import {Location} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-user-setting',
-  templateUrl: './user-setting.component.html',
-  styleUrls: ['./user-setting.component.css'],
-    providers:[UserSettingService,AddUserService]
+    selector: 'app-user-setting',
+    templateUrl: './user-setting.component.html',
+    styleUrls: ['./user-setting.component.css'],
+    providers: [UserSettingService, AddUserService]
 })
 export class UserSettingComponent implements OnInit {
     // Global Variable
-    public user:any = [];
+    public user: any = [];
     public cities: any = [];
     public suburbs: any = [];
-    public result:boolean;
-    public maxDate:any;
-    public settingForm:FormGroup;
+    public result: boolean;
+    public maxDate: any;
+    public settingForm: FormGroup;
 
     // Default Constructor
-    constructor(private service:UserSettingService,
-                private login:LoginService,
-                private addUser:AddUserService,
-                private tService:ToastrNotificationService,
-                private formBuilder:FormBuilder) {}
+    constructor(private service: UserSettingService,
+                private login: LoginService,
+                private addUser: AddUserService,
+                private tService: ToastrNotificationService,
+                private formBuilder: FormBuilder,
+                private location: Location,
+                private router: Router) {
+    }
 
     // Form Load
     ngOnInit() {
         // Max Date of birth
         let date = new Date();
-        this.maxDate = new Date((date.getFullYear()-18),date.getMonth(),date.getDate());
+        this.maxDate = new Date((date.getFullYear() - 18), date.getMonth(), date.getDate());
 
         // Form Validation
         this.buildForm();
@@ -39,7 +44,7 @@ export class UserSettingComponent implements OnInit {
         // User Load up
         this.service.getSpecificUser(this.login.getUserID())
             .subscribe(
-                data=> {
+                data => {
                     this.user = data[0];
                     // Load values onto form
                     this.settingForm.controls['name'].setValue(this.user.FirstName);
@@ -52,35 +57,45 @@ export class UserSettingComponent implements OnInit {
                     this.settingForm.controls['city'].setValue(this.user.CityID);
                     this.settingForm.controls['suburb'].setValue(this.user.Suburb);
                 },
-                error=> this.tService.handleError(error));
+                error => this.tService.handleError(error));
 
         // City Load up
         this.addUser.getCity()
             .subscribe(
                 data => this.cities = data,
-                error=> this.tService.handleError(error));
+                error => this.tService.handleError(error));
 
         // Suburb Load up
         this.service.getAllSuburb()
             .subscribe(
                 data => this.suburbs = data,
-                error=> this.tService.handleError(error));
+                error => this.tService.handleError(error));
 
     }
 
     // Suburb Load Method
     subLoad(e) {
-        let param: iSuburb = { city: e };
-        this.addUser.getSuburb(param)
-            .subscribe(
-                data => this.suburbs = data,
-                error=> this.tService.handleError(error));
+        if (e == 'manage city') {
+            this.router.navigate(['city']);
+        }
+        else {
+            let param: iSuburb = {city: e};
+            this.addUser.getSuburb(param)
+                .subscribe(
+                    data => this.suburbs = data,
+                    error => this.tService.handleError(error));
+        }
+    }
+
+    // Add Suburb relocated
+    suburb(e) {
+        if (e == 'manage suburb')
+            this.router.navigate(['suburb']);
     }
 
     // Update user info Method
-    updateUserInfo(e)
-    {
-        if(e.valid) {
+    updateUserInfo(e) {
+        if (e.valid) {
             let param: iUpdateUserInfo = {
                 userID: this.login.getUserID(),
                 firstName: e.value['name'],
@@ -104,18 +119,18 @@ export class UserSettingComponent implements OnInit {
     }
 
     // Form Builder
-    buildForm():void {
+    buildForm(): void {
         let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
         this.settingForm = this.formBuilder.group({
-            'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'surname':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'dob':['',Validators.compose([Validators.required])],
-            'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
-            'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(100)])],
-            'address1':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'address2':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'city':['',Validators.required],
-            'suburb':['',Validators.required]
+            'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'surname': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'dob': ['', Validators.compose([Validators.required])],
+            'contact': ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
+            'email': ['', Validators.compose([Validators.required, Validators.pattern(emailPattern), Validators.maxLength(100)])],
+            'address1': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'address2': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'city': ['', Validators.required],
+            'suburb': ['', Validators.required]
         });
     }
 }

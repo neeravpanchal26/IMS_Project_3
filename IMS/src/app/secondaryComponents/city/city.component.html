@@ -1,0 +1,30 @@
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Manage city component-->
+<div class="container">
+    <!--Heading-->
+    <h1 class="py-5 text-center">Add City</h1>
+    <form (ngSubmit)="addCity(addCityForm)" [formGroup]="addCityForm">
+        <label>City Name</label>
+        <input type="text" class="form-control" placeholder="City Name" formControlName="name"
+               [class.is-valid]="addCityForm.controls['name'].valid"
+               [class.is-invalid]="addCityForm.controls['name'].invalid && (addCityForm.controls['name'].dirty || addCityForm.controls['name'].touched)">
+        <div [class.invalid-feedback]="addCityForm.controls['name'].hasError('required')">
+            <div *ngIf="addCityForm.controls['name'].hasError('required')">
+                City name is required.
+            </div>
+        </div>
+        <div [class.invalid-feedback]="addCityForm.controls['name'].hasError('maxlength')">
+            <div *ngIf="addCityForm.controls['name'].hasError('maxlength')">
+                City name may only contain 45 characters.
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary mt-3" value="Save">
+        <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+    </form>
+</div>
+
+<!--Footer-->
+<app-business-footer></app-business-footer>

@@ -193,6 +193,7 @@
                 <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="addUserForm.controls['city'].valid" [class.is-invalid]="addUserForm.controls['city'].invalid && (addUserForm.controls['city'].dirty || addUserForm.controls['city'].touched)">
                     <option value="" disabled>Choose...</option>
                     <option *ngFor="let c of cities" [value]="c.cityID">{{c.cityName}}</option>
+                    <option value="manage city">Add New City</option>
                 </select>
                 <div [class.invalid-feedback] = "addUserForm.controls['city'].hasError('required')">
                     <div *ngIf="addUserForm.controls['city'].hasError('required')">
@@ -203,9 +204,10 @@
             <div class="col-lg-6">
                 <!--Suburb input-->
                 <label>Suburb</label>
-                <select class="form-control" formControlName="suburb" [class.is-valid]="addUserForm.controls['suburb'].valid" [class.is-invalid]="addUserForm.controls['suburb'].invalid && (addUserForm.controls['suburb'].dirty || addUserForm.controls['suburb'].touched)">
+                <select class="form-control" formControlName="suburb" (change)="suburb($event.target.value)" [class.is-valid]="addUserForm.controls['suburb'].valid" [class.is-invalid]="addUserForm.controls['suburb'].invalid && (addUserForm.controls['suburb'].dirty || addUserForm.controls['suburb'].touched)">
                     <option value="" disabled>Choose...</option>
                     <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
+                    <option value="manage suburb">Add New Suburb</option>
                 </select>
                 <div [class.invalid-feedback] = "addUserForm.controls['suburb'].hasError('required')">
                     <div *ngIf="addUserForm.controls['suburb'].hasError('required')">

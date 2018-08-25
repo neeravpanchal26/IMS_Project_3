@@ -1,62 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import { iAddUser } from "./add-user.service";
-import { AddUserService } from "./add-user.service";
-import { iSuburb} from "./add-user.service";
-import { ToastrNotificationService} from "../../globalServices/toastr-notification.service";
-import { FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
-
+import {Component, OnInit} from '@angular/core';
+import {iAddUser} from "./add-user.service";
+import {AddUserService} from "./add-user.service";
+import {iSuburb} from "./add-user.service";
+import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css'],
-    providers:[AddUserService]
+    selector: 'app-add-user',
+    templateUrl: './add-user.component.html',
+    styleUrls: ['./add-user.component.css'],
+    providers: [AddUserService]
 })
 export class AddUserComponent implements OnInit {
     // Global Variables
     public cities: any;
     public suburbs: any;
     public userType: any;
-    public emailCheck:boolean;
-    public phoneCheck:boolean;
-    public addUserForm:FormGroup;
-    public maxDate:any;
+    public emailCheck: boolean;
+    public phoneCheck: boolean;
+    public addUserForm: FormGroup;
+    public maxDate: any;
     public myColors = ['#ff0000', '#ffff00', '#00ff00', '#00ff00', '#00ff00'];
     public Labels = ['Weak', 'Fair', 'Good', 'Strong', 'Great'];
 
     // Default Constructor
-    constructor(private service:AddUserService,
-                private tService:ToastrNotificationService,
-                private formBuilder:FormBuilder) { }
+    constructor(private service: AddUserService,
+                private tService: ToastrNotificationService,
+                private formBuilder: FormBuilder,
+                private router: Router) {
+    }
 
     // Form Load
     ngOnInit() {
-      // Max Date of birth
-      let date = new Date();
-      this.maxDate = new Date((date.getFullYear()-18),date.getMonth(),date.getDate());
+        // Max Date of birth
+        let date = new Date();
+        this.maxDate = new Date((date.getFullYear() - 18), date.getMonth(), date.getDate());
 
-      // Form Validation
-      this.buildForm();
+        // Form Validation
+        this.buildForm();
 
-      // City Load up
-      this.service.getCity()
-          .subscribe(
-              data => this.cities = data,
-              error=> this.tService.handleError(error));
+        // City Load up
+        this.service.getCity()
+            .subscribe(
+                data => this.cities = data,
+                error => this.tService.handleError(error));
 
-      // User Type Load up
-      this.service.getUserType()
-          .subscribe(
-              data => this.userType = data,
-              error=> this.tService.handleError(error));
+        // User Type Load up
+        this.service.getUserType()
+            .subscribe(
+                data => this.userType = data,
+                error => this.tService.handleError(error));
     }
 
     // Add User Method
     addUser(e) {
-        if(e.valid) {
+        if (e.valid) {
             // Setting Variables
-            this.phoneCheck=false;
-            this.emailCheck=false;
+            this.phoneCheck = false;
+            this.emailCheck = false;
 
             let param: iAddUser = {
                 firstName: e.value['name'],
@@ -93,36 +95,47 @@ export class AddUserComponent implements OnInit {
                     },
                     error => this.tService.handleError(error));
         }
-        if(e.invalid)
+        if (e.invalid)
             this.tService.formFailure();
     }
 
     // Suburb Load Method
     subLoad(e) {
-        let param: iSuburb = {
-            city: e
-        };
-        this.service.getSuburb(param)
-            .subscribe(
-                data => this.suburbs=data,
-                error=> this.tService.handleError(error));
+        if (e == 'manage city') {
+            this.router.navigate(['city']);
+        }
+        else {
+            let param: iSuburb = {
+                city: e
+            };
+            this.service.getSuburb(param)
+                .subscribe(
+                    data => this.suburbs = data,
+                    error => this.tService.handleError(error));
+        }
+    }
+
+    // Add Suburb relocated
+    suburb(e) {
+        if (e == 'manage suburb')
+            this.router.navigate(['suburb']);
     }
 
     // Form Builder
-    buildForm():void {
+    buildForm(): void {
         let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
         this.addUserForm = this.formBuilder.group({
-            'name':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'surname':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'dob':['',Validators.compose([Validators.required])],
-            'contact':['',Validators.compose([Validators.required,Validators.maxLength(10),Validators.minLength(10)])],
-            'email':['',Validators.compose([Validators.required,Validators.pattern(emailPattern),Validators.maxLength(100)])],
-            'password':['',Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(20)])],
-            'type':['',Validators.required],
-            'address1':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'address2':['',Validators.compose([Validators.required,Validators.maxLength(45)])],
-            'city':['',Validators.required],
-            'suburb':['',Validators.required]
+            'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'surname': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'dob': ['', Validators.compose([Validators.required])],
+            'contact': ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
+            'email': ['', Validators.compose([Validators.required, Validators.pattern(emailPattern), Validators.maxLength(100)])],
+            'password': ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(20)])],
+            'type': ['', Validators.required],
+            'address1': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'address2': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
+            'city': ['', Validators.required],
+            'suburb': ['', Validators.required]
         });
     }
 }

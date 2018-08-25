@@ -1,0 +1,43 @@
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Add suburb component-->
+<div class="container">
+  <!--Heading-->
+  <h1 class="py-5 text-center">Add Suburb</h1>
+  <form (ngSubmit)="addSuburb(addSuburbForm)" [formGroup]="addSuburbForm">
+    <!--City input-->
+    <label>City</label>
+    <select class="form-control" (change)="addCity($event.target.value)" formControlName="city" [class.is-valid]="addSuburbForm.controls['city'].valid" [class.is-invalid]="addSuburbForm.controls['city'].invalid && (addSuburbForm.controls['city'].dirty || addSuburbForm.controls['city'].touched)">
+      <option value="" disabled>Choose...</option>
+      <option *ngFor="let c of cities" [value]="c.cityID">{{c.cityName}}</option>
+      <option value="manage city">Add New City</option>
+    </select>
+    <div [class.invalid-feedback] = "addSuburbForm.controls['city'].hasError('required')">
+      <div *ngIf="addSuburbForm.controls['city'].hasError('required')">
+        A city must be selected.
+      </div>
+    </div>
+
+    <label>Suburb Name</label>
+    <input type="text" class="form-control" placeholder="Suburb Name" formControlName="name"
+           [class.is-valid]="addSuburbForm.controls['name'].valid"
+           [class.is-invalid]="addSuburbForm.controls['name'].invalid && (addSuburbForm.controls['name'].dirty || addSuburbForm.controls['name'].touched)">
+    <div [class.invalid-feedback]="addSuburbForm.controls['name'].hasError('required')">
+      <div *ngIf="addSuburbForm.controls['name'].hasError('required')">
+        City name is required.
+      </div>
+    </div>
+    <div [class.invalid-feedback]="addSuburbForm.controls['name'].hasError('maxlength')">
+      <div *ngIf="addSuburbForm.controls['name'].hasError('maxlength')">
+        City name may only contain 45 characters.
+      </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-3" value="Save">
+    <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+  </form>
+</div>
+
+<!--Footer-->
+<app-business-footer></app-business-footer>
