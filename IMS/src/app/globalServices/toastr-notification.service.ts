@@ -96,7 +96,7 @@ export class ToastrNotificationService {
     //Install Equipment
     geolocationTurnedOff()
     {
-        return this.toast.error('Location turned off. Turn it on and reload page to use map.');
+        return this.toast.error('Location turned off. Turn it on and reload page to use Map.');
     }
     geolocationUnavailablePosition()
     {
@@ -104,11 +104,11 @@ export class ToastrNotificationService {
     }
     geolocationBrowserNotSupportive()
     {
-        return this.toast.error('Browser not supportive');
+        return this.toast.error('Browser not supported.');
     }
     geolocationSeviceTimeOut()
     {
-        return this.toast.error('Service times out. Try again later.');
+        return this.toast.error('Service timed out. Try again later.');
     }
     // Secondary components
     addCitySuccess() {
