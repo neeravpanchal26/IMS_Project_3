@@ -93,7 +93,23 @@ export class ToastrNotificationService {
     equipmentDeactivateSuccess(equipment) {
         return this.toast.success(equipment + ' has been deactivated', 'Success');
     }
-
+    //Install Equipment
+    geolocationTurnedOff()
+    {
+        return this.toast.error('Location turned off. Turn it on and reload page to use map.');
+    }
+    geolocationUnavailablePosition()
+    {
+        return this.toast.error('Position Unavailable.');
+    }
+    geolocationBrowserNotSupportive()
+    {
+        return this.toast.error('Browser not supportive');
+    }
+    geolocationSeviceTimeOut()
+    {
+        return this.toast.error('Service times out. Try again later.');
+    }
     // Secondary components
     addCitySuccess() {
         return this.toast.success('Your city has been added.','Success');

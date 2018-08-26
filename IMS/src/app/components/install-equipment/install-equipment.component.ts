@@ -3,6 +3,7 @@ import { InstallEquipmentService } from './install-equipment.service';
 import * as L from 'leaflet';
 import { GeoLocationService } from "../../globalServices/geolocation.service";
 import { LoginService } from '../login/login.service';
+import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
 
 @Component({
   selector: 'app-install-equipment',
@@ -12,9 +13,8 @@ import { LoginService } from '../login/login.service';
 })
 export class InstallEquipmentComponent implements OnInit {
 
-
-
-  constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService) { }
+  constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
+  private toastr:ToastrNotificationService) { }
   public lat: any;
   public long: any;
   public coords: any;
@@ -22,8 +22,6 @@ export class InstallEquipmentComponent implements OnInit {
   public equipment: any;
   public marker: any;
   ngOnInit() {
-    let e: any;
-    console.log()
 
     this.geo.getLocation().subscribe(data => {
       console.log(data);
@@ -32,7 +30,25 @@ export class InstallEquipmentComponent implements OnInit {
       console.log(this.lat + '  ' + this.long);
       this.map = L.map('mapid').setView([this.lat, this.long], 14);
       this.loadMap(this.map, this.lat, this.long);
+    },error => {
+      if(error=="You have rejected access to your location")
+      {
+        this.toastr.geolocationTurnedOff();
+      }
+      else if(error=="Unable to determine your location")
+      {
+        this.toastr.geolocationUnavailablePosition();
+      }
+      else if(error=="Service timeout has been reached")
+      {
+        this.toastr.geolocationSeviceTimeOut();
+      }
+      else
+      {
+        this.toastr.geolocationBrowserNotSupportive();
+      }
     });
+
     this.IEService.getInstallEquipment(this.login.getUserID()).subscribe(data => { this.equipment = data });
   }
 
@@ -57,16 +73,16 @@ export class InstallEquipmentComponent implements OnInit {
     console.log(this.marker._latlng)
     this.markerChange(this.marker);
   }
-  markerChange(marker:any) {
+  markerChange(marker: any) {
     console.log(marker);
-    marker.on('dragend',function(e:any)
-  {
-    let marker=e.target
-    let location = marker.getLatLng();
-    this.lat = location.lat;
-    this.lng = location.lng;
-    console.log(this.lat+', '+this.lng);
-  })
+    marker.on('dragend', function (e: any) {
+      let marker = e.target
+      let location = marker.getLatLng();
+      console.log(location);
+      this.lat = location.lat;
+      this.lng = location.lng;
+      console.log(this.lat + ', ' + this.lng);
+    })
   }
 }
 

@@ -11,7 +11,6 @@ const GEOLOCATION_ERRORS = {
 
 @Injectable()
 export class GeoLocationService {
-
   public getLocation(geoLocationOptions?: any): Observable<any> {
     geoLocationOptions = geoLocationOptions || { timeout: 5000 };
 
