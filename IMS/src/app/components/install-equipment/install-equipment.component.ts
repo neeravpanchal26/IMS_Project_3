@@ -14,7 +14,7 @@ import { ToastrNotificationService } from '../../globalServices/toastr-notificat
 export class InstallEquipmentComponent implements OnInit {
 
   constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
-  private toastr:ToastrNotificationService) { }
+    private toastr: ToastrNotificationService) { }
   public lat: any;
   public long: any;
   public coords: any;
@@ -30,21 +30,17 @@ export class InstallEquipmentComponent implements OnInit {
       console.log(this.lat + '  ' + this.long);
       this.map = L.map('mapid').setView([this.lat, this.long], 14);
       this.loadMap(this.map, this.lat, this.long);
-    },error => {
-      if(error=="You have rejected access to your location")
-      {
+    }, error => {
+      if (error == "You have rejected access to your location") {
         this.toastr.geolocationTurnedOff();
       }
-      else if(error=="Unable to determine your location")
-      {
+      else if (error == "Unable to determine your location") {
         this.toastr.geolocationUnavailablePosition();
       }
-      else if(error=="Service timeout has been reached")
-      {
+      else if (error == "Service timeout has been reached") {
         this.toastr.geolocationSeviceTimeOut();
       }
-      else
-      {
+      else {
         this.toastr.geolocationBrowserNotSupportive();
       }
     });
@@ -71,12 +67,20 @@ export class InstallEquipmentComponent implements OnInit {
       }), draggable: true
     }).openTooltip().addTo(mymap);
     console.log(this.marker._latlng)
-    this.markerChange(this.marker);
+    this.markerChange(this.marker, mymap);
   }
-  markerChange(marker: any) {
+  markerChange(marker: any, mymap: any) {
     console.log(marker);
+    mymap.on('move', function () {
+      marker.setLatLng(mymap.getCenter());
+      let location = marker.getLatLng();
+      this.lat = location.lat;
+      this.lng = location.lng;
+      console.log(this.lat + ', ' + this.lng);
+    })
+
     marker.on('dragend', function (e: any) {
-      let marker = e.target
+      let marker = e.target;
       let location = marker.getLatLng();
       console.log(location);
       this.lat = location.lat;
