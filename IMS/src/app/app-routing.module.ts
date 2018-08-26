@@ -31,42 +31,53 @@ import {TechManageEquipmentComponent} from './components/tech-manage-equipment/t
 // Import Secondary components here
 import {CityComponent} from "./secondaryComponents/city/city.component";
 import {SuburbComponent} from "./secondaryComponents/suburb/suburb.component";
+import {ConditionComponent} from "./secondaryComponents/condition/condition.component";
+import {BrandComponent} from "./secondaryComponents/brand/brand.component";
+import {SectionComponent} from "./secondaryComponents/section/section.component";
+import {TypeComponent} from "./secondaryComponents/type/type.component";
+import {SupplierComponent} from "./secondaryComponents/supplier/supplier.component";
 
 // Path Array
-const appRoutes:Routes = [
+const appRoutes: Routes = [
     // Secondary components
-    { path:'city', canActivate: [LoginGuard], component:CityComponent},
-    { path:'suburb', canActivate:[LoginGuard],component:SuburbComponent},
+    {path: 'city', canActivate: [LoginGuard], component: CityComponent},
+    {path: 'suburb', canActivate: [LoginGuard], component: SuburbComponent},
+    {path: 'condition', canActivate: [LoginGuard], component: ConditionComponent},
+    {path: 'brand', canActivate: [LoginGuard], component: BrandComponent},
+    {path: 'section', canActivate: [LoginGuard], component:SectionComponent},
+    {path: 'type', canActivate:[LoginGuard], component:TypeComponent},
+    {path:'supplier',canActivate:[LoginGuard],component:SupplierComponent},
 
     // Default components
-    { path: '', component:LoginComponent },
-    { path: 'dashboard', canActivate: [LoginGuard], component:DashboardComponent },
-    { path: 'usersetting', canActivate:[LoginGuard],component:UserSettingComponent},
-    { path: 'userpassword',canActivate:[LoginGuard],component:UserPasswordResetComponent},
+    {path: '', component: LoginComponent},
+    {path: 'dashboard', canActivate: [LoginGuard], component: DashboardComponent},
+    {path: 'usersetting', canActivate: [LoginGuard], component: UserSettingComponent},
+    {path: 'userpassword', canActivate: [LoginGuard], component: UserPasswordResetComponent},
 
     // IT Admin
-    { path: 'Add User', canActivate: [LoginGuard], component:AddUserComponent },
-    { path: 'Remove User', canActivate:[LoginGuard], component:DeactivateUserComponent},
-    { path: 'Reset password/:id',canActivate:[LoginGuard], component:ItPasswordResetComponent},
-    { path: 'BuinessSetting', canActivate:[LoginGuard], component:BusinessSettingComponent},
-    { path: 'qr',canActivate:[LoginGuard],component:QrtestingComponent},
+    {path: 'Add User', canActivate: [LoginGuard], component: AddUserComponent},
+    {path: 'Remove User', canActivate: [LoginGuard], component: DeactivateUserComponent},
+    {path: 'Reset password/:id', canActivate: [LoginGuard], component: ItPasswordResetComponent},
+    {path: 'BuinessSetting', canActivate: [LoginGuard], component: BusinessSettingComponent},
+    {path: 'qr', canActivate: [LoginGuard], component: QrtestingComponent},
 
     // Technical Employee
-    { path: 'Add Equipment', canActivate:[LoginGuard], component: AddEquipmentComponent},
-    { path: 'Allocate Equipment/:id', canActivate:[LoginGuard],component:AllocateEquipmentComponent},
-    { path: 'Manage Equipment', canActivate:[LoginGuard], component:ManageEquipmentComponent},
-    { path: 'Update details/:id', canActivate:[LoginGuard], component:UpdateEquipmentComponent},
-    { path: 'Install Equipment',canActivate:[LoginGuard], component:InstallEquipmentComponent},
-    { path: 'Tech Manage Equipment',canActivate:[LoginGuard],component:TechManageEquipmentComponent},
+    {path: 'Add Equipment', canActivate: [LoginGuard], component: AddEquipmentComponent},
+    {path: 'Allocate Equipment/:id', canActivate: [LoginGuard], component: AllocateEquipmentComponent},
+    {path: 'Manage Equipment', canActivate: [LoginGuard], component: ManageEquipmentComponent},
+    {path: 'Update details/:id', canActivate: [LoginGuard], component: UpdateEquipmentComponent},
+    {path: 'Install Equipment', canActivate: [LoginGuard], component: InstallEquipmentComponent},
+    {path: 'Tech Manage Equipment', canActivate: [LoginGuard], component: TechManageEquipmentComponent},
     /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
 
     // Section Head
     {path: 'Void Equipment', canActivate:[LoginGuard]},*/
 
-    { path: '**', component:ErrorComponent}// Always keep this last!!
+    {path: '**', component: ErrorComponent}// Always keep this last!!
 ];
+
 @NgModule({
-  imports: [ RouterModule.forRoot(appRoutes), CommonModule],
+    imports: [RouterModule.forRoot(appRoutes), CommonModule],
     exports: [RouterModule],
     providers: [
         // Global Service Providers here
@@ -77,14 +88,21 @@ const appRoutes:Routes = [
         ImageRetrieveService,
         GeoLocationService
     ],
-  declarations: []
+    declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
+
 export const routingComponents =
     [
         // Secondary components start here
         CityComponent,
         SuburbComponent,
+        ConditionComponent,
+        BrandComponent,
+        SectionComponent,
+        TypeComponent,
+        SupplierComponent,
 
         //Primary components start here
         LoginComponent,

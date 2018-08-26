@@ -295,7 +295,7 @@ class DBHandler
         return DBHelper::SelectParam($sp,$param);
     }
     // All secondary component methods
-    public static function SecondaryCity_Add($name)
+    public static function Secondary_City_Add($name)
     {
         $sp = 'CALL uspSecondary_City_Add (?)';
         $param = array(&$name);
@@ -305,6 +305,36 @@ class DBHandler
     {
         $sp = 'CALL uspSecondary_Suburb_Add (?,?)';
         $param = array(&$cityID,&$suburbName);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Condition_Add($name)
+    {
+        $sp = 'CALL uspSecondary_Condition_Add (?)';
+        $param = array(&$name);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Brand_Add($name)
+    {
+        $sp = 'CALL uspSecondary_Brand_Add (?)';
+        $param = array(&$name);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Section_Add($name)
+    {
+        $sp = 'CALL uspSecondary_Section_Add(?)';
+        $param = array(&$name);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Type_Add($name)
+    {
+        $sp = 'CALL uspSecondary_Type_Add (?)';
+        $param = array(&$name);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
+    public static function Secondary_Supplier_Add($name,$number,$email)
+    {
+        $sp = 'CALL uspSecondary_Supplier_Add(?,?,?)';
+        $param = array(&$name,&$number,&$email);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
 }

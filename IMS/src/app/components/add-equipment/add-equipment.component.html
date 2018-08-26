@@ -47,10 +47,11 @@
       <div class="col-sm-6">
         <!-- Select Condition -->
         <label>Condition</label>
-        <select type="text" class="form-control" formControlName="condition" [class.is-valid]="addEquipmentForm.controls['condition'].valid"
+        <select (change)="addCondition($event.target.value)" class="form-control" formControlName="condition" [class.is-valid]="addEquipmentForm.controls['condition'].valid"
           [class.is-invalid]="addEquipmentForm.controls['condition'].invalid && (addEquipmentForm.controls['condition'].dirty || addEquipmentForm.controls['condition'].touched)">
           <option value="" disabled selected>Condition</option>
           <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
+          <option value="addCondition">Add New Condition</option>
         </select>
         <div [class.invalid-feedback]="addEquipmentForm.controls['condition'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['condition'].hasError('required')">
@@ -65,9 +66,10 @@
       <div class="col-sm-6">
         <!-- Select Brand -->
         <label>Brand</label>
-        <select class="form-control" formControlName="brand" [class.is-valid]="addEquipmentForm.controls['brand'].valid" [class.is-invalid]="addEquipmentForm.controls['brand'].invalid && (addEquipmentForm.controls['brand'].dirty || addEquipmentForm.controls['brand'].touched)">
+        <select class="form-control" (change)="addCondition($event.target.value)"  formControlName="brand" [class.is-valid]="addEquipmentForm.controls['brand'].valid" [class.is-invalid]="addEquipmentForm.controls['brand'].invalid && (addEquipmentForm.controls['brand'].dirty || addEquipmentForm.controls['brand'].touched)">
           <option value="" disabled selected>Brand</option>
           <option *ngFor="let b of brands" value="{{b.BrandID}}">{{b.BrandDesc}}</option>
+          <option value="addBrand">Add New Brand</option>
         </select>
         <div [class.invalid-feedback]="addEquipmentForm.controls['brand'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['brand'].hasError('required')">
@@ -78,9 +80,10 @@
       <div class="col-sm-6">
         <!-- Select Section -->
         <label>Section</label>
-        <select class="form-control" formControlName="section" [class.is-valid]="addEquipmentForm.controls['section'].valid" [class.is-invalid]="addEquipmentForm.controls['section'].invalid && (addEquipmentForm.controls['section'].dirty || addEquipmentForm.controls['section'].touched)">
+        <select class="form-control" (change)="addCondition($event.target.value)" formControlName="section" [class.is-valid]="addEquipmentForm.controls['section'].valid" [class.is-invalid]="addEquipmentForm.controls['section'].invalid && (addEquipmentForm.controls['section'].dirty || addEquipmentForm.controls['section'].touched)">
           <option value="" disabled selected>Section</option>
           <option *ngFor="let s of sections" value="{{s.SectionID}}">{{s.SectionDesc}}</option>
+          <option value="addSection">Add New Section</option>
         </select>
         <div [class.invalid-feedback]="addEquipmentForm.controls['section'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['section'].hasError('required')">
@@ -93,9 +96,10 @@
       <div class="col-sm-6">
         <!-- Select Type -->
         <label>Type</label>
-        <select class="form-control" formControlName="type" [class.is-valid]="addEquipmentForm.controls['type'].valid" [class.is-invalid]="addEquipmentForm.controls['type'].invalid && (addEquipmentForm.controls['type'].dirty || addEquipmentForm.controls['type'].touched)">
+        <select class="form-control" (change)="addCondition($event.target.value)" formControlName="type" [class.is-valid]="addEquipmentForm.controls['type'].valid" [class.is-invalid]="addEquipmentForm.controls['type'].invalid && (addEquipmentForm.controls['type'].dirty || addEquipmentForm.controls['type'].touched)">
           <option value="" disabled selected>Type</option>
           <option *ngFor="let t of types" [value]="t.TypeID">{{t.TypeDesc}}</option>
+          <option value="addType">Add New Type</option>
         </select>
         <div [class.invalid-feedback]="addEquipmentForm.controls['type'].hasError('required')">
           <div *ngIf="addEquipmentForm.controls['type'].hasError('required')">
@@ -150,10 +154,11 @@
       <div class="col-sm-6">
         <!-- Select Supplier -->
         <label>Supplier</label>
-        <select class="form-control" formControlName="suppliers" [class.is-valid]="addEquipmentForm.controls['suppliers'].valid"
+        <select class="form-control" (change)="addCondition($event.target.value)" formControlName="suppliers" [class.is-valid]="addEquipmentForm.controls['suppliers'].valid"
           [class.is-invalid]="addEquipmentForm.controls['suppliers'].invalid && (addEquipmentForm.controls['suppliers'].dirty || addEquipmentForm.controls['suppliers'].touched)">
           <option value="" disabled selected>Supplier</option>
           <option *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
+          <option value="addSupplier">Add New Supplier</option>
         </select>
       </div>
       <div [class.invalid-feedback]="addEquipmentForm.controls['suppliers'].hasError('required')">

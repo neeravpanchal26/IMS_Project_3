@@ -54,7 +54,7 @@
             <div class="col-sm-6">
                 <!--Phone input-->
                 <label>Contact Number</label>
-                <input type="text" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addUserForm.controls['contact'].valid || (addUserForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addUserForm.controls['contact'].invalid || phoneCheck == true) && (addUserForm.controls['contact'].dirty || addUserForm.controls['contact'].touched)">
+                <input type="tel" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addUserForm.controls['contact'].valid || (addUserForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addUserForm.controls['contact'].invalid || phoneCheck == true) && (addUserForm.controls['contact'].dirty || addUserForm.controls['contact'].touched)">
                 <div [class.invalid-feedback]="phoneCheck">
                     <div *ngIf="phoneCheck">It seems this phone number exists on our system.</div>
                 </div>

@@ -1,3 +1,29 @@
-<p>
-  condition works!
-</p>
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Add Condition component-->
+<div class="container">
+  <h1 class="py-5 text-center">Add Condition</h1>
+  <form (ngSubmit)="addCondition(addConditionForm)" [formGroup]="addConditionForm">
+    <label>Condition Name</label>
+    <input type="text" class="form-control" placeholder="Condition Name" formControlName="name"
+           [class.is-valid]="addConditionForm.controls['name'].valid"
+           [class.is-invalid]="addConditionForm.controls['name'].invalid && (addConditionForm.controls['name'].dirty || addConditionForm.controls['name'].touched)">
+    <div [class.invalid-feedback]="addConditionForm.controls['name'].hasError('required')">
+      <div *ngIf="addConditionForm.controls['name'].hasError('required')">
+        Condition name is required.
+      </div>
+    </div>
+    <div [class.invalid-feedback]="addConditionForm.controls['name'].hasError('maxlength')">
+      <div *ngIf="addConditionForm.controls['name'].hasError('maxlength')">
+        Condition name may only contain 45 characters.
+      </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-3" value="Save">
+    <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+  </form>
+</div>
+
+<!--Footer-->
+<app-business-footer></app-business-footer>

@@ -2,22 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import {FormGroup, FormBuilder, Validators, Form} from "@angular/forms";
 import {Location} from "@angular/common";
-import {TypeService, iType} from "./type.service";
+import {iSection, SectionService} from "./section.service";
 
 @Component({
-    selector: 'app-type',
-    templateUrl: './type.component.html',
-    styleUrls: ['./type.component.css'],
-    providers: [TypeService]
+    selector: 'app-section',
+    templateUrl: './section.component.html',
+    styleUrls: ['./section.component.css'],
+    providers: [SectionService]
 })
-export class TypeComponent implements OnInit {
+export class SectionComponent implements OnInit {
     // Global Variable
     public addForm: FormGroup;
 
-    constructor(private tService: ToastrNotificationService,
+    // Default Constructor
+    constructor(private service: SectionService,
                 private formBuilder: FormBuilder,
                 private location: Location,
-                private service: TypeService) {
+                private tService: ToastrNotificationService) {
     }
 
     // Form Load
@@ -29,16 +30,16 @@ export class TypeComponent implements OnInit {
     // Add Brand Function
     add(e) {
         if (e.valid) {
-            let param: iType = {name: e.value['name']};
-            this.service.addType(param)
+            let param: iSection = {name: e.value['name']};
+            this.service.addSection(param)
                 .subscribe
                 (
-                    data => {
-                        if (data == true) {
-                            this.tService.addBrandSuccess();
+                    data=>{
+                        if(data == true) {
+                            this.tService.addSectionSuccess();
                             e.reset();
                         }
-                    }, error => this.tService.handleError(error));
+                    },error => this.tService.handleError(error));
         }
     }
 
@@ -53,4 +54,5 @@ export class TypeComponent implements OnInit {
             'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])]
         });
     }
+
 }

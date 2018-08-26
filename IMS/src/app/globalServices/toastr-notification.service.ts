@@ -101,4 +101,16 @@ export class ToastrNotificationService {
     addSuburbSuccess() {
         return this.toast.success('Your suburb has been added.','Success');
     }
+    addConditionSuccess() {
+        return this.toast.success('Your condition has been added','Success');
+    }
+    addBrandSuccess() {
+        return this.toast.success('Your brand has been added','Success');
+    }
+    addSectionSuccess() {
+        return this.toast.success('Your section has been added','Success');
+    }
+    addSupplierSuccess() {
+        return this.toast.success('Your supplier has been added','Success');
+    }
 }

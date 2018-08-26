@@ -1,22 +1,22 @@
 <!-- Header-->
 <app-header></app-header>
 
-<!-- Add Type Component-->
+<!-- Add Brand Component-->
 <div class="container">
-  <h1 class="py-5 text-center">Add Type</h1>
+  <h1 class="py-5 text-center">Add Section</h1>
   <form (ngSubmit)="add(addForm)" [formGroup]="addForm">
-    <label>Type Name</label>
-    <input type="text" class="form-control" placeholder="Type Name" formControlName="name"
+    <label>Section Name</label>
+    <input type="text" class="form-control" placeholder="Section Name" formControlName="name"
            [class.is-valid]="addForm.controls['name'].valid"
            [class.is-invalid]="addForm.controls['name'].invalid && (addForm.controls['name'].dirty || addForm.controls['name'].touched)">
     <div [class.invalid-feedback]="addForm.controls['name'].hasError('required')">
       <div *ngIf="addForm.controls['name'].hasError('required')">
-        Brand name is required.
+        Section name is required.
       </div>
     </div>
     <div [class.invalid-feedback]="addForm.controls['name'].hasError('maxlength')">
       <div *ngIf="addForm.controls['name'].hasError('maxlength')">
-        Brand name may only contain 45 characters.
+        Section name may only contain 45 characters.
       </div>
     </div>
 

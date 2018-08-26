@@ -1,44 +1,42 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
-import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
-import {CityService, iCity} from "./city.service";
+import {FormGroup, FormBuilder, Validators, Form} from "@angular/forms";
 import {Location} from "@angular/common";
+import {BrandService, iBrand} from "./brand.service";
 
 @Component({
-    selector: 'app-city',
-    templateUrl: './city.component.html',
-    styleUrls: ['./city.component.css'],
-    providers: [CityService]
+    selector: 'app-brand',
+    templateUrl: './brand.component.html',
+    styleUrls: ['./brand.component.css'],
+    providers: [BrandService]
 })
-export class CityComponent implements OnInit {
-    // Global Variable
-    public addCityForm: FormGroup;
+export class BrandComponent implements OnInit {
+    // Global Variables
+    public addForm: FormGroup;
 
-    // Default constructor
+    // Default Constructor
     constructor(private tService: ToastrNotificationService,
                 private formBuilder: FormBuilder,
-                private service: CityService,
-                private location: Location) {
+                private location: Location,
+                private service: BrandService) {
     }
 
-    // Form load
+    // Form Load
     ngOnInit() {
         // Form Validation
-        this.buildAddCityForm();
+        this.buildForm();
     }
 
-    // Add City Function
-    addCity(e) {
+    // Add Brand Function
+    add(e) {
         if (e.valid) {
-            let param: iCity = {
-                name: e.value['name']
-            };
-            this.service.addCity(param)
+            let param: iBrand = {name: e.value['name']};
+            this.service.addBrand(param)
                 .subscribe
                 (
                     data => {
                         if (data == true) {
-                            this.tService.addCitySuccess();
+                            this.tService.addBrandSuccess();
                             e.reset();
                         }
                     }, error => this.tService.handleError(error));
@@ -51,8 +49,8 @@ export class CityComponent implements OnInit {
     }
 
     // Form Builder
-    buildAddCityForm(): void {
-        this.addCityForm = this.formBuilder.group({
+    buildForm(): void {
+        this.addForm = this.formBuilder.group({
             'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])]
         });
     }

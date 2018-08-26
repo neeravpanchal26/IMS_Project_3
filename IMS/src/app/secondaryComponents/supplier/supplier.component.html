@@ -1,0 +1,68 @@
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Add Brand Component-->
+<div class="container">
+  <h1 class="py-5 text-center">Add Supplier</h1>
+  <form (ngSubmit)="add(addForm)" [formGroup]="addForm">
+    <label>Supplier Name</label>
+    <input type="text" class="form-control" placeholder="Supplier Name" formControlName="name"
+           [class.is-valid]="addForm.controls['name'].valid"
+           [class.is-invalid]="addForm.controls['name'].invalid && (addForm.controls['name'].dirty || addForm.controls['name'].touched)">
+    <div [class.invalid-feedback]="addForm.controls['name'].hasError('required')">
+      <div *ngIf="addForm.controls['name'].hasError('required')">
+        Supplier name is required.
+      </div>
+    </div>
+    <div [class.invalid-feedback]="addForm.controls['name'].hasError('maxlength')">
+      <div *ngIf="addForm.controls['name'].hasError('maxlength')">
+        Supplier name may only contain 45 characters.
+      </div>
+    </div>
+
+    <!--Phone input-->
+    <label>Contact Number</label>
+    <input type="tel" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addForm.controls['contact'].valid || (addForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addForm.controls['contact'].invalid || addForm == true) && (addForm.controls['contact'].dirty || addForm.controls['contact'].touched)">
+    <div [class.invalid-feedback]="phoneCheck">
+      <div *ngIf="phoneCheck">It seems this phone number exists on our system.</div>
+    </div>
+    <div [class.invalid-feedback] = "addForm.controls['contact'].hasError('required')">
+      <div *ngIf="addForm.controls['contact'].hasError('required')">
+        Contact number is required.
+      </div>
+    </div>
+    <div [class.invalid-feedback] = "addForm.controls['contact'].hasError('maxlength') || addForm.controls['contact'].hasError('minlength')">
+      <div *ngIf="addForm.controls['contact'].hasError('maxlength') || addForm.controls['contact'].hasError('minlength')">
+        Contact number may only be 10 characters.
+      </div>
+    </div>
+
+    <!--Email input-->
+    <label>Email Address</label>
+    <input type="email" class="form-control" placeholder="Email address" formControlName="email" [class.is-valid]="addForm.controls['email'].valid || (addForm.controls['email'].touched && emailCheck == false)" [class.is-invalid]="(addForm.controls['email'].invalid || emailCheck == true) && (addForm.controls['email'].dirty || addForm.controls['email'].touched)">
+    <div [class.invalid-feedback]="emailCheck">
+      <div *ngIf="emailCheck">It seems this email exists on our system.</div>
+    </div>
+    <div [class.invalid-feedback] = "addForm.controls['email'].hasError('required')">
+      <div *ngIf="addForm.controls['email'].hasError('required')">
+        Email is required.
+      </div>
+    </div>
+    <div [class.invalid-feedback] = "addForm.controls['email'].hasError('maxlength')">
+      <div *ngIf="addForm.controls['email'].hasError('maxlength')">
+        Email may only be 100 characters.
+      </div>
+    </div>
+    <div [class.invalid-feedback] = "addForm.controls['email'].hasError('pattern')">
+      <div *ngIf="addForm.controls['email'].hasError('pattern')">
+        Check your email format.
+      </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-3" value="Save">
+    <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+  </form>
+</div>
+
+<!--Footer-->
+<app-business-footer></app-business-footer>
