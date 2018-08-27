@@ -11,6 +11,9 @@ export class ToastrNotificationService {
     handleError(error: Error) {
         return this.toast.error('An error has occurred\n' + error.message + '\nPlease contact the administrator for further assistance.', 'Oops!');
     }
+    qrCodeScanError() {
+        return this.toast.error('An error occurred while scanning your code.\nPlease try again.','Oops')
+    }
 
     // Deactivated user component notifications here
     activatedSuccess(user) {

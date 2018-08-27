@@ -4,48 +4,62 @@
         <div class="py-5 text-center">
             <h1>Manage Equipment</h1>
         </div>
-        <input type="text" class="form-control" placeholder="Search Keywords" name="search" [(ngModel)]="filter">
+        <!--Search Input-->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <span class="oi oi-magnifying-glass"></span>
+                </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Search by keyword" [(ngModel)]="filter" name="search">
+        </div>
+        <br>
         <div class="form-row">
             <div class="col-12">
                 <h4>List of equipment</h4>
                 <table class="table table-responsive-sm table-sm table-hover">
                     <thead>
-                        <tr class="bg-light">
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Condition</th>
-                            <th>Section</th>
-                            <th>Active</th>
-                            <th>Status</th>
-                            <th>Allocate</th>
-                            <th colspan="2">Update</th>
-                        </tr>
-                        <tr *ngFor="let i of info | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
-                                <td>{{i.EquipmentID}}</td>
-                                <td>{{i.Name}}</td>
-                                <td>{{i.Desc}}</td>
-                                <td>{{i.ConditionDesc}}</td>
-                                <td>{{i.SectionDesc}}</td>
-                                <td>
-                                    <ui-switch color="#007BFF" size="small" [checked]="i.Active==1" (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
-                                  </td>
-                                <td>{{i.StatusDescription}}</td>
-                                <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate to user</a></td>
-                                <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
-                            </tr>
+                    <tr class="bg-light">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Condition</th>
+                        <th>Section</th>
+                        <th>Active</th>
+                        <th>Status</th>
+                        <th>Allocate</th>
+                        <th colspan="2">Update</th>
+                    </tr>
+                    <tr *ngFor="let i of info | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
+                        <td>{{i.EquipmentID}}</td>
+                        <td>{{i.Name}}</td>
+                        <td>{{i.Desc}}</td>
+                        <td>{{i.ConditionDesc}}</td>
+                        <td>{{i.SectionDesc}}</td>
+                        <td>
+                            <ui-switch color="#007BFF" size="small" [checked]="i.Active==1"
+                                       (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
+                        </td>
+                        <td>{{i.StatusDescription}}</td>
+                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate to user</a></td>
+                        <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
+                    </tr>
                     </thead>
                 </table>
                 <div class="row">
                     <div class="col-lg-12">
-                      <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="info.length<=10"></pagination-controls>
+                        <pagination-controls (pageChange)="p = $event" class="my-pagination float-right"
+                                             [autoHide]="info.length<=10"></pagination-controls>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </form>
-</div>
     <div id="qrCode">
-    <qr-code [value]="qrSerial" [size]="150"></qr-code>
+        <h1>Qr Code Generator</h1>
+        <qr-code [value]="qrSerial" [size]="300" foreground="#007BFF"></qr-code>
+        <p>{{qrSerial}}</p>
     </div>
+</div>
+
 <app-business-footer></app-business-footer>
