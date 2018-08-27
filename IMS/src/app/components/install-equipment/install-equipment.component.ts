@@ -4,6 +4,9 @@ import * as L from 'leaflet';
 import { GeoLocationService } from "../../globalServices/geolocation.service";
 import { LoginService } from '../login/login.service';
 import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
+import { QrCodeDecoderService } from '../../globalServices/qr-code-decoder.service';
+import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-install-equipment',
@@ -14,13 +17,16 @@ import { ToastrNotificationService } from '../../globalServices/toastr-notificat
 export class InstallEquipmentComponent implements OnInit {
 
   constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
-    private toastr: ToastrNotificationService) { }
+    private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder) { }
   public lat: any;
   public long: any;
   public coords: any;
   public map: any;
   public equipment: any;
   public marker: any;
+  public subscription: Subscription
+  public result: any;
+  public installEquipmentForm: FormGroup;
   ngOnInit() {
 
     this.geo.getLocation().subscribe(data => {
@@ -44,10 +50,13 @@ export class InstallEquipmentComponent implements OnInit {
         this.toastr.geolocationBrowserNotSupportive();
       }
     });
-
+    this.buildForm();
     this.IEService.getInstallEquipment(this.login.getUserID()).subscribe(data => { this.equipment = data });
   }
-
+  installEquipment(e)
+  {
+    console.log(e);
+  }
   loadMap(mymap, lat, long) {
     this.lat = lat;
     this.long = long;
@@ -67,26 +76,31 @@ export class InstallEquipmentComponent implements OnInit {
       }), draggable: true
     }).openTooltip().addTo(mymap);
     console.log(this.marker._latlng)
-    this.markerChange(this.marker, mymap);
+    this.markerChange(this.marker);
   }
-  markerChange(marker: any, mymap: any) {
-    console.log(marker);
-    mymap.on('move', function () {
-      marker.setLatLng(mymap.getCenter());
-      let location = marker.getLatLng();
-      this.lat = location.lat;
-      this.lng = location.lng;
-      console.log(this.lat + ', ' + this.lng);
-    })
-
+  markerChange(marker: any) {
     marker.on('dragend', function (e: any) {
       let marker = e.target;
       let location = marker.getLatLng();
-      console.log(location);
       this.lat = location.lat;
       this.lng = location.lng;
-      console.log(this.lat + ', ' + this.lng);
+      console.log("Latitude: " + this.lat);
+      console.log("Longitude: " + this.lng);
     })
+  }
+  onFileChange(event) {
+    const file = event.target.files[0];
+    this.subscription = this.qrService.decode(file)
+      .subscribe(decodedString => {this.installEquipmentForm.controls['serial'].setValue(decodedString);});
+      
+  }
+
+  buildForm(): void {
+    this.installEquipmentForm = this.fBuilder.group({
+      'serial': ['', Validators.compose([Validators.required])],
+      'desc': ['', Validators.compose([Validators.required])],
+      'status': ['', Validators.compose([Validators.required])],
+    });
   }
 }
 

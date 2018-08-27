@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
 
-  <form>
+  <form (ngSubmit)="installEquipment(installEquipmentForm)" [formGroup]="installEquipmentForm">
     <div class="py-5 text-center">
       <h1>Install Equipment</h1>
     </div>
@@ -9,14 +9,35 @@
     <div class='form-row'>
       <div class="col-6">
         <label>Equipment</label>
-        <select class="form-control" *ngFor="let e of equipment">
-          <option value="{{e.Serial}}">{{e.Name}}</option>
-        </select>
+        <div class="input-group">
+          <select class="form-control" formControlName='serial'>
+            <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}} - {{e.Serial}}</option>
+          </select>
+              <div class="input-group-append">
+                  <div class="input-group-text">
+                      <div class="upload-btn-wrapper">
+                          <span class="oi oi-camera-slr"></span> Scan
+                          <input type="file" accept="image/*" (change)="onFileChange($event)">
+                      </div>
+                  </div>
+              </div>
+      </div>
       </div>
       <div class="col-6">
         <label>Image Upload</label>
-        <input type="file" class="form-control-file">
+        <input type="file" class="form-control-file" >
       </div>
+      <div class='col-6'>
+        <label>Install Description</label>
+        <textarea class="form-control" formControlName='desc' placeholder="Install Description"> </textarea>
+      </div>
+      <div class="col-6">
+        <label>Installation Status:</label>
+        <select class="form-control" formControlName='status'>
+        <option value="1" selected>Open</option>
+        <option value="0">Closed</option>
+      </select></div>
+      
       <div class="col-12">
         <div class="card mt-3">
           <div class="card-body">
@@ -29,6 +50,7 @@
         </div>
       </div>
       </div>
+      <button class='btn btn-primary mt-3'> Install</button>
     </div>
   </form>
 </div>
