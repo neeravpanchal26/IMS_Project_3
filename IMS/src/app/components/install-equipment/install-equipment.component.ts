@@ -27,20 +27,17 @@ export class InstallEquipmentComponent implements OnInit {
     public map: any;
     public equipment: any;
     public marker: any;
-    public subscription: Subscription
+    public subscription: Subscription;
     public installEquipmentForm: FormGroup;
     public apiUrl = environment.api;
     public active: any;
-    public concatcoords: any;
-    public markerLat:any;
-    public markerLong:any
+    public concatcoords: any
+
     ngOnInit() {
 
         this.geo.getLocation().subscribe(data => {
-            console.log(data);
             this.lat = data.coords.latitude;
             this.long = data.coords.longitude;
-            console.log(this.lat + '  ' + this.long);
             this.map = L.map('mapid').setView([this.lat, this.long], 14);
             this.loadMap(this.map, this.lat, this.long);
         }, error => {
@@ -78,7 +75,7 @@ export class InstallEquipmentComponent implements OnInit {
             act: this.active,
             desc: e.value['desc']
 
-        }
+        };
         console.log(param);
     }
 
@@ -100,20 +97,17 @@ export class InstallEquipmentComponent implements OnInit {
                 shadowUrl: this.apiUrl + '/api/globalImages/marker-shadow.png'
             }), draggable: true
         }).openTooltip().addTo(mymap);
-        console.log(this.marker._latlng);
         this.markerChange(this.marker);
+        this.installEquipmentForm.controls['coords'].setValue(this.lat+','+this.long);
     }
 
     markerChange(marker: any) {
+        let form = this.installEquipmentForm.controls['coords'];
         marker.on('dragend', function (e: any) {
             let marker = e.target;
             let location = marker.getLatLng();
-            this.lat = location.lat;
-            this.long = location.lng;
-            console.log("Marker Coords: " + this.Lat+", "+this.Long);
-            
+            form.setValue(location.lat+', '+location.lng);
         });
-        this.installEquipmentForm.controls['coords'].setValue(this.markerLat + ', ' + this.markerLong);
     }
 
     onFileChange(event) {
