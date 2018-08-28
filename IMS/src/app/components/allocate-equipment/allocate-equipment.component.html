@@ -1,9 +1,7 @@
 <app-header></app-header>
 <div class="container">
     <form (ngSubmit)="allocateEquipment(allocateEquipmentForm)" [formGroup]="allocateEquipmentForm">
-        <div class="py-5 text-center">
-            <h1>Allocate Equipment</h1>
-        </div>
+        <h1 class="py-5 text-center">Allocate Job</h1>
         <div class="form-row">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -18,44 +16,50 @@
                 <div class="col-lg-8 col-md-6">
                     <div class="col-12">
                         <label>Serial: </label>
-                        <input type="text" class="form-control" formControlName="serial" value="{{equipment.Serial}}" readonly>
+                        <input type="text" class="form-control" formControlName="serial" value="{{equipment.Serial}}"
+                               readonly>
                     </div>
                     <div class="col-12">
                         <label>Name: </label>
-                        <input type="text" class="form-control" formControlName="name" value="{{equipment.Name}}" readonly>
+                        <input type="text" class="form-control" formControlName="name" value="{{equipment.Name}}"
+                               readonly>
                     </div>
                     <div class="col-12">
                         <label>Allocation Type: </label>
-                        <select class='form-control' formControlName="allocation" [class.is-valid]="allocateEquipmentForm.controls['allocation'].valid" [class.is-invalid]="allocateEquipmentForm.controls['allocation'].invalid && (allocateEquipmentForm.controls['allocation'].dirty || allocateEquipmentForm.controls['allocation'].touched)">
+                        <select class='form-control' formControlName="allocation"
+                                [class.is-valid]="allocateEquipmentForm.controls['allocation'].valid"
+                                [class.is-invalid]="allocateEquipmentForm.controls['allocation'].invalid && (allocateEquipmentForm.controls['allocation'].dirty || allocateEquipmentForm.controls['allocation'].touched)">
                             <option disabled selection>Select Allocation Type</option>
                             <option *ngFor="let a of allocationTypes" value="{{a.TypeID}}">{{a.TypeDesc}}</option>
                         </select>
                     </div>
                     <div [class.invalid-feedback]="allocateEquipmentForm.controls['allocation'].hasError('required')">
-                            <div *ngIf="allocateEquipmentForm.controls['allocation'].hasError('required')">
-                              Employee must be selected.
-                            </div>
-                          </div>
-                        <div class="col-12">
-                            <label>Description:</label><br>
-                            <textarea class='form-control' formControlName="desc"></textarea>
+                        <div *ngIf="allocateEquipmentForm.controls['allocation'].hasError('required')">
+                            Employee must be selected.
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Description:</label><br>
+                        <textarea class='form-control' formControlName="desc"></textarea>
+                    </div>
                     <div class="col-12">
                         <label>Technical Employee: </label>
-                        <select class='form-control' formControlName='user' [class.is-valid]="allocateEquipmentForm.controls['user'].valid" [class.is-invalid]="allocateEquipmentForm.controls['user'].invalid && (allocateEquipmentForm.controls['user'].dirty || allocateEquipmentForm.controls['user'].touched)">
+                        <select class='form-control' formControlName='user'
+                                [class.is-valid]="allocateEquipmentForm.controls['user'].valid"
+                                [class.is-invalid]="allocateEquipmentForm.controls['user'].invalid && (allocateEquipmentForm.controls['user'].dirty || allocateEquipmentForm.controls['user'].touched)">
                             <option disabled selection>Select Technical Employee</option>
                             <option *ngFor="let t of techEmployees" value="{{t.UserID}}">{{t.TechEmployee}}</option>
                         </select>
                     </div>
                     <div [class.invalid-feedback]="allocateEquipmentForm.controls['user'].hasError('required')">
-                            <div *ngIf="allocateEquipmentForm.controls['user'].hasError('required')">
-                              Employee required.
-                            </div>
-                          </div>
-                        <div class="col-12">
-                            <br>
-                            <button type="submit" class="btn btn-primary col-lg-15">Allocate</button>
+                        <div *ngIf="allocateEquipmentForm.controls['user'].hasError('required')">
+                            Employee required.
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <br>
+                        <button type="submit" class="btn btn-primary col-lg-15">Allocate</button>
+                    </div>
                 </div>
             </div>
         </div>

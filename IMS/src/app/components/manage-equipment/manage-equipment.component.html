@@ -28,7 +28,8 @@
                         <th>Active</th>
                         <th>Status</th>
                         <th>Allocate</th>
-                        <th colspan="2">Update</th>
+                        <th>Update</th>
+                        <th>Print QrCode</th>
                     </tr>
                     <tr *ngFor="let i of info | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
                         <td>{{i.EquipmentID}}</td>
@@ -41,8 +42,9 @@
                                        (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
                         </td>
                         <td>{{i.StatusDescription}}</td>
-                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate to user</a></td>
+                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}">Allocate job</a></td>
                         <td><a routerLink="/Update details/{{i.EquipmentID}}">Update details</a></td>
+                        <td><a routerLink="/qr/{{i.Serial}}">Qr Code</a></td>
                     </tr>
                     </thead>
                 </table>
@@ -55,11 +57,6 @@
             </div>
         </div>
     </form>
-    <div id="qrCode">
-        <h1>Qr Code Generator</h1>
-        <qr-code [value]="qrSerial" [size]="300" foreground="#007BFF"></qr-code>
-        <p>{{qrSerial}}</p>
-    </div>
 </div>
 
 <app-business-footer></app-business-footer>

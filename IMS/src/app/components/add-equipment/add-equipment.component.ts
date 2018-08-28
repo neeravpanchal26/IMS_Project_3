@@ -65,42 +65,46 @@ export class AddEquipmentComponent implements OnInit {
     }
 
     addEquipment(e, type) {
-        let param: iAddEquipment =
-            {
-                name: e.value['name'],
-                desc: e.value['desc'],
-                cost: e.value['cost'],
-                equipmentCondition: e.value['condition'],
-                brand: e.value['brand'],
-                section: e.value['section'],
-                type: e.value['type'],
-                dateReceived: e.value['dateReceived'],
-                barcode: e.value['barcode'],
-                supplier: e.value['suppliers']
-            };
-        this.service.AddEquipment(param).subscribe(data => {
-            console.log(JSON.stringify(data));
-            let r = data[0];
-            if (r['barcodeError'] == 1) {
-                console.log(r);
-                this.barcodeError = true;
-            }
-            else if (r['TRUE'] == 1) {
-                this.tService.addEquipmentSuccess(e.value['name']);
-                try {
-                    let image = this.newEquipmentImage.nativeElement;
-                    let newImage = image.files[0];
-                    console.log(newImage);
-                    let allowedImages = ['image/jpeg', 'image/png'];
-                    if (allowedImages.indexOf(newImage.type) > -1) {
-                        let frmData = new FormData();
-                        frmData.append('file', newImage);
-                        this.service.uploadImage(frmData).subscribe();
-                    }
-                } catch {
+        if(e.valid) {
+            let param: iAddEquipment =
+                {
+                    name: e.value['name'],
+                    desc: e.value['desc'],
+                    cost: e.value['cost'],
+                    equipmentCondition: e.value['condition'],
+                    brand: e.value['brand'],
+                    section: e.value['section'],
+                    type: e.value['type'],
+                    dateReceived: e.value['dateReceived'],
+                    barcode: e.value['barcode'],
+                    supplier: e.value['suppliers']
+                };
+            this.service.AddEquipment(param).subscribe(data => {
+                console.log(JSON.stringify(data));
+                let r = data[0];
+                if (r['barcodeError'] == 1) {
+                    console.log(r);
+                    this.barcodeError = true;
                 }
-            }
-        });
+                else if (r['TRUE'] == 1) {
+                    this.tService.addEquipmentSuccess(e.value['name']);
+                    try {
+                        let image = this.newEquipmentImage.nativeElement;
+                        let newImage = image.files[0];
+                        console.log(newImage);
+                        let allowedImages = ['image/jpeg', 'image/png'];
+                        if (allowedImages.indexOf(newImage.type) > -1) {
+                            let frmData = new FormData();
+                            frmData.append('file', newImage);
+                            this.service.uploadImage(frmData).subscribe();
+                        }
+                    } catch {
+                    }
+                }
+            });
+        }
+        if(e.invalid)
+            this.tService.formFailure();
     }
 
     // Add Condition

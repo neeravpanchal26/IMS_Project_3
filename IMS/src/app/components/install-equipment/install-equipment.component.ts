@@ -85,7 +85,7 @@ export class InstallEquipmentComponent implements OnInit {
             if (allowedImages.indexOf(newImage.type) > -1) {
                 let frmData = new FormData();
                 frmData.append('file', newImage);
-                this.IEService.uploadImage(frmData).subscribe();
+                // this.IEService.uploadImage(frmData).subscribe();
             }
         } catch {
         }
@@ -105,8 +105,8 @@ export class InstallEquipmentComponent implements OnInit {
             icon: L.icon({
                 iconSize: [25, 41],
                 iconAnchor: [13, 41],
-                iconUrl: this.apiUrl + '/api/globalImages/marker-icon.png',
-                shadowUrl: this.apiUrl + '/api/globalImages/marker-shadow.png'
+                iconUrl: this.apiUrl + '/api/Assets/marker-icon.png',
+                shadowUrl: this.apiUrl + '/api/Assets/marker-shadow.png'
             }), draggable: true
         }).openTooltip().addTo(mymap);
         this.markerChange(this.marker);

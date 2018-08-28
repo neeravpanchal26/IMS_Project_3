@@ -28,6 +28,9 @@ import {UpdateEquipmentComponent} from './components/update-equipment/update-equ
 import {InstallEquipmentComponent} from './components/install-equipment/install-equipment.component';
 import {QrtestingComponent} from "./components/qrtesting/qrtesting.component";
 import {TechManageEquipmentComponent} from './components/tech-manage-equipment/tech-manage-equipment.component';
+import {MaintainEquipmentComponent} from "./components/maintain-equipment/maintain-equipment.component";
+import {InspectEquipmentComponent} from "./components/inspect-equipment/inspect-equipment.component";
+
 // Import Secondary components here
 import {CityComponent} from "./secondaryComponents/city/city.component";
 import {SuburbComponent} from "./secondaryComponents/suburb/suburb.component";
@@ -44,9 +47,9 @@ const appRoutes: Routes = [
     {path: 'suburb', canActivate: [LoginGuard], component: SuburbComponent},
     {path: 'condition', canActivate: [LoginGuard], component: ConditionComponent},
     {path: 'brand', canActivate: [LoginGuard], component: BrandComponent},
-    {path: 'section', canActivate: [LoginGuard], component:SectionComponent},
-    {path: 'type', canActivate:[LoginGuard], component:TypeComponent},
-    {path:'supplier',canActivate:[LoginGuard],component:SupplierComponent},
+    {path: 'section', canActivate: [LoginGuard], component: SectionComponent},
+    {path: 'type', canActivate: [LoginGuard], component: TypeComponent},
+    {path: 'supplier', canActivate: [LoginGuard], component: SupplierComponent},
 
     // Default components
     {path: '', component: LoginComponent},
@@ -59,7 +62,6 @@ const appRoutes: Routes = [
     {path: 'Remove User', canActivate: [LoginGuard], component: DeactivateUserComponent},
     {path: 'Reset password/:id', canActivate: [LoginGuard], component: ItPasswordResetComponent},
     {path: 'BuinessSetting', canActivate: [LoginGuard], component: BusinessSettingComponent},
-    {path: 'qr', canActivate: [LoginGuard], component: QrtestingComponent},
 
     // Technical Employee
     {path: 'Add Equipment', canActivate: [LoginGuard], component: AddEquipmentComponent},
@@ -68,10 +70,13 @@ const appRoutes: Routes = [
     {path: 'Update details/:id', canActivate: [LoginGuard], component: UpdateEquipmentComponent},
     {path: 'Install Equipment', canActivate: [LoginGuard], component: InstallEquipmentComponent},
     {path: 'Tech Manage Equipment', canActivate: [LoginGuard], component: TechManageEquipmentComponent},
+    {path: 'Inspect Equipment', canActivate: [LoginGuard], component: InspectEquipmentComponent},
+    {path: 'Maintain Equipment', canActivate: [LoginGuard], component: MaintainEquipmentComponent},
     /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
 
     // Section Head
     {path: 'Void Equipment', canActivate:[LoginGuard]},*/
+    {path: 'qr/:serial', canActivate: [LoginGuard], component: QrtestingComponent},
 
     {path: '**', component: ErrorComponent}// Always keep this last!!
 ];
@@ -122,5 +127,7 @@ export const routingComponents =
         UpdateEquipmentComponent,
         InstallEquipmentComponent,
         QrtestingComponent,
-        TechManageEquipmentComponent
+        TechManageEquipmentComponent,
+        InspectEquipmentComponent,
+        MaintainEquipmentComponent
     ];

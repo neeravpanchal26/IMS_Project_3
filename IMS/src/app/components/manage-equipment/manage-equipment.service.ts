@@ -18,6 +18,11 @@ export class ManageEquipmentService {
   {
     return this.http.post(this.apiURL+'/api/BLL/manageEquipment.php?action=active',param)as Observable<any>;
   }
+  // Get equipment by serial
+  getEquipmentBySerial(serial):Observable<any> {
+    return this.http.get(this.apiURL+'/api/BLL/manageEquipment.php?action=equipmentInfo&serial='+serial) as Observable<any>;
+  }
+
 }
 export interface iActivateEquipment
 {

@@ -52,20 +52,24 @@ export class AllocateEquipmentComponent implements OnInit {
   }
   allocateEquipment(e)
   {
-    let uID=e.value['user'];
-    let param:iAllocation = {
-      desc:e.value['desc'],alType:e.value['allocation'],equipmentID:this.id,userID:e.value['user']
-    };
-    console.log(JSON.stringify(param));
-    this.service.allocateEquipment(param).subscribe(data => {
-      if (data == true) {
-        this.tService.allocationSuccess(this.id, uID);
-      }
-      else{
-        console.log("something went wrong.");
-      }
-    },
-      error => this.tService.handleError(error));
+    if(e.valid) {
+        let uID = e.value['user'];
+        let param: iAllocation = {
+            desc: e.value['desc'], alType: e.value['allocation'], equipmentID: this.id, userID: e.value['user']
+        };
+        console.log(JSON.stringify(param));
+        this.service.allocateEquipment(param).subscribe(data => {
+                if (data == true) {
+                    this.tService.allocationSuccess(this.id, uID);
+                }
+                else {
+                    console.log("something went wrong.");
+                }
+            },
+            error => this.tService.handleError(error));
+    }
+    else if (e.invalid)
+      this.tService.formFailure();
   }
   buildForm():void {
       this.allocateEquipmentForm = this.formBuilder.group({

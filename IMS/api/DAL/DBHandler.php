@@ -280,6 +280,12 @@ class DBHandler
         $param = array(&$id, &$act);
         return DBHelper::ExecuteNonQuery($sp, $param);
     }
+    public static function ManageEquipment_GetEquipmentBySerial($serial)
+    {
+        $sp = 'CALL uspManageEquipment_GetEquipmentBySerial(?)';
+        $param = array(&$serial);
+        return DBHelper::SelectParam($sp,$param);
+    }
     //Tech Manage Equipment methods
     public static function TechManageEquipment_GetAllocatedEquipment($id)
     {
