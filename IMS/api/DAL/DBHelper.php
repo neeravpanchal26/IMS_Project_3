@@ -114,7 +114,22 @@ class DBHelper extends DB
         //Return Result
         return $result;
     }
-    
+    public static function BlobUploadByID($query,$image,$id)
+    {
+        //Open Connection
+        $conn = DB::Connect();
+        //Prepare Query
+        $call = $conn->prepare($query);
+        $null = null;
+        $call->bind_param('bs', $null,$id);
+        $call->send_long_data(0, file_get_contents($image));
+        $call->execute();
+        //Close Connection
+        mysqli_close($conn);
+        //Return Result
+        return $call;
+    }
+
     public static function BlobUpload($query,$image)
     {
         //Open Connection
@@ -122,7 +137,7 @@ class DBHelper extends DB
         //Prepare Query
         $call = $conn->prepare($query);
         $null = null;
-        $call->bind_param('b', $null);
+        $call->bind_param('b',$null);
         $call->send_long_data(0, file_get_contents($image));
         $call->execute();
         //Close Connection
