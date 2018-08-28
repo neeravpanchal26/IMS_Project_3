@@ -7,13 +7,12 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action=='info')
-{
+if ($action == 'info') {
     echo json_encode(DBHandler::GetEquipmentInfo());
-}
-else if($action='active')
-{
+} else if ($action == 'active') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::ManageEquipment_Active($json->id,$json->active));
+    echo json_encode(DBHandler::ManageEquipment_Active($json->id, $json->active));
+} else if ($action == 'equipmentInfo') {
+    $serial = $_GET['serial'];
+    echo json_encode(DBHandler::ManageEquipment_GetEquipmentBySerial($serial));
 }
-?>
