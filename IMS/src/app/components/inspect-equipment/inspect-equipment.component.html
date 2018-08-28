@@ -1,3 +1,31 @@
-<p>
-  inspect-equipment works!
-</p>
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Install Equipment Form-->
+<div class="container">
+    <form (ngSubmit)="inspectEquipment(inspectEquipmentForm)" [formGroup]="inspectEquipmentForm">
+        <h1 class="py-5 text-center">Inspect Equipment</h1>
+
+        <div class="form-row">
+            <div class="col-lg-6">
+                <label>Equipment</label>
+                <div class="input-group">
+                    <select class="form-control" formControlName='equipmentSerial' [compareWith]="compareFn">
+                        <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
+                    </select>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <div class="upload-btn-wrapper">
+                                <span class="oi oi-camera-slr"></span> Scan
+                                <input type="file" accept="image/*" (change)="onFileChange($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Footer-->
+<app-business-footer></app-business-footer>

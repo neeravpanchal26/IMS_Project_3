@@ -354,4 +354,12 @@ class DBHandler
         $param = array(&$name,&$number,&$email);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+
+    // Inspection component methods
+    public static function InspectEquipmentByID($id)
+    {
+        $sp = 'CALL uspInspectEquipmentByID(?)';
+        $param = array(&$id);
+        return DBHelper::SelectParam($sp,$param);
+    }
 }
