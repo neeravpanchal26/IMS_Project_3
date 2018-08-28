@@ -294,6 +294,12 @@ class DBHandler
         $param = array(&$id);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function InstallEquipment_Installation($serial, $coords, $userID, $act, $desc)
+    {
+        $sp = 'CALL uspInstallEquipment_Installation(?,?,?,?,?)';
+        $param = array(&$serial, &$coords, &$userID, &$act, &$desc);
+        return DBHelper::ExecuteNonQuery($sp,$param);
+    }
     // All secondary component methods
     public static function Secondary_City_Add($name)
     {

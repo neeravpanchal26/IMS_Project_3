@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {InstallEquipmentService} from './install-equipment.service';
+import { Component, OnInit } from '@angular/core';
+import { InstallEquipmentService, iInstallEquipment } from './install-equipment.service';
 import * as L from 'leaflet';
-import {GeoLocationService} from "../../globalServices/geolocation.service";
-import {LoginService} from '../login/login.service';
-import {ToastrNotificationService} from '../../globalServices/toastr-notification.service';
-import {QrCodeDecoderService} from '../../globalServices/qr-code-decoder.service';
-import {Subscription} from 'rxjs';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {environment} from "../../../environments/environment";
+import { GeoLocationService } from "../../globalServices/geolocation.service";
+import { LoginService } from '../login/login.service';
+import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
+import { QrCodeDecoderService } from '../../globalServices/qr-code-decoder.service';
+import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from "../../../environments/environment";
+import { longStackSupport } from 'q';
 
 @Component({
     selector: 'app-install-equipment',
@@ -18,20 +19,21 @@ import {environment} from "../../../environments/environment";
 export class InstallEquipmentComponent implements OnInit {
 
     constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
-                private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder) {
+        private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder) {
     }
 
     public lat: any;
     public long: any;
-    public coords: any;
     public map: any;
     public equipment: any;
     public marker: any;
     public subscription: Subscription
-    public result: any;
     public installEquipmentForm: FormGroup;
-    public apiUrl=environment.api;
-
+    public apiUrl = environment.api;
+    public active: any;
+    public concatcoords: any;
+    public markerLat:any;
+    public markerLong:any
     ngOnInit() {
 
         this.geo.getLocation().subscribe(data => {
@@ -62,7 +64,22 @@ export class InstallEquipmentComponent implements OnInit {
     }
 
     installEquipment(e) {
-        console.log(JSON.stringify(e.value));
+        if (e.value['status'] == '1') {
+            this.active = true;
+        }
+        else {
+            this.active = false;
+        }
+        let param: iInstallEquipment =
+        {
+            serial: e.value['serial'],
+            coords: e.value['coords'],
+            userID: this.login.getUserID(),
+            act: this.active,
+            desc: e.value['desc']
+
+        }
+        console.log(param);
     }
 
     loadMap(mymap, lat, long) {
@@ -79,8 +96,8 @@ export class InstallEquipmentComponent implements OnInit {
             icon: L.icon({
                 iconSize: [25, 41],
                 iconAnchor: [13, 41],
-                iconUrl: this.apiUrl+'/api/globalImages/marker-icon.png',
-                shadowUrl: this.apiUrl+'/api/globalImages/marker-shadow.png'
+                iconUrl: this.apiUrl + '/api/globalImages/marker-icon.png',
+                shadowUrl: this.apiUrl + '/api/globalImages/marker-shadow.png'
             }), draggable: true
         }).openTooltip().addTo(mymap);
         console.log(this.marker._latlng);
@@ -93,10 +110,10 @@ export class InstallEquipmentComponent implements OnInit {
             let location = marker.getLatLng();
             this.lat = location.lat;
             this.long = location.lng;
-            console.log("Latitude: " + this.lat);
-            console.log("Longitude: " + this.long);
+            console.log("Marker Coords: " + this.Lat+", "+this.Long);
+            
         });
-        this.installEquipmentForm.controls['coords'].setValue(this.lat+','+this.long);
+        this.installEquipmentForm.controls['coords'].setValue(this.markerLat + ', ' + this.markerLong);
     }
 
     onFileChange(event) {
@@ -117,10 +134,10 @@ export class InstallEquipmentComponent implements OnInit {
 
     buildForm(): void {
         this.installEquipmentForm = this.fBuilder.group({
-            'serial': ['',Validators.compose([Validators.required])],
-            'desc': ['',Validators.compose([Validators.required])],
-            'status': ['',Validators.compose([Validators.required])],
-            'coords':['']
+            'serial': ['', Validators.compose([Validators.required])],
+            'desc': ['', Validators.compose([Validators.required])],
+            'status': ['', Validators.compose([Validators.required])],
+            'coords': ['']
         });
     }
 }

@@ -17,4 +17,12 @@ export class InstallEquipmentService {
     getInstallEquipment(userID): Observable<any> {
         return this.http.get(this.apiUrl + '/api/BLL/installEquipment.php?action=install&userID=' + userID) as Observable<any>;
     }
+    installation(param:iInstallEquipment)
+    {
+        return this.http.post(this.apiUrl + '/api/BLL/installEquipment.php?action=installEquipment',param) as Observable<any>;
+    }
+}
+export interface iInstallEquipment
+{
+    serial:any, coords:any, userID:any, act:any, desc:any
 }
