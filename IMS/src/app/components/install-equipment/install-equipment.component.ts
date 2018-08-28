@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { InstallEquipmentService, iInstallEquipment } from './install-equipment.service';
 import * as L from 'leaflet';
 import { GeoLocationService } from "../../globalServices/geolocation.service";
@@ -21,7 +21,7 @@ export class InstallEquipmentComponent implements OnInit {
     constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
         private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder) {
     }
-
+    @ViewChild('EquipmentImage') newEquipmentImage;
     public lat: any;
     public long: any;
     public map: any;
@@ -77,6 +77,18 @@ export class InstallEquipmentComponent implements OnInit {
 
         };
         console.log(param);
+        try {
+            let image = this.newEquipmentImage.nativeElement;
+            let newImage = image.files[0];
+            console.log(newImage);
+            let allowedImages = ['image/jpeg', 'image/png'];
+            if (allowedImages.indexOf(newImage.type) > -1) {
+                let frmData = new FormData();
+                frmData.append('file', newImage);
+                this.IEService.uploadImage(frmData).subscribe();
+            }
+        } catch {
+        }
     }
 
     loadMap(mymap, lat, long) {
@@ -98,7 +110,7 @@ export class InstallEquipmentComponent implements OnInit {
             }), draggable: true
         }).openTooltip().addTo(mymap);
         this.markerChange(this.marker);
-        this.installEquipmentForm.controls['coords'].setValue(this.lat+','+this.long);
+        this.installEquipmentForm.controls['coords'].setValue(this.lat+', '+this.long);
     }
 
     markerChange(marker: any) {

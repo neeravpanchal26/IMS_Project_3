@@ -300,6 +300,11 @@ class DBHandler
         $param = array(&$serial, &$coords, &$userID, &$act, &$desc);
         return DBHelper::ExecuteNonQuery($sp,$param);
     }
+    public static function InstallEquipment_UploadImage()
+    {
+        $sp='CALL uspInstallEquipment_UploadImage()';
+        
+    }
     // All secondary component methods
     public static function Secondary_City_Add($name)
     {

@@ -21,8 +21,16 @@ export class InstallEquipmentService {
     {
         return this.http.post(this.apiUrl + '/api/BLL/installEquipment.php?action=installEquipment',param) as Observable<any>;
     }
+    uploadImage(param:FormData)
+    {
+        return this.http.post(this.apiUrl+'/api/BLL/installEquipment.php?action=imageUpload',param);
+    }
 }
 export interface iInstallEquipment
 {
     serial:any, coords:any, userID:any, act:any, desc:any
+}
+export interface iImage
+{
+    id:any
 }

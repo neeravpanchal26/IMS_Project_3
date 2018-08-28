@@ -17,5 +17,21 @@ if($action=='installEquipment')
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::InstallEquipment_Installation($json->serial,$json->coords, $json->userID, $json->act, $json->desc));
 }
+else if($action=='imageUpload')
+{
+    $tempPath = $_FILES['file']['tmp_name'];
+    // Get File Name
+    $actualName = $_FILES['file']['name'];
+    // New path
+    $actualPath = '../uploads/'.$actualName;
+    // Move File into new path
+    move_uploaded_file($tempPath,$actualPath);
+    // Get real path of moved file here
+    $realPath =  realpath(__DIR__ .'/'.$actualPath);
+    // Execute the non query
+    // echo json_encode(DBHandler::InstallEquipment_UploadImage($actualPath,));
+    // Delete the file
+    unlink($realPath);
+}
 
 ?>
