@@ -44,9 +44,9 @@ const appRoutes: Routes = [
     {path: 'suburb', canActivate: [LoginGuard], component: SuburbComponent},
     {path: 'condition', canActivate: [LoginGuard], component: ConditionComponent},
     {path: 'brand', canActivate: [LoginGuard], component: BrandComponent},
-    {path: 'section', canActivate: [LoginGuard], component: SectionComponent},
-    {path: 'type', canActivate: [LoginGuard], component: TypeComponent},
-    {path: 'supplier', canActivate: [LoginGuard], component: SupplierComponent},
+    {path: 'section', canActivate: [LoginGuard], component:SectionComponent},
+    {path: 'type', canActivate:[LoginGuard], component:TypeComponent},
+    {path:'supplier',canActivate:[LoginGuard],component:SupplierComponent},
 
     // Default components
     {path: '', component: LoginComponent},
@@ -59,6 +59,7 @@ const appRoutes: Routes = [
     {path: 'Remove User', canActivate: [LoginGuard], component: DeactivateUserComponent},
     {path: 'Reset password/:id', canActivate: [LoginGuard], component: ItPasswordResetComponent},
     {path: 'BuinessSetting', canActivate: [LoginGuard], component: BusinessSettingComponent},
+    {path: 'qr', canActivate: [LoginGuard], component: QrtestingComponent},
 
     // Technical Employee
     {path: 'Add Equipment', canActivate: [LoginGuard], component: AddEquipmentComponent},
@@ -71,7 +72,6 @@ const appRoutes: Routes = [
 
     // Section Head
     {path: 'Void Equipment', canActivate:[LoginGuard]},*/
-    {path: 'qr/:serial', canActivate: [LoginGuard], component: QrtestingComponent},
 
     {path: '**', component: ErrorComponent}// Always keep this last!!
 ];

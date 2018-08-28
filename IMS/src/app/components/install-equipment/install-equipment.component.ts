@@ -79,8 +79,8 @@ export class InstallEquipmentComponent implements OnInit {
             icon: L.icon({
                 iconSize: [25, 41],
                 iconAnchor: [13, 41],
-                iconUrl: this.apiUrl+'/api/Assets/marker-icon.png',
-                shadowUrl: this.apiUrl+'/api/Assets/marker-shadow.png'
+                iconUrl: this.apiUrl+'/api/globalImages/marker-icon.png',
+                shadowUrl: this.apiUrl+'/api/globalImages/marker-shadow.png'
             }), draggable: true
         }).openTooltip().addTo(mymap);
         console.log(this.marker._latlng);

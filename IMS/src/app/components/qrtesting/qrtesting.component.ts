@@ -1,56 +1,63 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit} from '@angular/core';
+
+
+// Scanner
+import { QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service";
+import { Subscription} from "rxjs/Subscription";
 
 // Div to image to PDF
 import * as jsPdf from 'jspdf';
 import * as html2Canvas from 'html2canvas';
-import {ManageEquipmentService} from "../manage-equipment/manage-equipment.service";
 
 @Component({
-    selector: 'app-qrtesting',
-    templateUrl: './qrtesting.component.html',
-    styleUrls: ['./qrtesting.component.css'],
-    providers: [ManageEquipmentService]
+  selector: 'app-qrtesting',
+  templateUrl: './qrtesting.component.html',
+  styleUrls: ['./qrtesting.component.css'],
 })
 export class QrtestingComponent implements OnInit {
-    // Global Variable
-    public qrSerial;
-    public equipment;
+  // Global Variable
+  public test = 'Equipment ID Print working.';
+  public result = 'Barcode';
+  subscription:Subscription;
 
-    // Default Constructor
-    constructor(private active: ActivatedRoute,
-                private service: ManageEquipmentService) {
-    }
+  // Default Constructor
+  constructor(private qrService:QrCodeDecoderService) { }
 
-    // Form Load
-    ngOnInit() {
-        // Get serial from query string
-        this.qrSerial = this.active.snapshot.paramMap.get('serial');
+  // Form Load
+  ngOnInit() {
+  }
 
-        // Get equipment info by serial
-        this.service.getEquipmentBySerial(this.qrSerial)
-            .subscribe(data => this.equipment = data[0]);
-    }
+  // Destroyer
+  ngOnDestroy():void {
+    this.subscription.unsubscribe();
+  }
 
-    // Qr to PDF
-    onClick() {
-        let data = document.getElementById('qrCode');
-        html2Canvas(data).then(
-            canvas => {
-                // Image settings
-                var imgWidth = 75;
-                var pageHeight = 100;
-                var imgHeight = canvas.height * imgWidth / canvas.width;
-                var heightLeft = imgHeight;
+  // File reading
+  onFileChange(event) {
+      const file = event.target.files[0];
+      this.subscription = this.qrService.decode(file)
+          .subscribe(decodedString => console.log(this.result = decodedString));
+  }
 
-                const contentDataURL = canvas.toDataURL('image/png');
-                // A4 size page of PDF
-                let pdf = new jsPdf('p', 'mm', 'a4');
-                var topPx = 5;
-                var leftPx = 5;
-                pdf.addImage(contentDataURL, 'PNG', leftPx, topPx, imgWidth, imgHeight);
-                // Generated PDF
-                pdf.save(this.qrSerial + '.pdf');
-            });
-    }
+  // Qr to PDF
+  onClick() {
+    let data = document.getElementById('qrCode');
+    html2Canvas(data).then(
+        canvas => {
+        // Image settings
+        var imgWidth = 150;
+        var pageHeight = 200;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+
+        const contentDataURL = canvas.toDataURL('image/png');
+        // A4 size page of PDF
+        let pdf = new jsPdf('p', 'mm', 'a4');
+        var topPx = 5;
+        var leftPx = 5;
+        pdf.addImage(contentDataURL, 'PNG', leftPx, topPx, imgWidth, imgHeight);
+        // Generated PDF
+        pdf.save(this.test+'.pdf');
+    });
+  }
 }

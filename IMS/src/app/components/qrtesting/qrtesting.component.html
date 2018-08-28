@@ -1,14 +1,28 @@
 <app-header></app-header>
 <div class="container">
-    <h1 class="py-5">Qr Code Printing</h1>
-    <div id="qrCode" class="card" style="width:317px;">
-        <qr-code [value]="qrSerial" [size]="300" class="card-img-top px-2 py-2"></qr-code>
-        <div class="card-body">
-            <h4 class="card-title"><strong>Serial: </strong><br/>{{qrSerial}}</h4>
-            <h6 class="card-title"><strong>Name: </strong><br/>{{equipment.Name}}</h6>
-            <p class="card-text"><strong>Description:</strong><br/>{{equipment.Desc}}</p>
-        </div>
+    <h1>Qr Generator</h1>
+    <div id="qrCode">
+        <qr-code [value]="test" [size]="150"></qr-code>
+        <p style="width: 150px">{{test}}</p>
     </div>
 
-    <button class="btn btn-primary mt-3" (click)="onClick()">Qr code to PDF</button>
+    <button class="btn btn-primary" (click)="onClick()">Qr code to PDF</button>
+
+    <h1>Qr Reader</h1>
+    <div class="input-group">
+        <input type="text" class="form-control" [value]="result">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <div class="upload-btn-wrapper">
+                        <span class="oi oi-camera-slr"></span> Scan
+                        <input type="file" accept="image/*" (change)="onFileChange($event)">
+                    </div>
+                </div>
+            </div>
+    </div>
+    <h1>Image Upload Styling testing</h1>
+    <input type="file">
+
+
+
 </div>
