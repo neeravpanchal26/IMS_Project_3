@@ -132,4 +132,8 @@ export class ToastrNotificationService {
     addSupplierSuccess() {
         return this.toast.success('Your supplier has been added','Success');
     }
+    // Inspection components notifications here.
+    inspectionSuccess() {
+        return this.toast.success('Your inspection was successful.','Success');
+    }
 }

@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import {LoginService} from "../login/login.service";
-import {InspectEquipmentService} from "./inspect-equipment.service";
+import {iInspect, InspectEquipmentService} from "./inspect-equipment.service";
 import {QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service";
 import {Subscription} from "rxjs";
 import * as L from 'leaflet';
 import {GeoLocationService} from "../../globalServices/geolocation.service";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'app-inspect-equipment',
@@ -21,17 +23,23 @@ export class InspectEquipmentComponent implements OnInit {
     public equipment;
     public condition;
     public equipmentInfo;
-    public subscription:Subscription;
+    public subscription: Subscription;
     public apiUrl = environment.api;
     public map;
+    public image;
+
+    // Native Html Elements
+    @ViewChild('conditionPicture') newBusinessLogo;
 
     // Default Constructor
     constructor(private formBuilder: FormBuilder,
                 private tService: ToastrNotificationService,
                 private lService: LoginService,
                 private service: InspectEquipmentService,
-                private qrService:QrCodeDecoderService,
-                private geo:GeoLocationService) {
+                private qrService: QrCodeDecoderService,
+                private geo: GeoLocationService,
+                private router: Router,
+                private location: Location) {
     }
 
     // Form Load
@@ -46,18 +54,18 @@ export class InspectEquipmentComponent implements OnInit {
 
         // Get Condition
         this.service.getCondition()
-            .subscribe(data=> this.condition = data,
+            .subscribe(data => this.condition = data,
                 error => this.tService.handleError(error));
 
         // Load up map
         this.geo.getLocation()
             .subscribe(
-                data=> {
+                data => {
                     let lat = data.coords.latitude;
                     let long = data.coords.longitude;
-                    this.map = L.map('map').setView([lat,long],14);
-                    this.loadMap(this.map,lat,long);
-                },error => {
+                    this.map = L.map('map').setView([lat, long], 14);
+                    this.loadMap(this.map, lat, long);
+                }, error => {
                     if (error == "You have rejected access to your location") {
                         this.tService.geolocationTurnedOff();
                     }
@@ -75,29 +83,74 @@ export class InspectEquipmentComponent implements OnInit {
 
     // Individual Equipment Load
     individualEquipmentLoad(e) {
+        // Equipment Info
         this.service.getEquipmentInfoBySerial(e)
             .subscribe(
-                data=>
-                {
+                data => {
                     this.equipmentInfo = data[0];
                     this.inspectEquipmentForm.controls['equipmentCondition'].setValue(this.equipmentInfo.Condition);
                     this.inspectEquipmentForm.controls['equipmentValue'].setValue(this.equipmentInfo.Value);
                     this.inspectEquipmentForm.controls['description'].setValue(this.equipmentInfo.Desc);
-                    let coordinates = this.equipmentInfo.LocationGps.split(',',2);
+                    let coordinates = this.equipmentInfo.LocationGps.split(',', 2);
                     this.map.remove();
-                    this.map = L.map('map').setView([coordinates[0],coordinates[1]],14);
-                    this.loadMap(this.map,coordinates[0],coordinates[1]);
+                    this.map = L.map('map').setView([coordinates[0], coordinates[1]], 14);
+                    this.loadMap(this.map, coordinates[0], coordinates[1]);
                 },
-                error=> this.tService.handleError(error));
+                error => this.tService.handleError(error));
+        // Equipment Image
+        this.service.getEquipmentImageBySerial(e)
+            .subscribe(data => this.image = data,
+                error => this.tService.handleError(error));
     }
 
     // Inspect Equipment
     inspectEquipment(e) {
         if (e.valid) {
-
+            let param: iInspect =
+                {
+                    userID: this.lService.getUserID(),
+                    serial: e.value['equipmentSerial'],
+                    condition: e.value['equipmentCondition'],
+                    value: e.value['equipmentValue'],
+                    status: e.value['inspectionStatus'],
+                    description: e.value['description2']
+                };
+            this.service.insertInspection(param)
+                .subscribe(data => {
+            if(data){
+                // Image Upload
+                try {
+                    // File validation
+                    let image = this.newBusinessLogo.nativeElement;
+                    let logoFile = image.files[0];
+                    let allowedImages = ['image/jpeg','image/png'];
+                    if(allowedImages.indexOf(logoFile.type) >-1) {
+                        // Logo upload
+                        let frmData = new FormData();
+                        frmData.append('file', logoFile);
+                        // this.service.uploadImage(frmData)
+                        //     .subscribe(data=> this.logo());
+                    }
+                } catch {}
+                this.tService.inspectionSuccess();
+            }
+            },
+                    error => this.tService.handleError(error));
         }
         else if (e.invalid)
             this.tService.formFailure();
+    }
+
+    // Add Condition
+    addCondition(e) {
+        if (e == 'addCondition') {
+            this.router.navigate(['condition']);
+        }
+    }
+
+    // Locate Back
+    locateBack() {
+        this.location.back();
     }
 
     // Qr Scanner fn
@@ -146,7 +199,7 @@ export class InspectEquipmentComponent implements OnInit {
             'equipmentSerial': ['', Validators.required],
             'equipmentValue': ['', Validators.required],
             'inspectionStatus': ['', Validators.required],
-            'description': ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+            'description': [''],
             'description2': ['', Validators.compose([Validators.required, Validators.maxLength(100)])]
 
         });

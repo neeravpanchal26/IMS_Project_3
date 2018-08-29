@@ -368,4 +368,16 @@ class DBHandler
         $param = array(&$serial);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function InspectEquipmentBySerial_Image($serial)
+    {
+        $sp = 'CALL uspInspectEquipmentBySerial_Image(?)';
+        $param = array(&$serial);
+        return DBHelper::BlobParamRetrieve($sp,$param);
+    }
+    public static function InspectEquipment_Insert($userID,$serial,$condition,$value,$status,$desc)
+    {
+        $sp = 'CALL uspInspectEquipment_Insert(?,?,?,?,?,?)';
+        $param = array(&$userID,&$serial,&$condition,&$value,&$status,&$desc);
+        return DBHelper::SelectParam($sp,$param);
+    }
 }
