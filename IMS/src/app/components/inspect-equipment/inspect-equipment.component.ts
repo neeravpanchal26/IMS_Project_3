@@ -5,7 +5,7 @@ import {LoginService} from "../login/login.service";
 import {InspectEquipmentService} from "./inspect-equipment.service";
 import {QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service";
 import {Subscription} from "rxjs";
-import * as L from "leaflet";
+import * as L from 'leaflet';
 import {GeoLocationService} from "../../globalServices/geolocation.service";
 import {environment} from "../../../environments/environment";
 
@@ -22,11 +22,8 @@ export class InspectEquipmentComponent implements OnInit {
     public condition;
     public equipmentInfo;
     public subscription:Subscription;
-    public map:any;
-    public marker:any;
-    public lat;
-    public long;
     public apiUrl = environment.api;
+    public map;
 
     // Default Constructor
     constructor(private formBuilder: FormBuilder,
@@ -53,25 +50,27 @@ export class InspectEquipmentComponent implements OnInit {
                 error => this.tService.handleError(error));
 
         // Load up map
-        this.geo.getLocation().subscribe(data => {
-            this.lat = data.coords.latitude;
-            this.long = data.coords.longitude;
-            this.map = L.map('mapid').setView([this.lat, this.long], 14);
-            this.loadMap(this.map, this.lat, this.long);
-        }, error => {
-            if (error == "You have rejected access to your location") {
-                this.tService.geolocationTurnedOff();
-            }
-            else if (error == "Unable to determine your location") {
-                this.tService.geolocationUnavailablePosition();
-            }
-            else if (error == "Service timeout has been reached") {
-                this.tService.geolocationSeviceTimeOut();
-            }
-            else {
-                this.tService.geolocationBrowserNotSupportive();
-            }
-        });
+        this.geo.getLocation()
+            .subscribe(
+                data=> {
+                    let lat = data.coords.latitude;
+                    let long = data.coords.longitude;
+                    this.map = L.map('map').setView([lat,long],14);
+                    this.loadMap(this.map,lat,long);
+                },error => {
+                    if (error == "You have rejected access to your location") {
+                        this.tService.geolocationTurnedOff();
+                    }
+                    else if (error == "Unable to determine your location") {
+                        this.tService.geolocationUnavailablePosition();
+                    }
+                    else if (error == "Service timeout has been reached") {
+                        this.tService.geolocationSeviceTimeOut();
+                    }
+                    else {
+                        this.tService.geolocationBrowserNotSupportive();
+                    }
+                });
     }
 
     // Individual Equipment Load
@@ -84,6 +83,10 @@ export class InspectEquipmentComponent implements OnInit {
                     this.inspectEquipmentForm.controls['equipmentCondition'].setValue(this.equipmentInfo.Condition);
                     this.inspectEquipmentForm.controls['equipmentValue'].setValue(this.equipmentInfo.Value);
                     this.inspectEquipmentForm.controls['description'].setValue(this.equipmentInfo.Desc);
+                    let coordinates = this.equipmentInfo.LocationGps.split(',',2);
+                    this.map.remove();
+                    this.map = L.map('map').setView([coordinates[0],coordinates[1]],14);
+                    this.loadMap(this.map,coordinates[0],coordinates[1]);
                 },
                 error=> this.tService.handleError(error));
     }
@@ -112,25 +115,23 @@ export class InspectEquipmentComponent implements OnInit {
 
     }
 
-    // Map functions
-    loadMap(mymap, lat, long) {
-        this.lat = lat;
-        this.long = long;
+    // Map fn
+    loadMap(myMap, lat, long) {
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
             {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
                 id: 'mapbox.streets',
                 accessToken: 'pk.eyJ1IjoibWxhbmdldmVsZDE1IiwiYSI6ImNqa2R1a3A5aTFpeXkza252cDlkbDQ2MXIifQ.uTJ2w8n_rjeHtl1usY3K9Q'
-            }).addTo(mymap);
-        this.marker = L.marker([lat, long], {
+            }).addTo(myMap);
+        L.marker([lat, long], {
             icon: L.icon({
                 iconSize: [25, 41],
                 iconAnchor: [13, 41],
                 iconUrl: this.apiUrl + '/api/Assets/marker-icon.png',
                 shadowUrl: this.apiUrl + '/api/Assets/marker-shadow.png'
             }), draggable: false
-        }).openTooltip().addTo(mymap);
+        }).openTooltip().addTo(myMap);
     }
 
     // Selection setter
@@ -145,7 +146,9 @@ export class InspectEquipmentComponent implements OnInit {
             'equipmentSerial': ['', Validators.required],
             'equipmentValue': ['', Validators.required],
             'inspectionStatus': ['', Validators.required],
-            'description': ['', Validators.compose([Validators.required, Validators.maxLength(100)])]
+            'description': ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+            'description2': ['', Validators.compose([Validators.required, Validators.maxLength(100)])]
+
         });
     }
 }

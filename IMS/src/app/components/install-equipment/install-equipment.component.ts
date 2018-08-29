@@ -8,7 +8,6 @@ import { QrCodeDecoderService } from '../../globalServices/qr-code-decoder.servi
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from "../../../environments/environment";
-import { longStackSupport } from 'q';
 
 @Component({
     selector: 'app-install-equipment',
@@ -110,7 +109,7 @@ export class InstallEquipmentComponent implements OnInit {
             }), draggable: true
         }).openTooltip().addTo(mymap);
         this.markerChange(this.marker);
-        this.installEquipmentForm.controls['coords'].setValue(this.lat+', '+this.long);
+        this.installEquipmentForm.controls['coords'].setValue(this.lat+','+this.long);
     }
 
     markerChange(marker: any) {

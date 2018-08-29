@@ -51,9 +51,14 @@
             </div>
 
             <div class='col-lg-6'>
-                <label>Inspection Description</label>
+                <label>Reason for inspection</label>
                 <textarea class="form-control" formControlName='description' readonly></textarea>
             </div>
+            <div class='col-lg-6'>
+                <label>Inspection Description</label>
+                <textarea class="form-control" formControlName='description2'></textarea>
+            </div>
+
             <div class="col-lg-12">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -61,13 +66,14 @@
                             Choose Location
                         </h5>
                         <div class="card-text">
-                            <div id="mapid" (change)="markerChange($event)"></div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    <div id="map"></div>
 </div>
 
 <!-- Footer-->
