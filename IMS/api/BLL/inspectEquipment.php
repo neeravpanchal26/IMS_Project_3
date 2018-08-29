@@ -21,3 +21,8 @@ else if ($action == 'conditions')
 {
     echo json_encode(DBHandler::AddEquipment_Conditions());
 }
+else if ($action == 'individualInfo')
+{
+    $serial = json_decode($_GET['serial']);
+    echo json_encode(DBHandler::InspectEquipmentBySerial($serial));
+}

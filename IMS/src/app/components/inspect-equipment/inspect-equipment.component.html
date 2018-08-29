@@ -10,7 +10,7 @@
             <div class="col-lg-6">
                 <label>Equipment</label>
                 <div class="input-group">
-                    <select class="form-control" formControlName='equipmentSerial' [compareWith]="compareFn">
+                    <select class="form-control" formControlName='equipmentSerial' [compareWith]="compareFn" (change)="individualEquipmentLoad($event.target.value)">
                         <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
                     </select>
                     <div class="input-group-append">
@@ -19,6 +19,49 @@
                                 <span class="oi oi-camera-slr"></span> Scan
                                 <input type="file" accept="image/*" (change)="onFileChange($event)">
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <label>Condition</label>
+                <select class="form-control" formControlName="equipmentCondition" [compareWith]="compareFn">
+                    <option *ngFor="let c of condition" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
+                </select>
+            </div>
+
+            <div class="col-lg-6">
+                <label>Equipment Value</label>
+                <input type="text" formControlName="equipmentValue" class="form-control">
+            </div>
+
+            <div class="col-lg-6">
+                <label>Condition Picture</label>
+                <input id="conditionPicture" #conditionPicture type="file" class="form-control-file" accept="image/jpeg,image/png">
+            </div>
+
+            <div class="col-lg-6">
+                <label>Inspection Status:</label>
+                <select class="form-control" formControlName='inspectionStatus'>
+                    <option value="" disabled>Choose...</option>
+                    <option value="1">Open</option>
+                    <option value="0">Closed</option>
+                </select>
+            </div>
+
+            <div class='col-lg-6'>
+                <label>Inspection Description</label>
+                <textarea class="form-control" formControlName='description' readonly></textarea>
+            </div>
+            <div class="col-lg-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Choose Location
+                        </h5>
+                        <div class="card-text">
+                            <div id="mapid" (change)="markerChange($event)"></div>
                         </div>
                     </div>
                 </div>

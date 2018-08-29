@@ -362,4 +362,10 @@ class DBHandler
         $param = array(&$id);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function InspectEquipmentBySerial($serial)
+    {
+        $sp = 'CALL uspInspectEquipmentBySerial(?)';
+        $param = array(&$serial);
+        return DBHelper::SelectParam($sp,$param);
+    }
 }
