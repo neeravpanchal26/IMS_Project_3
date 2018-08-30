@@ -36,6 +36,11 @@ export class InspectEquipmentService {
     insertInspection(param:iInspect):Observable<any> {
         return this.http.post(this.apiUrl+'/api/BLL/inspectEquipment.php?action=insert',param) as Observable<any>;
     }
+
+    // upload image
+    uploadImage(param:FormData):Observable<any> {
+        return this.http.post(this.apiUrl+'/api/BLL/inspectEquipment.php?action=imageUpload',param) as Observable<any>;
+    }
 }
 // Wrapper Classes
 export interface iInspect {

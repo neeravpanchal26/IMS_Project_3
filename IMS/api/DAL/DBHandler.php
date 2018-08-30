@@ -380,4 +380,9 @@ class DBHandler
         $param = array(&$userID,&$serial,&$condition,&$value,&$status,&$desc);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function InspectEquipment_InsertImage($image,$serial)
+    {
+        $sp = 'CALL uspInspectEquipment_InsertImage(?,?)';
+        return DBHelper::BlobUploadByID($sp,$image,$serial);
+    }
 }

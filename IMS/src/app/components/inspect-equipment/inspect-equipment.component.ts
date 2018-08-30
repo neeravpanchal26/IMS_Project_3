@@ -128,14 +128,15 @@ export class InspectEquipmentComponent implements OnInit {
                         // Logo upload
                         let frmData = new FormData();
                         frmData.append('file', logoFile);
+                        frmData.append('serial',e.value['equipmentSerial']);
                         // this.service.uploadImage(frmData)
-                        //     .subscribe(data=> this.logo());
+                        //     .subscribe(data=> console.log(data));
                     }
                 } catch {}
                 this.tService.inspectionSuccess();
             }
             },
-                    error => this.tService.handleError(error));
+                    error => console.log(error));
         }
         else if (e.invalid)
             this.tService.formFailure();
