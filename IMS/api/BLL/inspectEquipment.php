@@ -39,8 +39,8 @@ else if ($action == 'insert')
 else if ($action == 'imageUpload')
 {
     // Equipment Serial
-    echo $serial = $_GET['serial'];
-
+    $serial = json_decode($_GET['serial']);
+    echo json_encode($serial);
 //    // Get Temp Path
 //    $tempPath = $_FILES['file']['tmp_name'];
 //    // Get File Name

@@ -47,7 +47,7 @@ export interface iInspect {
     userID:any,
     serial:any,
     condition:any,
-    value:any,
-    status:any,
+    value:number,
+    status:number,
     description:any
 }

@@ -10,6 +10,8 @@ import {GeoLocationService} from "../../globalServices/geolocation.service";
 import {environment} from "../../../environments/environment";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {Util} from "leaflet";
+import formatNum = Util.formatNum;
 
 @Component({
     selector: 'app-inspect-equipment',
@@ -111,31 +113,30 @@ export class InspectEquipmentComponent implements OnInit {
                     userID: this.lService.getUserID(),
                     serial: e.value['equipmentSerial'],
                     condition: e.value['equipmentCondition'],
-                    value: e.value['equipmentValue'],
-                    status: e.value['inspectionStatus'],
+                    value: parseFloat(e.value['equipmentValue']),
+                    status: parseInt(e.value['inspectionStatus']),
                     description: e.value['description2']
                 };
             this.service.insertInspection(param)
                 .subscribe(data => {
-            if(data){
-                // Image Upload
-                try {
-                    // File validation
-                    let image = this.newBusinessLogo.nativeElement;
-                    let logoFile = image.files[0];
-                    let allowedImages = ['image/jpeg','image/png'];
-                    if(allowedImages.indexOf(logoFile.type) >-1) {
-                        // Logo upload
-                        let frmData = new FormData();
-                        frmData.append('file', logoFile);
-                        frmData.append('serial',e.value['equipmentSerial']);
-                        // this.service.uploadImage(frmData)
-                        //     .subscribe(data=> console.log(data));
-                    }
-                } catch {}
-                this.tService.inspectionSuccess();
-            }
-            },
+                        if (data == true) {
+                            // Image Upload
+                            try {
+                                // File validation
+                                let image = this.newBusinessLogo.nativeElement;
+                                let logoFile = image.files[0];
+                                let allowedImages = ['image/jpeg', 'image/png'];
+                                if (allowedImages.indexOf(logoFile.type) > -1) {
+                                    // Logo upload
+                                    let frmData = new FormData();
+                                    frmData.append('file', logoFile);
+                                    this.service.uploadImage(frmData)
+                                        .subscribe(data=> console.log(data));
+                                }
+                            } catch {}
+                            this.tService.inspectionSuccess();
+                        }
+                    },
                     error => console.log(error));
         }
         else if (e.invalid)
