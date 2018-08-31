@@ -113,6 +113,10 @@ export class ToastrNotificationService {
     {
         return this.toast.error('Service timed out. Try again later.');
     }
+    installationSuccessful()
+    {
+        return this.toast.success('Installation successful.');
+    }
     // Secondary components
     addCitySuccess() {
         return this.toast.success('Your city has been added.','Success');

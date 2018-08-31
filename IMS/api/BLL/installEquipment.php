@@ -19,6 +19,8 @@ if($action=='installEquipment')
 }
 else if($action=='imageUpload')
 {
+    $serial = json_decode($_POST['serial']);
+    // Get Temp Path
     $tempPath = $_FILES['file']['tmp_name'];
     // Get File Name
     $actualName = $_FILES['file']['name'];
@@ -29,7 +31,7 @@ else if($action=='imageUpload')
     // Get real path of moved file here
     $realPath =  realpath(__DIR__ .'/'.$actualPath);
     // Execute the non query
-    // echo json_encode(DBHandler::InstallEquipment_UploadImage($actualPath,));
+    echo json_encode(DBHandler::InstallEquipment_UploadImage($actualPath,$serial));
     // Delete the file
     unlink($realPath);
 }

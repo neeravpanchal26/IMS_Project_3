@@ -61,10 +61,10 @@ export class InstallEquipmentComponent implements OnInit {
 
     installEquipment(e) {
         if (e.value['status'] == '1') {
-            this.active = true;
+            this.active = 1;
         }
         else {
-            this.active = false;
+            this.active = 0;
         }
         let param: iInstallEquipment =
         {
@@ -76,18 +76,26 @@ export class InstallEquipmentComponent implements OnInit {
 
         };
         console.log(param);
-        try {
-            let image = this.newEquipmentImage.nativeElement;
-            let newImage = image.files[0];
-            console.log(newImage);
-            let allowedImages = ['image/jpeg', 'image/png'];
-            if (allowedImages.indexOf(newImage.type) > -1) {
-                let frmData = new FormData();
-                frmData.append('file', newImage);
-                // this.IEService.uploadImage(frmData).subscribe();
+        this.IEService.installation(param).subscribe(result => {
+            let r = result[0];
+            if (r['TRUE'] == 1) {
+                try {
+                    let image = this.newEquipmentImage.nativeElement;
+                    let newImage = image.files[0];
+                    console.log(newImage);
+                    let allowedImages = ['image/jpeg', 'image/png'];
+                    if (allowedImages.indexOf(newImage.type) > -1) {
+                        let frmData = new FormData();
+                        frmData.append('file', newImage);
+                        frmData.append('serial', e.value['serial']);
+                        console.log(frmData);
+                        this.IEService.uploadImage(frmData).subscribe();
+                    }
+                } catch {
+                } this.toastr.installationSuccessful();
             }
-        } catch {
-        }
+        });
+
     }
 
     loadMap(mymap, lat, long) {
@@ -109,7 +117,7 @@ export class InstallEquipmentComponent implements OnInit {
             }), draggable: true
         }).openTooltip().addTo(mymap);
         this.markerChange(this.marker);
-        this.installEquipmentForm.controls['coords'].setValue(this.lat+','+this.long);
+        this.installEquipmentForm.controls['coords'].setValue(this.lat + ',' + this.long);
     }
 
     markerChange(marker: any) {
@@ -117,7 +125,7 @@ export class InstallEquipmentComponent implements OnInit {
         marker.on('dragend', function (e: any) {
             let marker = e.target;
             let location = marker.getLatLng();
-            form.setValue(location.lat+', '+location.lng);
+            form.setValue(location.lat + ', ' + location.lng);
         });
     }
 

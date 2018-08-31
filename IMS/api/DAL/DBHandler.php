@@ -304,12 +304,12 @@ class DBHandler
     {
         $sp = 'CALL uspInstallEquipment_Installation(?,?,?,?,?)';
         $param = array(&$serial, &$coords, &$userID, &$act, &$desc);
-        return DBHelper::ExecuteNonQuery($sp,$param);
+        return DBHelper::SelectParam($sp,$param);
     }
-    public static function InstallEquipment_UploadImage()
+    public static function InstallEquipment_UploadImage($image,$serial)
     {
-        $sp='CALL uspInstallEquipment_UploadImage()';
-        
+        $sp='CALL uspInstallEquipment_UploadImage(?,?)';
+        return DBHelper::BlobUploadByID($sp,$image,$serial);
     }
     // All secondary component methods
     public static function Secondary_City_Add($name)
