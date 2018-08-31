@@ -38,21 +38,19 @@ else if ($action == 'insert')
 }
 else if ($action == 'imageUpload')
 {
-    // Equipment Serial
-    $serial = json_decode($_GET['serial']);
-    echo json_encode($serial);
-//    // Get Temp Path
-//    $tempPath = $_FILES['file']['tmp_name'];
-//    // Get File Name
-//    $actualName = $_FILES['file']['name'];
-//    // New path
-//    $actualPath = '../uploads/'.$actualName;
-//    // Move File into new path
-//    move_uploaded_file($tempPath,$actualPath);
-//    // Get real path of moved file here
-//    $realPath =  realpath(__DIR__ .'/'.$actualPath);
-//    // Execute the non query
-//    echo json_encode(DBHandler::InspectEquipment_InsertImage($actualPath,$serial));
-//    // Delete the file
-//    unlink($realPath);
+    $serial = json_decode($_POST['serial']);
+    // Get Temp Path
+    $tempPath = $_FILES['file']['tmp_name'];
+    // Get File Name
+    $actualName = $_FILES['file']['name'];
+    // New path
+    $actualPath = '../uploads/'.$actualName;
+    // Move File into new path
+    move_uploaded_file($tempPath,$actualPath);
+    // Get real path of moved file here
+    $realPath =  realpath(__DIR__ .'/'.$actualPath);
+    // Execute the non query
+    echo json_encode(DBHandler::InspectEquipment_InsertImage($actualPath,$serial));
+    // Delete the file
+    unlink($realPath);
 }

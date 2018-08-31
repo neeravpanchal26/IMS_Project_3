@@ -119,7 +119,7 @@ export class InspectEquipmentComponent implements OnInit {
                 };
             this.service.insertInspection(param)
                 .subscribe(data => {
-                        if (data == true) {
+                        if (data[0].equipID > 0) {
                             // Image Upload
                             try {
                                 // File validation
@@ -130,8 +130,9 @@ export class InspectEquipmentComponent implements OnInit {
                                     // Logo upload
                                     let frmData = new FormData();
                                     frmData.append('file', logoFile);
+                                    frmData.append('serial',e.value['equipmentSerial']);
                                     this.service.uploadImage(frmData)
-                                        .subscribe(data=> console.log(data));
+                                        .subscribe();
                                 }
                             } catch {}
                             this.tService.inspectionSuccess();

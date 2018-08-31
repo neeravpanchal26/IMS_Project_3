@@ -378,7 +378,7 @@ class DBHandler
     {
         $sp = 'CALL uspInspectEquipment_Insert(?,?,?,?,?,?)';
         $param = array(&$userID,&$serial,&$condition,&$value,&$status,&$desc);
-        return DBHelper::ExecuteNonQuery($sp,$param);
+        return DBHelper::SelectParam($sp,$param);
     }
     public static function InspectEquipment_InsertImage($image,$serial)
     {
