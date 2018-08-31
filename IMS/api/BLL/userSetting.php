@@ -20,6 +20,6 @@ elseif($action == 'suburb') {
     echo json_encode(DBHandler::UserSetting_Suburbs());
 }
 elseif($action == 'specificUser') {
-    $userID = json_decode($_GET['userID']);
+    $userID = $_GET['userID'];
     echo json_encode(DBHandler::UserSetting_SpecificUser($userID));
 }

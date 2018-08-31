@@ -12,6 +12,14 @@
                 </div>
             </div>
             <input type="text" class="form-control" placeholder="Search by keyword" [(ngModel)]="filter" name="search">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <div class="upload-btn-wrapper">
+                        <span class="oi oi-camera-slr"></span> Scan
+                        <input type="file" accept="image/*" (change)="onFileChange($event)">
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <div class="form-row">

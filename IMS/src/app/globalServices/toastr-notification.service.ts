@@ -140,4 +140,7 @@ export class ToastrNotificationService {
     inspectionSuccess() {
         return this.toast.success('Your inspection was successful.','Success');
     }
+    maintenanceSuccess() {
+        return this.toast.success('Your maintenance was successful.','Success');
+    }
 }

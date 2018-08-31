@@ -29,7 +29,7 @@ export class InspectEquipmentService {
 
     // Get equipment Image by serial
     getEquipmentImageBySerial(serial):Observable<any> {
-        return this.http.get(this.apiUrl+'/api/BLL/inspectEquipment.php?action=individualInfoImage&serial='+serial) as Observable<any>;
+        return this.http.get(this.apiUrl+'/api/BLL/inspectEquipment.php?action=individualInfoImage&serial='+serial,{responseType:'blob'}) as Observable<any>;
     }
 
     // Insert Inspection

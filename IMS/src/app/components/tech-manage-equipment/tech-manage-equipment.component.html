@@ -1,21 +1,38 @@
+<!-- Header-->
 <app-header></app-header>
+
 <div class="container">
   <h1 class="py-5 text-center">Allocated Jobs</h1>
+  <!--Search Input-->
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <span class="oi oi-magnifying-glass"></span>
+      </div>
+    </div>
+    <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
+  </div>
+  <br>
   <table class="table table-responsive-sm table-sm table-hover">
     <tr>
-    <th>Equipment Name</th>
+    <th (click)="sort('Name')" class="btn-link">Equipment Name</th>
     <th>Description</th>
-    <th>Date</th>
-    <th>Job Type</th>
+    <th (click)="sort('Date')" class="btn-link">Date</th>
+    <th (click)="sort('TypeDesc')" class="btn-link">Job Type</th>
   </tr>
-  <tr *ngFor="let i of info">
+  <tr *ngFor="let i of info  | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };">
     <td >{{i.Name}}</td>
     <td >{{i.Desc}}</td>
     <td >{{i.Date}}</td>
     <td >{{i.TypeDesc}}</td>
   </tr>
   </table>
+  <div class="row">
+    <div class="col-lg-12">
+      <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="info.length<=10"></pagination-controls>
+    </div>
+  </div>
 </div>
 
-
+<!-- Footer-->
 <app-business-footer></app-business-footer>

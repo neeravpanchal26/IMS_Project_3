@@ -89,7 +89,7 @@ class DBHelper extends DB
     {
         $conn = DB::Connect();
         $call = $conn->prepare($query);
-        $call->bind_param('i',$id);
+        $call->bind_param('s',$id);
         $call->execute();
         $call->store_result();
         $call->bind_result($result);

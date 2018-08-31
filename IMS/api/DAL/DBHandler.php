@@ -371,8 +371,7 @@ class DBHandler
     public static function InspectEquipmentBySerial_Image($serial)
     {
         $sp = 'CALL uspInspectEquipmentBySerial_Image(?)';
-        $param = array(&$serial);
-        return DBHelper::BlobParamRetrieve($sp,$param);
+        return DBHelper::BlobParamRetrieve($sp,$serial);
     }
     public static function InspectEquipment_Insert($userID,$serial,$condition,$value,$status,$desc)
     {
@@ -383,6 +382,41 @@ class DBHandler
     public static function InspectEquipment_InsertImage($image,$serial)
     {
         $sp = 'CALL uspInspectEquipment_InsertImage(?,?)';
+        return DBHelper::BlobUploadByID($sp,$image,$serial);
+    }
+
+    // Maintenance Component methods here
+    public static function MaintainEquipment_Condition()
+    {
+        $sp = 'CALL uspMaintainEquipment_Condition';
+        return DBHelper::Select($sp);
+    }
+    public static function MaintainEquipmentByID($id)
+    {
+        $sp = 'CALL uspMaintainEquipmentByID(?)';
+        $param = array(&$id);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function MaintainEquipmentBySerial($serial)
+    {
+        $sp = 'CALL uspMaintainEquipmentBySerial(?)';
+        $param = array(&$serial);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function MaintainEquipmentBySerial_Image($serial)
+    {
+        $sp = 'CALL uspMaintainEquipmentBySerial_Image(?)';
+        return DBHelper::BlobParamRetrieve($sp,$serial);
+    }
+    public static function MaintainEquipment_Insert($userID,$serial,$condition,$value,$status,$desc)
+    {
+        $sp = 'CALL uspMaintainEquipment_Insert(?,?,?,?,?,?)';
+        $param = array(&$userID,&$serial,&$condition,&$value,&$status,&$desc);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function MaintainEquipment_InsertImage($image,$serial)
+    {
+        $sp = 'CALL uspMaintainEquipment_InsertImage(?,?)';
         return DBHelper::BlobUploadByID($sp,$image,$serial);
     }
 }

@@ -13,7 +13,7 @@ use DAL\DBHandler;
 $action = $_GET['action'];
 
 if($action == 'oldPassword') {
-    $userID = json_decode($_GET['userID']);
+    $userID = $_GET['userID'];
     $password = $_GET['password'];
     echo json_encode(DBHandler::UserPassword_OldCheck($userID, $password));
 }

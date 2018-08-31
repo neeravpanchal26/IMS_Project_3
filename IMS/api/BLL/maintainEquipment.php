@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: nsp
- * Date: 2018/08/28
- * Time: 19:38
+ * Date: 2018/08/31
+ * Time: 15:16
  */
 require_once '../BLL/CORS_Headers.php';
 require_once '../DAL/DBHandler.php';
@@ -12,31 +12,31 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'equipments')
+if($action == 'condition')
+{
+    echo json_encode(DBHandler::MaintainEquipment_Condition());
+}
+elseif ($action == 'equipments')
 {
     $userID = $_GET['userID'];
-    echo json_encode(DBHandler::InspectEquipmentByID($userID));
+    echo json_encode(DBHandler::MaintainEquipmentByID($userID));
 }
-else if ($action == 'conditions')
-{
-    echo json_encode(DBHandler::AddEquipment_Conditions());
-}
-else if ($action == 'individualInfo')
+elseif ($action == 'individualInfo')
 {
     $serial = $_GET['serial'];
-    echo json_encode(DBHandler::InspectEquipmentBySerial($serial));
+    echo json_encode(DBHandler::MaintainEquipmentBySerial($serial));
 }
-else if ($action == 'individualInfoImage')
+elseif ($action == 'individualInfoImage')
 {
     $serial = $_GET['serial'];
-    echo DBHandler::InspectEquipmentBySerial_Image($serial);
+    echo DBHandler::MaintainEquipmentBySerial_Image($serial);
 }
-else if ($action == 'insert')
+elseif ($action == 'insert')
 {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::InspectEquipment_Insert($json->userID,$json->serial,$json->condition,$json->value,$json->status,$json->description));
+    echo json_encode(DBHandler::MaintainEquipment_Insert($json->userID,$json->serial,$json->condition,$json->value,$json->status,$json->description));
 }
-else if ($action == 'imageUpload')
+elseif ($action == 'imageUpload')
 {
     $serial = $_POST['serial'];
     // Get Temp Path
@@ -50,7 +50,7 @@ else if ($action == 'imageUpload')
     // Get real path of moved file here
     $realPath =  realpath(__DIR__ .'/'.$actualPath);
     // Execute the non query
-    echo json_encode(DBHandler::InspectEquipment_InsertImage($actualPath,$serial));
+    echo json_encode(DBHandler::MaintainEquipment_InsertImage($actualPath,$serial));
     // Delete the file
     unlink($realPath);
 }

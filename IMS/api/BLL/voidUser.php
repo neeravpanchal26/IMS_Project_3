@@ -21,6 +21,6 @@ else if ($action == 'type') {
     echo json_encode (DBHandler::VoidUser_Type($json->UserID, $json->Status));
 }
 else if ($action == 'users') {
-    $userID = json_decode($_GET['userID']);
+    $userID = $_GET['userID'];
     echo json_encode (DBHandler::VoidUser_Users($userID));
 }

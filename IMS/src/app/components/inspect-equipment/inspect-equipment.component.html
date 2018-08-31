@@ -35,8 +35,9 @@
 
             <div class="col-lg-6">
                 <label>Condition</label>
-                <select class="form-control" (change)="addCondition($event.target.value)" formControlName="equipmentCondition" [compareWith]="compareFn" [class.is-valid]="inspectEquipmentForm.controls['equipmentCondition'].valid"
-                        [class.is-invalid]="inspectEquipmentForm.controls['equipmentCondition'].invalid && (inspectEquipmentForm.controls['equipmentCondition'].dirty || inspectEquipmentForm.controls['equipmentCondition'].touched)">
+                <select class="form-control" (change)="addCondition($event.target.value)" formControlName="equipmentCondition" [compareWith]="compareFn"
+                    [class.is-valid]="inspectEquipmentForm.controls['equipmentCondition'].valid" [class.is-invalid]="inspectEquipmentForm.controls['equipmentCondition'].invalid && (inspectEquipmentForm.controls['equipmentCondition'].dirty || inspectEquipmentForm.controls['equipmentCondition'].touched)">
+                    <option value="" disabled>Choose...</option>
                     <option *ngFor="let c of condition" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
                     <option value="addCondition">Add New Condition</option>
                 </select>
@@ -49,7 +50,7 @@
 
             <div class="col-lg-6">
                 <label>Equipment Value</label>
-                <input type="text" formControlName="equipmentValue" class="form-control" [class.is-valid]="inspectEquipmentForm.controls['equipmentValue'].valid"
+                <input placeholder="Value" type="text" formControlName="equipmentValue" class="form-control" [class.is-valid]="inspectEquipmentForm.controls['equipmentValue'].valid"
                        [class.is-invalid]="inspectEquipmentForm.controls['equipmentValue'].invalid && (inspectEquipmentForm.controls['equipmentValue'].dirty || inspectEquipmentForm.controls['equipmentValue'].touched)">
                 <div [class.invalid-feedback]="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">
                     <div *ngIf="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">

@@ -3,6 +3,8 @@ import {ManageEquipmentService, iActivateEquipment} from './manage-equipment.ser
 import {ToastrNotificationService} from '../../globalServices/toastr-notification.service';
 import * as jsPdf from 'jspdf';
 import * as html2Canvas from 'html2canvas';
+import {Subscription} from "rxjs";
+import {QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service";
 
 @Component({
     selector: 'app-manage-equipment',
@@ -14,10 +16,11 @@ import * as html2Canvas from 'html2canvas';
 export class ManageEquipmentComponent implements OnInit {
     // Global Variables
     public info: any;
-    public filter: null;
+    public filter= null;
     public qrSerial = null;
+    public subscription:Subscription;
 
-    constructor(private service: ManageEquipmentService, private toast: ToastrNotificationService) {
+    constructor(private service: ManageEquipmentService, private toast: ToastrNotificationService,private qrService:QrCodeDecoderService) {
     }
 
     ngOnInit() {
@@ -47,6 +50,20 @@ export class ManageEquipmentComponent implements OnInit {
                         }
                     }
                 }, error => this.toast.handleError(error));
+    }
+
+    // Qr Scanner fn
+    onFileChange(event) {
+        const file = event.target.files[0];
+        this.subscription = this.qrService.decode(file)
+            .subscribe(decodedString => {
+                if (decodedString == 'error decoding QR Code')
+                    this.toast.qrCodeScanError();
+                else {
+                    this.filter = decodedString;
+                }
+            });
+
     }
 
     // Qr to PDF

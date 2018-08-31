@@ -55,45 +55,49 @@ export class AddUserComponent implements OnInit {
 
     // Add User Method
     addUser(e) {
-        if (e.valid) {
-            // Setting Variables
-            this.phoneCheck = false;
-            this.emailCheck = false;
+        let mDate = this.maxDate.toString().split(' ');
+        let iDate = e.value['dob'].toString().split('-');
+        if (iDate[0] > mDate[3])
+            this.addUserForm.controls['dob'].setErrors({incorrect: true});
+        else {
+            if (e.valid) {
+                // Setting Variables
+                this.phoneCheck = false;
+                this.emailCheck = false;
 
-            let param: iAddUser = {
-                firstName: e.value['name'],
-                lastName: e.value['surname'],
-                dob: e.value['dob'],
-                contactNumber: e.value['contact'],
-                email: e.value['email'].toLowerCase(),
-                password: e.value['password'],
-                userType: e.value['type'],
-                address1: e.value['address1'],
-                address2: e.value['address2'],
-                suburb: e.value['suburb']
-            };
-
-            let result: any;
-            this.service.createUser(param)
-                .subscribe(
-                    data => {
-                        let r = data[0];
-                        if (r['TRUE'] == 1) {
-                            this.tService.addUserSuccess(param.firstName, param.lastName);
-                            e.reset();
-                        }
-                        if (r['emailExists'] == 1) {
-                            this.emailCheck = true;
-                        }
-                        else if (r['phoneExists'] == 1) {
-                            this.phoneCheck = true;
-                        }
-                        else if (r['bothExists'] == 1) {
-                            this.phoneCheck = true;
-                            this.emailCheck = true;
-                        }
-                    },
-                    error => this.tService.handleError(error));
+                let param: iAddUser = {
+                    firstName: e.value['name'],
+                    lastName: e.value['surname'],
+                    dob: e.value['dob'],
+                    contactNumber: e.value['contact'],
+                    email: e.value['email'].toLowerCase(),
+                    password: e.value['password'],
+                    userType: e.value['type'],
+                    address1: e.value['address1'],
+                    address2: e.value['address2'],
+                    suburb: e.value['suburb']
+                };
+                this.service.createUser(param)
+                    .subscribe(
+                        data => {
+                            let r = data[0];
+                            if (r['TRUE'] == 1) {
+                                this.tService.addUserSuccess(param.firstName, param.lastName);
+                                e.reset();
+                            }
+                            if (r['emailExists'] == 1) {
+                                this.emailCheck = true;
+                            }
+                            else if (r['phoneExists'] == 1) {
+                                this.phoneCheck = true;
+                            }
+                            else if (r['bothExists'] == 1) {
+                                this.phoneCheck = true;
+                                this.emailCheck = true;
+                            }
+                        },
+                        error => this.tService.handleError(error));
+            }
         }
         if (e.invalid)
             this.tService.formFailure();

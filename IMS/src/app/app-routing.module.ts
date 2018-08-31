@@ -53,6 +53,7 @@ const appRoutes: Routes = [
 
     // Default components
     {path: '', component: LoginComponent},
+    {path: 'qr/:serial', canActivate: [LoginGuard], component: QrtestingComponent},
     {path: 'dashboard', canActivate: [LoginGuard], component: DashboardComponent},
     {path: 'usersetting', canActivate: [LoginGuard], component: UserSettingComponent},
     {path: 'userpassword', canActivate: [LoginGuard], component: UserPasswordResetComponent},
@@ -63,20 +64,17 @@ const appRoutes: Routes = [
     {path: 'Reset password/:id', canActivate: [LoginGuard], component: ItPasswordResetComponent},
     {path: 'BuinessSetting', canActivate: [LoginGuard], component: BusinessSettingComponent},
 
-    // Technical Employee
+    // Section Head
     {path: 'Add Equipment', canActivate: [LoginGuard], component: AddEquipmentComponent},
-    {path: 'Allocate Equipment/:id', canActivate: [LoginGuard], component: AllocateEquipmentComponent},
     {path: 'Manage Equipment', canActivate: [LoginGuard], component: ManageEquipmentComponent},
+    {path: 'Allocate Equipment/:id', canActivate: [LoginGuard], component: AllocateEquipmentComponent},
     {path: 'Update details/:id', canActivate: [LoginGuard], component: UpdateEquipmentComponent},
-    {path: 'Install Equipment', canActivate: [LoginGuard], component: InstallEquipmentComponent},
+
+    // Technical Employee
     {path: 'Tech Manage Equipment', canActivate: [LoginGuard], component: TechManageEquipmentComponent},
+    {path: 'Install Equipment', canActivate: [LoginGuard], component: InstallEquipmentComponent},
     {path: 'Inspect Equipment', canActivate: [LoginGuard], component: InspectEquipmentComponent},
     {path: 'Maintain Equipment', canActivate: [LoginGuard], component: MaintainEquipmentComponent},
-    /*{ path: 'Locate Equipment', canActivate:[LoginGuard]},
-
-    // Section Head
-    {path: 'Void Equipment', canActivate:[LoginGuard]},*/
-    {path: 'qr/:serial', canActivate: [LoginGuard], component: QrtestingComponent},
 
     {path: '**', component: ErrorComponent}// Always keep this last!!
 ];

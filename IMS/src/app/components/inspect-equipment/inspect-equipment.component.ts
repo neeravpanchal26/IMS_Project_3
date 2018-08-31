@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {Util} from "leaflet";
 import formatNum = Util.formatNum;
+import {ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 
 @Component({
     selector: 'app-inspect-equipment',
@@ -41,7 +42,8 @@ export class InspectEquipmentComponent implements OnInit {
                 private qrService: QrCodeDecoderService,
                 private geo: GeoLocationService,
                 private router: Router,
-                private location: Location) {
+                private location: Location,
+                private iService:ImageRetrieveService) {
     }
 
     // Form Load
@@ -101,8 +103,8 @@ export class InspectEquipmentComponent implements OnInit {
                 error => this.tService.handleError(error));
         // Equipment Image
         this.service.getEquipmentImageBySerial(e)
-            .subscribe(data => this.image = data,
-                error => this.tService.handleError(error));
+            .subscribe(data => this.image = this.iService.selectPhoto(data),
+                error=>this.tService.handleError(error));
     }
 
     // Inspect Equipment
@@ -138,7 +140,7 @@ export class InspectEquipmentComponent implements OnInit {
                             this.tService.inspectionSuccess();
                         }
                     },
-                    error => console.log(error));
+                    error => this.tService.handleError(error));
         }
         else if (e.invalid)
             this.tService.formFailure();

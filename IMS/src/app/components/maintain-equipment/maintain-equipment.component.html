@@ -1,3 +1,134 @@
-<p>
-  maintain-equipment works!
-</p>
+<!-- Header-->
+<app-header></app-header>
+
+<!-- Install Equipment Form-->
+<div class="container">
+  <form (ngSubmit)="maintainEquipment(maintainEquipmentForm)" [formGroup]="maintainEquipmentForm">
+    <h1 class="py-5 text-center">Maintain Equipment</h1>
+
+    <div class="form-row">
+      <div class="col-lg-6">
+        <label>Equipment</label>
+        <div class="input-group">
+          <select class="form-control" formControlName='equipmentSerial' [compareWith]="compareFn"
+                  (change)="individualEquipmentLoad($event.target.value)"
+                  [class.is-valid]="maintainEquipmentForm.controls['equipmentSerial'].valid"
+                  [class.is-invalid]="maintainEquipmentForm.controls['equipmentSerial'].invalid && (maintainEquipmentForm.controls['equipmentSerial'].dirty || maintainEquipmentForm.controls['equipmentSerial'].touched)">
+            <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <div class="upload-btn-wrapper">
+                <span class="oi oi-camera-slr"></span> Scan
+                <input type="file" accept="image/*" (change)="onFileChange($event)">
+              </div>
+            </div>
+          </div>
+          <div [class.invalid-feedback]="maintainEquipmentForm.controls['equipmentSerial'].hasError('required')">
+            <div *ngIf="maintainEquipmentForm.controls['equipmentSerial'].hasError('required')">
+              A equipment must be selected.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6">
+        <label>Condition</label>
+        <select class="form-control" (change)="addCondition($event.target.value)" formControlName="equipmentCondition" [compareWith]="compareFn" [class.is-valid]="maintainEquipmentForm.controls['equipmentCondition'].valid"
+                [class.is-invalid]="maintainEquipmentForm.controls['equipmentCondition'].invalid && (maintainEquipmentForm.controls['equipmentCondition'].dirty || maintainEquipmentForm.controls['equipmentCondition'].touched)">
+          <option value="" disabled>Choose...</option>
+          <option *ngFor="let c of condition" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
+          <option value="addCondition">Add New Condition</option>
+        </select>
+        <div [class.invalid-feedback]="maintainEquipmentForm.controls['equipmentCondition'].hasError('required')">
+          <div *ngIf="maintainEquipmentForm.controls['equipmentCondition'].hasError('required')">
+            Condition must be selected.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <label>Equipment Value</label>
+        <input placeholder="Value" type="text" formControlName="equipmentValue" class="form-control" [class.is-valid]="maintainEquipmentForm.controls['equipmentValue'].valid"
+               [class.is-invalid]="maintainEquipmentForm.controls['equipmentValue'].invalid && (maintainEquipmentForm.controls['equipmentValue'].dirty || maintainEquipmentForm.controls['equipmentValue'].touched)">
+        <div [class.invalid-feedback]="maintainEquipmentForm.controls['equipmentValue'].hasError('required')">
+          <div *ngIf="maintainEquipmentForm.controls['equipmentValue'].hasError('required')">
+            Value may not be empty.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-6">
+        <label>Maintenance  Status:</label>
+        <select class="form-control" formControlName='inspectionStatus' [class.is-valid]="maintainEquipmentForm.controls['inspectionStatus'].valid"
+                [class.is-invalid]="maintainEquipmentForm.controls['inspectionStatus'].invalid && (maintainEquipmentForm.controls['inspectionStatus'].dirty || maintainEquipmentForm.controls['inspectionStatus'].touched)">
+          <option value="" disabled>Choose...</option>
+          <option value="1">Open</option>
+          <option value="0">Closed</option>
+        </select>
+        <div [class.invalid-feedback]="maintainEquipmentForm.controls['inspectionStatus'].hasError('required')">
+          <div *ngIf="maintainEquipmentForm.controls['inspectionStatus'].hasError('required')">
+            A status must be selected.
+          </div>
+        </div>
+      </div>
+
+
+      <div class='col-lg-6'>
+        <label>Reason for Maintenance</label>
+        <textarea class="form-control" formControlName='description' readonly></textarea>
+      </div>
+
+      <div class='col-lg-6'>
+        <label>Maintenance Description</label>
+        <textarea class="form-control" formControlName='description2' [class.is-valid]="maintainEquipmentForm.controls['description2'].valid"
+                  [class.is-invalid]="maintainEquipmentForm.controls['description2'].invalid && (maintainEquipmentForm.controls['description2'].dirty || maintainEquipmentForm.controls['description2'].touched)"></textarea>
+        <div [class.invalid-feedback] = "maintainEquipmentForm.controls['description2'].hasError('required')">
+          <div *ngIf="maintainEquipmentForm.controls['description2'].hasError('required')">
+            Maintenance Description is required.
+          </div>
+        </div>
+        <div [class.invalid-feedback] = "maintainEquipmentForm.controls['description2'].hasError('maxlength')">
+          <div *ngIf="maintainEquipmentForm.controls['description2'].hasError('maxlength')">
+            Maintenance Description may only be 100 characters.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <label>Condition Picture</label>
+        <input id="conditionPicture" #conditionPicture type="file" class="form-control-file"
+               accept="image/jpeg,image/png">
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Latest Condition</h5>
+            <img id="currentCondition" *ngIf="image" [src]="image">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              Installed Location
+            </h5>
+            <div class="card-text">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Maintain</button>
+    <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+  </form>
+</div>
+
+<!-- Footer-->
+<app-business-footer></app-business-footer>
