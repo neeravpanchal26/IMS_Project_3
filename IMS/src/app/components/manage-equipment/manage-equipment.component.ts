@@ -19,6 +19,7 @@ export class ManageEquipmentComponent implements OnInit {
     public filter= null;
     public qrSerial = null;
     public subscription:Subscription;
+    public p = null;
 
     constructor(private service: ManageEquipmentService, private toast: ToastrNotificationService,private qrService:QrCodeDecoderService) {
     }

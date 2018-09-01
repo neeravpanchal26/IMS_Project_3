@@ -13,6 +13,7 @@ export class TechManageEquipmentComponent implements OnInit {
     public userID: any;
     public info: any;
     public filter = null;
+    public p = null;
 
     // Default Constructor
     constructor(private tService: TechManageEquipmentService, private lService: LoginService) {

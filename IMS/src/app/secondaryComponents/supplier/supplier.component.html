@@ -22,7 +22,7 @@
 
     <!--Phone input-->
     <label>Contact Number</label>
-    <input type="tel" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addForm.controls['contact'].valid || (addForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addForm.controls['contact'].invalid || addForm == true) && (addForm.controls['contact'].dirty || addForm.controls['contact'].touched)">
+    <input type="tel" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addForm.controls['contact'].valid || (addForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addForm.controls['contact'].invalid || phoneCheck == true) && (addForm.controls['contact'].dirty || addForm.controls['contact'].touched)">
     <div [class.invalid-feedback]="phoneCheck">
       <div *ngIf="phoneCheck">It seems this phone number exists on our system.</div>
     </div>
