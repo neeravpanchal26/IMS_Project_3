@@ -4,7 +4,7 @@
 <div class="container">
   <form (ngSubmit)="updateEquipment(updateEquipmentForm)"[formGroup]="updateEquipmentForm">
     <div class="py-5 text-center">
-      <h1>Update Equipment</h1>
+      <h1>Update Equipment Details</h1>
     </div>
     <div class="form-row">
       <div class="col-sm-6">
@@ -23,43 +23,8 @@
         <input type="text" class="form-control" placeholder="Description" formControlName="desc">
       </div>
     </div>
+    
     <div class="form-row">
-      <div class="col-sm-6">
-        <!-- Cost -->
-        <label>Cost</label>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <b>R</b>
-            </span>
-          </div>
-          <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control" formControlName="cost" [class.is-valid]="updateEquipmentForm.controls['cost'].valid && updateEquipmentForm.controls['cost'].touched" [class.is-invalid]="updateEquipmentForm.controls['cost'].invalid && (updateEquipmentForm.controls['cost'].dirty || updateEquipmentForm.controls['cost'].touched)">
-          <div [class.invalid-feedback] = "updateEquipmentForm.controls['name'].hasError('required')">
-            <div *ngIf="updateEquipmentForm.controls['cost'].hasError('required')">
-              Equipment cost/value is required.
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      <div class="col-sm-6">
-        <!-- Select Condition -->
-        <label>Condition</label>
-        <select type="text" (change)="addCondition($event.target.value)" class="form-control" formControlName="condition" [class.is-valid]="updateEquipmentForm.controls['condition'].valid && updateEquipmentForm.controls['condition'].touched" [class.is-invalid]="updateEquipmentForm.controls['condition'].invalid && (updateEquipmentForm.controls['condition'].dirty || updateEquipmentForm.controls['condition'].touched)">
-          <option value="" disabled selected>Condition</option>
-          <option *ngFor="let c of conditions" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
-          <option value="addCondition">Add New Condition</option>
-        </select>
-        <div [class.invalid-feedback] = "updateEquipmentForm.controls['condition'].hasError('required')">
-          <div *ngIf="updateEquipmentForm.controls['condition'].hasError('required')">
-            The equipment's condition is required.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-
-      
       <div class="col-sm-6">
         <!-- Select Brand -->
         <label>Brand</label>
@@ -104,73 +69,31 @@
           </div>
         </div>
       </div>
-        <!-- Select Date -->
-        <div class="col-sm-6">
-          <label>Date Received</label>
-          <!-- Select Date -->
-          <input type="date" class="form-control" placeholder="Section" formControlName="dateReceived" [class.is-valid]="updateEquipmentForm.controls['dateReceived'].valid && updateEquipmentForm.controls['name'].touched"
-            [class.is-invalid]="updateEquipmentForm.controls['dateReceived'].invalid && (updateEquipmentForm.controls['dateReceived'].dirty || updateEquipmentForm.controls['dateReceived'].touched)">
-            <div class="input-group-append">
-                <button class="input-group-text" (click)="getToday($event)">
-                  <span class="oi oi-calendar"></span> Today
-                </button>
+      <div class="col-sm-6">
+          <!-- Select Supplier -->
+            <label>Supplier</label>
+            <select class="form-control" (change)="addCondition($event.target.value)" formControlName="suppliers" [class.is-valid]="updateEquipmentForm.controls['suppliers'].valid && updateEquipmentForm.controls['suppliers'].touched" [class.is-invalid]="updateEquipmentForm.controls['suppliers'].invalid && (updateEquipmentForm.controls['suppliers'].dirty || updateEquipmentForm.controls['suppliers'].touched)">
+              <option value="" disabled selected>Supplier</option>
+              <option *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
+              <option value="addSupplier">Add New Supplier</option>
+            </select>
+          </div>
+          <div [class.invalid-feedback] = "updateEquipmentForm.controls['suppliers'].hasError('required')">
+            <div *ngIf="updateEquipmentForm.controls['suppliers'].hasError('required')">
+              The equipment's supplier is required.
             </div>
           </div>
-        <div [class.invalid-feedback] = "updateEquipmentForm.controls['dateReceived'].hasError('required')">
-          <div *ngIf="updateEquipmentForm.controls['dateReceived'].hasError('required')">
-            The receival date is required.
-          </div>
-        </div>
     </div>
     <div class="form-row">
-      <div class="col-sm-6">
-        <!-- Type in Barcode -->
-        <label>Barcode</label>
-        <input type="text" class="form-control" placeholder="Barcode" formControlName="barcode" [class.is-valid]="updateEquipmentForm.controls['barcode'].valid && updateEquipmentForm.controls['barcode'].touched" [class.is-invalid]="updateEquipmentForm.controls['barcode'].invalid && (updateEquipmentForm.controls['barcode'].dirty || updateEquipmentForm.controls['barcode'].touched)">
-      </div>
-      <div [class.invalid-feedback] = "updateEquipmentForm.controls['barcode'].hasError('required')">
-          <div *ngIf="updateEquipmentForm.controls['barcode'].hasError('required')">
-            Barcode is required.
-          </div>
-      </div>
-      <div [class.invalid-feedback] = "updateEquipmentForm.controls['barcode'].hasError('maxlength')">
-          <div *ngIf="updateEquipmentForm.controls['barcode'].hasError('maxlength')">
-            Barcode must be 12 characters long.
-          </div>
-      </div>
       <!--<div [class.invalid-feedback] = "updateEquipmentForm.controls['barcode'].hasError('maxlength')">
           
       </div> -->
-      <div class="col-sm-6">
-        <!-- Select Supplier -->
-          <label>Supplier</label>
-          <select class="form-control" (change)="addCondition($event.target.value)" formControlName="suppliers" [class.is-valid]="updateEquipmentForm.controls['suppliers'].valid && updateEquipmentForm.controls['suppliers'].touched" [class.is-invalid]="updateEquipmentForm.controls['suppliers'].invalid && (updateEquipmentForm.controls['suppliers'].dirty || updateEquipmentForm.controls['suppliers'].touched)">
-            <option value="" disabled selected>Supplier</option>
-            <option *ngFor="let s of suppliers" value="{{s.supplierID}}">{{s.Name}}</option>
-            <option value="addSupplier">Add New Supplier</option>
-          </select>
-        </div>
-        <div [class.invalid-feedback] = "updateEquipmentForm.controls['suppliers'].hasError('required')">
-          <div *ngIf="updateEquipmentForm.controls['suppliers'].hasError('required')">
-            The equipment's supplier is required.
-          </div>
-        </div>
+      
     </div>
     <div class="form-row">
-        <div class="col-6">
-            <!--Current Logo-->
-            <div class="card mt-3">
-                
-                <div class="card-body">
-                    <h5 class="card-title" style="text-align: center">Equipment Picture</h5>
-                    <input type="file" class="form-control-file" (change)="readURL($event)" accept="image/jpeg,image/png">
-                <img class="card-img-top" id="image" *ngIf='defaultImage' [src]="defaultImage" (change)="readURL($event)">
-                  </div>
-            </div><br>
-        </div>
       <div class="col-sm-6">
         <!--Add equipment <button--><br>
-        <button type="submit" class="btn btn-primary col-lg-15">Update Equipment</button>
+        <button type="submit" class="btn btn-primary col-lg-15">Update Details</button>
       </div>
     </div>
   </form>

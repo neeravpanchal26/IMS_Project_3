@@ -10,10 +10,6 @@ if($action == 'brand')
 {
     echo json_encode(DBHandler::AddEquipment_Brand());
 }
-else if($action == 'status')
-{
-    echo json_encode(DBHandler::AddEquipment_Status());
-}
 else if($action=='users')
 {
     echo json_encode(DBHandler::AddEquipment_Users());
@@ -21,10 +17,6 @@ else if($action=='users')
 else if ($action=='types')
 {
     echo json_encode(DBHandler::AddEquipment_Types());
-}
-else if ($action=='condition')
-{
-    echo json_encode(DBHandler::AddEquipment_Conditions());
 }
 else if ($action=='section')
 {
@@ -40,15 +32,9 @@ else if($action=='getEquipmentDetails')
     $json = json_decode($incoming);
     echo json_encode(DBHandler::UpdateEquipment_GetEquipmentDetailsViaID($json->id));
 }
-else if($action=='getEquipmentImage')
-{
-    $incoming=file_get_contents('php://input');
-    $json = json_decode($incoming);
-    echo json_encode(DBHandler::UpdateEquipment_GetEquipmentImageViaID($json->id));
-}
 else if($action=='updateEquipment')
 {
     $incoming=file_get_contents('php://input');
     $json = json_decode($incoming);
-    echo json_encode(DBHandler::UpdateEquipment_UpdateEquipment($json->id,$json->name,$json->desc,$json->cost,$json->equipmentCondition,$json->brand,$json->section,$json->type,$json->dateReceived, $json->barcode, $json->supplier));
+    echo json_encode(DBHandler::UpdateEquipment_UpdateEquipment($json->id,$json->name,$json->desc,$json->brand,$json->section,$json->type, $json->supplier));
 }

@@ -13,10 +13,6 @@ export class UpdateEquipmentService {
   {
     return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=getEquipmentDetails', param) as Observable<any>;
   }
-  getEquipmentImage(param:iGetEquipmentDetails)
-  {
-    return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=getEquipmentImage',param) as Observable<any>;
-  }
   UpdateEquipment(param)
   {
     return this.http.post(this.apiURL+'/api/BLL/updateEquipment.php?action=updateEquipment',param);
@@ -24,10 +20,6 @@ export class UpdateEquipmentService {
   GetBrands():Observable<any>
   {
     return this.http.get(this.apiURL+'/api/BLL/updateEquipment.php?action=brand')as Observable<any>;
-  }
-  GetStatus():Observable<any>
-  {
-    return this.http.get(this.apiURL+'/api/BLL/updateEquipment.php?action=status')as Observable<any>;
   }
   GetTypes():Observable<any>
   {
@@ -56,5 +48,5 @@ export interface iGetEquipmentDetails
 }
 export interface iUpdateEquipment
 {
-  id:any,name:any, desc:any, cost:any, equipmentCondition:any, brand:any, section:any, type:any, dateReceived:any, barcode:any, supplier:any
+  id:any,name:any, desc:any, brand:any, section:any, type:any,  supplier:any
 }

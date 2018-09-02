@@ -80,12 +80,12 @@ export class ToastrNotificationService {
     }
 
     //Update of equipment
-    equipmentIsActive(id) {
-        return this.toast.error('Equipment ' + id + ' is currently active.');
+    updateEquipmentSuccess() {
+        return this.toast.success('Update successful');
     }
-
-    updateEquipmentSuccess(id) {
-        return this.toast.success('Equipment ' + id + ' has successfully been updated.');
+    noChange()
+    {
+        return this.toast.warning('Nothing got updated.');
     }
 
     //Manage Equipment

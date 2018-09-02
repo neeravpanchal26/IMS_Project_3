@@ -60,42 +60,45 @@ export class InstallEquipmentComponent implements OnInit {
     }
 
     installEquipment(e) {
-        if (e.value['status'] == '1') {
-            this.active = 1;
-        }
-        else {
-            this.active = 0;
-        }
-        let param: iInstallEquipment =
-        {
-            serial: e.value['serial'],
-            coords: e.value['coords'],
-            userID: this.login.getUserID(),
-            act: this.active,
-            desc: e.value['desc']
-
-        };
-        console.log(param);
-        this.IEService.installation(param).subscribe(result => {
-            let r = result[0];
-            if (r['TRUE'] == 1) {
-                try {
-                    let image = this.newEquipmentImage.nativeElement;
-                    let newImage = image.files[0];
-                    console.log(newImage);
-                    let allowedImages = ['image/jpeg', 'image/png'];
-                    if (allowedImages.indexOf(newImage.type) > -1) {
-                        let frmData = new FormData();
-                        frmData.append('file', newImage);
-                        frmData.append('serial', e.value['serial']);
-                        console.log(frmData);
-                        this.IEService.uploadImage(frmData).subscribe();
-                    }
-                } catch {
-                } this.toastr.installationSuccessful();
+        if (e.valid) {
+            if (e.value['status'] == '1') {
+                this.active = 1;
             }
-        });
+            else {
+                this.active = 0;
+            }
+            let param: iInstallEquipment =
+            {
+                serial: e.value['serial'],
+                coords: e.value['coords'],
+                userID: this.login.getUserID(),
+                act: this.active,
+                desc: e.value['desc']
 
+            };
+            console.log(param);
+            this.IEService.installation(param).subscribe(result => {
+                let r = result[0];
+                if (r['TRUE'] == 1) {
+                    try {
+                        let image = this.newEquipmentImage.nativeElement;
+                        let newImage = image.files[0];
+                        console.log(newImage);
+                        let allowedImages = ['image/jpeg', 'image/png'];
+                        if (allowedImages.indexOf(newImage.type) > -1) {
+                            let frmData = new FormData();
+                            frmData.append('file', newImage);
+                            frmData.append('serial', e.value['serial']);
+                            console.log(frmData);
+                            this.IEService.uploadImage(frmData).subscribe();
+                        }
+                    } catch {
+                    } this.toastr.installationSuccessful();
+                }
+            }, error => console.log(error));
+        } else if (e.invalid) {
+            this.toastr.formFailure();
+        }
     }
 
     loadMap(mymap, lat, long) {
