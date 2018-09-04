@@ -30,6 +30,7 @@ import {QrtestingComponent} from "./components/qrtesting/qrtesting.component";
 import {TechManageEquipmentComponent} from './components/tech-manage-equipment/tech-manage-equipment.component';
 import {MaintainEquipmentComponent} from "./components/maintain-equipment/maintain-equipment.component";
 import {InspectEquipmentComponent} from "./components/inspect-equipment/inspect-equipment.component";
+import {ReportsComponent} from "./components/reports/reports.component";
 
 // Import Secondary components here
 import {CityComponent} from "./secondaryComponents/city/city.component";
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     {path: 'dashboard', canActivate: [LoginGuard], component: DashboardComponent},
     {path: 'usersetting', canActivate: [LoginGuard], component: UserSettingComponent},
     {path: 'userpassword', canActivate: [LoginGuard], component: UserPasswordResetComponent},
+    {path: 'reports', canActivate: [LoginGuard], component: ReportsComponent},
 
     // IT Admin
     {path: 'Add User', canActivate: [LoginGuard], component: AddUserComponent},
@@ -127,5 +129,6 @@ export const routingComponents =
         QrtestingComponent,
         TechManageEquipmentComponent,
         InspectEquipmentComponent,
-        MaintainEquipmentComponent
+        MaintainEquipmentComponent,
+        ReportsComponent
     ];
