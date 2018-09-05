@@ -78,6 +78,10 @@ export class ToastrNotificationService {
     addEquipmentSuccess(name) {
         return this.toast.success('The equipment named ' + name + ' has successfully been added.');
     }
+    serialError(serial)
+    {
+        return this.toast.error('Serial: '+ serial + 'is already in use.');
+    }
 
     //Update of equipment
     updateEquipmentSuccess() {

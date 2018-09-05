@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AddEquipmentService, iAddEquipment} from './add-equipment.service';
-import {GeoLocationService} from '../../globalServices/geolocation.service';
-import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
-import {FormGroup, FormBuilder, Validators, Form} from '../../../../node_modules/@angular/forms';
-import {DatePipe} from '../../../../node_modules/@angular/common';
-import {HttpErrorResponse} from '../../../../node_modules/@angular/common/http';
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
+import { GeoLocationService } from '../../globalServices/geolocation.service';
+import { ToastrNotificationService } from "../../globalServices/toastr-notification.service";
+import { FormGroup, FormBuilder, Validators, Form } from '../../../../node_modules/@angular/forms';
+import { DatePipe } from '../../../../node_modules/@angular/common';
+import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-add-equipment',
@@ -29,13 +29,14 @@ export class AddEquipmentComponent implements OnInit {
     public barcodeError: boolean;
     public today: any;
     public defaultImage: any;
+    public maxDate:any;
 
     constructor(private service: AddEquipmentService,
-                private location: GeoLocationService,
-                private tService: ToastrNotificationService,
-                private fBuilder: FormBuilder,
-                private date: DatePipe,
-                private router:Router) {
+        private location: GeoLocationService,
+        private tService: ToastrNotificationService,
+        private fBuilder: FormBuilder,
+        private date: DatePipe,
+        private router: Router) {
     }
 
     ngOnInit() {
@@ -57,36 +58,36 @@ export class AddEquipmentComponent implements OnInit {
 
     }
 
-    getToday(e) {
-        let now = this.date.transform(this.today, 'yyyy-MM-dd');
-        console.log(now);
+    getToday() {
+        this.maxDate = this.date.transform(this.today, 'yyyy-MM-dd');
 
-        this.addEquipmentForm.controls['dateReceived'].setValue(now);
+        this.addEquipmentForm.controls['dateReceived'].setValue(this.maxDate);
     }
 
     addEquipment(e, type) {
-        if(e.valid) {
+        if (e.valid) {
             let param: iAddEquipment =
-                {
-                    name: e.value['name'],
-                    desc: e.value['desc'],
-                    cost: e.value['cost'],
-                    equipmentCondition: e.value['condition'],
-                    brand: e.value['brand'],
-                    section: e.value['section'],
-                    type: e.value['type'],
-                    dateReceived: e.value['dateReceived'],
-                    barcode: e.value['barcode'],
-                    supplier: e.value['suppliers']
-                };
+            {
+                name: e.value['name'],
+                desc: e.value['desc'],
+                cost: e.value['cost'],
+                equipmentCondition: e.value['condition'],
+                brand: e.value['brand'],
+                section: e.value['section'],
+                type: e.value['type'],
+                dateReceived: e.value['dateReceived'],
+                barcode: e.value['barcode'],
+                supplier: e.value['suppliers']
+            };
             this.service.AddEquipment(param).subscribe(data => {
                 console.log(JSON.stringify(data));
                 let r = data[0];
                 if (r['barcodeError'] == 1) {
                     console.log(r);
-                    this.barcodeError = true;
+                    this.tService.serialError(e.value['barcode']);
                 }
                 else if (r['TRUE'] == 1) {
+
                     this.tService.addEquipmentSuccess(e.value['name']);
                     try {
                         let image = this.newEquipmentImage.nativeElement;
@@ -103,30 +104,31 @@ export class AddEquipmentComponent implements OnInit {
                 }
             });
         }
-        if(e.invalid)
+        if (e.invalid)
             this.tService.formFailure();
     }
 
     // Add Condition
     addCondition(e) {
-        if(e == 'addCondition') {
+        if (e == 'addCondition') {
             this.router.navigate(['condition']);
         }
         else if (e == 'addBrand') {
             this.router.navigate(['brand']);
         }
-        else if (e== 'addSection') {
+        else if (e == 'addSection') {
             this.router.navigate(['section']);
         }
-        else if (e== 'addType') {
+        else if (e == 'addType') {
             this.router.navigate(['type']);
         }
-        else if (e== 'addSupplier') {
+        else if (e == 'addSupplier') {
             this.router.navigate(['supplier']);
         }
     }
 
     buildForm(): void {
+
         this.addEquipmentForm = this.fBuilder.group({
             'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
             'desc': [],
@@ -135,7 +137,7 @@ export class AddEquipmentComponent implements OnInit {
             'brand': ['', Validators.required],
             'section': ['', Validators.required],
             'type': ['', Validators.required],
-            'dateReceived': ['', Validators.required],
+            'dateReceived': ['', Validators.compose([Validators.required,Validators.max(this.maxDate)])],
             'barcode': ['', Validators.compose([Validators.required, Validators.maxLength(24), Validators.minLength(12)])],
             'suppliers': ['', Validators.required]
 
