@@ -1048,7 +1048,7 @@
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="285" parent="2" name="uspReport_ItAdmin_Users">
-      <SourceTextLength>285</SourceTextLength>
+      <SourceTextLength>318</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="286" parent="2" name="uspSecondary_Brand_Add">
@@ -2019,175 +2019,179 @@ LoginDateTime</ColNames>
       <Position>1</Position>
       <DataType>varchar(24)|0s</DataType>
     </argument>
-    <argument id="495" parent="286" name="name">
+    <argument id="495" parent="285" name="cName">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="496" parent="287" name="name">
+    <argument id="496" parent="286" name="name">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="497" parent="288" name="name">
+    <argument id="497" parent="287" name="name">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="498" parent="289" name="name">
+    <argument id="498" parent="288" name="name">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="499" parent="290" name="cityID">
+    <argument id="499" parent="289" name="name">
+      <Position>1</Position>
+      <DataType>varchar(45)|0s</DataType>
+    </argument>
+    <argument id="500" parent="290" name="cityID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="500" parent="290" name="suburbName">
+    <argument id="501" parent="290" name="suburbName">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="501" parent="291" name="supplierName">
+    <argument id="502" parent="291" name="supplierName">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="502" parent="291" name="supplierNumber">
+    <argument id="503" parent="291" name="supplierNumber">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
     </argument>
-    <argument id="503" parent="291" name="email">
+    <argument id="504" parent="291" name="email">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
     </argument>
-    <argument id="504" parent="292" name="name">
+    <argument id="505" parent="292" name="name">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="505" parent="293" name="ID">
+    <argument id="506" parent="293" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="506" parent="294" name="id">
+    <argument id="507" parent="294" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="507" parent="295" name="id">
+    <argument id="508" parent="295" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="508" parent="296" name="id">
+    <argument id="509" parent="296" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="509" parent="296" name="eName">
+    <argument id="510" parent="296" name="eName">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="510" parent="296" name="description">
+    <argument id="511" parent="296" name="description">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="511" parent="296" name="cost">
+    <argument id="512" parent="296" name="cost">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="512" parent="296" name="equipmentCondition">
+    <argument id="513" parent="296" name="equipmentCondition">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="513" parent="296" name="brand">
+    <argument id="514" parent="296" name="brand">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="514" parent="296" name="section">
+    <argument id="515" parent="296" name="section">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="515" parent="296" name="eType">
+    <argument id="516" parent="296" name="eType">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="516" parent="296" name="dateReceived">
+    <argument id="517" parent="296" name="dateReceived">
       <Position>9</Position>
       <DataType>datetime|0s</DataType>
     </argument>
-    <argument id="517" parent="296" name="barcode">
+    <argument id="518" parent="296" name="barcode">
       <Position>10</Position>
       <DataType>varchar(12)|0s</DataType>
     </argument>
-    <argument id="518" parent="296" name="supplier">
+    <argument id="519" parent="296" name="supplier">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="519" parent="297" name="userID">
+    <argument id="520" parent="297" name="userID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="520" parent="297" name="pWord">
+    <argument id="521" parent="297" name="pWord">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="521" parent="298" name="userID">
+    <argument id="522" parent="298" name="userID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="522" parent="298" name="pWord">
+    <argument id="523" parent="298" name="pWord">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="523" parent="299" name="id">
+    <argument id="524" parent="299" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="524" parent="301" name="userID">
+    <argument id="525" parent="301" name="userID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="525" parent="301" name="firstName">
+    <argument id="526" parent="301" name="firstName">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="526" parent="301" name="lastName">
+    <argument id="527" parent="301" name="lastName">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="527" parent="301" name="dob">
+    <argument id="528" parent="301" name="dob">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
     </argument>
-    <argument id="528" parent="301" name="num">
+    <argument id="529" parent="301" name="num">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="529" parent="301" name="email">
+    <argument id="530" parent="301" name="email">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
     </argument>
-    <argument id="530" parent="301" name="address1">
+    <argument id="531" parent="301" name="address1">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="531" parent="301" name="address2">
+    <argument id="532" parent="301" name="address2">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
     </argument>
-    <argument id="532" parent="301" name="sub">
+    <argument id="533" parent="301" name="sub">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="533" parent="302" name="ID">
+    <argument id="534" parent="302" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="534" parent="302" name="STA">
+    <argument id="535" parent="302" name="STA">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="535" parent="303" name="ID">
+    <argument id="536" parent="303" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="536" parent="303" name="STA">
+    <argument id="537" parent="303" name="STA">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </argument>
-    <argument id="537" parent="304" name="id">
+    <argument id="538" parent="304" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </argument>

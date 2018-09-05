@@ -13,8 +13,8 @@ export class ItadminReportsService {
     }
 
     // It Admin users
-    getItAdminUsers(): Observable<any> {
-        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=ItAdminUsers') as Observable<any>;
+    getItAdminUsers(type,city,suburb): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=ItAdminUsers&cityID='+city+'&typeID='+type+'&suburbID='+suburb) as Observable<any>;
     }
 
     // Get user types

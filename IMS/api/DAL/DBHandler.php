@@ -417,9 +417,10 @@ class DBHandler
     }
 
     // It Admin Reports
-    public static function Report_ItAdmin_Users()
+    public static function Report_ItAdmin_Users($cityID,$userType,$suburbID)
     {
-        $sp = 'CALL uspReport_ItAdmin_Users';
-        return DBHelper::Select($sp);
+        $sp = 'CALL uspReport_ItAdmin_Users(?,?,?)';
+        $param = array(&$cityID,&$userType,&$suburbID);
+        return DBHelper::SelectParam($sp,$param);
     }
 }

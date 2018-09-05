@@ -1,24 +1,25 @@
 <div class="form-control">
-    <h1 class="text-dark">Sort By:</h1>
+    <h1 class="text-dark">Filter By:</h1>
+    <button class="btn btn-outline-primary float-right">Generate PDF</button>
     <div class="row">
         <div class="col-lg-4">
             <label>Types</label>
-            <select class="form-control">
-                <option value="" disabled>Please choose...</option>
+            <select class="form-control" (change)="selection($event.target.value,null,null)">
+                <option value="">Please choose...</option>
                 <option *ngFor="let t of type" [value]="t.UserTypeID">{{t.UserTypeDesc}}</option>
             </select>
         </div>
         <div class="col-lg-4">
             <label>City</label>
-            <select class="form-control">
-                <option value="" disabled>Please choose...</option>
+            <select class="form-control" (change)="selection(null,$event.target.value,null)">
+                <option value="">Please choose...</option>
                 <option *ngFor="let c of city" [value]="c.cityID">{{c.cityName}}</option>
             </select>
         </div>
         <div class="col-lg-4">
             <label>Suburb</label>
-            <select class="form-control">
-                <option value="" disabled>Please choose...</option>
+            <select class="form-control" (change)="selection(null,null,$event.target.value)">
+                <option value="">Please choose...</option>
                 <option *ngFor="let s of suburb" [value]="s.SuburbID">{{s.suburbName}}</option>
             </select>
         </div>
@@ -32,6 +33,9 @@
     <th>Type</th>
     <th>City</th>
     <th>Suburb</th>
+    <tr *ngIf="users.length == 0" class="text-center">
+        <td colspan="6">No record exists</td>
+    </tr>
     <tr *ngFor="let u of users">
         <td>{{u.UserID}}</td>
         <td>{{u.User}}</td>
