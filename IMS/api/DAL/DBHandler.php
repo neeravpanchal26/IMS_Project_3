@@ -415,4 +415,11 @@ class DBHandler
         $sp = 'CALL uspMaintainEquipment_InsertImage(?,?)';
         return DBHelper::BlobUploadByID($sp,$image,$serial);
     }
+
+    // It Admin Reports
+    public static function Report_ItAdmin_Users()
+    {
+        $sp = 'CALL uspReport_ItAdmin_Users';
+        return DBHelper::Select($sp);
+    }
 }

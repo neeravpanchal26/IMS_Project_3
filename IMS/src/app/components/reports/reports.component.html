@@ -3,6 +3,17 @@
 
 <div class="container">
   <h1 class="py-5 text-center">Reports</h1>
+
+  <div *ngIf="userType==1">
+    <app-itadmin-reports></app-itadmin-reports>
+  </div>
+  <div *ngIf="userType==2">
+    <app-technical-reports></app-technical-reports>
+  </div>
+  <div *ngIf="userType==3">
+    <app-section-reports></app-section-reports>
+  </div>
+
 </div>
 
 <!-- Footer-->

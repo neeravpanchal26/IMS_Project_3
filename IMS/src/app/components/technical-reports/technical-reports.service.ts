@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ReportsService {
+export class TechnicalReportsService {
 
   constructor() { }
 

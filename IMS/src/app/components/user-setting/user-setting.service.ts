@@ -16,6 +16,7 @@ export class UserSettingService {
     getSpecificUser(SpecificUser): Observable<any[]> {
         return this.http.get(this.apiUrl+'/api/BLL/userSetting.php?action=specificUser&userID='+SpecificUser)as Observable<any[]>;
     }
+
     // Get all suburbs
     getAllSuburb():Observable<any[]> {
         return this.http.get(this.apiUrl+'/api/BLL/userSetting.php?action=suburb') as Observable<any[]>;

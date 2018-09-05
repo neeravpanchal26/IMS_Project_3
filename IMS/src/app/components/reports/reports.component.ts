@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from "../login/login.service";
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.css']
+    selector: 'app-reports',
+    templateUrl: './reports.component.html',
+    styleUrls: ['./reports.component.css']
 })
 export class ReportsComponent implements OnInit {
+    // Global Variable
+    public userType;
 
-  constructor() { }
+    // Default Constructor
+    constructor(private lService:LoginService) {
+    }
 
-  ngOnInit() {
-  }
+    // Form Load
+    ngOnInit() {
+        this.userType=this.lService.getUserType();
+    }
 
 }

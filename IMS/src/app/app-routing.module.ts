@@ -1,14 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
+
 // Import Guards here
 import {LoginGuard} from "./components/login/login.guard";
+
 // Import Global Services here
 import {LoginService} from "./components/login/login.service";
 import {ToastrNotificationService} from "./globalServices/toastr-notification.service";
 import {QrCodeDecoderService} from "./globalServices/qr-code-decoder.service";
 import {ImageRetrieveService} from "./globalServices/image-retrieve.service";
 import {GeoLocationService} from "./globalServices/geolocation.service";
+
 // Import Components here
 import {LoginComponent} from './components/login/login.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -31,6 +34,9 @@ import {TechManageEquipmentComponent} from './components/tech-manage-equipment/t
 import {MaintainEquipmentComponent} from "./components/maintain-equipment/maintain-equipment.component";
 import {InspectEquipmentComponent} from "./components/inspect-equipment/inspect-equipment.component";
 import {ReportsComponent} from "./components/reports/reports.component";
+import {ItadminReportsComponent} from "./components/itadmin-reports/itadmin-reports.component";
+import {TechnicalReportsComponent} from "./components/technical-reports/technical-reports.component";
+import {SectionReportsComponent} from "./components/section-reports/section-reports.component";
 
 // Import Secondary components here
 import {CityComponent} from "./secondaryComponents/city/city.component";
@@ -130,5 +136,8 @@ export const routingComponents =
         TechManageEquipmentComponent,
         InspectEquipmentComponent,
         MaintainEquipmentComponent,
-        ReportsComponent
+        ReportsComponent,
+        ItadminReportsComponent,
+        TechnicalReportsComponent,
+        SectionReportsComponent
     ];
