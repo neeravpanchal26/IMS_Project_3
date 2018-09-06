@@ -1,47 +1,71 @@
 <div class="form-control">
-    <h1 class="text-dark">Filter By:</h1>
-    <button class="btn btn-outline-primary float-right">Generate PDF</button>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-dark float-left">Filter By:</h1>
+            <button type="button" class="btn btn-primary float-right mt-2" [disabled]="users.length==0"
+                    (click)="onClick()">Export to PDF
+            </button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-4">
             <label>Types</label>
             <select class="form-control" (change)="selection($event.target.value,null,null)">
                 <option value="">Please choose...</option>
-                <option *ngFor="let t of type" [value]="t.UserTypeID">{{t.UserTypeDesc}}</option>
+                <option *ngFor="let t of type" [value]="t.UserTypeDesc">{{t.UserTypeDesc}}</option>
             </select>
         </div>
         <div class="col-lg-4">
             <label>City</label>
             <select class="form-control" (change)="selection(null,$event.target.value,null)">
                 <option value="">Please choose...</option>
-                <option *ngFor="let c of city" [value]="c.cityID">{{c.cityName}}</option>
+                <option *ngFor="let c of city" [value]="c.cityName">{{c.cityName}}</option>
             </select>
         </div>
         <div class="col-lg-4">
             <label>Suburb</label>
             <select class="form-control" (change)="selection(null,null,$event.target.value)">
                 <option value="">Please choose...</option>
-                <option *ngFor="let s of suburb" [value]="s.SuburbID">{{s.suburbName}}</option>
+                <option *ngFor="let s of suburb" [value]="s.suburbName">{{s.suburbName}}</option>
             </select>
         </div>
     </div>
 </div>
 <br/>
-<table class="table table-striped table-responsive-lg table-sm">
-    <th>ID</th>
-    <th>User</th>
-    <th>Mobile Number</th>
-    <th>Type</th>
-    <th>City</th>
-    <th>Suburb</th>
-    <tr *ngIf="users.length == 0" class="text-center">
-        <td colspan="6">No record exists</td>
-    </tr>
-    <tr *ngFor="let u of users">
-        <td>{{u.UserID}}</td>
-        <td>{{u.User}}</td>
-        <td>{{u.ContactNumber}}</td>
-        <td>{{u.Type}}</td>
-        <td>{{u.cityName}}</td>
-        <td>{{u.suburbName}}</td>
-    </tr>
-</table>
+<div id="Report">
+    <div class="row">
+        <div class="col-12">
+            <div class="float-left">
+                <span class="text-right">{{business.BusinessName}}</span><br>
+                <span class="text-right">{{business.Email}}</span><br>
+                <span class="text-right">{{business.contact}}</span><br>
+                <span class="text-right">{{currentDateTime | date:'medium'}}</span>
+                <h1>Users Report</h1>
+            </div>
+            <img class="float-right" *ngIf="businessLogo" [src]="businessLogo" width="150" height="150">
+        </div>
+    </div>
+    <table class="table table-responsive-lg table-sm">
+        <thead>
+        <tr class="bg-light">
+            <th (click)="sort('UserID')" class="btn-link">ID</th>
+            <th (click)="sort('User')" class="btn-link">User</th>
+            <th>Mobile Number</th>
+            <th (click)="sort('Type')" class="btn-link">Type</th>
+            <th (click)="sort('cityName')" class="btn-link">City</th>
+            <th (click)="sort('suburbName')" class="btn-link">Suburb</th>
+        </tr>
+        </thead>
+        <tr *ngIf="users.length == 0" class="text-center">
+            <td colspan="6">No record exists</td>
+        </tr>
+        <tr *ngFor="let u of users | orderBy: key : reverse">
+            <td>{{u.UserID}}</td>
+            <td>{{u.User}}</td>
+            <td>{{u.ContactNumber}}</td>
+            <td>{{u.Type}}</td>
+            <td>{{u.cityName}}</td>
+            <td>{{u.suburbName}}</td>
+        </tr>
+    </table>
+</div>

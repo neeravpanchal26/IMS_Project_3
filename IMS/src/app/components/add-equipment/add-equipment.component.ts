@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddEquipmentService, iAddEquipment } from './add-equipment.service';
-import { GeoLocationService } from '../../globalServices/geolocation.service';
-import { ToastrNotificationService } from "../../globalServices/toastr-notification.service";
-import { FormGroup, FormBuilder, Validators, Form } from '../../../../node_modules/@angular/forms';
-import { DatePipe } from '../../../../node_modules/@angular/common';
-import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
-import { Router } from "@angular/router";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AddEquipmentService, iAddEquipment} from './add-equipment.service';
+import {GeoLocationService} from '../../globalServices/geolocation.service';
+import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import {FormGroup, FormBuilder, Validators, Form} from '../../../../node_modules/@angular/forms';
+import {DatePipe} from '../../../../node_modules/@angular/common';
+import {HttpErrorResponse} from '../../../../node_modules/@angular/common/http';
+import {Router} from "@angular/router";
+import {Location} from "../../../../node_modules/@angular/common";
 
 @Component({
     selector: 'app-add-equipment',
@@ -29,14 +30,15 @@ export class AddEquipmentComponent implements OnInit {
     public barcodeError: boolean;
     public today: any;
     public defaultImage: any;
-    public maxDate:any;
+    public maxDate: any;
 
     constructor(private service: AddEquipmentService,
-        private location: GeoLocationService,
-        private tService: ToastrNotificationService,
-        private fBuilder: FormBuilder,
-        private date: DatePipe,
-        private router: Router) {
+                private location: GeoLocationService,
+                private tService: ToastrNotificationService,
+                private fBuilder: FormBuilder,
+                private date: DatePipe,
+                private router: Router,
+                private l: Location) {
     }
 
     ngOnInit() {
@@ -67,18 +69,18 @@ export class AddEquipmentComponent implements OnInit {
     addEquipment(e, type) {
         if (e.valid) {
             let param: iAddEquipment =
-            {
-                name: e.value['name'],
-                desc: e.value['desc'],
-                cost: e.value['cost'],
-                equipmentCondition: e.value['condition'],
-                brand: e.value['brand'],
-                section: e.value['section'],
-                type: e.value['type'],
-                dateReceived: e.value['dateReceived'],
-                barcode: e.value['barcode'],
-                supplier: e.value['suppliers']
-            };
+                {
+                    name: e.value['name'],
+                    desc: e.value['desc'],
+                    cost: e.value['cost'],
+                    equipmentCondition: e.value['condition'],
+                    brand: e.value['brand'],
+                    section: e.value['section'],
+                    type: e.value['type'],
+                    dateReceived: e.value['dateReceived'],
+                    barcode: e.value['barcode'],
+                    supplier: e.value['suppliers']
+                };
             this.service.AddEquipment(param).subscribe(data => {
                 console.log(JSON.stringify(data));
                 let r = data[0];
@@ -127,6 +129,11 @@ export class AddEquipmentComponent implements OnInit {
         }
     }
 
+    // Locate Back
+    locateBack() {
+        this.l.back();
+    }
+
     buildForm(): void {
 
         this.addEquipmentForm = this.fBuilder.group({
@@ -137,7 +144,7 @@ export class AddEquipmentComponent implements OnInit {
             'brand': ['', Validators.required],
             'section': ['', Validators.required],
             'type': ['', Validators.required],
-            'dateReceived': ['', Validators.compose([Validators.required,Validators.max(this.maxDate)])],
+            'dateReceived': ['', Validators.compose([Validators.required, Validators.max(this.maxDate)])],
             'barcode': ['', Validators.compose([Validators.required, Validators.maxLength(24), Validators.minLength(12)])],
             'suppliers': ['', Validators.required]
 

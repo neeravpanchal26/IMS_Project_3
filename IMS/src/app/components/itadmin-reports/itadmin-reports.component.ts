@@ -1,12 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ItadminReportsService} from "./itadmin-reports.service";
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import {ImageRetrieveService} from "../../globalServices/image-retrieve.service";
+import {DatePipe} from "@angular/common";
+import * as jsPdf from 'jspdf';
+import * as html2Canvas from 'html2canvas';
 
 @Component({
     selector: 'app-itadmin-reports',
     templateUrl: './itadmin-reports.component.html',
     styleUrls: ['./itadmin-reports.component.css'],
-    providers: [ItadminReportsService]
+    providers: [ItadminReportsService,DatePipe]
 })
 export class ItadminReportsComponent implements OnInit {
     // Global Variables
@@ -14,17 +18,28 @@ export class ItadminReportsComponent implements OnInit {
     public type: any;
     public suburb: any;
     public city: any;
-    public uType: null;
-    public uCity: null;
-    public uSuburb: null;
+    public uType = '';
+    public uCity = '';
+    public uSuburb = '';
+    public businessLogo: any;
+    public currentDateTime:any;
+    public business:any;
 
     // Default Constructor
     constructor(private service: ItadminReportsService,
-                private tService: ToastrNotificationService) {
+                private tService: ToastrNotificationService,
+                private iService: ImageRetrieveService,
+                private dt:DatePipe) {
     }
 
     // Form Load
     ngOnInit() {
+        // Load Logo
+        this.iService.getLogo()
+            .subscribe(
+                data => this.businessLogo = this.iService.selectPhoto(data),
+                error => this.tService.handleError(error));
+
         // Users Load up
         this.service.getItAdminUsers(this.uType, this.uCity, this.uSuburb)
             .subscribe(data => this.users = data,
@@ -45,6 +60,15 @@ export class ItadminReportsComponent implements OnInit {
         this.service.getAllSuburb()
             .subscribe(data => this.suburb = data,
                 error1 => this.tService.handleError(error1));
+
+        // Current Date time
+        this.currentDateTime = Date.now();
+
+        // Business Info Load up
+        this.service.getBusinessInfo()
+            .subscribe(
+                data => this.business = data[0],
+                error=> this.tService.handleError(error));
     }
 
     // Filter Selection
@@ -60,5 +84,37 @@ export class ItadminReportsComponent implements OnInit {
         this.service.getItAdminUsers(this.uType, this.uCity, this.uSuburb)
             .subscribe(data => this.users = data,
                 error1 => this.tService.handleError(error1));
+    }
+
+    // Sorting
+    key: string = 'Active'; //set default
+    reverse: boolean = false;
+
+    // Sorting method
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
+
+    // Qr to PDF
+    onClick() {
+        let data = document.getElementById('Report');
+        html2Canvas(data).then(
+            canvas => {
+                // Image settings
+                let imgWidth = 285;
+                let pageHeight = canvas.height;
+                let imgHeight = canvas.height * imgWidth / canvas.width;
+                let heightLeft = imgHeight;
+
+                const contentDataURL = canvas.toDataURL('image/png');
+                // A4 size page of PDF
+                let pdf = new jsPdf('l', 'mm', 'a4');
+                let topPx = 5;
+                let leftPx = 5;
+                pdf.addImage(contentDataURL, 'PNG', leftPx, topPx, imgWidth, imgHeight);
+                // Generated PDF
+                pdf.save(this.currentDateTime + '.pdf');
+            });
     }
 }

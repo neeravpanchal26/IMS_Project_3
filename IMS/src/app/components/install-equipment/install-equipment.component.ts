@@ -8,6 +8,7 @@ import { QrCodeDecoderService } from '../../globalServices/qr-code-decoder.servi
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from "../../../environments/environment";
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'app-install-equipment',
@@ -18,7 +19,7 @@ import { environment } from "../../../environments/environment";
 export class InstallEquipmentComponent implements OnInit {
 
     constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
-        private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder) {
+        private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder,private location:Location) {
     }
     @ViewChild('EquipmentImage') newEquipmentImage;
     public lat: any;
@@ -146,6 +147,11 @@ export class InstallEquipmentComponent implements OnInit {
 
     compareFn(c1: any, c2: any): boolean {
         return c1 && c2 ? c1.id === c2.id : c1 === c2;
+    }
+
+    // Locate Back
+    locateBack() {
+        this.location.back();
     }
 
     buildForm(): void {

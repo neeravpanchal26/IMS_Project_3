@@ -14,7 +14,7 @@ export class ItadminReportsService {
 
     // It Admin users
     getItAdminUsers(type,city,suburb): Observable<any> {
-        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=ItAdminUsers&cityID='+city+'&typeID='+type+'&suburbID='+suburb) as Observable<any>;
+        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=ItAdminUsers&cName='+city+'&uType='+type+'&sName='+suburb) as Observable<any>;
     }
 
     // Get user types
@@ -30,5 +30,10 @@ export class ItadminReportsService {
     // Get all suburbs
     getAllSuburb(): Observable<any[]> {
         return this.http.get(this.apiUrl + '/api/BLL/userSetting.php?action=suburb') as Observable<any[]>;
+    }
+
+    // Business info load
+    getBusinessInfo():Observable<any> {
+        return this.http.get(this.apiUrl+'/api/BLL/business.php?action=info') as Observable <any>;
     }
 }

@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder, Form } from '../../../../node_modul
 import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router';
 import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
 import { DatePipe } from '@angular/common';
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'app-update-equipment',
@@ -14,7 +15,7 @@ import { DatePipe } from '@angular/common';
 export class UpdateEquipmentComponent implements OnInit {
 
     constructor(private service: UpdateEquipmentService, private fBuilder: FormBuilder, private aRouter: ActivatedRoute, private toastr: ToastrNotificationService,
-        private date: DatePipe, private router: Router) {
+        private date: DatePipe, private router: Router,private location:Location) {
     }
 
     public brands: any;
@@ -104,6 +105,11 @@ export class UpdateEquipmentComponent implements OnInit {
         else if (e == 'addSupplier') {
             this.router.navigate(['supplier']);
         }
+    }
+
+    // Locate Back
+    locateBack() {
+        this.location.back();
     }
 
     buildForm(): void {

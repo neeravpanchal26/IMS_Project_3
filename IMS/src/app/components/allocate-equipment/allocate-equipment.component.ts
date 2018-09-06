@@ -5,6 +5,7 @@ import {DatePipe} from '../../../../node_modules/@angular/common';
 import {ActivatedRoute} from '../../../../node_modules/@angular/router';
 import {FormBuilder, FormGroup, Validators} from '../../../../node_modules/@angular/forms';
 import {environment} from "../../../environments/environment";
+import {Location} from "../../../../node_modules/@angular/common";
 
 @Component({
     selector: 'app-allocate-equipment',
@@ -18,7 +19,8 @@ export class AllocateEquipmentComponent implements OnInit {
                 private tService: ToastrNotificationService,
                 private date: DatePipe,
                 private router: ActivatedRoute,
-                private formBuilder: FormBuilder) {
+                private formBuilder: FormBuilder,
+                private location:Location) {
     }
 
     public equipment: any;
@@ -74,6 +76,11 @@ export class AllocateEquipmentComponent implements OnInit {
         }
         else if (e.invalid)
             this.tService.formFailure();
+    }
+
+    // Locate Back
+    locateBack() {
+        this.location.back();
     }
 
     buildForm(): void {

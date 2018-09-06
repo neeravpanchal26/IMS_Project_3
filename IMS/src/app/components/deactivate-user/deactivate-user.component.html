@@ -3,50 +3,56 @@
 
 <!--Reactivate/Deactivate Form-->
 <div class="container">
-  <!--Heading-->
-  <h1 class="py-5 text-center">Manage Users</h1>
+    <!--Heading-->
+    <h1 class="py-5 text-center">Manage Users</h1>
 
-  <!--Search Input-->
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <div class="input-group-text">
-        <span class="oi oi-magnifying-glass"></span>
-      </div>
+    <!--Search Input-->
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <span class="oi oi-magnifying-glass"></span>
+            </div>
+        </div>
+        <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
     </div>
-    <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
-  </div>
-  <br>
+    <br>
 
-  <!--Users Table-->
-  <table class="table table-responsive-sm table-sm table-hover">
-    <thead><tr class="bg-light">
-      <th (click)="sort('info')" class="btn-link">Full Name</th>
-      <th (click)="sort('Email')" class="btn-link">Email</th>
-      <th (click)="sort('Type')" class="btn-link">Role</th>
-      <th (click)="sort('Active')" class="btn-link">Status</th>
-      <th>Security</th>
-    </tr></thead>
-    <tr *ngFor="let u of users | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };">
-      <td>{{u.info}}</td>
-      <td>{{u.Email}}</td>
-      <td>
-        <select class="form-control-sm" (change)="userTypeFunc(u.UserID,$event,u.info)">
-          <option *ngFor="let ut of userType" [value]="ut.UserTypeID" [selected]="ut.UserTypeID == u.Type">{{ut.UserTypeDesc}}</option>
-        </select>
-      </td>
-      <td>
-        <ui-switch color="#007BFF" size="small" [checked]="u.Active==1" (change)="updateUser(u.UserID,$event,u.info)"></ui-switch>
-      </td>
-      <td>
-        <a routerLink="/Reset password/{{u.UserID}}">Reset Password</a>
-      </td>
-    </tr>
-  </table>
-  <div class="row">
-    <div class="col-lg-12">
-      <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="users.length<=10"></pagination-controls>
+    <!--Users Table-->
+    <table class="table table-responsive-sm table-sm table-hover">
+        <thead>
+        <tr class="bg-light">
+            <th (click)="sort('info')" class="btn-link">Full Name</th>
+            <th (click)="sort('Email')" class="btn-link">Email</th>
+            <th (click)="sort('Type')" class="btn-link">Role</th>
+            <th (click)="sort('Active')" class="btn-link">Status</th>
+            <th>Security</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let u of users | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };">
+            <td>{{u.info}}</td>
+            <td>{{u.Email}}</td>
+            <td>
+                <select class="form-control-sm" (change)="userTypeFunc(u.UserID,$event,u.info)">
+                    <option *ngFor="let ut of userType" [value]="ut.UserTypeID" [selected]="ut.UserTypeID == u.Type">
+                        {{ut.UserTypeDesc}}
+                    </option>
+                </select>
+            </td>
+            <td>
+                <ui-switch color="#007BFF" size="small" [checked]="u.Active==1"
+                           (change)="updateUser(u.UserID,$event,u.info)"></ui-switch>
+            </td>
+            <td>
+                <a routerLink="/Reset password/{{u.UserID}}">Reset Password</a>
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-lg-12">
+            <pagination-controls (pageChange)="p = $event" class="my-pagination float-right"
+                                 [autoHide]="users.length<=10"></pagination-controls>
+        </div>
     </div>
-  </div>
 </div>
 
 <!--Footer-->

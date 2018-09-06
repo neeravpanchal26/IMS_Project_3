@@ -118,6 +118,11 @@ export class UserSettingComponent implements OnInit {
         }
     }
 
+    // Locate Back
+    locateBack() {
+        this.location.back();
+    }
+
     // Form Builder
     buildForm(): void {
         let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";

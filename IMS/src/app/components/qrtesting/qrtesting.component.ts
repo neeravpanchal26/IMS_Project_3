@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Location} from "@angular/common";
 
 // Div to image to PDF
 import * as jsPdf from 'jspdf';
@@ -19,7 +20,8 @@ export class QrtestingComponent implements OnInit {
 
     // Default Constructor
     constructor(private active: ActivatedRoute,
-                private service: ManageEquipmentService) {
+                private service: ManageEquipmentService,
+                private location: Location) {
     }
 
     // Form Load
@@ -30,6 +32,11 @@ export class QrtestingComponent implements OnInit {
         // Get equipment info by serial
         this.service.getEquipmentBySerial(this.qrSerial)
             .subscribe(data => this.equipment = data[0]);
+    }
+
+    // Locate Back
+    locateBack() {
+        this.location.back();
     }
 
     // Qr to PDF

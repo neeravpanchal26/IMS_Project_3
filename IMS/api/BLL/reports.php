@@ -14,8 +14,8 @@ $action = $_GET['action'];
 
 if($action == 'ItAdminUsers')
 {
-    $cityID = ''.json_decode($_GET['cityID']).'';
-    $typeID = ''.json_decode($_GET['typeID']).'';
-    $suburbID = ''.json_decode( $_GET['suburbID']).'';
-    echo json_encode(DBHandler::Report_ItAdmin_Users($cityID,$typeID,$suburbID));
+    $cName = $_GET['cName'];
+    $uType = $_GET['uType'];
+    $sName = $_GET['sName'];
+    echo json_encode(DBHandler::Report_ItAdmin_Users($cName,$uType,$sName));
 }
