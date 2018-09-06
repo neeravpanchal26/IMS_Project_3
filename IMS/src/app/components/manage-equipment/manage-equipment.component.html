@@ -50,7 +50,7 @@
                                        (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
                         </td>
                         <td>{{i.StatusDescription}}</td>
-                        <td><button routerLink="/Allocate Equipment/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Allocate job</button></td>
+                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Allocate job</a></td>
                         <td><a routerLink="/Update details/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Update details</a></td>
                         <td><a routerLink="/qr/{{i.Serial}}" class="btn btn-sm btn-outline-primary">Qr Code</a></td>
                     </tr>

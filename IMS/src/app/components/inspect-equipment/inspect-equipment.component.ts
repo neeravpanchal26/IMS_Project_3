@@ -83,6 +83,9 @@ export class InspectEquipmentComponent implements OnInit {
                         this.tService.geolocationBrowserNotSupportive();
                     }
                 });
+
+        // Blank Image Load up
+        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
     }
 
     // Individual Equipment Load
@@ -103,7 +106,12 @@ export class InspectEquipmentComponent implements OnInit {
                 error => this.tService.handleError(error));
         // Equipment Image
         this.service.getEquipmentImageBySerial(e)
-            .subscribe(data => this.image = this.iService.selectPhoto(data),
+            .subscribe(data =>
+                {
+                    this.image = this.iService.selectPhoto(data);
+                    if(data.size == 0)
+                        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
+                    },
                 error=>this.tService.handleError(error));
     }
 
