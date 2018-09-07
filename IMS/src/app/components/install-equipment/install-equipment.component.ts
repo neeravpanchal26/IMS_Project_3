@@ -78,7 +78,6 @@ export class InstallEquipmentComponent implements OnInit {
                     desc: e.value['desc']
 
                 };
-            console.log(param);
             this.IEService.installation(param).subscribe(result => {
                 let r = result[0];
                 if (r['TRUE'] == 1) {
@@ -86,19 +85,17 @@ export class InstallEquipmentComponent implements OnInit {
                     try {
                         let image = this.newEquipmentImage.nativeElement;
                         let newImage = image.files[0];
-                        console.log(newImage);
                         let allowedImages = ['image/jpeg', 'image/png'];
                         if (allowedImages.indexOf(newImage.type) > -1) {
                             let frmData = new FormData();
                             frmData.append('file', newImage);
                             frmData.append('serial', e.value['serial']);
-                            console.log(frmData);
                             this.IEService.uploadImage(frmData).subscribe();
                         }
                     } catch {
                     }
                 }
-            }, error => console.log(error));
+            }, error =>this.toastr.handleError(error) );
         }
         else if (e.invalid) {
             this.toastr.formFailure();

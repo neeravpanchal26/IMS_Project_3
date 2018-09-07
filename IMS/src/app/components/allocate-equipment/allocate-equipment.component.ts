@@ -38,7 +38,7 @@ export class AllocateEquipmentComponent implements OnInit {
     ngOnInit() {
         this.id = parseInt(this.router.snapshot.paramMap.get('id'));
         let param: iEquipment = {id: this.id};
-        this.service.getEquipmentDetails(param).subscribe(data => console.log(this.equipment = data[0]));
+        this.service.getEquipmentDetails(param).subscribe(data => this.equipment = data[0]);
         this.getImage(param);
         this.service.getTechEmployees().subscribe(data => this.techEmployees = data);
         this.service.getAllocationTypes().subscribe(data => this.allocationTypes = data);
@@ -63,13 +63,9 @@ export class AllocateEquipmentComponent implements OnInit {
             let param: iAllocation = {
                 desc: e.value['desc'], alType: e.value['allocation'], equipmentID: this.id, userID: e.value['user']
             };
-            console.log(JSON.stringify(param));
             this.service.allocateEquipment(param).subscribe(data => {
                     if (data == true) {
                         this.tService.allocationSuccess(this.id, uID);
-                    }
-                    else {
-                        console.log("something went wrong.");
                     }
                 },
                 error => this.tService.handleError(error));

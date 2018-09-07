@@ -22,9 +22,8 @@ export class TechManageEquipmentComponent implements OnInit {
     // Form Load
     ngOnInit() {
         this.userID = this.lService.getUserID();
-        console.log(this.userID);
         let param: iUserID = {id: this.userID}
-        this.tService.getInfo(param).subscribe(data => console.log(this.info = data));
+        this.tService.getInfo(param).subscribe(data => this.info = data);
     }
 
     // Sorting

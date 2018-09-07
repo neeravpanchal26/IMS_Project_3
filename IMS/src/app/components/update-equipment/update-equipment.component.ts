@@ -71,7 +71,6 @@ export class UpdateEquipmentComponent implements OnInit {
                 type: e.value['type'],
                 supplier: e.value['suppliers']
             }
-            console.log(param);
             this.service.UpdateEquipment(param).subscribe(data=>
             {
                 let r=data[0];

@@ -82,10 +82,8 @@ export class AddEquipmentComponent implements OnInit {
                     supplier: e.value['suppliers']
                 };
             this.service.AddEquipment(param).subscribe(data => {
-                console.log(JSON.stringify(data));
                 let r = data[0];
                 if (r['barcodeError'] == 1) {
-                    console.log(r);
                     this.tService.serialError(e.value['barcode']);
                 }
                 else if (r['TRUE'] == 1) {
@@ -94,7 +92,6 @@ export class AddEquipmentComponent implements OnInit {
                     try {
                         let image = this.newEquipmentImage.nativeElement;
                         let newImage = image.files[0];
-                        console.log(newImage);
                         let allowedImages = ['image/jpeg', 'image/png'];
                         if (allowedImages.indexOf(newImage.type) > -1) {
                             let frmData = new FormData();
