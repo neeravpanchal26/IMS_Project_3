@@ -1,3 +1,83 @@
-<p>
-  technical-reports works!
-</p>
+<div class="form-control">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-dark float-left">Filter By:</h1>
+            <button type="button" class="btn btn-primary float-right mt-2" [disabled]="equipment.length==0"
+                    (click)="onClick()">Export to PDF
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="startDate">Start Date</label>
+            <input id="startDate" type="date" class="form-control"
+                   (change)="selection($event.target.value,null,null,null)">
+        </div>
+        <div class="col-lg-6">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" class="form-control"
+                   (change)="selection(null,$event.target.value,null,null)">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="allocation">Allocation Type</label>
+            <select id="allocation" class="form-control" (change)="selection(null,null,$event.target.value,null)">
+                <option value="">Please choose...</option>
+                <option *ngFor="let t of allocationType" [value]="t.TypeDesc">{{t.TypeDesc}}</option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <label for="condition">Condition</label>
+            <select id="condition" class="form-control" (change)="selection(null,null,null,$event.target.value)">
+                <option value="">Please choose...</option>
+                <option *ngFor="let c of condition" [value]="c.ConditionDesc">{{c.ConditionDesc}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<br/>
+<div id="Report">
+    <div class="row">
+        <div class="col-12">
+            <div class="float-left">
+                <span class="text-right">{{business.BusinessName}}</span><br>
+                <span class="text-right">{{business.Email}}</span><br>
+                <span class="text-right">{{business.contact}}</span><br>
+                <span class="text-right">{{currentDateTime | date:'medium'}}</span>
+                <h1>Equipment History Report</h1>
+            </div>
+            <img class="float-right" *ngIf="businessLogo" [src]="businessLogo" width="150" height="150">
+        </div>
+    </div>
+    <table class="table table-responsive-lg table-sm">
+        <thead>
+        <tr class="bg-light">
+            <th (click)="sort('EquipmentID')" class="btn-link">ID</th>
+            <th (click)="sort('Name')" class="btn-link">Name</th>
+            <th>Desc</th>
+            <th (click)="sort('Value')" class="btn-link">Value</th>
+            <th (click)="sort('Date')" class="btn-link">Date</th>
+            <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
+            <th (click)="sort('TypeDesc')" class="btn-link">Type</th>
+            <th (click)="sort('Active')" class="btn-link">Status</th>
+        </tr>
+        </thead>
+        <tr *ngIf="equipment.length == 0" class="text-center">
+            <td colspan="8">No record exists</td>
+        </tr>
+        <tr *ngFor="let e of equipment | orderBy: key : reverse">
+            <td>{{e.EquipmentID}}</td>
+            <td>{{e.Name}}</td>
+            <td>{{e.Desc}}</td>
+            <td>{{e.Value}}</td>
+            <td>{{e.Date}}</td>
+            <td>{{e.ConditionDesc}}</td>
+            <td>{{e.TypeDesc}}</td>
+            <td>
+                <div *ngIf="e.Active==1">Open</div>
+                <div *ngIf="e.Active==0">Close</div>
+            </td>
+        </tr>
+    </table>
+</div>

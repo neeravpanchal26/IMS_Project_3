@@ -146,6 +146,7 @@ export class InspectEquipmentComponent implements OnInit {
                                 }
                             } catch {}
                             this.tService.inspectionSuccess();
+                            e.reset();
                         }
                     },
                     error => this.tService.handleError(error));

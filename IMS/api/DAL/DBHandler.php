@@ -416,11 +416,17 @@ class DBHandler
         return DBHelper::BlobUploadByID($sp,$image,$serial);
     }
 
-    // It Admin Reports
+    // Reports
     public static function Report_ItAdmin_Users($cName,$uType,$sName)
     {
         $sp = 'CALL uspReport_ItAdmin_Users(?,?,?)';
         $param = array(&$cName,&$uType,&$sName);
+        return DBHelper::SelectParam($sp,$param);
+    }
+    public static function Report_TechnicalEmployee_History($sDate,$eDate,$aType,$eCondition,$userID)
+    {
+        $sp = 'CALL uspReport_TechnicalEmployee_History(?,?,?,?,?)';
+        $param = array(&$sDate,&$eDate,&$aType,&$eCondition,&$userID);
         return DBHelper::SelectParam($sp,$param);
     }
 }

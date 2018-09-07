@@ -21,12 +21,17 @@
             <th>Description</th>
             <th (click)="sort('Date')" class="btn-link">Date</th>
             <th (click)="sort('TypeDesc')" class="btn-link">Job Type</th>
+            <th>Status</th>
         </tr>
         <tr *ngFor="let i of info  | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 10, currentPage: p };">
             <td>{{i.Name}}</td>
             <td>{{i.Desc}}</td>
             <td>{{i.Date}}</td>
             <td>{{i.TypeDesc}}</td>
+            <td>
+                <div *ngIf="i.Active==1">Open</div>
+                <div *ngIf="i.Active==0">Close</div>
+            </td>
         </tr>
     </table>
     <div class="row">
