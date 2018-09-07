@@ -2,122 +2,131 @@
 <app-header></app-header>
 <!--Update User Settings Form-->
 <div class="container">
-  <form (ngSubmit)="onSubmit(businessForm)" [formGroup]="businessForm">
-    <!--Heading-->
-    <div class="py-5 text-center">
-      <h1>Business Information</h1>
-    </div>
+    <form (ngSubmit)="onSubmit(businessForm)" [formGroup]="businessForm">
+        <!--Heading-->
+        <h1>Business Information</h1>
+        <hr class="py-2">
 
-    <div class="form-row">
-      <div class="row">
-          <div class="col-lg-4 col-md-6">
-              <!--Current Logo-->
-              <div class="card">
-                    <img class="card-img-top" *ngIf="businessLogo" [src]="businessLogo">
-                    <div class="card-body">
-                      <h5 class="card-title">Current Logo</h5>
+        <div class="form-row">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!--Current Logo-->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Current Logo</h5>
+                        </div>
+                        <img class="card-img-bottom" *ngIf="businessLogo" [src]="businessLogo">
                     </div>
-              </div>
-          </div>
+                </div>
 
-          <div class="col-lg-8 col-md-6">
-              <div class="col-12">
-                <!--Business Logo input-->
-                <label for="BusinessLogo">Upload new Logo</label>
-                <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file" formControlName="logo" accept="image/jpeg,image/png">
-              </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="col-12">
+                        <!--Business Logo input-->
+                        <label for="BusinessLogo">Upload new Logo</label>
+                        <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file"
+                               formControlName="logo" accept="image/jpeg,image/png">
+                    </div>
 
-              <div class="col-12">
-                <!--Business Name input-->
-                <label>Name</label>
-                <input type="text" class="form-control" formControlName="name" [class.is-valid]="businessForm.controls['name'].touched && businessForm.controls['name'].valid" [class.is-invalid]="businessForm.controls['name'].invalid && (businessForm.controls['name'].dirty || businessForm.controls['name'].touched)">
-                  <div [class.invalid-feedback] = "businessForm.controls['name'].hasError('required')">
-                      <div *ngIf="businessForm.controls['name'].hasError('required')">
-                          Business name is required.
-                      </div>
-                  </div>
-                  <div [class.invalid-feedback] = "businessForm.controls['name'].hasError('maxlength')">
-                      <div *ngIf="businessForm.controls['name'].hasError('maxlength')">
-                          Business name may only contain 45 characters.
-                      </div>
-                  </div>
-              </div>
+                    <div class="col-12">
+                        <!--Business Name input-->
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name"
+                               [class.is-valid]="businessForm.controls['name'].touched && businessForm.controls['name'].valid"
+                               [class.is-invalid]="businessForm.controls['name'].invalid && (businessForm.controls['name'].dirty || businessForm.controls['name'].touched)">
+                        <div [class.invalid-feedback]="businessForm.controls['name'].hasError('required')">
+                            <div *ngIf="businessForm.controls['name'].hasError('required')">
+                                Business name is required.
+                            </div>
+                        </div>
+                        <div [class.invalid-feedback]="businessForm.controls['name'].hasError('maxlength')">
+                            <div *ngIf="businessForm.controls['name'].hasError('maxlength')">
+                                Business name may only contain 45 characters.
+                            </div>
+                        </div>
+                    </div>
 
-              <div class="col-12">
-                <!--Business Contact input-->
-                <label>Contact Details</label>
-                <input type="text" class="form-control" formControlName="contact" [class.is-valid]="businessForm.controls['contact'].touched && businessForm.controls['contact'].valid" [class.is-invalid]="businessForm.controls['contact'].invalid && (businessForm.controls['contact'].dirty || businessForm.controls['contact'].touched)">
-                  <div [class.invalid-feedback] = "businessForm.controls['contact'].hasError('required')">
-                      <div *ngIf="businessForm.controls['contact'].hasError('required')">
-                          Business contact number is required.
-                      </div>
-                  </div>
-                  <div [class.invalid-feedback] = "businessForm.controls['contact'].hasError('maxlength') || businessForm.controls['contact'].hasError('minlength')">
-                      <div *ngIf="businessForm.controls['contact'].hasError('maxlength') || businessForm.controls['contact'].hasError('minlength')">
-                          Business contact number may only be 10 characters.
-                      </div>
-                  </div>
-              </div>
+                    <div class="col-12">
+                        <!--Business Contact input-->
+                        <label>Contact Details</label>
+                        <input type="text" class="form-control" formControlName="contact"
+                               [class.is-valid]="businessForm.controls['contact'].touched && businessForm.controls['contact'].valid"
+                               [class.is-invalid]="businessForm.controls['contact'].invalid && (businessForm.controls['contact'].dirty || businessForm.controls['contact'].touched)">
+                        <div [class.invalid-feedback]="businessForm.controls['contact'].hasError('required')">
+                            <div *ngIf="businessForm.controls['contact'].hasError('required')">
+                                Business contact number is required.
+                            </div>
+                        </div>
+                        <div [class.invalid-feedback]="businessForm.controls['contact'].hasError('maxlength') || businessForm.controls['contact'].hasError('minlength')">
+                            <div *ngIf="businessForm.controls['contact'].hasError('maxlength') || businessForm.controls['contact'].hasError('minlength')">
+                                Business contact number may only be 10 characters.
+                            </div>
+                        </div>
+                    </div>
 
-              <div class="col-12">
-                <!--Business Email input-->
-                <label>Email Address</label>
-                <input type="text" class="form-control" formControlName="email" [class.is-valid]="businessForm.controls['email'].touched && businessForm.controls['email'].valid" [class.is-invalid]="businessForm.controls['email'].invalid && (businessForm.controls['email'].dirty || businessForm.controls['email'].touched)">
-                  <div [class.invalid-feedback] = "businessForm.controls['email'].hasError('required')">
-                      <div *ngIf="businessForm.controls['email'].hasError('required')">
-                          Email is required.
-                      </div>
-                  </div>
-                  <div [class.invalid-feedback] = "businessForm.controls['email'].hasError('maxlength')">
-                      <div *ngIf="businessForm.controls['email'].hasError('maxlength')">
-                          Email may only be 100 characters.
-                      </div>
-                  </div>
-                  <div [class.invalid-feedback] = "businessForm.controls['email'].hasError('pattern')">
-                      <div *ngIf="businessForm.controls['email'].hasError('pattern')">
-                          Check your email format.
-                      </div>
-                  </div>
-              </div>
-              <div class="col-12">
-                  <!--Business Policy input-->
-                  <label for="BusinessLogo">Upload new Policy</label>
-                  <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file" class="form-control-file" formControlName="pdf" accept="application/pdf">
-              </div>
-              <br/>
+                    <div class="col-12">
+                        <!--Business Email input-->
+                        <label>Email Address</label>
+                        <input type="text" class="form-control" formControlName="email"
+                               [class.is-valid]="businessForm.controls['email'].touched && businessForm.controls['email'].valid"
+                               [class.is-invalid]="businessForm.controls['email'].invalid && (businessForm.controls['email'].dirty || businessForm.controls['email'].touched)">
+                        <div [class.invalid-feedback]="businessForm.controls['email'].hasError('required')">
+                            <div *ngIf="businessForm.controls['email'].hasError('required')">
+                                Email is required.
+                            </div>
+                        </div>
+                        <div [class.invalid-feedback]="businessForm.controls['email'].hasError('maxlength')">
+                            <div *ngIf="businessForm.controls['email'].hasError('maxlength')">
+                                Email may only be 100 characters.
+                            </div>
+                        </div>
+                        <div [class.invalid-feedback]="businessForm.controls['email'].hasError('pattern')">
+                            <div *ngIf="businessForm.controls['email'].hasError('pattern')">
+                                Check your email format.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <!--Business Policy input-->
+                        <label for="BusinessLogo">Upload new Policy</label>
+                        <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file" class="form-control-file"
+                               formControlName="pdf" accept="application/pdf">
+                    </div>
+                    <br/>
 
-              <!--Update info button-->
-              <div class="col-12">
-                  <button type="button" class="btn btn-primary col-lg-2" data-toggle="modal"
-                          data-target="#exampleModalCenter">Update
-                  </button>
-                  <button class="btn btn-outline-primary" (click)="locateBack()">Go Back</button>
-              </div>
+                    <!--Update info button-->
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary col-lg-2" data-toggle="modal"
+                                data-target="#exampleModalCenter">Update
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" (click)="locateBack()">Go Back</button>
+                    </div>
 
-              <!-- Confirmation Dialog-->
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                              Are you sure you want to apply the new changes?
-                          </div>
-                          <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary">Save changes</button>
-                              <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </form>
+                    <!-- Confirmation Dialog-->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to apply the new changes?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 <!--Footer-->
 <app-business-footer></app-business-footer>

@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { InstallEquipmentService, iInstallEquipment } from './install-equipment.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {InstallEquipmentService, iInstallEquipment} from './install-equipment.service';
 import * as L from 'leaflet';
-import { GeoLocationService } from "../../globalServices/geolocation.service";
-import { LoginService } from '../login/login.service';
-import { ToastrNotificationService } from '../../globalServices/toastr-notification.service';
-import { QrCodeDecoderService } from '../../globalServices/qr-code-decoder.service';
-import { Subscription } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { environment } from "../../../environments/environment";
+import {GeoLocationService} from "../../globalServices/geolocation.service";
+import {LoginService} from '../login/login.service';
+import {ToastrNotificationService} from '../../globalServices/toastr-notification.service';
+import {QrCodeDecoderService} from '../../globalServices/qr-code-decoder.service';
+import {Subscription} from 'rxjs';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {environment} from "../../../environments/environment";
 import {Location} from "@angular/common";
 
 @Component({
@@ -19,8 +19,9 @@ import {Location} from "@angular/common";
 export class InstallEquipmentComponent implements OnInit {
 
     constructor(private IEService: InstallEquipmentService, private geo: GeoLocationService, private login: LoginService,
-        private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder,private location:Location) {
+                private toastr: ToastrNotificationService, private qrService: QrCodeDecoderService, private fBuilder: FormBuilder, private location: Location) {
     }
+
     @ViewChild('EquipmentImage') newEquipmentImage;
     public lat: any;
     public long: any;
@@ -69,18 +70,19 @@ export class InstallEquipmentComponent implements OnInit {
                 this.active = 0;
             }
             let param: iInstallEquipment =
-            {
-                serial: e.value['serial'],
-                coords: e.value['coords'],
-                userID: this.login.getUserID(),
-                act: this.active,
-                desc: e.value['desc']
+                {
+                    serial: e.value['serial'],
+                    coords: e.value['coords'],
+                    userID: this.login.getUserID(),
+                    act: this.active,
+                    desc: e.value['desc']
 
-            };
+                };
             console.log(param);
             this.IEService.installation(param).subscribe(result => {
                 let r = result[0];
                 if (r['TRUE'] == 1) {
+                    this.toastr.installationSuccessful();
                     try {
                         let image = this.newEquipmentImage.nativeElement;
                         let newImage = image.files[0];
@@ -94,7 +96,7 @@ export class InstallEquipmentComponent implements OnInit {
                             this.IEService.uploadImage(frmData).subscribe();
                         }
                     } catch {
-                    } this.toastr.installationSuccessful();
+                    }
                 }
             }, error => console.log(error));
         } else if (e.invalid) {

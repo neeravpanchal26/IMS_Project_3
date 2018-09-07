@@ -3,9 +3,9 @@
 <!--Add equipment Form-->
 <div class="container">
     <form (ngSubmit)="addEquipment(addEquipmentForm,1)" [formGroup]="addEquipmentForm">
-        <div class="py-5 text-center">
-            <h1>Receive Equipment</h1>
-        </div>
+        <h1>Receive Equipment</h1>
+        <hr class="py-2">
+
         <div class="form-row">
             <div class="col-sm-6">
                 <!-- Name -->
@@ -123,7 +123,8 @@
                 <label>Date Received</label>
                 <div class="input-group">
                     <!-- Select Date -->
-                    <input type="date" class="form-control" placeholder="Date" min="1900-01-01" max="{{maxDate}}" formControlName="dateReceived"
+                    <input type="date" class="form-control" placeholder="Date" min="1900-01-01" max="{{maxDate}}"
+                           formControlName="dateReceived"
                            [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
                            [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
                     <div class="input-group-append">
@@ -184,7 +185,7 @@
                 <input type="file" #EquipmentImage class="form-control-file" accept="image/jpeg,image/png">
                 <br>
                 <button type="submit" class="btn btn-primary mt-3">Add Equipment</button>
-                <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+                <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
             </div>
         </div>
     </form>

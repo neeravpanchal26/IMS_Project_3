@@ -2,7 +2,9 @@
 <app-header></app-header>
 
 <div class="container">
-    <h1 class="py-5">Qr Code Printing</h1>
+    <h1>Qr Code Printing</h1>
+    <hr class="py-2">
+
     <div id="qrCode" class="card" style="width:317px;">
         <qr-code [value]="qrSerial" [size]="300" class="card-img-top px-2 py-2"></qr-code>
         <div class="card-body">
@@ -12,8 +14,8 @@
         </div>
     </div>
 
-    <button class="btn btn-primary mt-3" (click)="onClick()">Qr code to PDF</button>
-    <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+    <button type="button" class="btn btn-primary mt-3" (click)="onClick()">Qr code to PDF</button>
+    <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
 </div>
 
 <!--Footer-->

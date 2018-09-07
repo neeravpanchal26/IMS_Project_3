@@ -4,7 +4,8 @@
 <!-- Install Equipment Form-->
 <div class="container">
     <form (ngSubmit)="inspectEquipment(inspectEquipmentForm)" [formGroup]="inspectEquipmentForm">
-        <h1 class="py-5 text-center">Inspect Equipment</h1>
+        <h1>Inspect Equipment</h1>
+        <hr class="py-2">
 
         <div class="form-row">
             <div class="col-lg-6">
@@ -107,7 +108,7 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h5 class="card-title">Latest Condition</h5>
-                        <img id="currentCondition" *ngIf="image" [src]="image">
+                        <img class="card-img-bottom" id="currentCondition" *ngIf="image" [src]="image">
                     </div>
                 </div>
             </div>
@@ -126,7 +127,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary mt-3">Save</button>
-        <button class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+        <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
     </form>
 </div>
 

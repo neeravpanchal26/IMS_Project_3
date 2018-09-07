@@ -1,9 +1,8 @@
 <app-header></app-header>
 <div class="container">
     <form>
-        <div class="py-5 text-center">
-            <h1>Manage Equipment</h1>
-        </div>
+        <h1>Manage Equipment</h1>
+        <hr class="py-2">
         <!--Search Input-->
         <div class="input-group">
             <div class="input-group-prepend">
@@ -50,8 +49,10 @@
                                        (change)='activeEquipment($event,i.EquipmentID,i.Name,i.Serial)'></ui-switch>
                         </td>
                         <td>{{i.StatusDescription}}</td>
-                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Allocate job</a></td>
-                        <td><a routerLink="/Update details/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Update details</a></td>
+                        <td><a routerLink="/Allocate Equipment/{{i.EquipmentID}}"
+                               class="btn btn-sm btn-outline-primary">Allocate job</a></td>
+                        <td><a routerLink="/Update details/{{i.EquipmentID}}" class="btn btn-sm btn-outline-primary">Update
+                            details</a></td>
                         <td><a routerLink="/qr/{{i.Serial}}" class="btn btn-sm btn-outline-primary">Qr Code</a></td>
                     </tr>
                     </thead>
