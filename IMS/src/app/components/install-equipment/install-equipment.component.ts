@@ -99,7 +99,8 @@ export class InstallEquipmentComponent implements OnInit {
                     }
                 }
             }, error => console.log(error));
-        } else if (e.invalid) {
+        }
+        else if (e.invalid) {
             this.toastr.formFailure();
         }
     }

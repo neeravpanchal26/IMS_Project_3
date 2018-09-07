@@ -60,7 +60,7 @@ export class UserPasswordResetComponent implements OnInit {
                   },
                   error => this.tService.handleError(error));
       }
-      if(e.invalid)
+      else if (e.invalid)
           this.tService.formFailure();
   }
 

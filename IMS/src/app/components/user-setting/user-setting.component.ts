@@ -116,6 +116,8 @@ export class UserSettingComponent implements OnInit {
                     },
                     error => this.tService.handleError(error));
         }
+        else if (e.invalid)
+            this.tService.formFailure();
     }
 
     // Locate Back

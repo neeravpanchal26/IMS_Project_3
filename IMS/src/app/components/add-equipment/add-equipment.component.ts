@@ -106,7 +106,7 @@ export class AddEquipmentComponent implements OnInit {
                 }
             });
         }
-        if (e.invalid)
+        else if (e.invalid)
             this.tService.formFailure();
     }
 

@@ -85,7 +85,8 @@ export class UpdateEquipmentComponent implements OnInit {
                 }
             });
         }
-        else{this.toastr.formFailure();}
+        else if (e.invalid)
+            this.toastr.formFailure();
 
     }
     // Add Condition

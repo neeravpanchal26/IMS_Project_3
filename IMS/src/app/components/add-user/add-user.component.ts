@@ -98,9 +98,9 @@ export class AddUserComponent implements OnInit {
                         },
                         error => this.tService.handleError(error));
             }
+            else if (e.invalid)
+                this.tService.formFailure();
         }
-        if (e.invalid)
-            this.tService.formFailure();
     }
 
     // Suburb Load Method

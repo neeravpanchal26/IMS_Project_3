@@ -56,8 +56,8 @@ export class ItPasswordResetComponent implements OnInit {
                   },
                   error => this.tService.handleError(error));
       }
-      if(e.invalid)
-            this.tService.formFailure();
+      else if (e.invalid)
+          this.tService.formFailure();
     }
 
     // Form Builder
