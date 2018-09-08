@@ -9,7 +9,8 @@ export class TechnicalReportsService {
     apiUrl = environment.api;
 
     // Default Constructor
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     // Business info load
     getBusinessInfo(): Observable<any> {
@@ -17,8 +18,8 @@ export class TechnicalReportsService {
     }
 
     // Get Allocation types
-    getAllocationTypes():Observable<any> {
-        return this.http.get(this.apiUrl+'/api/bll/allocateEquipment.php?action=types')as Observable<any>;
+    getAllocationTypes(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/bll/allocateEquipment.php?action=types')as Observable<any>;
     }
 
     // Get Equipment Condition
@@ -27,13 +28,13 @@ export class TechnicalReportsService {
     }
 
     // Equipment History
-    getEquipmentHistory(sDate,eDate,aType,eCondition,userID):Observable<any>{
+    getEquipmentHistory(sDate, eDate, aType, eCondition, userID): Observable<any> {
         let params = new HttpParams()
-            .set('sDate',sDate)
-            .set('eDate',eDate)
-            .set('aType',aType)
-            .set('eCondition',eCondition)
-            .set('userID',userID);
-        return this.http.get(this.apiUrl+'/api/BLL/reports.php?action=techEmployee',{ params: params })as Observable<any>;
+            .set('sDate', sDate)
+            .set('eDate', eDate)
+            .set('aType', aType)
+            .set('eCondition', eCondition)
+            .set('userID', userID);
+        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=techEmployee', {params: params})as Observable<any>;
     }
 }

@@ -37,10 +37,12 @@ export class TechnicalReportsComponent implements OnInit {
 
     // Form Load
     ngOnInit() {
+        // Date Time Load Up
         this.eDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
         let date = new Date();
         this.mDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
         this.sDate = this.datePipe.transform(this.mDate, 'yyyy-MM-dd');
+        this.currentDateTime = Date.now();
 
         // Condition Load up
         this.service.getCondition()
@@ -58,9 +60,6 @@ export class TechnicalReportsComponent implements OnInit {
                 data => this.businessLogo = this.iService.selectPhoto(data),
                 error => this.tService.handleError(error));
 
-        // Current Date time
-        this.currentDateTime = Date.now();
-
         // Business Info Load up
         this.service.getBusinessInfo()
             .subscribe(
@@ -68,7 +67,7 @@ export class TechnicalReportsComponent implements OnInit {
                 error => this.tService.handleError(error));
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserID())
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName())
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }
@@ -85,14 +84,14 @@ export class TechnicalReportsComponent implements OnInit {
             this.eCondition = eCondition;
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserID())
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName())
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }
 
     // Sorting
-    key: string = 'Active'; //set default
-    reverse: boolean = true;
+    key: string = 'EquipmentID'; //set default
+    reverse: boolean = false;
 
     // Sorting method
     sort(key) {

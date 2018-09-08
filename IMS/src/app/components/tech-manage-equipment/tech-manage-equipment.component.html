@@ -28,10 +28,7 @@
             <td>{{i.Desc}}</td>
             <td>{{i.Date}}</td>
             <td>{{i.TypeDesc}}</td>
-            <td>
-                <div *ngIf="i.Active==1">Open</div>
-                <div *ngIf="i.Active==0">Close</div>
-            </td>
+            <td>{{i.Active}}</td>
         </tr>
     </table>
     <div class="row">

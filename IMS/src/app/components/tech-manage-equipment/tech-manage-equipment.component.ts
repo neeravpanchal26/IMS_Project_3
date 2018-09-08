@@ -27,7 +27,7 @@ export class TechManageEquipmentComponent implements OnInit {
     }
 
     // Sorting
-    key: string = 'lastAccess'; //set default
+    key: string = 'Active'; //set default
     reverse: boolean = true;
 
     // Sorting method

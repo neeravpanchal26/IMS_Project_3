@@ -87,7 +87,7 @@ export class ItadminReportsComponent implements OnInit {
     }
 
     // Sorting
-    key: string = 'Active'; //set default
+    key: string = 'UserID'; //set default
     reverse: boolean = false;
 
     // Sorting method

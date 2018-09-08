@@ -20,18 +20,26 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <label for="allocation">Allocation Type</label>
             <select id="allocation" class="form-control" (change)="selection(null,null,$event.target.value,null)">
                 <option value="">Please choose...</option>
                 <option *ngFor="let t of allocationType" [value]="t.TypeDesc">{{t.TypeDesc}}</option>
             </select>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <label for="condition">Condition</label>
             <select id="condition" class="form-control" (change)="selection(null,null,null,$event.target.value)">
                 <option value="">Please choose...</option>
                 <option *ngFor="let c of condition" [value]="c.ConditionDesc">{{c.ConditionDesc}}</option>
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="status">Status</label>
+            <select id="status" class="form-control">
+                <option value="">Please choose...</option>
+                <option value="1">Open</option>
+                <option value="0">Close</option>
             </select>
         </div>
     </div>
@@ -57,7 +65,7 @@
             <th (click)="sort('Name')" class="btn-link">Name</th>
             <th>Desc</th>
             <th (click)="sort('Value')" class="btn-link">Value</th>
-            <th (click)="sort('Date')" class="btn-link">Date</th>
+            <th (click)="sort('Date')" class="btn-link">Date & Time</th>
             <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
             <th (click)="sort('TypeDesc')" class="btn-link">Type</th>
             <th (click)="sort('Active')" class="btn-link">Status</th>
@@ -70,14 +78,11 @@
             <td>{{e.EquipmentID}}</td>
             <td>{{e.Name}}</td>
             <td>{{e.Desc}}</td>
-            <td>{{e.Value}}</td>
+            <td>{{e.Value | currency: 'R'}}</td>
             <td>{{e.Date}}</td>
             <td>{{e.ConditionDesc}}</td>
             <td>{{e.TypeDesc}}</td>
-            <td>
-                <div *ngIf="e.Active==1">Open</div>
-                <div *ngIf="e.Active==0">Close</div>
-            </td>
+            <td>{{e.Active}}</td>
         </tr>
     </table>
 </div>
