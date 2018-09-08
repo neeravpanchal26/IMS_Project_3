@@ -1051,7 +1051,7 @@
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="286" parent="2" name="uspReport_TechnicalEmployee_History">
-      <SourceTextLength>518</SourceTextLength>
+      <SourceTextLength>764</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="287" parent="2" name="uspSecondary_Brand_Add">
@@ -2036,11 +2036,11 @@ LoginDateTime</ColNames>
     </argument>
     <argument id="499" parent="286" name="sDate">
       <Position>1</Position>
-      <DataType>date|0s</DataType>
+      <DataType>varchar(10)|0s</DataType>
     </argument>
     <argument id="500" parent="286" name="eDate">
       <Position>2</Position>
-      <DataType>date|0s</DataType>
+      <DataType>varchar(10)|0s</DataType>
     </argument>
     <argument id="501" parent="286" name="aType">
       <Position>3</Position>
@@ -2052,7 +2052,7 @@ LoginDateTime</ColNames>
     </argument>
     <argument id="503" parent="286" name="uID">
       <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
     </argument>
     <argument id="504" parent="287" name="name">
       <Position>1</Position>

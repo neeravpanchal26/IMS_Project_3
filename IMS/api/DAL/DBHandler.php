@@ -240,6 +240,11 @@ class DBHandler
         $sp = 'CALL uspBusiness';
         return DBHelper::Select($sp);
     }
+    public static function Business_GroupPolicy()
+    {
+        $sp = 'CALL uspBusiness_GroupPolicy';
+        return DBHelper::BlobRetrieve($sp);
+    }
 
     // Business Setting components methods
     public static function Business_Logo()
@@ -283,10 +288,10 @@ class DBHandler
         return DBHelper::SelectParam($sp,$param);
     }
     //Tech Manage Equipment methods
-    public static function TechManageEquipment_GetAllocatedEquipment($id)
+    public static function TechManageEquipment_GetAllocatedEquipment($id,$sDate,$eDate)
     {
-        $sp = 'CALL uspTechManageEquipment_GetAllocatedEquipment (?)';
-        $param = array(&$id);
+        $sp = 'CALL uspTechManageEquipment_GetAllocatedEquipment (?,?,?)';
+        $param = array(&$id,&$sDate,&$eDate);
         return DBHelper::SelectParam($sp, $param);
     }
     //Install Equipment methods

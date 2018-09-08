@@ -6,7 +6,55 @@
 
 <!-- Equipment Reports-->
 <div *ngIf="show==1">
-
+    <div class="form-control">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-dark float-left">Filter By:</h1>
+                <button type="button" class="btn btn-primary float-right mt-2" [disabled]="equipment.length==0"
+                        (click)="onClick()">Export to PDF
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="sDate">Start Date</label>
+                <input id="sDate" type="date" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label for="eDate">End Date</label>
+                <input type="date" id="eDate" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label for="employees">Employees</label>
+                <select id="employees" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let e of employees" [value]="e.TechEmployee">{{e.TechEmployee}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="allocation">Allocation Type</label>
+            </div>
+            <div class="col-lg-4">
+                <label for="eCondition">Condition</label>
+                <select id="eCondition" class="form-control"
+                        (change)="selection(null,null,null,$event.target.value,null)">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let c of condition" [value]="c.ConditionDesc">{{c.ConditionDesc}}</option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+                <label for="eStatus">Equipment Status</label>
+                <select id="eStatus" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option value="1">Open</option>
+                    <option value="0">Close</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
 </div>
 <!-- Equipment Reports ends here-->
 

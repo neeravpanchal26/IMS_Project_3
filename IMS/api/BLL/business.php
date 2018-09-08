@@ -54,3 +54,6 @@ else if ($action == 'pdfUpload') {
     // Delete the file
     unlink($realPath);
 }
+else if ($action == 'groupPolicyDownload') {
+    echo DBHandler::Business_GroupPolicy();
+}

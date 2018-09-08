@@ -15,5 +15,7 @@ export class TechManageEquipmentService {
 }
 export interface iUserID
 {
-    id:any
+    id:any,
+    sDate:any,
+    eDate:any
 }
