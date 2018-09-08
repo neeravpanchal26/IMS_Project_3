@@ -42,4 +42,24 @@ export class SectionReportsService {
             .set('userID', userID);
         return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=techEmployee', {params: params})as Observable<any>;
     }
+
+    // Get Type
+    GetTypes(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=types')as Observable<any>;
+    }
+
+    // Get Sections
+    GetSections(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=section') as Observable<any>;
+    }
+
+    // Get Suppliers
+    GetSuppliers(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=suppliers') as Observable<any>;
+    }
+
+    // Get Brand
+    GetBrands(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=brand')as Observable<any>;
+    }
 }

@@ -34,7 +34,11 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <label for="allocation">Allocation Type</label>
+                <label for="eType">Type</label>
+                <select id="eType" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let t of types" [value]="t.TypeDesc">{{t.TypeDesc}}</option>
+                </select>
             </div>
             <div class="col-lg-4">
                 <label for="eCondition">Condition</label>
@@ -50,6 +54,29 @@
                     <option value="">Please choose...</option>
                     <option value="1">Open</option>
                     <option value="0">Close</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="section">Section</label>
+                <select id="section" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let s of sections" [value]="s.SectionDesc">{{s.SectionDesc}}</option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+                <label for="eSupplier">Supplier</label>
+                <select id="eSupplier" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let s of suppliers" [value]="s.Name">{{s.Name}}</option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+                <label>Brand</label>
+                <select id="eBrand" class="form-control">
+                    <option value="">Please choose...</option>
+                    <option *ngFor="let b of brands" [value]="b.BrandDesc">{{b.BrandDesc}}</option>
                 </select>
             </div>
         </div>

@@ -30,6 +30,12 @@ export class SectionReportsComponent implements OnInit {
     public employees: any;
     public userName = '';
 
+    // Equipment DDL
+    public types: any;
+    public sections: any;
+    public suppliers: any;
+    public brands: any;
+
     // Default Constructor
     constructor(private datePipe: DatePipe,
                 private service: SectionReportsService,
@@ -45,6 +51,36 @@ export class SectionReportsComponent implements OnInit {
         this.mDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
         this.sDate = this.datePipe.transform(this.mDate, 'yyyy-MM-dd');
         this.currentDateTime = Date.now();
+
+        // Type Load up
+        this.service.GetTypes()
+            .subscribe(data => this.types = data,
+                error1 => this.tService.handleError(error1));
+
+        // Section Load up
+        this.service.GetSections()
+            .subscribe(data => this.sections = data,
+                error1 => this.tService.handleError(error1));
+
+        // Supplier Load up
+        this.service.GetSuppliers()
+            .subscribe(data => this.suppliers = data,
+                error1 => this.tService.handleError(error1));
+
+        // Brand Load up
+        this.service.GetBrands()
+            .subscribe(data => this.brands = data,
+                error1 => this.tService.handleError(error1));
+
+        // Employee Load Up
+        this.service.getEmployees()
+            .subscribe(data => this.employees = data,
+                error1 => this.tService.handleError(error1));
+
+        // Condition Load up
+        this.service.getCondition()
+            .subscribe(data => this.condition = data,
+                error1 => this.tService.handleError(error1));
 
         // Load Logo
         this.iService.getLogo()
@@ -63,16 +99,6 @@ export class SectionReportsComponent implements OnInit {
     reportType(e) {
         this.show = e;
         if (e == 2) {
-            // Employee Load Up
-            this.service.getEmployees()
-                .subscribe(data => this.employees = data,
-                    error1 => this.tService.handleError(error1));
-
-            // Condition Load up
-            this.service.getCondition()
-                .subscribe(data => this.condition = data,
-                    error1 => this.tService.handleError(error1));
-
             // Allocation Type Load up
             this.service.getAllocationTypes()
                 .subscribe(data => this.allocationType = data,
@@ -120,8 +146,8 @@ export class SectionReportsComponent implements OnInit {
         html2Canvas(data).then(
             canvas => {
                 // Image settings
-                let imgWidth ;
-                if (this.equipment.length>20)
+                let imgWidth;
+                if (this.equipment.length > 20)
                     imgWidth = 200;
                 else
                     imgWidth = 285;
@@ -132,7 +158,7 @@ export class SectionReportsComponent implements OnInit {
                 const contentDataURL = canvas.toDataURL('image/png');
                 let pdf;
                 // A4 size page of PDF
-                if (this.equipment.length>20)
+                if (this.equipment.length > 20)
                     pdf = new jsPdf('p', 'mm', 'a4');
                 else
                     pdf = new jsPdf('l', 'mm', 'a4');
