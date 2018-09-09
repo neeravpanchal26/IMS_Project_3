@@ -24,4 +24,15 @@ if ($action == 'ItAdminUsers') {
     $eCondition = $_GET['eCondition'];
     $userID = $_GET['userID'];
     echo json_encode(DBHandler::Report_TechnicalEmployee_History($sDate,$eDate,$aType,$eCondition,$userID));
+}elseif ($action == 'sectionHead') {
+    $sDate = $_GET['sDate'];
+    $eDate = $_GET['eDate'];
+    $uName = $_GET['uName'];
+    $eType =$_GET['eType'];
+    $eCondition = $_GET['eCondition'];
+    $eStatus = $_GET['eStatus'];
+    $eSection = $_GET['eSection'];
+    $eSupplier = $_GET['eSupplier'];
+    $eBrand = $_GET['eBrand'];
+    echo json_encode(DBHandler::Report_SectionHead_Equipment($sDate,$eDate,$uName,$eType,$eCondition,$eStatus,$eSection,$eSupplier,$eBrand));
 }

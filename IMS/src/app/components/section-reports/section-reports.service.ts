@@ -62,4 +62,24 @@ export class SectionReportsService {
     GetBrands(): Observable<any> {
         return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=brand')as Observable<any>;
     }
+
+    // Get Status
+    GetStatus(): Observable<any> {
+        return this.http.get(this.apiUrl + '/api/BLL/addEquipment.php?action=status')as Observable<any>;
+    }
+
+    // Equipment
+    getEquipment(sDate, eDate, uName, eType, eCondition, eStatus, eSection, eSupplier, eBrand): Observable<any> {
+        let params = new HttpParams()
+            .set('sDate', sDate)
+            .set('eDate', eDate)
+            .set('uName', uName)
+            .set('eType', eType)
+            .set('eCondition', eCondition)
+            .set('eStatus', eStatus)
+            .set('eSection', eSection)
+            .set('eSupplier', eSupplier)
+            .set('eBrand', eBrand)
+        return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=sectionHead', {params: params})as Observable<any>;
+    }
 }

@@ -31,10 +31,16 @@ export class SectionReportsComponent implements OnInit {
     public userName = '';
 
     // Equipment DDL
+    public status:any;
     public types: any;
     public sections: any;
     public suppliers: any;
     public brands: any;
+    public eType = '';
+    public eStatus = '';
+    public eSection = '';
+    public eSupplier = '';
+    public eBrand = '';
 
     // Default Constructor
     constructor(private datePipe: DatePipe,
@@ -55,6 +61,11 @@ export class SectionReportsComponent implements OnInit {
         // Type Load up
         this.service.GetTypes()
             .subscribe(data => this.types = data,
+                error1 => this.tService.handleError(error1));
+
+        // Status Load up
+        this.service.GetStatus()
+            .subscribe(data=>this.status = data,
                 error1 => this.tService.handleError(error1));
 
         // Section Load up
@@ -93,6 +104,9 @@ export class SectionReportsComponent implements OnInit {
             .subscribe(
                 data => this.business = data[0],
                 error => this.tService.handleError(error));
+
+        // Get Equipment
+        this.getEquipment();
     }
 
     // Report Type to display
@@ -105,14 +119,12 @@ export class SectionReportsComponent implements OnInit {
                     error1 => this.tService.handleError(error1));
 
             // Get Equipment History
-            this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName)
-                .subscribe(data => this.equipment = data,
-                    error1 => this.tService.handleError(error1));
+            this.getEquipmentHistory();
         }
     }
 
     // Filter Selection
-    selection(sDate, eDate, aType, eCondition, userID) {
+    hSelection(sDate, eDate, aType, eCondition, userID) {
         if (sDate != null)
             this.sDate = sDate;
         if (eDate != null)
@@ -125,7 +137,44 @@ export class SectionReportsComponent implements OnInit {
             this.userName = userID;
 
         // Get Equipment History
+        this.getEquipmentHistory();
+    }
+
+    // Filter Selection
+    eSelection(sDate, eDate, uName, eType, eCondition, eStatus, eSection, eSupplier, eBrand) {
+        if (sDate != null)
+            this.sDate = sDate;
+        if (eDate != null)
+            this.eDate = eDate;
+        if (uName != null)
+            this.userName = uName;
+        if (eType != null)
+            this.eType = eType;
+        if (eCondition != null)
+            this.eCondition = eCondition;
+        if (eStatus != null)
+            this.eStatus = eStatus;
+        if (eSection != null)
+            this.eSection = eSection;
+        if (eSupplier != null)
+            this.eSupplier = eSupplier;
+        if (eBrand != null)
+            this.eBrand = eBrand;
+
+        // Get Equipment
+        this.getEquipment();
+    }
+
+    // Get Equipment History
+    getEquipmentHistory() {
         this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName)
+            .subscribe(data => this.equipment = data,
+                error1 => this.tService.handleError(error1));
+    }
+
+    // Get Equipment
+    getEquipment() {
+        this.service.getEquipment(this.sDate, this.eDate, this.userName, this.eType, this.eCondition, this.eStatus, this.eSection, this.eSupplier, this.eBrand)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }

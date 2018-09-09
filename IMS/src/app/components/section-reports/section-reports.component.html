@@ -18,15 +18,15 @@
         <div class="row">
             <div class="col-lg-4">
                 <label for="sDate">Start Date</label>
-                <input id="sDate" type="date" class="form-control">
+                <input id="sDate" type="date" class="form-control" (change)="eSelection($event.target.value,null,null,null,null,null,null,null,null)">
             </div>
             <div class="col-lg-4">
                 <label for="eDate">End Date</label>
-                <input type="date" id="eDate" class="form-control">
+                <input type="date" id="eDate" class="form-control" (change)="eSelection(null,$event.target.value,null,null,null,null,null,null,null)">
             </div>
             <div class="col-lg-4">
                 <label for="employees">Employees</label>
-                <select id="employees" class="form-control">
+                <select id="employees" class="form-control" (change)="eSelection(null,null,$event.target.value,null,null,null,null,null,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let e of employees" [value]="e.TechEmployee">{{e.TechEmployee}}</option>
                 </select>
@@ -35,46 +35,44 @@
         <div class="row">
             <div class="col-lg-4">
                 <label for="eType">Type</label>
-                <select id="eType" class="form-control">
+                <select id="eType" class="form-control" (change)="eSelection(null,null,null,$event.target.value,null,null,null,null,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let t of types" [value]="t.TypeDesc">{{t.TypeDesc}}</option>
                 </select>
             </div>
             <div class="col-lg-4">
                 <label for="eCondition">Condition</label>
-                <select id="eCondition" class="form-control"
-                        (change)="selection(null,null,null,$event.target.value,null)">
+                <select id="eCondition" class="form-control" (change)="eSelection(null,null,null,null,$event.target.value,null,null,null,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let c of condition" [value]="c.ConditionDesc">{{c.ConditionDesc}}</option>
                 </select>
             </div>
             <div class="col-lg-4">
-                <label for="eStatus">Equipment Status</label>
-                <select id="eStatus" class="form-control">
+                <label for="eStatus">Status</label>
+                <select id="eStatus" class="form-control" (change)="eSelection(null,null,null,null,null,$event.target.value,null,null,null)">
                     <option value="">Please choose...</option>
-                    <option value="1">Open</option>
-                    <option value="0">Close</option>
+                    <option *ngFor="let s of status" [value]="s.StatusDesc">{{s.StatusDesc}}</option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <label for="section">Section</label>
-                <select id="section" class="form-control">
+                <select id="section" class="form-control" (change)="eSelection(null,null,null,null,null,null,$event.target.value,null,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let s of sections" [value]="s.SectionDesc">{{s.SectionDesc}}</option>
                 </select>
             </div>
             <div class="col-lg-4">
                 <label for="eSupplier">Supplier</label>
-                <select id="eSupplier" class="form-control">
+                <select id="eSupplier" class="form-control" (change)="eSelection(null,null,null,null,null,null,null,$event.target.value,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let s of suppliers" [value]="s.Name">{{s.Name}}</option>
                 </select>
             </div>
             <div class="col-lg-4">
                 <label>Brand</label>
-                <select id="eBrand" class="form-control">
+                <select id="eBrand" class="form-control" (change)="eSelection(null,null,null,null,null,null,null,null,$event.target.value)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let b of brands" [value]="b.BrandDesc">{{b.BrandDesc}}</option>
                 </select>
@@ -82,6 +80,51 @@
         </div>
     </div>
     <br>
+    <div id="1">
+        <div class="row">
+            <div class="col-12">
+                <div class="float-left">
+                    <span class="text-right">{{business.BusinessName}}</span><br>
+                    <span class="text-right">{{business.Email}}</span><br>
+                    <span class="text-right">{{business.contact}}</span><br>
+                    <span class="text-right">{{currentDateTime | date:'medium'}}</span>
+                    <h1>Equipment Report</h1>
+                </div>
+                <img class="float-right" *ngIf="businessLogo" [src]="businessLogo" width="150" height="150">
+            </div>
+        </div>
+        <table class="table table-responsive-lg table-sm">
+            <thead>
+            <tr class="bg-light">
+                <th (click)="sort('EquipmentID')" class="btn-link">ID</th>
+                <th (click)="sort('Name')" class="btn-link">Name</th>
+                <th (click)="sort('DateReceived')" class="btn-link">Date Received</th>
+                <th (click)="sort('Cost')" class="btn-link">Cost</th>
+                <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
+                <th (click)="sort('BrandDesc')" class="btn-link">Brand</th>
+                <th (click)="sort('SectionDesc')" class="btn-link">Section</th>
+                <th (click)="sort('TypeDesc')" class="btn-link">Type</th>
+                <th (click)="sort('StatusDesc')" class="btn-link">Status</th>
+                <th (click)="sort('supplier')" class="btn-link">Supplier</th>
+            </tr>
+            </thead>
+            <tr *ngIf="equipment.length == 0" class="text-center">
+                <td colspan="10">No record exists</td>
+            </tr>
+            <tr *ngFor="let e of equipment | orderBy:key:reverse">
+                <td>{{e.EquipmentID}}</td>
+                <td>{{e.Name}}</td>
+                <td>{{e.DateReceived}}</td>
+                <td>{{e.Cost}}</td>
+                <td>{{e.ConditionDesc}}</td>
+                <td>{{e.BrandDesc}}</td>
+                <td>{{e.SectionDesc}}</td>
+                <td>{{e.TypeDesc}}</td>
+                <td>{{e.StatusDesc}}</td>
+                <td>{{e.supplier}}</td>
+            </tr>
+        </table>
+    </div>
 </div>
 <!-- Equipment Reports ends here-->
 
@@ -100,16 +143,16 @@
             <div class="col-lg-4">
                 <label for="startDate">Start Date</label>
                 <input id="startDate" type="date" class="form-control"
-                       (change)="selection($event.target.value,null,null,null,null)">
+                       (change)="hSelection($event.target.value,null,null,null,null)">
             </div>
             <div class="col-lg-4">
                 <label for="endDate">End Date</label>
                 <input type="date" id="endDate" class="form-control"
-                       (change)="selection(null,$event.target.value,null,null,null)">
+                       (change)="hSelection(null,$event.target.value,null,null,null)">
             </div>
             <div class="col-lg-4">
                 <label for="users">Employees</label>
-                <select id="users" class="form-control" (change)="selection(null,null,null,null,$event.target.value)">
+                <select id="users" class="form-control" (change)="hSelection(null,null,null,null,$event.target.value)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let e of employees" [value]="e.TechEmployee">{{e.TechEmployee}}</option>
                 </select>
@@ -119,7 +162,7 @@
             <div class="col-lg-4">
                 <label for="allocation">Allocation Type</label>
                 <select id="allocation" class="form-control"
-                        (change)="selection(null,null,$event.target.value,null,null)">
+                        (change)="hSelection(null,null,$event.target.value,null,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let t of allocationType" [value]="t.TypeDesc">{{t.TypeDesc}}</option>
                 </select>
@@ -127,7 +170,7 @@
             <div class="col-lg-4">
                 <label for="condition">Condition</label>
                 <select id="condition" class="form-control"
-                        (change)="selection(null,null,null,$event.target.value,null)">
+                        (change)="hSelection(null,null,null,$event.target.value,null)">
                     <option value="">Please choose...</option>
                     <option *ngFor="let c of condition" [value]="c.ConditionDesc">{{c.ConditionDesc}}</option>
                 </select>

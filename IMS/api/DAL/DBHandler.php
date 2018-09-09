@@ -434,4 +434,10 @@ class DBHandler
         $param = array(&$sDate,&$eDate,&$aType,&$eCondition,&$userID);
         return DBHelper::SelectParam($sp,$param);
     }
+    public static function Report_SectionHead_Equipment($sDate,$eDate,$uName,$eType,$eCondition,$eStatus,$eSection,$eSupplier,$eBrand)
+    {
+        $sp = 'CALL uspReport_SectionHead_Equipment(?,?,?,?,?,?,?,?,?)';
+        $param = array(&$sDate,&$eDate,&$uName,&$eType,&$eCondition,&$eStatus,&$eSection,&$eSupplier,&$eBrand);
+        return DBHelper::SelectParam($sp,$param);
+    }
 }
