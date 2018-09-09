@@ -67,6 +67,11 @@
                     <a class="nav-link text-white" routerLink="/reports"><span class="oi oi-document"></span>
                         Reports</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-toggle="modal" data-target="#help">
+                        <span class="oi oi-question-mark"></span> Help
+                    </a>
+                </li>
 
             </ul>
 
@@ -110,5 +115,36 @@
                 </div>
             </div>
         </div>
+
+        <!--Help-->
+        <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Help</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- It Admin Help-->
+                        <pdf-viewer *ngIf="userType==1" [src]="'../assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">1</pdf-viewer>
+
+                        <!-- Technical Employee Help-->
+                        <pdf-viewer *ngIf="userType==2" [src]="'../assets/logo.png'" [render-text]="true" [fit-to-page]="true">2</pdf-viewer>
+
+                        <!-- Section Head Help-->
+                        <pdf-viewer *ngIf="userType==3" [src]="'../assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">3</pdf-viewer>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </nav>
