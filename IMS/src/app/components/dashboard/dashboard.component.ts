@@ -109,7 +109,7 @@ export class DashboardComponent implements OnInit {
                   let date = data.map(function (value,index) {return value['Date'];});
 
                   // Parsing data to chart and generating chart
-                  this.barChart(date,count,'Equipment allocated to you in '+this.days+' days.','Dates','# of Equipment', 'TechnicalHeadCanvas');
+                  this.barChart(date,count,'Equipment allocated to you in the last '+this.days+' days.','Dates','# of Equipment', 'TechnicalHeadCanvas');
               },
               //Error handling
               error => this.tService.handleError(error)
