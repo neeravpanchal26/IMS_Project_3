@@ -129,13 +129,13 @@
                     </div>
                     <div class="modal-body">
                         <!-- It Admin Help-->
-                        <pdf-viewer *ngIf="userType==1" [src]="'../assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">1</pdf-viewer>
+                        <pdf-viewer *ngIf="userType==1" [src]="apiUrl+'/api/Assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">1</pdf-viewer>
 
                         <!-- Technical Employee Help-->
-                        <pdf-viewer *ngIf="userType==2" [src]="'../assets/logo.png'" [render-text]="true" [fit-to-page]="true">2</pdf-viewer>
+                        <pdf-viewer *ngIf="userType==2" [src]="apiUrl+'/api/Assets/TECHNICAL EMPLOYEE - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">2</pdf-viewer>
 
                         <!-- Section Head Help-->
-                        <pdf-viewer *ngIf="userType==3" [src]="'../assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">3</pdf-viewer>
+                        <pdf-viewer *ngIf="userType==3" [src]="apiUrl+'/api/Assets/SECTION HEAD - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">3</pdf-viewer>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

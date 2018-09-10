@@ -3,6 +3,7 @@ import {LoginService} from "../login/login.service";
 import {HeaderService} from "./header.service";
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import {ImageRetrieveService} from "../../globalServices/image-retrieve.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-header',
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit {
     public userName;
     public businessLogo: any;
     public policy;
+    public apiUrl = environment.api;
 
     // Default Constructor
     constructor(private service: LoginService,
