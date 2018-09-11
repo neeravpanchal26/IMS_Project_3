@@ -42,6 +42,10 @@ export class MaintainEquipmentService {
         return this.http.post(this.apiUrl + '/api/BLL/maintainEquipment.php?action=imageUpload', param) as Observable<any>;
     }
 
+    // Get Status
+    getStatus():Observable<any> {
+        return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=status') as Observable<any>;
+    }
 }
 // Wrapper Classes
 export interface iMaintain {

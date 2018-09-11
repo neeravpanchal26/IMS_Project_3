@@ -16,4 +16,3 @@ if ($action == 'info') {
     $serial = $_GET['serial'];
     echo json_encode(DBHandler::ManageEquipment_GetEquipmentBySerial($serial));
 }
-?>

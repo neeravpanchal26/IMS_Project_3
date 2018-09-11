@@ -42,6 +42,9 @@ export class AddEquipmentComponent implements OnInit {
     }
 
     ngOnInit() {
+        // Max Date of birth
+        this.maxDate = new Date();
+
         this.service.GetBrands().subscribe(data => this.brands = data);
         this.service.GetStatus().subscribe(data => this.status = data);
         this.service.GetConditions().subscribe(data => this.conditions = data);
@@ -68,10 +71,14 @@ export class AddEquipmentComponent implements OnInit {
 
     addEquipment(e, type) {
         if (e.valid) {
+            this.barcodeError = false;
+            let desc = '';
+            if (e.value['desc'] != null)
+                desc = e.value['desc'];
             let param: iAddEquipment =
                 {
                     name: e.value['name'],
-                    desc: e.value['desc'],
+                    desc: desc,
                     cost: e.value['cost'],
                     equipmentCondition: e.value['condition'],
                     brand: e.value['brand'],
@@ -82,26 +89,27 @@ export class AddEquipmentComponent implements OnInit {
                     supplier: e.value['suppliers']
                 };
             this.service.AddEquipment(param).subscribe(data => {
-                let r = data[0];
-                if (r['barcodeError'] == 1) {
-                    this.tService.serialError(e.value['barcode']);
-                }
-                else if (r['TRUE'] == 1) {
-
-                    this.tService.addEquipmentSuccess(e.value['name']);
-                    try {
-                        let image = this.newEquipmentImage.nativeElement;
-                        let newImage = image.files[0];
-                        let allowedImages = ['image/jpeg', 'image/png'];
-                        if (allowedImages.indexOf(newImage.type) > -1) {
-                            let frmData = new FormData();
-                            frmData.append('file', newImage);
-                            this.service.uploadImage(frmData).subscribe();
-                        }
-                    } catch {
+                    let r = data[0];
+                    if (r['barcodeError'] == 1) {
+                        this.barcodeError = true;
                     }
-                }
-            });
+                    else if (r['TRUE'] == 1) {
+
+                        this.tService.addEquipmentSuccess(e.value['name']);
+                        try {
+                            let image = this.newEquipmentImage.nativeElement;
+                            let newImage = image.files[0];
+                            let allowedImages = ['image/jpeg', 'image/png'];
+                            if (allowedImages.indexOf(newImage.type) > -1) {
+                                let frmData = new FormData();
+                                frmData.append('file', newImage);
+                                this.service.uploadImage(frmData).subscribe();
+                            }
+                        } catch {
+                        }
+                    }
+                },
+                error1 => this.tService.handleError(error1));
         }
         else if (e.invalid)
             this.tService.formFailure();
@@ -142,7 +150,7 @@ export class AddEquipmentComponent implements OnInit {
             'section': ['', Validators.required],
             'type': ['', Validators.required],
             'dateReceived': ['', Validators.compose([Validators.required, Validators.max(this.maxDate)])],
-            'barcode': ['', Validators.compose([Validators.required, Validators.maxLength(24), Validators.minLength(12)])],
+            'barcode': ['', Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(24)])],
             'suppliers': ['', Validators.required]
 
         });

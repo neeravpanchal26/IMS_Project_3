@@ -16,12 +16,12 @@ import {QrCodeDecoderService} from "../../globalServices/qr-code-decoder.service
 export class ManageEquipmentComponent implements OnInit {
     // Global Variables
     public info: any;
-    public filter= null;
+    public filter = null;
     public qrSerial = null;
-    public subscription:Subscription;
+    public subscription: Subscription;
     public p = null;
 
-    constructor(private service: ManageEquipmentService, private toast: ToastrNotificationService,private qrService:QrCodeDecoderService) {
+    constructor(private service: ManageEquipmentService, private toast: ToastrNotificationService, private qrService: QrCodeDecoderService) {
     }
 
     ngOnInit() {
@@ -51,6 +51,16 @@ export class ManageEquipmentComponent implements OnInit {
                         }
                     }
                 }, error => this.toast.handleError(error));
+    }
+
+    // Sorting
+    key: string = 'DateReceived'; //set default
+    reverse: boolean = true;
+
+    // Sorting method
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
     }
 
     // Qr Scanner fn

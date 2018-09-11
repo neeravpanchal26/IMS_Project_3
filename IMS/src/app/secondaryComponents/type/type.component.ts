@@ -35,7 +35,7 @@ export class TypeComponent implements OnInit {
                 (
                     data => {
                         if (data == true) {
-                            this.tService.addBrandSuccess();
+                            this.tService.addTypeSuccess();
                             e.reset();
                         }
                     }, error => this.tService.handleError(error));

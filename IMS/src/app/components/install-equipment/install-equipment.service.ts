@@ -25,6 +25,11 @@ export class InstallEquipmentService {
     {
         return this.http.post(this.apiUrl+'/api/BLL/installEquipment.php?action=imageUpload',param);
     }
+
+    // Get Status
+    getStatus():Observable<any> {
+        return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=status') as Observable<any>;
+    }
 }
 export interface iInstallEquipment
 {

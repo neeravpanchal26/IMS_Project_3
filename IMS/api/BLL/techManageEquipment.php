@@ -7,9 +7,8 @@ use DAL\DBHandler;
 
 
 $action = $_GET['action'];
-if($action=='getInfo')
-{
+if ($action == 'getInfo') {
     $incoming = file_get_contents('php://input');
     $json = json_decode($incoming);
-    echo json_encode(DBHandler::TechManageEquipment_GetAllocatedEquipment($json->id,$json->sDate,$json->eDate));
+    echo json_encode(DBHandler::TechManageEquipment_GetAllocatedEquipment($json->id, $json->sDate, $json->eDate));
 }

@@ -12,45 +12,34 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'equipments')
-{
+if ($action == 'equipments') {
     $userID = $_GET['userID'];
     echo json_encode(DBHandler::InspectEquipmentByID($userID));
-}
-else if ($action == 'conditions')
-{
+} else if ($action == 'conditions') {
     echo json_encode(DBHandler::AddEquipment_Conditions());
-}
-else if ($action == 'individualInfo')
-{
+} else if ($action == 'individualInfo') {
     $serial = $_GET['serial'];
     echo json_encode(DBHandler::InspectEquipmentBySerial($serial));
-}
-else if ($action == 'individualInfoImage')
-{
+} else if ($action == 'individualInfoImage') {
     $serial = $_GET['serial'];
     echo DBHandler::InspectEquipmentBySerial_Image($serial);
-}
-else if ($action == 'insert')
-{
+} else if ($action == 'insert') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::InspectEquipment_Insert($json->userID,$json->serial,$json->condition,$json->value,$json->status,$json->description));
-}
-else if ($action == 'imageUpload')
-{
+    echo json_encode(DBHandler::InspectEquipment_Insert($json->userID, $json->serial, $json->condition, $json->value, $json->status, $json->description));
+} else if ($action == 'imageUpload') {
     $serial = $_POST['serial'];
     // Get Temp Path
     $tempPath = $_FILES['file']['tmp_name'];
     // Get File Name
     $actualName = $_FILES['file']['name'];
     // New path
-    $actualPath = '../uploads/'.$actualName;
+    $actualPath = '../uploads/' . $actualName;
     // Move File into new path
-    move_uploaded_file($tempPath,$actualPath);
+    move_uploaded_file($tempPath, $actualPath);
     // Get real path of moved file here
-    $realPath =  realpath(__DIR__ .'/'.$actualPath);
+    $realPath = realpath(__DIR__ . '/' . $actualPath);
     // Execute the non query
-    echo json_encode(DBHandler::InspectEquipment_InsertImage($actualPath,$serial));
+    echo json_encode(DBHandler::InspectEquipment_InsertImage($actualPath, $serial));
     // Delete the file
     unlink($realPath);
 }

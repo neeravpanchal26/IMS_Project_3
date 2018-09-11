@@ -12,12 +12,11 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'oldPassword') {
+if ($action == 'oldPassword') {
     $userID = $_GET['userID'];
     $password = $_GET['password'];
     echo json_encode(DBHandler::UserPassword_OldCheck($userID, $password));
-}
-else if($action == 'update') {
+} else if ($action == 'update') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::UserPassword_UpdatePass($json->userID, $json->password));
 }

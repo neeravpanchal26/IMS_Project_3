@@ -33,12 +33,13 @@
                         <option disabled selection>Select Allocation Type</option>
                         <option *ngFor="let a of allocationTypes" value="{{a.TypeID}}">{{a.TypeDesc}}</option>
                     </select>
-                </div>
-                <div [class.invalid-feedback]="allocateEquipmentForm.controls['allocation'].hasError('required')">
-                    <div *ngIf="allocateEquipmentForm.controls['allocation'].hasError('required')">
-                        Employee must be selected.
+                    <div [class.invalid-feedback]="allocateEquipmentForm.controls['allocation'].hasError('required')">
+                        <div *ngIf="allocateEquipmentForm.controls['allocation'].hasError('required')">
+                            Employee must be selected.
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-12">
                     <label>Description:</label><br>
                     <textarea class='form-control' formControlName="desc"></textarea>
@@ -51,12 +52,13 @@
                         <option disabled selection>Select Technical Employee</option>
                         <option *ngFor="let t of techEmployees" value="{{t.UserID}}">{{t.TechEmployee}}</option>
                     </select>
-                </div>
-                <div [class.invalid-feedback]="allocateEquipmentForm.controls['user'].hasError('required')">
-                    <div *ngIf="allocateEquipmentForm.controls['user'].hasError('required')">
-                        Employee required.
+                    <div [class.invalid-feedback]="allocateEquipmentForm.controls['user'].hasError('required')">
+                        <div *ngIf="allocateEquipmentForm.controls['user'].hasError('required')">
+                            Employee required.
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary mt-3">Allocate</button>
                     <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>

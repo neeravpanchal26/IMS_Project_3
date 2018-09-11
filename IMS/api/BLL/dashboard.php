@@ -12,30 +12,25 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'users') {
+if ($action == 'users') {
     $days = json_decode($_GET['days']);
     echo json_encode(DBHandler::Dashboard_Users($days));
-}
-else if($action == 'specificUser') {
+} else if ($action == 'specificUser') {
     $userID = json_decode($_GET['userID']);
     $days = json_decode($_GET['days']);
-    echo json_encode(DBHandler::Dashboard_IndividualUser($userID,$days));
-}
-else if($action == 'equipment') {
+    echo json_encode(DBHandler::Dashboard_IndividualUser($userID, $days));
+} else if ($action == 'equipment') {
     $days = json_decode($_GET['days']);
     echo json_encode(DBHandler::Dashboard_Equipment($days));
-}
-else if($action == 'equipmentExtras') {
+} else if ($action == 'equipmentExtras') {
     $days = json_decode($_GET['days']);
     echo json_encode(DBHandler::Dashboard_EquipmentExtras($days));
-}
-else if($action == 'equipmentUser') {
+} else if ($action == 'equipmentUser') {
     $userID = json_decode($_GET['userID']);
     $days = json_decode($_GET['days']);
-    echo json_encode(DBHandler::Dashboard_EquipmentUser($userID,$days));
-}
-else if($action == 'equipmentHistoryUser') {
+    echo json_encode(DBHandler::Dashboard_EquipmentUser($userID, $days));
+} else if ($action == 'equipmentHistoryUser') {
     $userID = json_decode($_GET['userID']);
     $days = json_decode($_GET['days']);
-    echo json_encode(DBHandler::Dashboard_EquipmentHistoryUser($userID,$days));
+    echo json_encode(DBHandler::Dashboard_EquipmentHistoryUser($userID, $days));
 }

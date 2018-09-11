@@ -27,18 +27,18 @@
                 <table class="table table-responsive-sm table-sm table-hover">
                     <thead>
                     <tr class="bg-light">
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th (click)="sort('EquipmentID')" class="btn-link">ID</th>
+                        <th (click)="sort('Name')" class="btn-link">Name</th>
                         <th>Description</th>
-                        <th>Condition</th>
-                        <th>Section</th>
+                        <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
+                        <th (click)="sort('SectionDesc')" class="btn-link">Section</th>
                         <th>Active</th>
-                        <th>Status</th>
+                        <th (click)="sort('StatusDescription')" class="btn-link">Status</th>
                         <th>Allocate</th>
                         <th>Update</th>
                         <th>Print QrCode</th>
                     </tr>
-                    <tr *ngFor="let i of info | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
+                    <tr *ngFor="let i of info | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
                         <td>{{i.EquipmentID}}</td>
                         <td>{{i.Name}}</td>
                         <td>{{i.Desc}}</td>

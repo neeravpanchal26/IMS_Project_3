@@ -28,13 +28,18 @@ export class TechnicalReportsService {
     }
 
     // Equipment History
-    getEquipmentHistory(sDate, eDate, aType, eCondition, userID): Observable<any> {
+    getEquipmentHistory(sDate, eDate, aType, eCondition, userID,ehStatus): Observable<any> {
         let params = new HttpParams()
             .set('sDate', sDate)
             .set('eDate', eDate)
             .set('aType', aType)
             .set('eCondition', eCondition)
-            .set('userID', userID);
+            .set('userID', userID)
+            .set('ehStatus',ehStatus);
         return this.http.get(this.apiUrl + '/api/BLL/reports.php?action=techEmployee', {params: params})as Observable<any>;
+    }
+    // Get Status
+    getStatus():Observable<any> {
+        return this.http.get(this.apiUrl+'/api/BLL/installEquipment.php?action=status') as Observable<any>;
     }
 }

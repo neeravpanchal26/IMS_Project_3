@@ -32,9 +32,14 @@ export class InstallEquipmentComponent implements OnInit {
     public installEquipmentForm: FormGroup;
     public apiUrl = environment.api;
     public active: any;
-    public concatcoords: any
+    public concatcoords: any;
+    public status:any;
 
     ngOnInit() {
+        // Get Status
+        this.IEService.getStatus()
+            .subscribe(data=>this.status = data,
+                error1 => this.toastr.handleError(error1));
 
         this.geo.getLocation().subscribe(data => {
             this.lat = data.coords.latitude;

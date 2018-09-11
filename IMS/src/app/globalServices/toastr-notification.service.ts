@@ -78,10 +78,6 @@ export class ToastrNotificationService {
     addEquipmentSuccess(name) {
         return this.toast.success('The equipment named ' + name + ' has successfully been added.');
     }
-    serialError(serial)
-    {
-        return this.toast.error('Serial: '+ serial + 'is already in use.');
-    }
 
     //Update of equipment
     updateEquipmentSuccess() {
@@ -133,6 +129,9 @@ export class ToastrNotificationService {
     }
     addBrandSuccess() {
         return this.toast.success('Your brand has been added','Success');
+    }
+    addTypeSuccess() {
+        return this.toast.success('Your type has been added','Success');
     }
     addSectionSuccess() {
         return this.toast.success('Your section has been added','Success');

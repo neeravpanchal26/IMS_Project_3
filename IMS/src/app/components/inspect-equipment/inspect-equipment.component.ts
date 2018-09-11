@@ -30,6 +30,7 @@ export class InspectEquipmentComponent implements OnInit {
     public apiUrl = environment.api;
     public map;
     public image;
+    public status;
 
     // Native Html Elements
     @ViewChild('conditionPicture') newBusinessLogo;
@@ -43,13 +44,18 @@ export class InspectEquipmentComponent implements OnInit {
                 private geo: GeoLocationService,
                 private router: Router,
                 private location: Location,
-                private iService:ImageRetrieveService) {
+                private iService: ImageRetrieveService) {
     }
 
     // Form Load
     ngOnInit() {
         // Form Validation
         this.buildForm();
+
+        // Get Status
+        this.service.getStatus()
+            .subscribe(data => this.status = data,
+                error1 => this.tService.handleError(error1));
 
         // Get Equipment to inspect
         this.service.getEquipmentToInspect(this.lService.getUserID())
@@ -85,7 +91,7 @@ export class InspectEquipmentComponent implements OnInit {
                 });
 
         // Blank Image Load up
-        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
+        this.image = this.apiUrl + '/api/Assets/blank350x150.png';
     }
 
     // Individual Equipment Load
@@ -106,13 +112,12 @@ export class InspectEquipmentComponent implements OnInit {
                 error => this.tService.handleError(error));
         // Equipment Image
         this.service.getEquipmentImageBySerial(e)
-            .subscribe(data =>
-                {
+            .subscribe(data => {
                     this.image = this.iService.selectPhoto(data);
-                    if(data.size == 0)
-                        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
-                    },
-                error=>this.tService.handleError(error));
+                    if (data.size == 0)
+                        this.image = this.apiUrl + '/api/Assets/blank350x150.png';
+                },
+                error => this.tService.handleError(error));
     }
 
     // Inspect Equipment
@@ -140,11 +145,12 @@ export class InspectEquipmentComponent implements OnInit {
                                     // Logo upload
                                     let frmData = new FormData();
                                     frmData.append('file', logoFile);
-                                    frmData.append('serial',e.value['equipmentSerial']);
+                                    frmData.append('serial', e.value['equipmentSerial']);
                                     this.service.uploadImage(frmData)
                                         .subscribe();
                                 }
-                            } catch {}
+                            } catch {
+                            }
                             this.tService.inspectionSuccess();
                             e.reset();
                         }

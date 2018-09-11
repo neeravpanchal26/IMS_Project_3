@@ -12,17 +12,14 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'insert') {
+if ($action == 'insert') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::addUser_Insert($json->firstName, $json->lastName, $json->dob, $json->contactNumber, $json->email, $json->password, $json->userType, $json->address1, $json->address2, $json->suburb));
-}
-elseif($action == 'city') {
+} elseif ($action == 'city') {
     echo json_encode(DBHandler::AddUser_City());
-}
-elseif($action == 'suburb') {
+} elseif ($action == 'suburb') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::AddUser_Suburb($json->city));
-}
-elseif($action == 'userType') {
+} elseif ($action == 'userType') {
     echo json_encode(DBHandler::AddUser_UserType());
 }

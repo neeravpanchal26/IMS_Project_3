@@ -26,6 +26,8 @@ export class TechnicalReportsComponent implements OnInit {
     public aType = '';
     public eCondition = '';
     public equipment: any;
+    public status: any;
+    public ehStatus = '';
 
     // Default Constructor
     constructor(private service: TechnicalReportsService,
@@ -43,6 +45,11 @@ export class TechnicalReportsComponent implements OnInit {
         this.mDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
         this.sDate = this.datePipe.transform(this.mDate, 'yyyy-MM-dd');
         this.currentDateTime = Date.now();
+
+        // Status Load up
+        this.service.getStatus()
+            .subscribe(data => this.status = data,
+                error1 => this.tService.handleError(error1));
 
         // Condition Load up
         this.service.getCondition()
@@ -67,13 +74,13 @@ export class TechnicalReportsComponent implements OnInit {
                 error => this.tService.handleError(error));
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName())
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }
 
     // Filter Selection
-    selection(sDate, eDate, aType, eCondition) {
+    selection(sDate, eDate, aType, eCondition, ehStatus) {
         if (sDate != null)
             this.sDate = sDate;
         if (eDate != null)
@@ -82,9 +89,11 @@ export class TechnicalReportsComponent implements OnInit {
             this.aType = aType;
         if (eCondition != null)
             this.eCondition = eCondition;
+        if (ehStatus != null)
+            this.ehStatus = ehStatus;
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName())
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }

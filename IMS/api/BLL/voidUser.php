@@ -10,17 +10,15 @@ require_once '../DAL/DBHandler.php';
 
 use DAL\DBHandler;
 
-$action =   $_GET['action'];
+$action = $_GET['action'];
 
 if ($action == 'update') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode (DBHandler::VoidUser_Status($json->UserID, $json->Status));
-}
-else if ($action == 'type') {
+    echo json_encode(DBHandler::VoidUser_Status($json->UserID, $json->Status));
+} else if ($action == 'type') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode (DBHandler::VoidUser_Type($json->UserID, $json->Status));
-}
-else if ($action == 'users') {
+    echo json_encode(DBHandler::VoidUser_Type($json->UserID, $json->Status));
+} else if ($action == 'users') {
     $userID = $_GET['userID'];
-    echo json_encode (DBHandler::VoidUser_Users($userID));
+    echo json_encode(DBHandler::VoidUser_Users($userID));
 }

@@ -12,38 +12,25 @@ use DAL\DBHandler;
 
 $action = $_GET['action'];
 
-if($action == 'addCity')
-{
+if ($action == 'addCity') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::Secondary_City_Add($json->name));
-}
-elseif ($action =='addSuburb')
-{
+} elseif ($action == 'addSuburb') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::Secondary_Suburb_Add($json->cityID,$json->suburbName));
-}
-else if($action == 'addCondition')
-{
+    echo json_encode(DBHandler::Secondary_Suburb_Add($json->cityID, $json->suburbName));
+} else if ($action == 'addCondition') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::Secondary_Condition_Add($json->name));
-}
-else if($action == 'addBrand')
-{
+} else if ($action == 'addBrand') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::Secondary_Brand_Add($json->name));
-}
-else if($action == 'addSection')
-{
+} else if ($action == 'addSection') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::Secondary_Section_Add($json->name));
-}
-else if($action == 'addType')
-{
+} else if ($action == 'addType') {
     $json = json_decode(file_get_contents('php://input'));
     echo json_encode(DBHandler::Secondary_Type_Add($json->name));
-}
-else if($action == 'addSupplier')
-{
+} else if ($action == 'addSupplier') {
     $json = json_decode(file_get_contents('php://input'));
-    echo json_encode(DBHandler::Secondary_Supplier_Add($json->name,$json->number,$json->email));
+    echo json_encode(DBHandler::Secondary_Supplier_Add($json->name, $json->number, $json->email));
 }

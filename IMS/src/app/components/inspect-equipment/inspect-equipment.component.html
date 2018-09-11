@@ -66,8 +66,7 @@
                 <select class="form-control" formControlName='inspectionStatus' [class.is-valid]="inspectEquipmentForm.controls['inspectionStatus'].valid"
                         [class.is-invalid]="inspectEquipmentForm.controls['inspectionStatus'].invalid && (inspectEquipmentForm.controls['inspectionStatus'].dirty || inspectEquipmentForm.controls['inspectionStatus'].touched)">
                     <option value="" disabled>Choose...</option>
-                    <option value="1">Open</option>
-                    <option value="0">Closed</option>
+                    <option *ngFor="let s of status" [value]="s.StatusID">{{s.StatusDesc}}</option>
                 </select>
                 <div [class.invalid-feedback]="inspectEquipmentForm.controls['inspectionStatus'].hasError('required')">
                     <div *ngIf="inspectEquipmentForm.controls['inspectionStatus'].hasError('required')">

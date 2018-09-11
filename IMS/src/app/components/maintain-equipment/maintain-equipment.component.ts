@@ -28,6 +28,7 @@ export class MaintainEquipmentComponent implements OnInit {
     public map;
     public equipmentInfo;
     public image;
+    public status;
 
     // Native Html Elements
     @ViewChild('conditionPicture') newBusinessLogo;
@@ -40,14 +41,19 @@ export class MaintainEquipmentComponent implements OnInit {
                 private service: MaintainEquipmentService,
                 private router: Router,
                 private lService: LoginService,
-                private geo:GeoLocationService,
-                private iService:ImageRetrieveService) {
+                private geo: GeoLocationService,
+                private iService: ImageRetrieveService) {
     }
 
     // Form Load
     ngOnInit() {
         // Form Validation
         this.buildForm();
+
+        // Get Status
+        this.service.getStatus()
+            .subscribe(data => this.status = data,
+                error1 => this.tService.handleError(error1));
 
         // Get Equipment to maintain
         this.service.getEquipmentToMaintain(this.lService.getUserID())
@@ -83,8 +89,9 @@ export class MaintainEquipmentComponent implements OnInit {
                 });
 
         // Blank Image Load up
-        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
+        this.image = this.apiUrl + '/api/Assets/blank350x150.png';
     }
+
     // Individual Equipment Load
     individualEquipmentLoad(e) {
         // Equipment Info
@@ -103,13 +110,12 @@ export class MaintainEquipmentComponent implements OnInit {
                 error => this.tService.handleError(error));
         // Equipment Image
         this.service.getEquipmentImageBySerial(e)
-            .subscribe(data =>
-                {
+            .subscribe(data => {
                     this.image = this.iService.selectPhoto(data);
-                    if(data.size == 0)
-                        this.image = this.apiUrl+'/api/Assets/blank350x150.png';
-                    },
-                error=>this.tService.handleError(error));
+                    if (data.size == 0)
+                        this.image = this.apiUrl + '/api/Assets/blank350x150.png';
+                },
+                error => this.tService.handleError(error));
     }
 
     // Maintain Equipment
@@ -137,11 +143,12 @@ export class MaintainEquipmentComponent implements OnInit {
                                     // Logo upload
                                     let frmData = new FormData();
                                     frmData.append('file', logoFile);
-                                    frmData.append('serial',e.value['equipmentSerial']);
+                                    frmData.append('serial', e.value['equipmentSerial']);
                                     this.service.uploadImage(frmData)
                                         .subscribe();
                                 }
-                            } catch {}
+                            } catch {
+                            }
                             this.tService.maintenanceSuccess();
                         }
                     },

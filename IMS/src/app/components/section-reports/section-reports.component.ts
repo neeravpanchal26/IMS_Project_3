@@ -21,6 +21,7 @@ export class SectionReportsComponent implements OnInit {
     public businessLogo: any;
     public allocationType: any;
     public condition: any;
+    public ehStatusDLL: any;
     public eDate: any;
     public sDate: any;
     public mDate: any;
@@ -29,9 +30,10 @@ export class SectionReportsComponent implements OnInit {
     public equipment = [];
     public employees: any;
     public userName = '';
+    public ehStatus = '';
 
     // Equipment DDL
-    public status:any;
+    public status: any;
     public types: any;
     public sections: any;
     public suppliers: any;
@@ -65,7 +67,7 @@ export class SectionReportsComponent implements OnInit {
 
         // Status Load up
         this.service.GetStatus()
-            .subscribe(data=>this.status = data,
+            .subscribe(data => this.status = data,
                 error1 => this.tService.handleError(error1));
 
         // Section Load up
@@ -113,6 +115,11 @@ export class SectionReportsComponent implements OnInit {
     reportType(e) {
         this.show = e;
         if (e == 2) {
+            // Get Status
+            this.service.getStatus()
+                .subscribe(data => this.ehStatusDLL = data,
+                    error1 => this.tService.handleError(error1));
+
             // Allocation Type Load up
             this.service.getAllocationTypes()
                 .subscribe(data => this.allocationType = data,
@@ -124,7 +131,7 @@ export class SectionReportsComponent implements OnInit {
     }
 
     // Filter Selection
-    hSelection(sDate, eDate, aType, eCondition, userID) {
+    hSelection(sDate, eDate, aType, eCondition, userID, ehStatus) {
         if (sDate != null)
             this.sDate = sDate;
         if (eDate != null)
@@ -135,6 +142,8 @@ export class SectionReportsComponent implements OnInit {
             this.eCondition = eCondition;
         if (userID != null)
             this.userName = userID;
+        if (ehStatus != null)
+            this.ehStatus = ehStatus;
 
         // Get Equipment History
         this.getEquipmentHistory();
@@ -167,7 +176,7 @@ export class SectionReportsComponent implements OnInit {
 
     // Get Equipment History
     getEquipmentHistory() {
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName)
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName,this.ehStatus)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }
