@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-primary">List of users</h5>
                     <!--Search Input-->
-                    <div class="input-group">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="oi oi-magnifying-glass"></span>
@@ -49,9 +49,7 @@
                         <input type="text" class="form-control" placeholder="Search Name or Surname"
                                [(ngModel)]="filter">
                     </div>
-                    <br>
-
-                    <table class="table table-sm table-hover border-left border-right border-bottom">
+                    <table class="table table-sm table-hover border">
                         <thead>
                         <tr class="bg-light">
                             <th (click)="sort('UserID')" class="btn-link">ID</th>

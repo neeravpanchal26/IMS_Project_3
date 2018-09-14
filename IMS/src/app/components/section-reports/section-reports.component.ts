@@ -114,6 +114,9 @@ export class SectionReportsComponent implements OnInit {
     // Report Type to display
     reportType(e) {
         this.show = e;
+        if(e==1){
+            this.ngOnInit();
+        }
         if (e == 2) {
             // Get Status
             this.service.getStatus()

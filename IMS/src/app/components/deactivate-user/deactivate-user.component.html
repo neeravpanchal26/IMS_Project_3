@@ -8,7 +8,7 @@
     <hr class="py-2">
 
     <!--Search Input-->
-    <div class="input-group">
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
             <div class="input-group-text">
                 <span class="oi oi-magnifying-glass"></span>
@@ -16,10 +16,9 @@
         </div>
         <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
     </div>
-    <br>
 
     <!--Users Table-->
-    <table class="table table-responsive-sm table-sm table-hover">
+    <table class="table table-responsive-sm table-sm table-hover border">
         <thead>
         <tr class="bg-light">
             <th (click)="sort('info')" class="btn-link">Full Name</th>
