@@ -17,7 +17,7 @@
                 <div *ngIf="loginForm.controls['email'].hasError('required')">Email is required.</div>
             </div>
             <div [class.invalid-feedback] = "loginForm.controls['email'].hasError('pattern')">
-                <div *ngIf="loginForm.controls['email'].hasError('pattern')">Check you email format.</div>
+                <div *ngIf="loginForm.controls['email'].hasError('pattern')">Check your email format.</div>
             </div>
         </div>
 

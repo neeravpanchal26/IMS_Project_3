@@ -34,6 +34,7 @@ export class InstallEquipmentComponent implements OnInit {
     public active: any;
     public concatcoords: any;
     public status:any;
+    public disable:boolean = false;
 
     ngOnInit() {
         // Get Status
@@ -49,12 +50,15 @@ export class InstallEquipmentComponent implements OnInit {
         }, error => {
             if (error == "You have rejected access to your location") {
                 this.toastr.geolocationTurnedOff();
+                this.disable = true;
             }
             else if (error == "Unable to determine your location") {
                 this.toastr.geolocationUnavailablePosition();
+                this.disable = true;
             }
             else if (error == "Service timeout has been reached") {
                 this.toastr.geolocationSeviceTimeOut();
+                this.disable = true;
             }
             else {
                 this.toastr.geolocationBrowserNotSupportive();
