@@ -23,14 +23,8 @@
                     <div class="col-12">
                         <!--Business Logo input-->
                         <label for="BusinessLogo">Upload new Logo</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input id="BusinessLogo" #BusinessLogo type="file" class="custom-file-input"
-                                       formControlName="logo" accept="image/jpeg,image/png">
-                                <label class="custom-file-label" for="BusinessLogo">Choose file</label>
-                            </div>
-                        </div>
-
+                        <input id="BusinessLogo" #BusinessLogo type="file" class="form-control-file"
+                               formControlName="logo" accept="image/jpeg,image/png">
                     </div>
 
                     <div class="col-12">
@@ -94,13 +88,8 @@
                     <div class="col-12">
                         <!--Business Policy input-->
                         <label for="BusinessLogo">Upload new Policy</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file" class="form-control-file"
-                                                            formControlName="pdf" accept="application/pdf">
-                                <label class="custom-file-label" for="BusinessLogo">Choose file</label>
-                            </div>
-                        </div>
+                        <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file" class="form-control-file"
+                               formControlName="pdf" accept="application/pdf">
                     </div>
                     <br/>
 

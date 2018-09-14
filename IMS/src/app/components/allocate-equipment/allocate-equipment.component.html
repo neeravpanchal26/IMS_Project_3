@@ -30,32 +30,26 @@
                     <select class='form-control' formControlName="allocation"
                             [class.is-valid]="allocateEquipmentForm.controls['allocation'].valid"
                             [class.is-invalid]="allocateEquipmentForm.controls['allocation'].invalid && (allocateEquipmentForm.controls['allocation'].dirty || allocateEquipmentForm.controls['allocation'].touched)">
-                        <option value="" disabled selected>Select Allocation Type</option>
+                        <option disabled selection>Select Allocation Type</option>
                         <option *ngFor="let a of allocationTypes" value="{{a.TypeID}}">{{a.TypeDesc}}</option>
                     </select>
                     <div [class.invalid-feedback]="allocateEquipmentForm.controls['allocation'].hasError('required')">
                         <div *ngIf="allocateEquipmentForm.controls['allocation'].hasError('required')">
-                            Allocation type must be selected.
+                            Employee must be selected.
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12">
-                    <label for="desc">Description:</label><br>
-                    <textarea id="desc" class='form-control' formControlName="desc" [class.is-valid]="allocateEquipmentForm.controls['desc'].valid"
-                              [class.is-invalid]="allocateEquipmentForm.controls['desc'].invalid && (allocateEquipmentForm.controls['desc'].dirty || allocateEquipmentForm.controls['desc'].touched)"></textarea>
-                    <div [class.invalid-feedback]="allocateEquipmentForm.controls['desc'].hasError('required')">
-                        <div *ngIf="allocateEquipmentForm.controls['desc'].hasError('required')">
-                            Description is required.
-                        </div>
-                    </div>
+                    <label>Description:</label><br>
+                    <textarea class='form-control' formControlName="desc"></textarea>
                 </div>
                 <div class="col-12">
-                    <label for="techemp">Technical Employee: </label>
-                    <select id="techemp" class='form-control' formControlName='user'
+                    <label>Technical Employee: </label>
+                    <select class='form-control' formControlName='user'
                             [class.is-valid]="allocateEquipmentForm.controls['user'].valid"
                             [class.is-invalid]="allocateEquipmentForm.controls['user'].invalid && (allocateEquipmentForm.controls['user'].dirty || allocateEquipmentForm.controls['user'].touched)">
-                        <option value=""  disabled selected>Select Technical Employee</option>
+                        <option disabled selection>Select Technical Employee</option>
                         <option *ngFor="let t of techEmployees" value="{{t.UserID}}">{{t.TechEmployee}}</option>
                     </select>
                     <div [class.invalid-feedback]="allocateEquipmentForm.controls['user'].hasError('required')">

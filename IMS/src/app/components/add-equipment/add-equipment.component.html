@@ -123,8 +123,7 @@
                 <label>Date Received</label>
                 <div class="input-group">
                     <!-- Select Date -->
-                    <input type="date" class="form-control" placeholder="Date" min="1940-01-01"
-                           max="{{maxDate | date:'yyyy-MM-dd'}}"
+                    <input type="date" class="form-control" placeholder="Date" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}"
                            formControlName="dateReceived"
                            [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
                            [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
@@ -162,7 +161,7 @@
                         Serial may at most be 24 characters long.
                     </div>
                 </div>
-                <div [class.invalid-feedback]="addEquipmentForm.controls['barcode'].hasError('minlength')">
+                <div [class.invalid-feedback] = "addEquipmentForm.controls['barcode'].hasError('minlength')">
                     <div *ngIf="addEquipmentForm.controls['barcode'].hasError('minlength')">
                         Serial must be at least 12 characters long.
                     </div>
@@ -189,19 +188,15 @@
 
         </div>
         <div class="form-row">
-            <div class="col-12">
+            <div class="col-6">
                 <!--Current Logo-->
                 <label>Image Upload (Optional)</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" #EquipmentImage id="EquipmentImage" class="form-control-file" accept="image/jpeg,image/png">
-                        <label class="custom-file-label" for="EquipmentImage">Choose file</label>
-                    </div>
-                </div>
+                <input type="file" #EquipmentImage class="form-control-file" accept="image/jpeg,image/png">
+                <br>
+                <button type="submit" class="btn btn-primary mt-3">Add Equipment</button>
+                <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Add Equipment</button>
-        <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
     </form>
 </div>
 <!--Footer-->

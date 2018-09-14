@@ -83,7 +83,7 @@ export class AllocateEquipmentComponent implements OnInit {
         this.allocateEquipmentForm = this.formBuilder.group({
             'serial': [''],
             'name': [''],
-            'desc': ['',Validators.required],
+            'desc': [],
             'user': ['', Validators.compose([Validators.required])],
             'allocation': ['', Validators.compose([Validators.required])]
         });

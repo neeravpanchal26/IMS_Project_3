@@ -14,7 +14,6 @@
                         <select class="form-control" formControlName='serial' [compareWith]="compareFn"
                                 [class.is-valid]="installEquipmentForm.controls['serial'].valid"
                                 [class.is-invalid]="installEquipmentForm.controls['serial'].invalid && (installEquipmentForm.controls['serial'].dirty || installEquipmentForm.controls['serial'].touched)">
-                            <option value="" disabled>Choose...</option>
                             <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
                         </select>
 
@@ -35,12 +34,7 @@
                 </div>
                 <div>
                     <label>Image Upload</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input id='EquipmentImage' #EquipmentImage type="file" class="form-control-file">
-                            <label class="custom-file-label" for="EquipmentImage">Choose file</label>
-                        </div>
-                    </div>
+                    <input id='EquipmentImage' #EquipmentImage type="file" class="form-control-file">
                 </div>
                 <div>
                     <label>Installation Status:</label>
@@ -81,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-3" [disabled]="disable">Save</button>
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
         <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
     </form>
 </div>
