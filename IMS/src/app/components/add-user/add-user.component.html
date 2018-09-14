@@ -45,7 +45,7 @@
             <div class="col-sm-6">
                 <!--Date of Birth input-->
                 <label>Date of Birth</label>
-                <input type="date" class="form-control" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="addUserForm.controls['dob'].valid" [class.is-invalid]="addUserForm.controls['dob'].invalid && (addUserForm.controls['dob'].dirty || addUserForm.controls['dob'].touched)">
+                <input type="date" data-date-format="dd-MM-yyyy" class="form-control" min="1940-01-01" max="{{maxDate | date:'yyyy-MM-dd'}}" formControlName="dob" [class.is-valid]="addUserForm.controls['dob'].valid" [class.is-invalid]="addUserForm.controls['dob'].invalid && (addUserForm.controls['dob'].dirty || addUserForm.controls['dob'].touched)">
                 <div [class.invalid-feedback] = "addUserForm.controls['dob'].hasError('required')">
                     <div *ngIf="addUserForm.controls['dob'].hasError('required')">
                         Date of birth is required.
@@ -103,7 +103,7 @@
                 <input type="password" class="form-control" placeholder="Password" formControlName="password" [class.is-valid]="addUserForm.controls['password'].valid" [class.is-invalid]="addUserForm.controls['password'].invalid && (addUserForm.controls['password'].dirty || addUserForm.controls['password'].touched)">
                     <div class="input-group-append">
                         <!--Password ToolTip-->
-                        <div class="input-group-text btn-group-sm p-0">
+                        <div class="input-group-text btn-group-sm p-0 rounded-right">
                             <button type="button" class="dropdown-toggle btn btn-new-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="oi oi-question-mark"></span>
                             </button>

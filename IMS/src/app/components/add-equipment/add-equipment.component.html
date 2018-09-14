@@ -35,7 +35,7 @@
               <b>R</b>
             </span>
                     </div>
-                    <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control"
+                    <input type="number" value="0.00 + 0" step="0.01" min="0" class="form-control rounded-right"
                            formControlName="cost" [class.is-valid]="addEquipmentForm.controls['cost'].valid"
                            [class.is-invalid]="addEquipmentForm.controls['cost'].invalid && (addEquipmentForm.controls['cost'].dirty || addEquipmentForm.controls['cost'].touched)">
                     <div [class.invalid-feedback]="addEquipmentForm.controls['cost'].hasError('required')">
@@ -129,18 +129,19 @@
                            [class.is-valid]="addEquipmentForm.controls['dateReceived'].valid"
                            [class.is-invalid]="addEquipmentForm.controls['dateReceived'].invalid && (addEquipmentForm.controls['dateReceived'].dirty || addEquipmentForm.controls['dateReceived'].touched)">
                     <div class="input-group-append">
-                        <button type="button" class="input-group-text" (click)="getToday()"><span
+                        <button type="button" class="input-group-text rounded-right" (click)="getToday()"><span
                                 class="oi oi-calendar"></span>
                             Today
                         </button>
                     </div>
+                    <div [class.invalid-feedback]="addEquipmentForm.controls['dateReceived'].hasError('required')">
+                        <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">
+                            The receival date is required.
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div [class.invalid-feedback]="addEquipmentForm.controls['dateReceived'].hasError('required')">
-                <div *ngIf="addEquipmentForm.controls['dateReceived'].hasError('required')">
-                    The receival date is required.
-                </div>
-            </div>
+
         </div>
         <div class="form-row">
             <div class="col-sm-6">
@@ -194,7 +195,8 @@
                 <label>Image Upload (Optional)</label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" #EquipmentImage id="EquipmentImage" class="form-control-file" accept="image/jpeg,image/png">
+                        <input type="file" #EquipmentImage id="EquipmentImage" class="form-control-file"
+                               accept="image/jpeg,image/png">
                         <label class="custom-file-label" for="EquipmentImage">Choose file</label>
                     </div>
                 </div>

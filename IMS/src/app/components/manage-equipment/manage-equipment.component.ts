@@ -43,7 +43,6 @@ export class ManageEquipmentComponent implements OnInit {
                     if (data == true) {
                         if (e == true) {
                             this.qrSerial = serial;
-                            this.onClick();
                             this.toast.equipmentActivateSuccess(name);
                         }
                         else if (e == false) {
@@ -76,27 +75,4 @@ export class ManageEquipmentComponent implements OnInit {
             });
 
     }
-
-    // Qr to PDF
-    onClick() {
-        let data = document.getElementById('qrCode');
-        html2Canvas(data).then(
-            canvas => {
-                // Image settings
-                let imgWidth = 150;
-                let pageHeight = 200;
-                let imgHeight = canvas.height * imgWidth / canvas.width;
-                let heightLeft = imgHeight;
-
-                const contentDataURL = canvas.toDataURL('image/png');
-                // A4 size page of PDF
-                let pdf = new jsPdf('p', 'mm', 'a4');
-                let topPx = 5;
-                let leftPx = 5;
-                pdf.addImage(contentDataURL, 'PNG', leftPx, topPx, imgWidth, imgHeight);
-                // Generated PDF
-                pdf.save(this.qrSerial + '.pdf');
-            });
-    }
-
 }

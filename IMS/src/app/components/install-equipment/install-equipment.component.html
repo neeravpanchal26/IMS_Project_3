@@ -11,7 +11,7 @@
                 <div>
                     <label>Equipment</label>
                     <div class="input-group">
-                        <select class="form-control" formControlName='serial' [compareWith]="compareFn"
+                        <select class="custom-select" formControlName='serial' [compareWith]="compareFn"
                                 [class.is-valid]="installEquipmentForm.controls['serial'].valid"
                                 [class.is-invalid]="installEquipmentForm.controls['serial'].invalid && (installEquipmentForm.controls['serial'].dirty || installEquipmentForm.controls['serial'].touched)">
                             <option value="" disabled>Choose...</option>
@@ -19,7 +19,7 @@
                         </select>
 
                         <div class="input-group-append">
-                            <div class="input-group-text">
+                            <div class="input-group-text rounded-right">
                                 <div class="upload-btn-wrapper">
                                     <span class="oi oi-camera-slr"></span> Scan
                                     <input type="file" accept="image/*" (change)="onFileChange($event)">
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card mt-3">
+                <div class="card mt-4">
                     <div class="card-body">
                         <h5 class="card-title">
                             Choose Location

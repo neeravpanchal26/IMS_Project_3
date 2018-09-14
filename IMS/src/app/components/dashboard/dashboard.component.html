@@ -9,25 +9,28 @@
     <div *ngIf="userType==1" class="row">
         <div class="col-12">
             <div class="card mt-3 border-primary">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h5 class="float-left text-primary">{{title}}</h5>
-                        <div class="float-right">
-                            <button class="btn-group btn btn-outline-primary" (click)="setDays(7);itAdminChart()"><span class="oi oi-reload"></span> Reset</button>
-                            <div class="dropdown btn-group">
-                                <button class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="oi oi-calendar"></span> Filter
-                                </button>
+                <div class="card-header">
+                    <h5 class="float-left text-primary">{{title}}</h5>
+                    <div class="float-right">
+                        <button class="btn-group btn btn-outline-primary" (click)="setDays(7);itAdminChart()"><span
+                                class="oi oi-reload pt-1"></span> Reset
+                        </button>
+                        <div class="dropdown btn-group">
+                            <button class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="oi oi-calendar"></span> Filter
+                            </button>
 
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
-                                </div>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
                             </div>
                         </div>
                     </div>
-                    <canvas id="ItAdminCanvas">{{chart}}</canvas>
+                </div>
+                <div class="card-body">
+                    <canvas class="card-text" id="ItAdminCanvas">{{chart}}</canvas>
                 </div>
             </div>
         </div>
@@ -36,32 +39,37 @@
             <div class="card mt-3 border-primary">
                 <div class="card-body">
                     <h5 class="card-title text-primary">List of users</h5>
-                        <!--Search Input-->
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <span class="oi oi-magnifying-glass"></span>
-                                </div>
+                    <!--Search Input-->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span class="oi oi-magnifying-glass"></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search Name or Surname" [(ngModel)]="filter">
                         </div>
-                        <br>
+                        <input type="text" class="form-control" placeholder="Search Name or Surname"
+                               [(ngModel)]="filter">
+                    </div>
+                    <br>
 
-                        <table class="table table-sm table-hover">
-                            <thead><tr class="bg-light">
-                                <th (click)="sort('UserID')" class="btn-link">ID</th>
-                                <th (click)="sort('FirstName')" class="btn-link">Username</th>
-                                <th (click)="sort('count')" class="btn-link"># of Login's</th>
-                                <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
-                            </tr></thead>
-                            <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: p };" (click)="itAdminUserData(u.UserID,u.FirstName)">
-                                <td>{{u.UserID}}</td>
-                                <td>{{u.FirstName}} {{u.Surname}}</td>
-                                <td>{{u.count}}</td>
-                                <td>{{u.lastAccess}}</td>
-                            </tr>
-                        </table>
-                        <pagination-controls (pageChange)="p = $event" class="my-pagination float-right" [autoHide]="user.length<=10"></pagination-controls>
+                    <table class="table table-sm table-hover border-left border-right border-bottom">
+                        <thead>
+                        <tr class="bg-light">
+                            <th (click)="sort('UserID')" class="btn-link">ID</th>
+                            <th (click)="sort('FirstName')" class="btn-link">Username</th>
+                            <th (click)="sort('count')" class="btn-link"># of Login's</th>
+                            <th (click)="sort('lastAccess')" class="btn-link">Latest Access</th>
+                        </tr>
+                        </thead>
+                        <tr *ngFor="let u of user | filter:filter | orderBy: key : reverse | paginate: { itemsPerPage: 5, currentPage: p };"
+                            (click)="itAdminUserData(u.UserID,u.FirstName)">
+                            <td>{{u.UserID}}</td>
+                            <td>{{u.FirstName}} {{u.Surname}}</td>
+                            <td>{{u.count}}</td>
+                            <td>{{u.lastAccess}}</td>
+                        </tr>
+                    </table>
+                    <pagination-controls (pageChange)="p = $event" class="my-pagination float-right"
+                                         [autoHide]="user.length<=10"></pagination-controls>
                 </div>
             </div>
         </div>
@@ -72,25 +80,30 @@
     <div *ngIf="userType==2" class="row">
         <div class="col-lg-12">
             <div class="card mt-3 border-primary">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h5 class="float-left text-primary">{{title}}</h5>
-                        <div class="float-right">
-                            <button class="btn-group btn btn-outline-primary" (click)="setDays(7);sectionHeadEquipmentChart()"><span class="oi oi-reload align-middle"></span> Reset</button>
-                            <div class="dropdown btn-group">
-                                <button class="btn btn-primary dropdown-toggle" href="#" role="button" id="2dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="oi oi-calendar"></span> Filter
-                                </button>
+                <div class="card-header">
+                    <h5 class="float-left text-primary">{{title}}</h5>
+                    <div class="float-right">
+                        <button class="btn-group btn btn-outline-primary"
+                                (click)="setDays(7);sectionHeadEquipmentChart()"><span class="oi oi-reload pt-1"></span>
+                            Reset
+                        </button>
+                        <div class="dropdown btn-group">
+                            <button class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                    id="2dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <span class="oi oi-calendar"></span> Filter
+                            </button>
 
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
-                                </div>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
                             </div>
                         </div>
                     </div>
-                    <canvas id="TechnicalHeadCanvas">{{chart}}</canvas>
+                </div>
+                <div class="card-body">
+                    <canvas class="card-text" id="TechnicalHeadCanvas">{{chart}}</canvas>
                 </div>
             </div>
         </div>
@@ -113,25 +126,30 @@
     <div *ngIf="userType==3" class="row">
         <div class="col-lg-12">
             <div class="card mt-3 border-primary">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h5 class="float-left text-primary">{{title}}</h5>
-                        <div class="float-right">
-                            <button class="btn-group btn btn-outline-primary" (click)="setDays(7);sectionHeadEquipmentChart()"><span class="oi oi-reload align-middle"></span> Reset</button>
-                            <div class="dropdown btn-group">
-                                <button class="btn btn-primary dropdown-toggle" href="#" role="button" id="3dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="oi oi-calendar"></span> Filter
-                                </button>
+                <div class="card-header">
+                    <h5 class="float-left text-primary">{{title}}</h5>
+                    <div class="float-right">
+                        <button class="btn-group btn btn-outline-primary"
+                                (click)="setDays(7);sectionHeadEquipmentChart()"><span
+                                class="oi oi-reload pt-1"></span> Reset
+                        </button>
+                        <div class="dropdown btn-group">
+                            <button class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                    id="3dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <span class="oi oi-calendar"></span> Filter
+                            </button>
 
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
-                                    <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
-                                </div>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" href="" (click)="setDays(7)">7 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(14)">14 Days</button>
+                                <button class="dropdown-item" href="" (click)="setDays(30)">30 Days</button>
                             </div>
                         </div>
                     </div>
-                    <canvas id="SectionHeadCanvas">{{chart}}</canvas>
+                </div>
+                <div class="card-body">
+                    <canvas class="card-text" id="SectionHeadCanvas">{{chart}}</canvas>
                 </div>
             </div>
         </div>
@@ -151,7 +169,9 @@
         <!-- Total Equipment Card-->
         <div class="col-lg-6 mt-3 pl-3">
             <div class="card border-primary">
-                <div class="card-header text-primary"><span class="oi oi-cart"></span> Total Equipment Received in past {{days}} days</div>
+                <div class="card-header text-primary"><span class="oi oi-cart"></span> Total Equipment Received in past
+                    {{days}} days
+                </div>
                 <div class="card-body text-primary">
                     <h5 class="card-title">Equipment Total</h5>
                     <h1 class="card-text">{{equipmentExtras['count']}}</h1>
