@@ -146,4 +146,7 @@ export class ToastrNotificationService {
     maintenanceSuccess() {
         return this.toast.success('Your maintenance was successful.','Success');
     }
+    equipmentNotFound() {
+        return this.toast.warning('This equipment is not available.','Warning');
+    }
 }

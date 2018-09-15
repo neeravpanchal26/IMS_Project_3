@@ -26,20 +26,20 @@ export class InstallEquipmentComponent implements OnInit {
     public lat: any;
     public long: any;
     public map: any;
-    public equipment: any;
+    public equipment = [];
     public marker: any;
     public subscription: Subscription;
     public installEquipmentForm: FormGroup;
     public apiUrl = environment.api;
     public active: any;
     public concatcoords: any;
-    public status:any;
-    public disable:boolean = false;
+    public status: any;
+    public disable: boolean = false;
 
     ngOnInit() {
         // Get Status
         this.IEService.getStatus()
-            .subscribe(data=>this.status = data,
+            .subscribe(data => this.status = data,
                 error1 => this.toastr.handleError(error1));
 
         this.geo.getLocation().subscribe(data => {
@@ -104,7 +104,7 @@ export class InstallEquipmentComponent implements OnInit {
                     } catch {
                     }
                 }
-            }, error =>this.toastr.handleError(error) );
+            }, error => this.toastr.handleError(error));
         }
         else if (e.invalid) {
             this.toastr.formFailure();
@@ -148,8 +148,15 @@ export class InstallEquipmentComponent implements OnInit {
             .subscribe(decodedString => {
                 if (decodedString == 'error decoding QR Code')
                     this.toastr.qrCodeScanError();
-                else
-                    this.installEquipmentForm.controls['serial'].setValue(decodedString);
+                else {
+                    let r = this.equipment.filter(function (equip) {
+                        return (equip.Serial == decodedString);
+                    });
+                    if (r.length > 0)
+                        this.installEquipmentForm.controls['serial'].setValue(decodedString);
+                    else
+                        this.toastr.equipmentNotFound();
+                }
             });
 
     }

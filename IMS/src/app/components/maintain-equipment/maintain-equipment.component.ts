@@ -178,8 +178,15 @@ export class MaintainEquipmentComponent implements OnInit {
                 if (decodedString == 'error decoding QR Code')
                     this.tService.qrCodeScanError();
                 else {
-                    this.maintainEquipmentForm.controls['equipmentSerial'].setValue(decodedString);
-                    this.individualEquipmentLoad(this.maintainEquipmentForm.controls['equipmentSerial'].value);
+                    let r = this.equipment.filter(function (equip) {
+                        return (equip.Serial == decodedString);
+                    });
+                    if (r.length > 0) {
+                        this.maintainEquipmentForm.controls['equipmentSerial'].setValue(decodedString);
+                        this.individualEquipmentLoad(this.maintainEquipmentForm.controls['equipmentSerial'].value);
+                    }
+                    else
+                        this.tService.equipmentNotFound();
                 }
             });
 
