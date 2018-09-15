@@ -33,12 +33,45 @@
                     </div>
                 </div>
 
-            </div>
+                <label>Reason for inspection</label>
+                <textarea class="form-control" formControlName='description' readonly></textarea>
 
-            <div class="col-lg-6">
+                <label>Inspection Description</label>
+                <textarea class="form-control" formControlName='description2'
+                          [class.is-valid]="inspectEquipmentForm.controls['description2'].valid"
+                          [class.is-invalid]="inspectEquipmentForm.controls['description2'].invalid && (inspectEquipmentForm.controls['description2'].dirty || inspectEquipmentForm.controls['description2'].touched)"></textarea>
+                <div [class.invalid-feedback]="inspectEquipmentForm.controls['description2'].hasError('required')">
+                    <div *ngIf="inspectEquipmentForm.controls['description2'].hasError('required')">
+                        Inspection Description is required.
+                    </div>
+                </div>
+                <div [class.invalid-feedback]="inspectEquipmentForm.controls['description2'].hasError('maxlength')">
+                    <div *ngIf="inspectEquipmentForm.controls['description2'].hasError('maxlength')">
+                        Inspection Description may only be 100 characters.
+                    </div>
+                </div>
+
+                <label>Equipment Value</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><b>R</b></div>
+                    </div>
+                    <input placeholder="Value" type="text" formControlName="equipmentValue"
+                           class="form-control rounded-right"
+                           [class.is-valid]="inspectEquipmentForm.controls['equipmentValue'].valid"
+                           [class.is-invalid]="inspectEquipmentForm.controls['equipmentValue'].invalid && (inspectEquipmentForm.controls['equipmentValue'].dirty || inspectEquipmentForm.controls['equipmentValue'].touched)">
+                    <div [class.invalid-feedback]="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">
+                        <div *ngIf="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">
+                            Value may not be empty.
+                        </div>
+                    </div>
+                </div>
+
                 <label>Condition</label>
-                <select class="form-control" (change)="addCondition($event.target.value)" formControlName="equipmentCondition" [compareWith]="compareFn"
-                    [class.is-valid]="inspectEquipmentForm.controls['equipmentCondition'].valid" [class.is-invalid]="inspectEquipmentForm.controls['equipmentCondition'].invalid && (inspectEquipmentForm.controls['equipmentCondition'].dirty || inspectEquipmentForm.controls['equipmentCondition'].touched)">
+                <select class="form-control" (change)="addCondition($event.target.value)"
+                        formControlName="equipmentCondition" [compareWith]="compareFn"
+                        [class.is-valid]="inspectEquipmentForm.controls['equipmentCondition'].valid"
+                        [class.is-invalid]="inspectEquipmentForm.controls['equipmentCondition'].invalid && (inspectEquipmentForm.controls['equipmentCondition'].dirty || inspectEquipmentForm.controls['equipmentCondition'].touched)">
                     <option value="" disabled>Choose...</option>
                     <option *ngFor="let c of condition" value="{{c.ConditionID}}">{{c.ConditionDesc}}</option>
                     <option value="addCondition">Add New Condition</option>
@@ -48,23 +81,10 @@
                         Condition must be selected.
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
-                <label>Equipment Value</label>
-                <input placeholder="Value" type="text" formControlName="equipmentValue" class="form-control" [class.is-valid]="inspectEquipmentForm.controls['equipmentValue'].valid"
-                       [class.is-invalid]="inspectEquipmentForm.controls['equipmentValue'].invalid && (inspectEquipmentForm.controls['equipmentValue'].dirty || inspectEquipmentForm.controls['equipmentValue'].touched)">
-                <div [class.invalid-feedback]="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">
-                    <div *ngIf="inspectEquipmentForm.controls['equipmentValue'].hasError('required')">
-                        Value may not be empty.
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-6">
                 <label>Inspection Status:</label>
-                <select class="form-control" formControlName='inspectionStatus' [class.is-valid]="inspectEquipmentForm.controls['inspectionStatus'].valid"
+                <select class="form-control" formControlName='inspectionStatus'
+                        [class.is-valid]="inspectEquipmentForm.controls['inspectionStatus'].valid"
                         [class.is-invalid]="inspectEquipmentForm.controls['inspectionStatus'].invalid && (inspectEquipmentForm.controls['inspectionStatus'].dirty || inspectEquipmentForm.controls['inspectionStatus'].touched)">
                     <option value="" disabled>Choose...</option>
                     <option *ngFor="let s of status" [value]="s.StatusID">{{s.StatusDesc}}</option>
@@ -74,51 +94,25 @@
                         A status must be selected.
                     </div>
                 </div>
-            </div>
 
-
-            <div class='col-lg-6'>
-                <label>Reason for inspection</label>
-                <textarea class="form-control" formControlName='description' readonly></textarea>
-            </div>
-
-            <div class='col-lg-6'>
-                <label>Inspection Description</label>
-                <textarea class="form-control" formControlName='description2' [class.is-valid]="inspectEquipmentForm.controls['description2'].valid"
-                          [class.is-invalid]="inspectEquipmentForm.controls['description2'].invalid && (inspectEquipmentForm.controls['description2'].dirty || inspectEquipmentForm.controls['description2'].touched)"></textarea>
-                <div [class.invalid-feedback] = "inspectEquipmentForm.controls['description2'].hasError('required')">
-                    <div *ngIf="inspectEquipmentForm.controls['description2'].hasError('required')">
-                        Inspection Description is required.
-                    </div>
-                </div>
-                <div [class.invalid-feedback] = "inspectEquipmentForm.controls['description2'].hasError('maxlength')">
-                    <div *ngIf="inspectEquipmentForm.controls['description2'].hasError('maxlength')">
-                        Inspection Description may only be 100 characters.
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-12">
                 <label>Condition Picture</label>
                 <div class="input-group">
                     <div class="custom-file">
-                <input id="conditionPicture" #conditionPicture type="file" class="form-control-file"
-                       accept="image/jpeg,image/png">
+                        <input id="conditionPicture" #conditionPicture type="file" class="form-control-file"
+                               accept="image/jpeg,image/png">
                         <label class="custom-file-label" for="conditionPicture">Choose file</label>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-6">
-                <div class="card mt-3">
+                <div class="card mt-1">
                     <div class="card-body">
                         <h5 class="card-title">Latest Condition</h5>
                         <img class="card-img-bottom" id="currentCondition" *ngIf="image" [src]="image">
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
                 <div class="card mt-3">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -131,8 +125,8 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Save</button>
-        <button type="button" class="btn btn-outline-primary mt-3" (click)="locateBack()">Go Back</button>
+        <button type="submit" class="btn btn-primary mt-3 col-lg-2">Save</button>
+        <button type="button" class="btn btn-outline-primary mt-3 col-lg-2" (click)="locateBack()">Go Back</button>
     </form>
 </div>
 
