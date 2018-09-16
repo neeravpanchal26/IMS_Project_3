@@ -13,6 +13,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {PasswordStrengthBarModule} from "ng2-password-strength-bar";
 import {QRCodeModule} from "angular2-qrcode";
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import {SlideshowModule} from "ng-simple-slideshow";
 
 @NgModule({
     declarations: [
@@ -38,6 +39,7 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
         NgxPaginationModule,
         PasswordStrengthBarModule,
         QRCodeModule,
+        SlideshowModule,
         PdfViewerModule
     ],
     bootstrap: [AppComponent]

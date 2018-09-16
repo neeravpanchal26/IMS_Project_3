@@ -76,7 +76,7 @@
             </ul>
 
             <!--User info Loading-->
-            <span class="navbar-text dropdown">
+            <div class="navbar-text dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
            aria-expanded="false" role="button" href="#">
           Hello, {{userName}}
@@ -87,10 +87,11 @@
             <a class="dropdown-item text-secondary" download="policy.pdf" [href]="policy"><span
                     class="oi oi-script"></span> Group Policy</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-secondary" data-toggle="modal" data-target="#logout" data-backdrop="false" href=""><span
+          <a class="dropdown-item text-secondary" data-toggle="modal" data-target="#logout" data-backdrop="false"
+             href=""><span
                   class="oi oi-account-logout"></span> Logout</a>
         </div>
-    </span>
+    </div>
         </div>
 
         <!-- Confirmation Dialog-->
@@ -128,18 +129,16 @@
                     </div>
                     <div class="modal-body">
                         <!-- It Admin Help-->
-                        <pdf-viewer *ngIf="userType==1" [src]="apiUrl+'/api/Assets/IT ADMIN - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">1</pdf-viewer>
+                        <slideshow *ngIf="userType==1" [height]="'100%'" [minHeight]="'500px'" [autoPlay]="false" [showArrows]="true" [imageUrls]="ItHelp"
+                                   [lazyLoad]="ItHelp.length > 1" [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'#007BFF'"></slideshow>
 
                         <!-- Technical Employee Help-->
-                        <pdf-viewer *ngIf="userType==2" [src]="apiUrl+'/api/Assets/TECHNICAL EMPLOYEE - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">2</pdf-viewer>
+                        <slideshow *ngIf="userType==2" [height]="'100%'" [minHeight]="'500px'" [autoPlay]="false" [showArrows]="true" [imageUrls]="TechnicalHelp"
+                                   [lazyLoad]="TechnicalHelp.length > 1" [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'#007BFF'"></slideshow>
 
                         <!-- Section Head Help-->
-                        <pdf-viewer *ngIf="userType==3" [src]="apiUrl+'/api/Assets/SECTION HEAD - HELP GUIDE.pdf'" [render-text]="true" [fit-to-page]="true">3</pdf-viewer>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <slideshow *ngIf="userType==3" [height]="'100%'" [minHeight]="'500px'" [autoPlay]="false" [showArrows]="true" [imageUrls]="SectionHelp"
+                                   [lazyLoad]="SectionHelp.length > 1" [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'#007BFF'"></slideshow>
                     </div>
                 </div>
             </div>

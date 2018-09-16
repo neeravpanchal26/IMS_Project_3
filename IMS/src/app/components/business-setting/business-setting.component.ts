@@ -5,6 +5,7 @@ import {BusinessSettingService, iBusinesss} from "./business-setting.service";
 import {FormGroup, FormBuilder, Validators, Form, FormControl} from '@angular/forms';
 import {ImageRetrieveService} from "../../globalServices/image-retrieve.service";
 import {Location} from "@angular/common";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-business-setting',
@@ -17,6 +18,7 @@ export class BusinessSettingComponent implements OnInit {
     public businessLogo: any;
     public business: any = [];
     public businessForm: FormGroup;
+    public apiUrl = environment.api;
 
     // Native Html Elements
     @ViewChild('BusinessLogo') newBusinessLogo;
@@ -55,7 +57,11 @@ export class BusinessSettingComponent implements OnInit {
     logo() {
         this.iService.getLogo()
             .subscribe(
-                data => this.businessLogo = this.iService.selectPhoto(data),
+                data => {
+                    this.businessLogo = this.iService.selectPhoto(data);
+                    if (data.size == 0)
+                        this.businessLogo = this.apiUrl + '/api/Assets/blank350x150.png';
+                    },
                 error => this.tService.handleError(error));
     }
 
