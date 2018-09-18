@@ -29,6 +29,7 @@ export class MaintainEquipmentComponent implements OnInit {
     public equipmentInfo;
     public image;
     public status;
+    public png = '            Choose...';
 
     // Native Html Elements
     @ViewChild('conditionPicture') newBusinessLogo;

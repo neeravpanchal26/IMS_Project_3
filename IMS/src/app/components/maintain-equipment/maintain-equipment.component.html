@@ -101,8 +101,8 @@
                 <div class="input-group">
                     <div class="custom-file">
                         <input id="conditionPicture" #conditionPicture type="file" class="form-control-file"
-                               accept="image/jpeg,image/png">
-                        <label class="custom-file-label" for="conditionPicture">Choose file</label>
+                               accept="image/jpeg,image/png" (input)="png=$event.target.value">
+                        <label class="custom-file-label" for="conditionPicture">{{png.slice(12)}}</label>
                     </div>
                 </div>
             </div>

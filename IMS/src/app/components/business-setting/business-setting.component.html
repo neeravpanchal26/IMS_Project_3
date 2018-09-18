@@ -26,7 +26,7 @@
                         <div class="input-group">
                             <div class="custom-file">
                                 <input id="BusinessLogo" #BusinessLogo type="file" class="custom-file-input"
-                                       formControlName="logo" accept="image/jpeg,image/png" [(ngModel)]="png">
+                                       formControlName="logo" accept="image/jpeg,image/png" (input)="png=$event.target.value">
                                 <label class="custom-file-label" for="BusinessLogo">{{png.slice(12)}}</label>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                             <div class="custom-file">
                                 <input id="BusinessGroupPolicy" #BusinessGroupPolicy type="file"
                                        class="form-control-file"
-                                       formControlName="pdf" accept="application/pdf" [(ngModel)]="pdf">
+                                       formControlName="pdf" accept="application/pdf" (input)="pdf=$event.target.value">
                                 <label class="custom-file-label" for="BusinessGroupPolicy">{{pdf.slice(12)}}</label>
                             </div>
                         </div>

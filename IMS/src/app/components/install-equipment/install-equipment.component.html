@@ -37,8 +37,8 @@
                     <label>Image Upload</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input id='EquipmentImage' #EquipmentImage type="file" class="form-control-file">
-                            <label class="custom-file-label" for="EquipmentImage">Choose file</label>
+                            <input id='EquipmentImage' #EquipmentImage type="file" class="form-control-file" accept="image/jpeg,image/png" (input)="png=$event.target.value">
+                            <label class="custom-file-label" for="EquipmentImage">{{png.slice(12)}}</label>
                         </div>
                     </div>
                 </div>
