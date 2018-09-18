@@ -143,7 +143,7 @@ export class AddEquipmentComponent implements OnInit {
 
         this.addEquipmentForm = this.fBuilder.group({
             'name': ['', Validators.compose([Validators.required, Validators.maxLength(45)])],
-            'desc': [],
+            'desc': ['',Validators.compose([Validators.maxLength(45)])],
             'cost': ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
             'condition': ['', Validators.required],
             'brand': ['', Validators.required],
