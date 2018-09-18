@@ -150,7 +150,7 @@ export class AddEquipmentComponent implements OnInit {
             'section': ['', Validators.required],
             'type': ['', Validators.required],
             'dateReceived': ['', Validators.compose([Validators.required, Validators.max(this.maxDate)])],
-            'barcode': ['', Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(24)])],
+            'barcode': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
             'suppliers': ['', Validators.required]
 
         });
