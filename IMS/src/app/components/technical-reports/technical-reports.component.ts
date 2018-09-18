@@ -28,6 +28,8 @@ export class TechnicalReportsComponent implements OnInit {
     public equipment: any;
     public status: any;
     public ehStatus = '';
+    public equip;
+    public ehEquip = '';
 
     // Default Constructor
     constructor(private service: TechnicalReportsService,
@@ -39,6 +41,12 @@ export class TechnicalReportsComponent implements OnInit {
 
     // Form Load
     ngOnInit() {
+        // Reset Variables
+        this.aType = '';
+        this.eCondition = '';
+        this.ehStatus = '';
+        this.ehEquip = '';
+
         // Date Time Load Up
         this.eDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
         let date = new Date();
@@ -74,13 +82,18 @@ export class TechnicalReportsComponent implements OnInit {
                 error => this.tService.handleError(error));
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus)
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus, this.ehEquip)
             .subscribe(data => this.equipment = data,
+                error1 => this.tService.handleError(error1));
+
+        // Get Equipment
+        this.service.getEquipment(this.lService.getUserName())
+            .subscribe(data => this.equip = data,
                 error1 => this.tService.handleError(error1));
     }
 
     // Filter Selection
-    selection(sDate, eDate, aType, eCondition, ehStatus) {
+    selection(sDate, eDate, aType, eCondition, ehStatus, ehEquip) {
         if (sDate != null)
             this.sDate = sDate;
         if (eDate != null)
@@ -91,9 +104,11 @@ export class TechnicalReportsComponent implements OnInit {
             this.eCondition = eCondition;
         if (ehStatus != null)
             this.ehStatus = ehStatus;
+        if (ehEquip != null)
+            this.ehEquip = ehEquip;
 
         // Get Equipment History
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus)
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.lService.getUserName(), this.ehStatus, this.ehEquip)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }

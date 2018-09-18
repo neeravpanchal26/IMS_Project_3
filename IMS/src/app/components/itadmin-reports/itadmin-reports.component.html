@@ -2,9 +2,14 @@
     <div class="row">
         <div class="col-12">
             <h1 class="text-dark float-left">Filter By:</h1>
-            <button type="button" class="btn btn-primary float-right mt-2" [disabled]="users.length==0"
+            <div class="float-right">
+                <button type="button" class="btn btn-outline-primary mt-2" (click)="ngOnInit()">
+                    Reset
+                </button>
+            <button type="button" class="btn btn-primary mt-2" [disabled]="users.length==0"
                     (click)="onClick()">Export to PDF
             </button>
+            </div>
         </div>
     </div>
     <div class="row">

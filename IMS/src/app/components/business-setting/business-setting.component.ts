@@ -19,6 +19,8 @@ export class BusinessSettingComponent implements OnInit {
     public business: any = [];
     public businessForm: FormGroup;
     public apiUrl = environment.api;
+    public png = '            Choose...';
+    public pdf = '            Choose...';
 
     // Native Html Elements
     @ViewChild('BusinessLogo') newBusinessLogo;
@@ -61,7 +63,7 @@ export class BusinessSettingComponent implements OnInit {
                     this.businessLogo = this.iService.selectPhoto(data);
                     if (data.size == 0)
                         this.businessLogo = this.apiUrl + '/api/Assets/blank350x150.png';
-                    },
+                },
                 error => this.tService.handleError(error));
     }
 

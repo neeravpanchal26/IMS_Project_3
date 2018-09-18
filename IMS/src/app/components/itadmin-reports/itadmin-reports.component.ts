@@ -10,7 +10,7 @@ import * as html2Canvas from 'html2canvas';
     selector: 'app-itadmin-reports',
     templateUrl: './itadmin-reports.component.html',
     styleUrls: ['./itadmin-reports.component.css'],
-    providers: [ItadminReportsService,DatePipe]
+    providers: [ItadminReportsService, DatePipe]
 })
 export class ItadminReportsComponent implements OnInit {
     // Global Variables
@@ -22,18 +22,23 @@ export class ItadminReportsComponent implements OnInit {
     public uCity = '';
     public uSuburb = '';
     public businessLogo: any;
-    public currentDateTime:any;
-    public business:any;
+    public currentDateTime: any;
+    public business: any;
 
     // Default Constructor
     constructor(private service: ItadminReportsService,
                 private tService: ToastrNotificationService,
                 private iService: ImageRetrieveService,
-                private dt:DatePipe) {
+                private dt: DatePipe) {
     }
 
     // Form Load
     ngOnInit() {
+        // Reset Variables
+        this.uType = '';
+        this.uCity = '';
+        this.uSuburb = '';
+
         // Load Logo
         this.iService.getLogo()
             .subscribe(
@@ -68,7 +73,7 @@ export class ItadminReportsComponent implements OnInit {
         this.service.getBusinessInfo()
             .subscribe(
                 data => this.business = data[0],
-                error=> this.tService.handleError(error));
+                error => this.tService.handleError(error));
     }
 
     // Filter Selection

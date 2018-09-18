@@ -488,10 +488,10 @@ class DBHandler
         return DBHelper::SelectParam($sp, $param);
     }
 
-    public static function Report_TechnicalEmployee_History($sDate, $eDate, $aType, $eCondition, $userID, $ehStatus)
+    public static function Report_TechnicalEmployee_History($sDate, $eDate, $aType, $eCondition, $userID, $ehStatus, $ehEquip)
     {
-        $sp = 'CALL uspReport_TechnicalEmployee_History(?,?,?,?,?,?)';
-        $param = array(&$sDate, &$eDate, &$aType, &$eCondition, &$userID, &$ehStatus);
+        $sp = 'CALL uspReport_TechnicalEmployee_History(?,?,?,?,?,?,?)';
+        $param = array(&$sDate, &$eDate, &$aType, &$eCondition, &$userID, &$ehStatus, &$ehEquip);
         return DBHelper::SelectParam($sp, $param);
     }
 
@@ -499,6 +499,13 @@ class DBHandler
     {
         $sp = 'CALL uspReport_SectionHead_Equipment(?,?,?,?,?,?,?,?,?)';
         $param = array(&$sDate, &$eDate, &$uName, &$eType, &$eCondition, &$eStatus, &$eSection, &$eSupplier, &$eBrand);
+        return DBHelper::SelectParam($sp, $param);
+    }
+
+    public static function Report_Equipment($userName)
+    {
+        $sp = 'CALL uspReport_Equipment (?)';
+        $param = array(&$userName);
         return DBHelper::SelectParam($sp, $param);
     }
 }
