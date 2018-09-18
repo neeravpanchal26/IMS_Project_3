@@ -3,9 +3,11 @@
         <div class="col-12">
             <h1 class="text-dark float-left">Filter By:</h1>
             <div class="float-right">
-                <button type="button" class="btn btn-outline-primary mt-2" (click)="ngOnInit()">Reset</button>
+                <button type="button" class="btn btn-outline-primary mt-2" (click)="ngOnInit()"><span
+                        class="oi oi-reload pt-1"></span> Reset
+                </button>
                 <button type="button" class="btn btn-primary mt-2" [disabled]="equipment.length==0"
-                        (click)="onClick()">Export to PDF
+                        (click)="onClick()"><span class="oi oi-document"></span> Export to PDF
                 </button>
             </div>
         </div>

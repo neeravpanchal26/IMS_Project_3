@@ -16,21 +16,30 @@ import {LoginService} from "../login/login.service";
 export class SectionReportsComponent implements OnInit {
     // Global Variables
     public show = 1;
+
+    // Business Info
     public business: any;
     public currentDateTime: any;
     public businessLogo: any;
-    public allocationType: any;
-    public condition: any;
-    public ehStatusDLL: any;
+
+    // Default DLL
     public eDate: any;
     public sDate: any;
     public mDate: any;
+    public equipment = [];
+
+    // Equipment History DLL
+    public allocationType: any;
+    public condition: any;
+    public ehStatusDLL: any;
+    public equipments = [];
+
+    // Equipment History Filter
     public aType = '';
     public eCondition = '';
-    public equipment = [];
-    public employees: any;
     public userName = '';
     public ehStatus = '';
+    public ehEquip = '';
 
     // Equipment DDL
     public status: any;
@@ -38,6 +47,9 @@ export class SectionReportsComponent implements OnInit {
     public sections: any;
     public suppliers: any;
     public brands: any;
+    public employees: any;
+
+    // Equipment Filter
     public eType = '';
     public eStatus = '';
     public eSection = '';
@@ -53,16 +65,62 @@ export class SectionReportsComponent implements OnInit {
 
     // Form Load
     ngOnInit() {
+        // Load up
+        this.equipmentLoadUp();
+
+        // Load Logo
+        this.iService.getLogo()
+            .subscribe(
+                data => this.businessLogo = this.iService.selectPhoto(data),
+                error => this.tService.handleError(error));
+
+        // Business Info Load up
+        this.service.getBusinessInfo()
+            .subscribe(
+                data => this.business = data[0],
+                error => this.tService.handleError(error));
+
+
+    }
+
+    // Report Type to display
+    reportType(e) {
+        this.show = e;
+        if (e == 1) {
+            this.equipmentLoadUp();
+        }
+        if (e == 2) {
+            this.equipmentHistoryLoadUp();
+        }
+    }
+
+    // Equipment Load up
+    equipmentLoadUp() {
+        // Reset Variables
+        this.userName = '';
+        this.eType = '';
+        this.eCondition = '';
+        this.eStatus = '';
+        this.eSection = '';
+        this.eSupplier = '';
+        this.eBrand = '';
+
         // Date Time Load Up
-        this.eDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
-        let date = new Date();
-        this.mDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
-        this.sDate = this.datePipe.transform(this.mDate, 'yyyy-MM-dd');
-        this.currentDateTime = Date.now();
+        this.dateTimeLoadUp();
+
+        // Employee Load Up
+        this.service.getEmployees()
+            .subscribe(data => this.employees = data,
+                error1 => this.tService.handleError(error1));
 
         // Type Load up
         this.service.GetTypes()
             .subscribe(data => this.types = data,
+                error1 => this.tService.handleError(error1));
+
+        // Condition Load up
+        this.service.getCondition()
+            .subscribe(data => this.condition = data,
                 error1 => this.tService.handleError(error1));
 
         // Status Load up
@@ -85,56 +143,54 @@ export class SectionReportsComponent implements OnInit {
             .subscribe(data => this.brands = data,
                 error1 => this.tService.handleError(error1));
 
-        // Employee Load Up
-        this.service.getEmployees()
-            .subscribe(data => this.employees = data,
-                error1 => this.tService.handleError(error1));
-
-        // Condition Load up
-        this.service.getCondition()
-            .subscribe(data => this.condition = data,
-                error1 => this.tService.handleError(error1));
-
-        // Load Logo
-        this.iService.getLogo()
-            .subscribe(
-                data => this.businessLogo = this.iService.selectPhoto(data),
-                error => this.tService.handleError(error));
-
-        // Business Info Load up
-        this.service.getBusinessInfo()
-            .subscribe(
-                data => this.business = data[0],
-                error => this.tService.handleError(error));
-
         // Get Equipment
         this.getEquipment();
     }
 
-    // Report Type to display
-    reportType(e) {
-        this.show = e;
-        if(e==1){
-            this.ngOnInit();
-        }
-        if (e == 2) {
-            // Get Status
-            this.service.getStatus()
-                .subscribe(data => this.ehStatusDLL = data,
-                    error1 => this.tService.handleError(error1));
+    // Equipment History Load Up
+    equipmentHistoryLoadUp() {
+        // Reset Variable
+        this.aType = '';
+        this.eCondition = '';
+        this.userName = '';
+        this.ehStatus = '';
+        this.ehEquip = '';
 
-            // Allocation Type Load up
-            this.service.getAllocationTypes()
-                .subscribe(data => this.allocationType = data,
-                    error1 => this.tService.handleError(error1));
+        // Date Time Load Up
+        this.dateTimeLoadUp();
 
-            // Get Equipment History
-            this.getEquipmentHistory();
-        }
+        // Allocation Type Load up
+        this.service.getAllocationTypes()
+            .subscribe(data => this.allocationType = data,
+                error1 => this.tService.handleError(error1));
+
+        // Get Status
+        this.service.getStatus()
+            .subscribe(data => this.ehStatusDLL = data,
+                error1 => this.tService.handleError(error1));
+
+        // Get Equipments
+        this.service.getEquipments(this.userName)
+            .subscribe(data => this.equipments = data,
+                error1 => this.tService.handleError(error1));
+
+        // Get Equipment History
+        this.getEquipmentHistory();
+
     }
 
+    // Date Time Load Up
+    dateTimeLoadUp() {
+        this.eDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
+        let date = new Date();
+        this.mDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
+        this.sDate = this.datePipe.transform(this.mDate, 'yyyy-MM-dd');
+        this.currentDateTime = Date.now();
+    }
+
+
     // Filter Selection
-    hSelection(sDate, eDate, aType, eCondition, userID, ehStatus) {
+    hSelection(sDate, eDate, aType, eCondition, userID, ehStatus, ehEquip) {
         if (sDate != null)
             this.sDate = sDate;
         if (eDate != null)
@@ -143,10 +199,17 @@ export class SectionReportsComponent implements OnInit {
             this.aType = aType;
         if (eCondition != null)
             this.eCondition = eCondition;
-        if (userID != null)
+        if (userID != null) {
             this.userName = userID;
+            // Get Equipments
+            this.service.getEquipments(this.userName)
+                .subscribe(data => this.equipments = data,
+                    error1 => this.tService.handleError(error1));
+        }
         if (ehStatus != null)
             this.ehStatus = ehStatus;
+        if (ehEquip != null)
+            this.ehEquip = ehEquip;
 
         // Get Equipment History
         this.getEquipmentHistory();
@@ -179,7 +242,7 @@ export class SectionReportsComponent implements OnInit {
 
     // Get Equipment History
     getEquipmentHistory() {
-        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName,this.ehStatus)
+        this.service.getEquipmentHistory(this.sDate, this.eDate, this.aType, this.eCondition, this.userName, this.ehStatus, this.ehEquip)
             .subscribe(data => this.equipment = data,
                 error1 => this.tService.handleError(error1));
     }
