@@ -322,10 +322,10 @@ class DBHandler
     }
 
     //Tech Manage Equipment methods
-    public static function TechManageEquipment_GetAllocatedEquipment($id, $sDate, $eDate)
+    public static function TechManageEquipment_GetAllocatedEquipment($id, $sDate, $eDate, $jType, $jStatus)
     {
-        $sp = 'CALL uspTechManageEquipment_GetAllocatedEquipment (?,?,?)';
-        $param = array(&$id, &$sDate, &$eDate);
+        $sp = 'CALL uspTechManageEquipment_GetAllocatedEquipment (?,?,?,?,?)';
+        $param = array(&$id, &$sDate, &$eDate, &$jType, &$jStatus);
         return DBHelper::SelectParam($sp, $param);
     }
 

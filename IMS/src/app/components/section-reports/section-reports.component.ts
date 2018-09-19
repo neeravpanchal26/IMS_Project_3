@@ -266,6 +266,9 @@ export class SectionReportsComponent implements OnInit {
 
     // Qr to PDF
     onClick() {
+        // Current Date time
+        this.currentDateTime = Date.now();
+
         let data = document.getElementById(this.show.toString());
         html2Canvas(data).then(
             canvas => {

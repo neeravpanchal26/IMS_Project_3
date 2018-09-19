@@ -125,6 +125,9 @@ export class TechnicalReportsComponent implements OnInit {
 
     // Qr to PDF
     onClick() {
+        // Current Date time
+        this.currentDateTime = Date.now();
+
         let data = document.getElementById('Report');
         html2Canvas(data).then(
             canvas => {
