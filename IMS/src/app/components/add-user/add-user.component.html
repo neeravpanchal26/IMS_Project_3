@@ -55,7 +55,7 @@
             <div class="col-sm-6">
                 <!--Phone input-->
                 <label>Contact Number</label>
-                <input type="tel" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addUserForm.controls['contact'].valid || (addUserForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addUserForm.controls['contact'].invalid || phoneCheck == true) && (addUserForm.controls['contact'].dirty || addUserForm.controls['contact'].touched)">
+                <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" max="10" class="form-control" placeholder="Contact Number" formControlName="contact" [class.is-valid]="addUserForm.controls['contact'].valid || (addUserForm.controls['contact'].touched && phoneCheck == false)" [class.is-invalid]="(addUserForm.controls['contact'].invalid || phoneCheck == true) && (addUserForm.controls['contact'].dirty || addUserForm.controls['contact'].touched)">
                 <div [class.invalid-feedback]="phoneCheck">
                     <div *ngIf="phoneCheck">It seems this phone number exists on our system.</div>
                 </div>
@@ -140,7 +140,7 @@
                 <!--User Type input-->
                 <label>User Type</label>
                 <select class="form-control" formControlName="type" [class.is-valid]="addUserForm.controls['type'].valid" [class.is-invalid]="addUserForm.controls['type'].invalid && (addUserForm.controls['type'].dirty || addUserForm.controls['type'].touched)">
-                    <option value="" disabled>Choose...</option>
+                    <option value="" disabled selected>Choose...</option>
                     <option *ngFor="let u of userType" value="{{u.UserTypeID}}">{{u.UserTypeDesc}}</option>
                 </select>
                 <div [class.invalid-feedback] = "addUserForm.controls['type'].hasError('required')">
@@ -192,7 +192,7 @@
                 <!--City input-->
                 <label>City</label>
                 <select class="form-control" (change)="subLoad($event.target.value)" formControlName="city" [class.is-valid]="addUserForm.controls['city'].valid" [class.is-invalid]="addUserForm.controls['city'].invalid && (addUserForm.controls['city'].dirty || addUserForm.controls['city'].touched)">
-                    <option value="" disabled>Choose...</option>
+                    <option value="" disabled selected>Choose...</option>
                     <option *ngFor="let c of cities" [value]="c.cityID">{{c.cityName}}</option>
                     <option value="manage city">Add New City</option>
                 </select>
@@ -206,7 +206,7 @@
                 <!--Suburb input-->
                 <label>Suburb</label>
                 <select class="form-control" formControlName="suburb" (change)="suburb($event.target.value)" [class.is-valid]="addUserForm.controls['suburb'].valid" [class.is-invalid]="addUserForm.controls['suburb'].invalid && (addUserForm.controls['suburb'].dirty || addUserForm.controls['suburb'].touched)">
-                    <option value="" disabled>Choose...</option>
+                    <option value="" disabled selected>Choose...</option>
                     <option *ngFor="let s of suburbs" value="{{s.suburbID}}">{{s.suburbName}}</option>
                     <option value="manage suburb">Add New Suburb</option>
                 </select>

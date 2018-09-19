@@ -159,6 +159,11 @@ export class SectionReportsComponent implements OnInit {
         // Date Time Load Up
         this.dateTimeLoadUp();
 
+        // Employee Load Up
+        this.service.getEmployees()
+            .subscribe(data => this.employees = data,
+                error1 => this.tService.handleError(error1));
+
         // Allocation Type Load up
         this.service.getAllocationTypes()
             .subscribe(data => this.allocationType = data,

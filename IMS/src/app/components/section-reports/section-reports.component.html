@@ -236,10 +236,10 @@
                 <th (click)="sort('Name')" class="btn-link">Name</th>
                 <th>Desc</th>
                 <th (click)="sort('Value')" class="btn-link"><span class="float-right">Value</span></th>
-                <th (click)="sort('Date')" class="btn-link">Date & Time</th>
-                <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
-                <th (click)="sort('TypeDesc')" class="btn-link">Type</th>
-                <th (click)="sort('Active')" class="btn-link">Status</th>
+                <th (click)="sort('Date')" class="btn-link text-center">Date & Time</th>
+                <th (click)="sort('ConditionDesc')" class="btn-link text-center">Condition</th>
+                <th (click)="sort('TypeDesc')" class="btn-link text-center">Type</th>
+                <th (click)="sort('Active')" class="btn-link text-center">Status</th>
             </tr>
             </thead>
             <tr *ngIf="equipment.length == 0" class="text-center">
@@ -250,10 +250,10 @@
                 <td>{{e.Name}}</td>
                 <td>{{e.Desc}}</td>
                 <td><span class="float-right">{{e.Value | currency:'R'}}</span></td>
-                <td>{{e.Date}}</td>
-                <td>{{e.ConditionDesc}}</td>
-                <td>{{e.TypeDesc}}</td>
-                <td>{{e.Active}}</td>
+                <td class="text-center">{{e.Date}}</td>
+                <td class="text-center">{{e.ConditionDesc}}</td>
+                <td class="text-center">{{e.TypeDesc}}</td>
+                <td class="text-center">{{e.Active}}</td>
             </tr>
         </table>
     </div>

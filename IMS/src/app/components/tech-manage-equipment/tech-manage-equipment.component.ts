@@ -29,6 +29,11 @@ export class TechManageEquipmentComponent implements OnInit {
 
     // Form Load
     ngOnInit() {
+        // Reset Variables
+        this.jType = '';
+        this.jStatus = '';
+        this.filter = '';
+
         // Date Time Load Up
         this.eDate = this.datePipe.transform(Date(), 'yyyy-MM-dd');
         let date = new Date();
