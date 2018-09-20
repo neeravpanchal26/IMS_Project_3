@@ -46,7 +46,7 @@
                             <b>R</b>
                         </span>
                     </div>
-                    <input type="" value="0.00 + 0" step="0.01" min="0" class="form-control rounded-right"
+                    <input type="text" value="0.00 + 0" step="0.01" min="0" class="form-control rounded-right"
                         formControlName="cost" [class.is-valid]="addEquipmentForm.controls['cost'].valid"
                         [class.is-invalid]="addEquipmentForm.controls['cost'].invalid && (addEquipmentForm.controls['cost'].dirty || addEquipmentForm.controls['cost'].touched)">
                     <div [class.invalid-feedback]="addEquipmentForm.controls['cost'].hasError('required')">
