@@ -19,8 +19,8 @@ export class BusinessSettingComponent implements OnInit {
     public business: any = [];
     public businessForm: FormGroup;
     public apiUrl = environment.api;
-    public png = '            Choose...';
-    public pdf = '            Choose...';
+    public png = 'Choose...';
+    public pdf = 'Choose...';
 
     // Native Html Elements
     @ViewChild('BusinessLogo') newBusinessLogo;

@@ -31,7 +31,7 @@ export class AddEquipmentComponent implements OnInit {
     public today: any;
     public defaultImage: any;
     public maxDate: any;
-    public png ='            Choose...';
+    public png ='Choose...';
 
     constructor(private service: AddEquipmentService,
                 private location: GeoLocationService,

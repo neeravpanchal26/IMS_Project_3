@@ -99,8 +99,8 @@
                 <div class="input-group">
                     <div class="custom-file">
                         <input id="conditionPicture" #conditionPicture type="file" class="form-control-file"
-                               accept="image/jpeg,image/png" (input)="png=$event.target.value">
-                        <label class="custom-file-label" for="conditionPicture">{{png.slice(12)}}</label>
+                               accept="image/jpeg,image/png" (input)="png=$event.target.files[0]['name']">
+                        <label class="custom-file-label" for="conditionPicture">{{png}}</label>
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@ export class InspectEquipmentComponent implements OnInit {
     public map;
     public image;
     public status;
-    public png = '            Choose...';
+    public png = 'Choose...';
 
     // Native Html Elements
     @ViewChild('conditionPicture') newBusinessLogo;

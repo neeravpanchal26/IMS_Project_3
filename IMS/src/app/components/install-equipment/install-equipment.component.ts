@@ -35,7 +35,7 @@ export class InstallEquipmentComponent implements OnInit {
     public concatcoords: any;
     public status: any;
     public disable: boolean = false;
-    public png = '            Choose...';
+    public png = 'Choose...';
 
     ngOnInit() {
         // Get Status
