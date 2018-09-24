@@ -222,7 +222,7 @@
         <!--Add user button-->
         <button type="button" class="btn btn-primary col-lg-2 mb-3" data-toggle="modal" data-target="#exampleModalCenter">Save</button>
         <!--Cancel button-->
-        <button type="button" class="btn btn-outline-primary col-lg-2 mb-3" (click)="addUserForm.reset()">Clear</button>
+        <button type="button" class="btn btn-outline-primary col-lg-2 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">Clear</button>
 
         <!-- Confirmation Dialog-->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -240,6 +240,27 @@
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary col-4">Save changes</button>
                         <button type="button" class="btn btn-outline-primary col-4" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clear Modal-->
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle1">Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to clear all the fields?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary col-4" (click)="addUserForm.reset()">Yes</button>
+                        <button type="button" class="btn btn-outline-primary col-4" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>

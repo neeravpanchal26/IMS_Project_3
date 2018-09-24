@@ -5,6 +5,7 @@ import {iSuburb} from "./add-user.service";
 import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
 import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 import {Router} from "@angular/router";
+import {isNumber} from "util";
 
 @Component({
     selector: 'app-add-user',
@@ -59,6 +60,9 @@ export class AddUserComponent implements OnInit {
         let iDate = e.value['dob'].toString().split('-');
         if (iDate[0] > mDate[3])
             this.addUserForm.controls['dob'].setErrors({incorrect: true});
+        else if (isNumber(e.value['contact'] == false)) {
+            this.addUserForm.controls['contact'].setErrors({incorrect: true});
+        }
         else {
             if (e.valid) {
                 // Setting Variables
@@ -98,9 +102,22 @@ export class AddUserComponent implements OnInit {
                         },
                         error => this.tService.handleError(error));
             }
-            else if (e.invalid)
+            else if (e.invalid) {
+                this.markFormGroupTouched(e);
                 this.tService.formFailure();
+            }
         }
+    }
+
+    // Mark As Touched
+    private markFormGroupTouched(formGroup: FormGroup) {
+        (<any>Object).values(formGroup.controls).forEach(control => {
+            control.markAsTouched();
+
+            if (control.controls) {
+                this.markFormGroupTouched(control);
+            }
+        });
     }
 
     // Suburb Load Method

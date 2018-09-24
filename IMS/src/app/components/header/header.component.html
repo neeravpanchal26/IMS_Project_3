@@ -14,7 +14,7 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/dashboard"><span class="oi oi-home"></span>
+                    <a class="nav-link text-white" routerLink="/dashboard"><span class="oi oi-dashboard"></span>
                         Dashboard</a>
                 </li>
 
@@ -42,16 +42,14 @@
         <span class="navbar-link dropdown">
           <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true"
              aria-expanded="false" role="button" href="#">
-            <span class="oi oi-cart"></span> Equipment
+            <span class="oi oi-box"></span> Equipment
           </a>
           <div class="dropdown-menu dropright" aria-labelledby="navbarDropdownMenuLink">
-            <a *ngIf="userType == 3" class="dropdown-item text-secondary" routerLink="/Manage Equipment"><span
-                    class="oi oi-cart"></span> Manage Equipment</a>
-            <a *ngIf="userType == 3" class="dropdown-item text-secondary" routerLink="/Add Equipment"><span
-                    class="oi oi-cart"></span> Receive Equipment</a>
-            <a class="dropdown-item text-secondary" routerLink="/Install Equipment"><span class="oi oi-cart"></span> Install Equipment</a>
-            <a class="dropdown-item text-secondary" routerLink="/Inspect Equipment"><span class="oi oi-cart"></span> Inspect Equipment</a>
-              <a class="dropdown-item text-secondary" routerLink="/Maintain Equipment"><span class="oi oi-cart"></span> Maintain Equipment</a>
+            <a *ngIf="userType == 3" class="dropdown-item text-secondary" routerLink="/Manage Equipment"><span class="oi oi-box"></span> Manage Equipment</a>
+            <a *ngIf="userType == 3" class="dropdown-item text-secondary" routerLink="/Add Equipment"><span class="oi oi-cart"></span> Receive Equipment</a>
+            <a class="dropdown-item text-secondary" routerLink="/Install Equipment"><span class="oi oi-wrench"></span> Install Equipment</a>
+            <a class="dropdown-item text-secondary" routerLink="/Inspect Equipment"><span class="oi oi-clipboard"></span> Inspect Equipment</a>
+              <a class="dropdown-item text-secondary" routerLink="/Maintain Equipment"><span class="oi oi-wrench"></span> Maintain Equipment</a>
           </div>
         </span>
                 </li>
