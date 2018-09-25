@@ -18,7 +18,13 @@ class DB
 //    private static $dbName = 'ims_schema';
 
     // Nmu setup
-   private static $dbHost = 'sict-mysql.nmmu.ac.za';
+//   private static $dbHost = 'sict-mysql.nmmu.ac.za';
+//   private static $dbUser = 'BIT1';
+//   private static $dbPass = 'password1';
+//   private static $dbName = 'ims_schema';
+
+    // Droplet setup
+   private static $dbHost = '178.128.251.178';
    private static $dbUser = 'BIT1';
    private static $dbPass = 'password1';
    private static $dbName = 'ims_schema';
