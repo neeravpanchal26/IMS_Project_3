@@ -29,7 +29,6 @@
                     <tr class="bg-light">
                         <th (click)="sort('EquipmentID')" class="btn-link">ID</th>
                         <th (click)="sort('Name')" class="btn-link">Name</th>
-                        <th>Description</th>
                         <th (click)="sort('ConditionDesc')" class="btn-link">Condition</th>
                         <th (click)="sort('SectionDesc')" class="btn-link">Section</th>
                         <th>Active</th>
@@ -41,7 +40,6 @@
                     <tr *ngFor="let i of info | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p };">
                         <td>{{i.EquipmentID}}</td>
                         <td>{{i.Name}}</td>
-                        <td>{{i.Desc}}</td>
                         <td>{{i.ConditionDesc}}</td>
                         <td>{{i.SectionDesc}}</td>
                         <td>
