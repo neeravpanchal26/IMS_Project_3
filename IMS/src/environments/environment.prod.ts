@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-    api:'http://bit1ims.club'
+    api:'https://bit1ims.club'
 };
