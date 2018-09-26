@@ -1140,7 +1140,7 @@
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="298" parent="2" name="uspReport_TechnicalEmployee_History">
-      <SourceTextLength>948</SourceTextLength>
+      <SourceTextLength>918</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="299" parent="2" name="uspSecondary_Brand_Add">

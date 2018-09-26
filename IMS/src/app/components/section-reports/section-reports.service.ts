@@ -19,7 +19,7 @@ export class SectionReportsService {
 
     // Get Allocation types
     getAllocationTypes(): Observable<any> {
-        return this.http.get(this.apiUrl + '/api/bll/allocateEquipment.php?action=types')as Observable<any>;
+        return this.http.get(this.apiUrl + '/api/BLL/allocateEquipment.php?action=types')as Observable<any>;
     }
 
     // Get Equipment Condition
@@ -29,7 +29,7 @@ export class SectionReportsService {
 
     // Get Employees
     getEmployees(): Observable<any> {
-        return this.http.get(this.apiUrl + '/api/bll/allocateEquipment.php?action=techEmployees')as Observable<any>;
+        return this.http.get(this.apiUrl + '/api/BLL/allocateEquipment.php?action=techEmployees')as Observable<any>;
     }
 
     // Equipment History

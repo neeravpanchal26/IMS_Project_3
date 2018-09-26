@@ -19,7 +19,7 @@ export class TechnicalReportsService {
 
     // Get Allocation types
     getAllocationTypes(): Observable<any> {
-        return this.http.get(this.apiUrl + '/api/bll/allocateEquipment.php?action=types')as Observable<any>;
+        return this.http.get(this.apiUrl + '/api/BLL/allocateEquipment.php?action=types')as Observable<any>;
     }
 
     // Get Equipment Condition

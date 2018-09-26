@@ -12,23 +12,23 @@ export class AllocateEquipmentService {
   apiURL=environment.api;
   getEquipmentDetails(param:iEquipment):Observable<any>
   {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=info',param) as Observable<any>;
+    return this.http.post(this.apiURL+'/api/BLL/allocateEquipment.php?action=info',param) as Observable<any>;
   }
   getTechEmployees():Observable<any>
   {
-    return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=techEmployees')as Observable<any>;
+    return this.http.get(this.apiURL+'/api/BLL/allocateEquipment.php?action=techEmployees')as Observable<any>;
   }
   getAllocationTypes():Observable<any>
   {
-    return this.http.get(this.apiURL+'/api/bll/allocateEquipment.php?action=types')as Observable<any>;
+    return this.http.get(this.apiURL+'/api/BLL/allocateEquipment.php?action=types')as Observable<any>;
   }
   allocateEquipment(param:iAllocation):Observable<any>
   {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=allocate',param) as Observable<any>;
+    return this.http.post(this.apiURL+'/api/BLL/allocateEquipment.php?action=allocate',param) as Observable<any>;
   }
   getEquipmentPicture(param:iEquipment):Observable<Blob>
   {
-    return this.http.post(this.apiURL+'/api/bll/allocateEquipment.php?action=image',param,{responseType:'blob'})as Observable<Blob>;
+    return this.http.post(this.apiURL+'/api/BLL/allocateEquipment.php?action=image',param,{responseType:'blob'})as Observable<Blob>;
   }
   sanitizeEquipmentPicture(photo)
   {
