@@ -16,7 +16,7 @@
                             [class.is-valid]="inspectEquipmentForm.controls['equipmentSerial'].valid"
                             [class.is-invalid]="inspectEquipmentForm.controls['equipmentSerial'].invalid && (inspectEquipmentForm.controls['equipmentSerial'].dirty || inspectEquipmentForm.controls['equipmentSerial'].touched)">
                         <option value="" disabled>Choose...</option>
-                        <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
+                        <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}} - ({{e.Serial}})</option>
                     </select>
                     <div class="input-group-append">
                         <div class="input-group-text rounded-right">

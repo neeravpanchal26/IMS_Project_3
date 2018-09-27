@@ -15,7 +15,7 @@
                                 [class.is-valid]="installEquipmentForm.controls['serial'].valid"
                                 [class.is-invalid]="installEquipmentForm.controls['serial'].invalid && (installEquipmentForm.controls['serial'].dirty || installEquipmentForm.controls['serial'].touched)">
                             <option value="" disabled>Choose...</option>
-                            <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}}</option>
+                            <option *ngFor="let e of equipment" value="{{e.Serial}}">{{e.Name}} - ({{e.Serial}})</option>
                         </select>
 
                         <div class="input-group-append">

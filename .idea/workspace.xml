@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +55,10 @@
     <session id="1246403755">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="108" />
+          <entry key="project.closed" value="111" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="7" />
-          <entry key="project.open.time.11" value="14" />
+          <entry key="project.open.time.11" value="15" />
           <entry key="project.open.time.12" value="5" />
           <entry key="project.open.time.13" value="6" />
           <entry key="project.open.time.14" value="4" />
@@ -67,9 +70,9 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="11" />
-          <entry key="project.open.time.8" value="20" />
+          <entry key="project.open.time.8" value="21" />
           <entry key="project.open.time.9" value="20" />
-          <entry key="project.opened" value="109" />
+          <entry key="project.opened" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -82,17 +85,17 @@
           <entry key="equipment" value="2" />
           <entry key="equipmentstatus" value="1" />
           <entry key="htaccess" value="1" />
-          <entry key="html" value="476" />
+          <entry key="html" value="479" />
           <entry key="jpg" value="2" />
           <entry key="js" value="2" />
           <entry key="json" value="3" />
-          <entry key="php" value="251" />
+          <entry key="php" value="253" />
           <entry key="png" value="2" />
           <entry key="rnc" value="1" />
           <entry key="section" value="2" />
           <entry key="sql" value="86" />
           <entry key="supplier" value="2" />
-          <entry key="ts" value="588" />
+          <entry key="ts" value="589" />
           <entry key="txt" value="1" />
           <entry key="type" value="5" />
           <entry key="user" value="1" />
@@ -114,16 +117,16 @@
         <counts>
           <entry key="CSS" value="23" />
           <entry key="Database Element" value="19" />
-          <entry key="HTML" value="476" />
+          <entry key="HTML" value="479" />
           <entry key="Image" value="4" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="251" />
+          <entry key="PHP" value="253" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="RNG Compact" value="1" />
           <entry key="SQL" value="85" />
           <entry key="Scratch" value="24" />
-          <entry key="TypeScript" value="588" />
+          <entry key="TypeScript" value="589" />
           <entry key="UML" value="4" />
           <entry key="htaccess" value="1" />
         </counts>
@@ -132,7 +135,7 @@
         <counts>
           <entry key="css" value="38" />
           <entry key="dummy" value="23" />
-          <entry key="html" value="13139" />
+          <entry key="html" value="13156" />
           <entry key="js" value="9" />
           <entry key="json" value="7" />
           <entry key="php" value="6098" />
@@ -145,7 +148,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="38" />
-          <entry key="HTML" value="13138" />
+          <entry key="HTML" value="13155" />
           <entry key="JSON" value="7" />
           <entry key="JavaScript" value="10" />
           <entry key="PHP" value="6098" />
@@ -157,32 +160,13 @@
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="83" />
+          <entry key="Angular2LanguageService" value="84" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/IMS/src/environments/environment.prod.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="23" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -249,10 +233,7 @@
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/add-equipment/add-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.ts" />
-        <option value="$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/it-password-reset/it-password-reset.component.ts" />
@@ -273,6 +254,9 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3b23bdd4-0662-4433-88c0-5bb85819e49c/console.sql" />
         <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
         <option value="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html" />
+        <option value="$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html" />
       </list>
     </option>
   </component>
@@ -290,7 +274,7 @@
       <path value="$PROJECT_DIR$/IMS/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -354,7 +338,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="allocate-equipment" type="462c0819:PsiDirectoryNode" />
+              <item name="maintain-equipment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
@@ -363,7 +347,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="business-setting" type="462c0819:PsiDirectoryNode" />
+              <item name="manage-equipment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="I_M_S" type="b2602c69:ProjectViewProjectNode" />
@@ -791,12 +775,14 @@
       <workItem from="1537965928423" duration="1251000" />
       <workItem from="1538032037592" duration="28000" />
       <workItem from="1538037710714" duration="212000" />
-      <workItem from="1538038194173" duration="9000" />
+      <workItem from="1538038194173" duration="101000" />
+      <workItem from="1538040694597" duration="510000" />
+      <workItem from="1538041815200" duration="135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="681839000" />
+    <option name="totallyTimeSpent" value="682576000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -809,11 +795,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.3125894" />
+      <window_info content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.3211731" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32574257" />
       <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.49713877" visible="true" weight="0.4" />
@@ -953,27 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="40" column="87" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="101" column="104" selection-start-line="101" selection-start-column="104" selection-end-line="101" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -985,13 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="104" column="85" selection-start-line="104" selection-start-column="85" selection-end-line="104" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -1182,10 +1139,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/install-equipment/install-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/inspect-equipment/inspect-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IMS/src/app/components/maintain-equipment/maintain-equipment.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="23" selection-end-column="41" />
+        <state relative-caret-position="190">
+          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
         </state>
       </provider>
     </entry>
