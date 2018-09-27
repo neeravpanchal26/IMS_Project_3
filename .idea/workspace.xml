@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3cbda11a-95a3-4fa0-8e14-d6b3fb00493b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMS/api/DAL/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/api/DAL/DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +52,7 @@
     <session id="1246403755">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="107" />
+          <entry key="project.closed" value="108" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="7" />
           <entry key="project.open.time.11" value="14" />
@@ -69,8 +68,8 @@
           <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="11" />
           <entry key="project.open.time.8" value="20" />
-          <entry key="project.open.time.9" value="19" />
-          <entry key="project.opened" value="108" />
+          <entry key="project.open.time.9" value="20" />
+          <entry key="project.opened" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -138,7 +137,7 @@
           <entry key="json" value="7" />
           <entry key="php" value="6098" />
           <entry key="sql" value="3983" />
-          <entry key="ts" value="26446" />
+          <entry key="ts" value="26451" />
           <entry key="txt" value="34" />
           <entry key="uspbusiness_update" value="2" />
         </counts>
@@ -153,28 +152,28 @@
           <entry key="PLAIN_TEXT" value="57" />
           <entry key="SQL" value="1159" />
           <entry key="Scratch" value="2826" />
-          <entry key="TypeScript" value="26446" />
+          <entry key="TypeScript" value="26451" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="81" />
+          <entry key="Angular2LanguageService" value="83" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IMS/src/environments/environment.prod.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="95">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IMS/api/DAL/DB.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -272,8 +271,8 @@
         <option value="/f6cde0d0/62e8cad1-97f1-479e-920a-505b1e90aed0/schema/ims_schema/routine/uspreport_technicalemployee_history@(varchar(10),varchar(10),varchar(45),varchar(45),varchar(45),varchar(45),varchar(100)).sql" />
         <option value="$PROJECT_DIR$/IMS/src/app/components/business-setting/business-setting.component.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3b23bdd4-0662-4433-88c0-5bb85819e49c/console.sql" />
-        <option value="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" />
         <option value="$PROJECT_DIR$/IMS/api/DAL/DB.php" />
+        <option value="$PROJECT_DIR$/IMS/src/environments/environment.prod.ts" />
       </list>
     </option>
   </component>
@@ -301,6 +300,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,7 +376,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -791,12 +790,13 @@
       <workItem from="1537945482886" duration="574000" />
       <workItem from="1537965928423" duration="1251000" />
       <workItem from="1538032037592" duration="28000" />
-      <workItem from="1538037710714" duration="108000" />
+      <workItem from="1538037710714" duration="212000" />
+      <workItem from="1538038194173" duration="9000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="681726000" />
+    <option name="totallyTimeSpent" value="681839000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -813,10 +813,10 @@
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.50165564" side_tool="true" weight="0.26466382" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.30829757" />
+      <window_info content_ui="combo" x="1130" y="113" width="300" height="854" id="Project" order="2" sideWeight="0.49834436" visible="true" weight="0.3125894" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32574257" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49713877" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" sideWeight="0.49713877" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49761716" weight="0.3385542" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1177,8 +1177,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IMS/src/environments/environment.prod.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="95">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
         </state>
       </provider>
     </entry>
