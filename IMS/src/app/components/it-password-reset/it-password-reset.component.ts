@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {iUpdate, UserPasswordResetService} from "../user-password-reset/user-password-reset.service";
-import {UserSettingService} from "../user-setting/user-setting.service";
-import {ToastrNotificationService} from "../../globalServices/toastr-notification.service";
+import {ActivatedRoute} from '@angular/router';
+import {iUpdate, UserPasswordResetService} from '../user-password-reset/user-password-reset.service';
+import {UserSettingService} from '../user-setting/user-setting.service';
+import {ToastrNotificationService} from '../../globalServices/toastr-notification.service';
 import {FormGroup, FormBuilder, Validators, Form} from '@angular/forms';
 import * as $ from 'jquery/dist/jquery.js';
 
@@ -46,17 +46,16 @@ export class ItPasswordResetComponent implements OnInit {
     // Reset password method
     password(e) {
         if (e.valid) {
-            let param: iUpdate = {userID: this.userID, password: e.value['password']};
+            const param: iUpdate = {userID: this.userID, password: e.value['password']};
             this.user.updatePassword(param)
                 .subscribe(
                     data => {
-                        if (data == true) {
+                        if (data === true) {
                             this.tService.passwordResetSuccess(this.userInfo['FirstName'], this.userInfo['Surname']);
                         }
                     },
                     error => this.tService.handleError(error));
-        }
-        else if (e.invalid) {
+        } else if (e.invalid) {
             this.markFormGroupTouched(e);
             this.tService.formFailure();
         }

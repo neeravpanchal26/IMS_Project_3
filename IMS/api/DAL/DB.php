@@ -12,10 +12,10 @@ namespace DAL;
 class DB
 {
     // Local setup
-    private static $dbHost = '127.0.0.1';
-    private static $dbUser = 'BIT1';
-    private static $dbPass = 'password1';
-    private static $dbName = 'ims_schema';
+    private static $dbHost = 'b2hlifxdtufssspj9gxp-mysql.services.clever-cloud.com';
+    private static $dbUser = 'uch9vb1axp33tdtl';
+    private static $dbPass = 'nEBuudx1LuxxvvjAC3pV';
+    private static $dbName = 'b2hlifxdtufssspj9gxp';
 
     // Nmu setup
 //   private static $dbHost = 'sict-mysql.nmmu.ac.za';

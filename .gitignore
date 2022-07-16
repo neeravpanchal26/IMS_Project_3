@@ -1,2 +1,3 @@
-
-IMS/api/DAL/DB.php
+/IMS/node_modules
+/IMS-M/mode_modules
+.idea

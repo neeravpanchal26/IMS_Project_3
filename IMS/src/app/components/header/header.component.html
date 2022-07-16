@@ -127,7 +127,7 @@
                     <div class="modal-body">
                         <!-- It Admin Help-->
                         <slideshow *ngIf="userType==1" [height]="'100%'" [minHeight]="'500px'" [autoPlay]="false" [showArrows]="true" [imageUrls]="ItHelp"
-                                   [lazyLoad]="ItHelp.length > 1" [autoPlayWaitForLazyLoad]="true" [showDots]="true" [dotColor]="'#007BFF'"></slideshow>
+                                   [lazyLoad]="ItHelp.length > 1" [autoPlayWaitForLazyLoad]="false" [showDots]="true" [dotColor]="'#007BFF'"></slideshow>
 
                         <!-- Technical Employee Help-->
                         <slideshow *ngIf="userType==2" [height]="'100%'" [minHeight]="'500px'" [autoPlay]="false" [showArrows]="true" [imageUrls]="TechnicalHelp"

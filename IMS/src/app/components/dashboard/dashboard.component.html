@@ -30,7 +30,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas class="card-text" id="ItAdminCanvas">{{chart}}</canvas>
+                    <canvas class="card-text" id="ItAdminCanvas" *ngIf="yAxis != false">{{chart}}</canvas>
+                    <div class="card-text center" *ngIf="yAxis == false">No Data available for chart.</div>
                 </div>
             </div>
         </div>
@@ -103,7 +104,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas class="card-text" id="TechnicalHeadCanvas">{{chart}}</canvas>
+                    <canvas class="card-text" id="TechnicalHeadCanvas" *ngIf="yAxis != false">{{chart}}</canvas>
+                    <div class="card-text center" *ngIf="yAxis == false">No Data available for chart.</div>
                 </div>
             </div>
         </div>
@@ -149,7 +151,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas class="card-text" id="SectionHeadCanvas">{{chart}}</canvas>
+                    <canvas class="card-text" id="SectionHeadCanvas" *ngIf="yAxis != false">{{chart}}</canvas>
+                    <div class="card-text center" *ngIf="yAxis == false">No Data available for chart.</div>
                 </div>
             </div>
         </div>

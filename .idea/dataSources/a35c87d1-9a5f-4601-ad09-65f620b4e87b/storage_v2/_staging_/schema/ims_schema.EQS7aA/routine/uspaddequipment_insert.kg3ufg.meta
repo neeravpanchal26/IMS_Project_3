@@ -1,2 +1,0 @@
-#n:uspaddequipment_insert
-#i:(varchar(45),varchar(45),int(11),int(11),int(11),int(11),int(11),datetime,varchar(12),int(11))

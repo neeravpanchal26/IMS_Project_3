@@ -37,7 +37,7 @@ export class ToastrNotificationService {
     loginSuccess(username) {
         return this.toast.success("Welcome " + username, 'Success!');
     }
-
+u
     loginFailure() {
         return this.toast.warning('Change a few things up and try submitting again.', 'Failure!');
     }

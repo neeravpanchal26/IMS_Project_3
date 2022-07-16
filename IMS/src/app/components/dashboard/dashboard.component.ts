@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   public title:any;
   public equipmentExtras:any;
   public equipmentHistoryExtras:any;
+  public yAxis:any;
 
   // Default Constructor
   constructor(private login:LoginService,
@@ -151,6 +152,11 @@ export class DashboardComponent implements OnInit {
 
   // Dynamic chart function
   barChart(xAxis, yAxis, title,xTitle,yTitle,chart) {
+      // Display
+      if(yAxis.length < 1) {
+          this.yAxis = false;
+      }
+
       // Chart Title assign
       this.title = title;
 
